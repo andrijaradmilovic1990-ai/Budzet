@@ -1,533 +1,340 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Budžet" />
-  <meta name="theme-color" content="#0d0d0d" />
-  <title>Kućni budžet</title>
-  <link rel="manifest" href="manifest.json" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html, body { height: 100%; background: #0d0d0d; }
-    body { overscroll-behavior: none; }
-    select option { background: #1c1c1c; color: #e8e0d0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f0f1a">
+<title>Kućni Budžet</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0f0f1a;--surface:#1a1a2e;--surface2:#242440;--accent:#6c63ff;
+    --accent2:#ff6b9d;--text:#e8e8f0;--text2:#9898b8;--border:#2e2e50;
+    --green:#4ade80;--red:#f87171;--amber:#fbbf24;
+    --radius:12px;--radius-sm:8px;
+  }
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:80px}
+  .header{background:var(--surface);padding:1rem 1.25rem 0;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
+  .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .header h1{font-size:18px;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sync-dot{width:8px;height:8px;border-radius:50%;background:var(--text2)}
+  .sync-dot.online{background:var(--green)}
+  .sync-dot.offline{background:var(--red)}
+  .tabs{display:flex;gap:4px}
+  .tab{flex:1;padding:.6rem;border:none;background:none;color:var(--text2);font-size:14px;font-weight:500;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .page{display:none;padding:1rem}
+  .page.active{display:block}
+  .salary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+  .salary-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
+  .salary-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:.4rem}
+  .salary-card .name{font-size:13px;font-weight:500;margin-bottom:.5rem}
+  .salary-card .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;background:rgba(108,99,255,.15);color:var(--accent);margin-bottom:.6rem}
+  .salary-card input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.5rem .75rem;color:var(--text);font-size:15px;font-weight:600}
+  .salary-card input:focus{outline:none;border-color:var(--accent)}
+  .salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+  .salary-total .lbl{font-size:13px;color:var(--text2)}
+  .salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
+  .section-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin:.75rem 0 .5rem;display:flex;align-items:center;gap:.5rem}
+  .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+  .budget-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.5rem}
+  .item-row{display:flex;align-items:center;gap:.75rem}
+  .item-name{flex:1;font-size:14px;font-weight:500}
+  .item-planned{width:100px}
+  .item-planned input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.4rem .6rem;color:var(--text);font-size:13px;text-align:right}
+  .item-planned input:focus{outline:none;border-color:var(--accent)}
+  .item-bar{margin-top:.6rem}
+  .bar-track{height:4px;background:var(--surface2);border-radius:2px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:2px;transition:width .3s}
+  .bar-info{display:flex;justify-content:space-between;margin-top:.3rem}
+  .bar-spent{font-size:11px;color:var(--text2)}
+  .bar-left{font-size:11px;font-weight:600}
+  .bar-left.ok{color:var(--green)}
+  .bar-left.warn{color:var(--amber)}
+  .bar-left.over{color:var(--red)}
+  .reset-btn{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);border-radius:6px;color:#4ade80;font-size:11px;font-weight:600;padding:3px 8px;cursor:pointer;white-space:nowrap;margin-right:4px}
+  .reset-btn:hover{background:rgba(74,222,128,.22)}
+  .add-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:var(--radius);padding:.85rem;color:#fff;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:1.25rem}
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+  .modal-overlay.open{opacity:1;pointer-events:all}
+  .modal{background:var(--surface);border-radius:var(--radius) var(--radius) 0 0;padding:1.5rem;width:100%;max-width:480px;transform:translateY(40px);transition:transform .2s}
+  .modal-overlay.open .modal{transform:translateY(0)}
+  .modal h3{font-size:16px;font-weight:600;margin-bottom:1.25rem}
+  .form-group{margin-bottom:1rem}
+  .form-group label{display:block;font-size:12px;color:var(--text2);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em}
+  .form-group input,.form-group select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.65rem .85rem;color:var(--text);font-size:15px}
+  .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--accent)}
+  .form-group select option{background:var(--surface2)}
+  .modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.5rem}
+  .btn-cancel{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.75rem;color:var(--text2);font-size:14px;cursor:pointer}
+  .btn-save{background:var(--accent);border:none;border-radius:var(--radius-sm);padding:.75rem;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+  .tx-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.75rem}
+  .tx-icon{width:38px;height:38px;border-radius:10px;background:rgba(108,99,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .tx-info{flex:1}
+  .tx-cat{font-size:13px;font-weight:500}
+  .tx-desc{font-size:12px;color:var(--text2)}
+  .tx-date{font-size:11px;color:var(--text2);margin-top:2px}
+  .tx-amount{font-size:16px;font-weight:700;color:var(--red)}
+  .tx-del{background:none;border:none;color:var(--text2);font-size:18px;cursor:pointer;padding:0 4px;line-height:1}
+  .empty{text-align:center;color:var(--text2);font-size:13px;padding:2rem 0}
+  .month-nav{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.6rem 1rem;margin-bottom:1.25rem}
+  .month-nav button{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;padding:0 .5rem;line-height:1}
+  .month-nav .month-label{font-size:14px;font-weight:600}
+  .loading{text-align:center;color:var(--text2);padding:3rem 0;font-size:14px}
+</style>
 </head>
 <body>
-  <div id="root"></div>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<div class="header">
+  <div class="header-top">
+    <h1>💰 Kućni Budžet</h1>
+    <div class="sync-dot" id="sync-dot" title="Firebase sync"></div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('budzet')">Budžet</button>
+    <button class="tab" onclick="switchTab('transakcije')">Transakcije</button>
+  </div>
+</div>
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyC5aWAgl3WWZm4TCib4HoUwDHrnnAKyDlE",
-      authDomain: "budzet-6e6af.firebaseapp.com",
-      databaseURL: "https://budzet-6e6af-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "budzet-6e6af",
-      storageBucket: "budzet-6e6af.firebasestorage.app",
-      messagingSenderId: "952332899725",
-      appId: "1:952332899725:web:776976552ea0dcc126d9c4"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-  </script>
+<div id="page-budzet" class="page active">
+  <div class="month-nav">
+    <button onclick="changeMonth(-1)">‹</button>
+    <span class="month-label" id="month-label"></span>
+    <button onclick="changeMonth(1)">›</button>
+  </div>
+  <div class="salary-grid">
+    <div class="salary-card">
+      <div class="label">Plata</div>
+      <div class="name">Andrija</div>
+      <div class="badge">💼 15. u mesecu</div>
+      <input type="number" id="sal-andrija" placeholder="0" oninput="saveSalary('andrija',this.value)">
+    </div>
+    <div class="salary-card">
+      <div class="label">Plata</div>
+      <div class="name">Katarina</div>
+      <div class="badge">💼 7. u mesecu</div>
+      <input type="number" id="sal-katarina" placeholder="0" oninput="saveSalary('katarina',this.value)">
+    </div>
+  </div>
+  <div class="salary-total">
+    <span class="lbl">Ukupno u kasi</span>
+    <span class="val" id="total-income">0 RSD</span>
+  </div>
+  <div id="budget-sections"><div class="loading">Učitavanje...</div></div>
+</div>
 
-  <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
+<div id="page-transakcije" class="page">
+  <div class="month-nav">
+    <button onclick="changeMonth(-1)">‹</button>
+    <span class="month-label" id="month-label-2"></span>
+    <button onclick="changeMonth(1)">›</button>
+  </div>
+  <button class="add-btn" onclick="openModal()">+ Nova transakcija</button>
+  <div id="tx-list"></div>
+</div>
 
-    const NEDELJE = ["Prva nedelja", "Druga nedelja", "Treća nedelja", "Četvrta nedelja"];
-    const OSTALE = ["Nepredviđeni troškovi", "Dodatne stvari", "Računi", "Štednja"];
-    const FASCIKLE = [...NEDELJE, ...OSTALE];
-    const OSTATAK_FASCIKLE = NEDELJE.map(n => `Ostatak - ${n}`);
-    const SVE_FASCIKLE = [...FASCIKLE, ...OSTATAK_FASCIKLE];
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <h3>Nova transakcija</h3>
+    <div class="form-group">
+      <label>Iznos (RSD)</label>
+      <input type="number" id="tx-amount" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label>Kategorija</label>
+      <select id="tx-cat"></select>
+    </div>
+    <div class="form-group">
+      <label>Opis (opciono)</label>
+      <input type="text" id="tx-desc" placeholder="npr. Lidl, benzin...">
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">Otkaži</button>
+      <button class="btn-save" onclick="saveTransaction()">Sačuvaj</button>
+    </div>
+  </div>
+</div>
 
-    const BOJE = {
-      "Prva nedelja": "#c8a96e", "Druga nedelja": "#c8a96e",
-      "Treća nedelja": "#c8a96e", "Četvrta nedelja": "#c8a96e",
-      "Nepredviđeni troškovi": "#e08070", "Dodatne stvari": "#a07bbf",
-      "Računi": "#6e9fc8", "Štednja": "#7eb8a4",
-      "Ostatak - Prva nedelja": "#5a4a2a", "Ostatak - Druga nedelja": "#5a4a2a",
-      "Ostatak - Treća nedelja": "#5a4a2a", "Ostatak - Četvrta nedelja": "#5a4a2a",
-    };
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import {getDatabase,ref,set,onValue,remove} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
 
-    const MESECI = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
-    const fmt = (n) => new Intl.NumberFormat("sr-RS").format(Math.round(n||0)) + " RSD";
-    const mkKey = (d) => `${d.getFullYear()}-${d.getMonth()}`;
-    const mkLabel = (key) => { const [y,m] = key.split("-").map(Number); return `${MESECI[m]} ${y}`; };
-    const mkEmpty = () => ({
-      plata: 0,
-      plataAndrija: 0,
-      plataKatarina: 0,
-      raspored: Object.fromEntries(SVE_FASCIKLE.map(f=>[f,0])),
-      rashod: Object.fromEntries(SVE_FASCIKLE.map(f=>[f,0])),
-      transakcije: [],
-      zatvoreneNedelje: []
-    });
+const firebaseConfig = {
+  apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
+  authDomain:"budzet-f3992.firebaseapp.com",
+  projectId:"budzet-f3992",
+  databaseURL:"https://budzet-f3992-default-rtdb.europe-west1.firebasedatabase.app",
+  storageBucket:"budzet-f3992.firebasestorage.app",
+  messagingSenderId:"633902520397",
+  appId:"1:633902520397:web:1488ffe3d9626a8c586404"
+};
 
-    function plataStatus(dayOfMonth, viewKey) {
-      const today = new Date();
-      const [y, m] = viewKey.split("-").map(Number);
-      const isCurrentMonth = today.getFullYear() === y && today.getMonth() === m;
-      if (!isCurrentMonth) return { label: `${dayOfMonth}.`, color: "#444" };
-      const diff = dayOfMonth - today.getDate();
-      if (diff === 0) return { label: "danas leži!", color: "#7eb8a4" };
-      if (diff > 0) return { label: `za ${diff} dana`, color: "#6e9fc8" };
-      return { label: `ležala ${dayOfMonth}. u mes.`, color: "#3a3a3a" };
-    }
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-    const S = {
-      inp: { width:"100%", background:"#1c1c1c", border:"1px solid #2a2a2a", color:"#e8e0d0", borderRadius:6, padding:"9px 12px", fontSize:13, outline:"none", boxSizing:"border-box" },
-    };
+const SECTIONS = [
+  {id:'nedelja1',label:'Nedelja 1'},{id:'nedelja2',label:'Nedelja 2'},
+  {id:'nedelja3',label:'Nedelja 3'},{id:'nedelja4',label:'Nedelja 4'},
+  {id:'dodatne',label:'Dodatne stvari'},{id:'nepredvidjeni',label:'Nepredviđeni troškovi'},
+  {id:'racuni',label:'Računi'},{id:'stednja',label:'Štednja'},
+];
+const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',stednja:'🏦'};
+const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','September','Oktobar','November','Decembar'];
 
-    function Modal({ title, titleColor="#c8a96e", onClose, children }) {
-      return (
-        <div onClick={onClose} style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.92)", display:"flex", alignItems:"flex-end", zIndex:200 }}>
-          <div onClick={e=>e.stopPropagation()} style={{ width:"100%", background:"#131313", borderRadius:"14px 14px 0 0", padding:"22px 18px 32px", border:"1px solid #252525", maxHeight:"88vh", overflowY:"auto" }}>
-            <div style={{ fontSize:15, color:titleColor, marginBottom:16, fontWeight:"bold" }}>{title}</div>
-            {children}
-          </div>
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let state = {salaries:{andrija:0,katarina:0}, budget_items:{}, transactions:{}};
+
+function dbPath(suffix){ return `budzet/${currentYear}/${currentMonth}/${suffix}` }
+
+function setSyncDot(online){
+  const d=document.getElementById('sync-dot');
+  d.className='sync-dot '+(online?'online':'offline');
+}
+
+function listenMonth(){
+  setSyncDot(false);
+  const r=ref(db,`budzet/${currentYear}/${currentMonth}`);
+  onValue(r, snap=>{
+    setSyncDot(true);
+    const d=snap.val()||{};
+    state.salaries=d.salaries||{andrija:0,katarina:0};
+    state.budget_items=d.budget_items||{};
+    state.transactions=d.transactions||{};
+    renderAll();
+  }, ()=>setSyncDot(false));
+}
+
+function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
+
+window.saveSalary=function(who,val){
+  state.salaries[who]=parseFloat(val)||0;
+  set(ref(db,dbPath('salaries')),state.salaries);
+};
+
+window.saveBudgetItem=function(el){
+  state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
+  set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+window.resetWeekToSavings=function(catId,left){
+  if(!confirm(`Prebaciti ${fmtRSD(left)} u Štednju?`))return;
+  const ts=Date.now();
+  state.budget_items[catId]=(state.budget_items[catId]||0)-left;
+  state.budget_items['stednja']=(state.budget_items['stednja']||0)+left;
+  state.transactions[ts]={amount:-left,cat:'stednja',desc:`Prenos iz ${SECTIONS.find(s=>s.id===catId)?.label}`,ts,transfer:true};
+  set(ref(db,dbPath('budget_items')),state.budget_items);
+  set(ref(db,dbPath('transactions')),state.transactions);
+};
+
+window.changeMonth=function(d){
+  currentMonth+=d;
+  if(currentMonth>11){currentMonth=0;currentYear++}
+  if(currentMonth<0){currentMonth=11;currentYear--}
+  listenMonth();
+};
+
+window.switchTab=function(tab){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['budzet','transakcije'][i]===tab));
+  document.getElementById('page-budzet').classList.toggle('active',tab==='budzet');
+  document.getElementById('page-transakcije').classList.toggle('active',tab==='transakcije');
+};
+
+function getSpent(catId){
+  return Object.values(state.transactions)
+    .filter(t=>t.cat===catId&&!t.transfer)
+    .reduce((s,t)=>s+Math.abs(t.amount),0);
+}
+
+function renderAll(){
+  const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
+  document.getElementById('month-label').textContent=lbl;
+  document.getElementById('month-label-2').textContent=lbl;
+  const a=state.salaries.andrija||0, k=state.salaries.katarina||0;
+  document.getElementById('sal-andrija').value=a||'';
+  document.getElementById('sal-katarina').value=k||'';
+  document.getElementById('total-income').textContent=fmtRSD(a+k);
+  renderBudgetSections();
+  renderTransactions();
+}
+
+function renderBudgetSections(){
+  const cont=document.getElementById('budget-sections');
+  let html='';
+  SECTIONS.forEach(s=>{
+    const planned=state.budget_items[s.id]||0;
+    const spent=getSpent(s.id);
+    const left=planned-spent;
+    const pct=planned>0?Math.min(100,(spent/planned)*100):0;
+    const cls=left<0?'over':pct>75?'warn':'ok';
+    const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
+    const isWeek=s.id.startsWith('nedelja');
+    const canReset=isWeek&&left>0&&planned>0;
+    html+=`<div class="budget-item">
+      <div class="item-row">
+        <span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
+        <span class="item-name">${s.label}</span>
+        ${canReset?`<button class="reset-btn" onclick="resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
+        <div class="item-planned">
+          <input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
         </div>
-      );
-    }
-
-    function Btns({ onCancel, onOk, okLabel, okColor="#c8a96e" }) {
-      return (
-        <div style={{ display:"flex", gap:8, marginTop:18 }}>
-          <button onClick={onCancel} style={{ flex:1, padding:"10px", background:"#1e1e1e", border:"none", color:"#555", borderRadius:6, cursor:"pointer", fontSize:13 }}>Odustani</button>
-          <button onClick={onOk} style={{ flex:1, padding:"10px", background:okColor, border:"none", color:"#0f0f0f", borderRadius:6, cursor:"pointer", fontSize:13, fontWeight:"bold" }}>{okLabel}</button>
+      </div>
+      ${planned>0?`<div class="item-bar">
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <div class="bar-info">
+          <span class="bar-spent">Potrošeno: ${fmtRSD(spent)}</span>
+          <span class="bar-left ${cls}">${left>=0?'Ostalo: ':'Prekoračeno: '}${fmtRSD(Math.abs(left))}</span>
         </div>
-      );
-    }
+      </div>`:''}
+    </div>`;
+  });
+  cont.innerHTML=html;
+}
 
-    function App() {
-      const today = new Date();
-      const [key, setKey] = useState(mkKey(today));
-      const [data, setData] = useState(null);
-      const [view, setView] = useState("pregled");
-      const [loaded, setLoaded] = useState(false);
-      const [online, setOnline] = useState(true);
+function renderTransactions(){
+  const txs=Object.values(state.transactions);
+  const list=document.getElementById('tx-list');
+  if(!txs.length){list.innerHTML='<div class="empty">Nema transakcija ovog meseca</div>';return}
+  const sorted=[...txs].sort((a,b)=>b.ts-a.ts);
+  list.innerHTML=sorted.map(t=>`
+    <div class="tx-item">
+      <div class="tx-icon">${ICONS[t.cat]||'💳'}</div>
+      <div class="tx-info">
+        <div class="tx-cat">${SECTIONS.find(s=>s.id===t.cat)?.label||t.cat}</div>
+        ${t.desc?`<div class="tx-desc">${t.desc}</div>`:''}
+        <div class="tx-date">${new Date(t.ts).toLocaleDateString('sr-RS')}</div>
+      </div>
+      <span class="tx-amount">-${fmtRSD(Math.abs(t.amount))}</span>
+      <button class="tx-del" onclick="deleteTx(${t.ts})">×</button>
+    </div>
+  `).join('');
+}
 
-      const [showRaspored, setShowRaspored] = useState(false);
-      const [showTx, setShowTx] = useState(false);
-      const [showPrebaci, setShowPrebaci] = useState(false);
-      const [showZatvori, setShowZatvori] = useState(null);
-      const [showOstatci, setShowOstatci] = useState(false);
+window.deleteTx=function(ts){
+  remove(ref(db,dbPath(`transactions/${ts}`)));
+};
 
-      const [tempPlataAndrija, setTempPlataAndrija] = useState("");
-      const [tempPlataKatarina, setTempPlataKatarina] = useState("");
-      const [tempR, setTempR] = useState({});
-      const [tx, setTx] = useState({ opis:"", iznos:"", f: FASCIKLE[0] });
-      const [preb, setPreb] = useState({ f: FASCIKLE[0], iznos:"" });
+window.openModal=function(){
+  const sel=document.getElementById('tx-cat');
+  sel.innerHTML=SECTIONS.map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
+  document.getElementById('tx-amount').value='';
+  document.getElementById('tx-desc').value='';
+  document.getElementById('modal').classList.add('open');
+};
+window.closeModal=function(){document.getElementById('modal').classList.remove('open')};
+window.closeModalOutside=function(e){if(e.target===document.getElementById('modal'))closeModal()};
 
-      const isRemoteUpdate = useRef(false);
-      const dbRef = db.ref("budzet");
+window.saveTransaction=function(){
+  const amount=parseFloat(document.getElementById('tx-amount').value)||0;
+  if(!amount){alert('Unesi iznos');return}
+  const cat=document.getElementById('tx-cat').value;
+  const desc=document.getElementById('tx-desc').value.trim();
+  const ts=Date.now();
+  set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat,desc,ts});
+  closeModal();
+};
 
-      // Real-time sync: slušaj promene sa Firebase
-      useEffect(() => {
-        const unsub = dbRef.on("value", snapshot => {
-          const val = snapshot.val();
-          isRemoteUpdate.current = true;
-          if (val && val.data) {
-            setData(val.data);
-            if (val.key) setKey(val.key);
-          } else {
-            setData({ [mkKey(today)]: mkEmpty() });
-          }
-          setLoaded(true);
-        }, () => {
-          setData({ [mkKey(today)]: mkEmpty() });
-          setLoaded(true);
-        });
-
-        // Prati online/offline status
-        db.ref(".info/connected").on("value", snap => {
-          setOnline(snap.val() === true);
-        });
-
-        return () => dbRef.off("value");
-      }, []);
-
-      // Sačuvaj u Firebase kad se promeni (samo lokalne promene)
-      useEffect(() => {
-        if (!loaded || !data) return;
-        if (isRemoteUpdate.current) {
-          isRemoteUpdate.current = false;
-          return;
-        }
-        dbRef.set({ data, key }).catch(() => {});
-      }, [data, key, loaded]);
-
-      if (!loaded || !data) return (
-        <div style={{ minHeight:"100vh", background:"#0d0d0d", display:"flex", alignItems:"center", justifyContent:"center", color:"#555", fontFamily:"Georgia,serif", flexDirection:"column", gap:12 }}>
-          <div style={{ fontSize:13 }}>Povezivanje...</div>
-        </div>
-      );
-
-      const mesec = data[key] || mkEmpty();
-
-      function updateMesec(fn) {
-        setData(p => {
-          const m = p[key] || mkEmpty();
-          return { ...p, [key]: fn(m) };
-        });
-      }
-
-      function nav(dir) {
-        const [y,m] = key.split("-").map(Number);
-        const d = new Date(y, m+dir, 1);
-        const k = mkKey(d);
-        setData(p => ({ ...p, [k]: p[k] || mkEmpty() }));
-        setKey(k);
-      }
-
-      function openRaspored() {
-        setTempPlataAndrija(mesec.plataAndrija || "");
-        setTempPlataKatarina(mesec.plataKatarina || "");
-        setTempR({ ...mesec.raspored });
-        setShowRaspored(true);
-      }
-
-      function saveRaspored() {
-        const plataAndrija = parseFloat(tempPlataAndrija)||0;
-        const plataKatarina = parseFloat(tempPlataKatarina)||0;
-        const plata = plataAndrija + plataKatarina;
-        const raspored = { ...mesec.raspored };
-        FASCIKLE.forEach(f => { raspored[f] = parseFloat(tempR[f])||0; });
-        updateMesec(m => ({ ...m, plata, plataAndrija, plataKatarina, raspored }));
-        setShowRaspored(false);
-      }
-
-      function addTx() {
-        const iznos = parseFloat(tx.iznos);
-        if (!iznos || !tx.opis) return;
-        updateMesec(m => ({
-          ...m,
-          rashod: { ...m.rashod, [tx.f]: (m.rashod[tx.f]||0)+iznos },
-          transakcije: [{ opis:tx.opis, iznos, f:tx.f, datum:new Date().toLocaleDateString("sr-RS") }, ...m.transakcije]
-        }));
-        setTx({ opis:"", iznos:"", f:FASCIKLE[0] });
-        setShowTx(false);
-      }
-
-      function doPrebaciNaStranu() {
-        const iznos = parseFloat(preb.iznos);
-        if (!iznos) return;
-        const ostatak = (mesec.raspored[preb.f]||0) - (mesec.rashod[preb.f]||0);
-        if (iznos > ostatak) return;
-        updateMesec(m => ({
-          ...m,
-          rashod: { ...m.rashod, [preb.f]: (m.rashod[preb.f]||0)+iznos },
-          raspored: { ...m.raspored, "Štednja": (m.raspored["Štednja"]||0)+iznos },
-          transakcije: [{ opis:`Na stranu iz: ${preb.f}`, iznos, f:"Štednja", datum:new Date().toLocaleDateString("sr-RS") }, ...m.transakcije]
-        }));
-        setPreb({ f:FASCIKLE[0], iznos:"" });
-        setShowPrebaci(false);
-      }
-
-      function zatvoriNedelju(nedelja) {
-        const rsp = mesec.raspored[nedelja]||0;
-        const rsh = mesec.rashod[nedelja]||0;
-        const ostatak = rsp - rsh;
-        const ostatakFascikla = `Ostatak - ${nedelja}`;
-        if (ostatak <= 0) {
-          updateMesec(m => ({ ...m, zatvoreneNedelje: [...(m.zatvoreneNedelje||[]), nedelja] }));
-          setShowZatvori(null);
-          return;
-        }
-        updateMesec(m => ({
-          ...m,
-          rashod: { ...m.rashod, [nedelja]: rsp },
-          raspored: { ...m.raspored, [ostatakFascikla]: (m.raspored[ostatakFascikla]||0)+ostatak },
-          zatvoreneNedelje: [...(m.zatvoreneNedelje||[]), nedelja],
-          transakcije: [{ opis:`Zatvorena ${nedelja} — ostatak prebačen`, iznos:ostatak, f:ostatakFascikla, datum:new Date().toLocaleDateString("sr-RS") }, ...m.transakcije]
-        }));
-        setShowZatvori(null);
-      }
-
-      const ukupnoRaspored = FASCIKLE.reduce((a,f)=>a+(mesec.raspored[f]||0),0);
-      const nerasporedj = mesec.plata - ukupnoRaspored;
-      const imaOstataka = OSTATAK_FASCIKLE.some(f=>(mesec.raspored[f]||0)>0);
-
-      return (
-        <div style={{ minHeight:"100vh", background:"#0d0d0d", color:"#e8e0d0", fontFamily:"'Georgia',serif", display:"flex", flexDirection:"column", maxWidth:480, margin:"0 auto" }}>
-
-          {/* Header */}
-          <div style={{ padding:"14px 18px", borderBottom:"1px solid #1e1e1e", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-            <div>
-              <div style={{ fontSize:10, letterSpacing:3, color:"#444", textTransform:"uppercase", display:"flex", alignItems:"center", gap:6 }}>
-                Andrija & Katarina
-                <span style={{ width:5, height:5, borderRadius:"50%", background:online?"#7eb8a4":"#e08070", display:"inline-block" }} title={online?"sinhronizovano":"offline"} />
-              </div>
-              <div style={{ fontSize:19, color:"#c8a96e", fontWeight:"bold" }}>Kućni budžet</div>
-            </div>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-              <button onClick={()=>nav(-1)} style={{ background:"transparent", border:"1px solid #2a2a2a", color:"#777", borderRadius:4, width:26, height:26, cursor:"pointer", fontSize:15 }}>‹</button>
-              <span style={{ fontSize:12, color:"#888", minWidth:64, textAlign:"center" }}>{mkLabel(key)}</span>
-              <button onClick={()=>nav(1)} style={{ background:"transparent", border:"1px solid #2a2a2a", color:"#777", borderRadius:4, width:26, height:26, cursor:"pointer", fontSize:15 }}>›</button>
-            </div>
-          </div>
-
-          {/* Tabs */}
-          <div style={{ display:"flex", borderBottom:"1px solid #1a1a1a" }}>
-            {[["pregled","Pregled"],["transakcije","Transakcije"]].map(([v,l])=>(
-              <button key={v} onClick={()=>setView(v)} style={{ flex:1, padding:"10px 0", background:"transparent", border:"none", color:view===v?"#c8a96e":"#3a3a3a", fontSize:11, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", borderBottom:view===v?"2px solid #c8a96e":"2px solid transparent" }}>{l}</button>
-            ))}
-          </div>
-
-          <div style={{ flex:1, overflow:"auto", padding:"16px" }}>
-
-            {/* PREGLED */}
-            {view==="pregled" && (
-              <div>
-                <div style={{ background:"#161616", border:"1px solid #222", borderRadius:10, padding:"14px 16px", marginBottom:12 }}>
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontSize:10, color:"#444", letterSpacing:2, textTransform:"uppercase", marginBottom:6 }}>Plate ovog meseca</div>
-                      {(()=>{ const s = plataStatus(15, key); return (
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:4 }}>
-                        <div>
-                          <span style={{ fontSize:12, color:"#666" }}>Andrija</span>
-                          <span style={{ fontSize:10, color:s.color, marginLeft:6 }}>{s.label}</span>
-                        </div>
-                        <span style={{ fontSize:14, color:"#c8a96e" }}>{fmt(mesec.plataAndrija||0)}</span>
-                      </div>
-                      );})()}
-                      {(()=>{ const s = plataStatus(7, key); return (
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 }}>
-                        <div>
-                          <span style={{ fontSize:12, color:"#666" }}>Katarina</span>
-                          <span style={{ fontSize:10, color:s.color, marginLeft:6 }}>{s.label}</span>
-                        </div>
-                        <span style={{ fontSize:14, color:"#c8a96e" }}>{fmt(mesec.plataKatarina||0)}</span>
-                      </div>
-                      );})()}
-                      <div style={{ height:1, background:"#222", marginBottom:8 }} />
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                        <span style={{ fontSize:12, color:"#888" }}>Ukupno</span>
-                        <span style={{ fontSize:22, color:"#c8a96e", fontWeight:"bold" }}>{fmt(mesec.plata)}</span>
-                      </div>
-                      {mesec.plata>0 && nerasporedj!==0 && (
-                        <div style={{ fontSize:11, color:nerasporedj>0?"#7eb8a4":"#e08070", marginTop:3, textAlign:"right" }}>
-                          {nerasporedj>0?`+${fmt(nerasporedj)} neraspoređeno`:`${fmt(Math.abs(nerasporedj))} previše`}
-                        </div>
-                      )}
-                    </div>
-                    <button onClick={openRaspored} style={{ background:"#c8a96e", border:"none", color:"#0d0d0d", borderRadius:7, padding:"8px 14px", cursor:"pointer", fontSize:12, fontWeight:"bold", marginLeft:14, alignSelf:"flex-start" }}>
-                      {mesec.plata>0?"Izmeni":"Rasporedi"}
-                    </button>
-                  </div>
-                </div>
-
-                <div style={{ fontSize:10, color:"#444", letterSpacing:2, textTransform:"uppercase", marginBottom:8 }}>Nedelje</div>
-                {NEDELJE.map(f => {
-                  const rsp = mesec.raspored[f]||0;
-                  const rsh = mesec.rashod[f]||0;
-                  const ost = rsp - rsh;
-                  const pct = rsp>0?Math.min((rsh/rsp)*100,100):0;
-                  const zatvorena = (mesec.zatvoreneNedelje||[]).includes(f);
-                  return (
-                    <div key={f} style={{ background:"#161616", border:`1px solid ${zatvorena?"#1a1a1a":"#1e1e1e"}`, borderRadius:8, padding:"11px 14px", marginBottom:7, opacity:zatvorena?0.5:1 }}>
-                      <div style={{ display:"flex", justifyContent:"space-between", marginBottom:5, alignItems:"center" }}>
-                        <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                          <div style={{ width:7, height:7, borderRadius:"50%", background:zatvorena?"#333":"#c8a96e" }} />
-                          <span style={{ fontSize:13, color:zatvorena?"#555":"#e8e0d0" }}>{f}</span>
-                          {zatvorena && <span style={{ fontSize:9, color:"#444", letterSpacing:1 }}>ZATVORENA</span>}
-                        </div>
-                        <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                          <span style={{ fontSize:13, fontWeight:"bold", color:ost<0?"#e08070":zatvorena?"#444":"#e8e0d0" }}>{fmt(ost)}</span>
-                          {!zatvorena && (
-                            <button onClick={()=>setShowZatvori(f)} style={{ background:"#1e1e1e", border:"1px solid #2a2a2a", color:"#888", borderRadius:4, padding:"3px 7px", cursor:"pointer", fontSize:10 }}>
-                              Zatvori
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                      <div style={{ height:3, background:"#242424", borderRadius:2 }}>
-                        <div style={{ height:"100%", width:`${pct}%`, background:zatvorena?"#333":"#c8a96e", borderRadius:2 }} />
-                      </div>
-                      <div style={{ fontSize:10, color:"#3a3a3a", marginTop:4 }}>{fmt(rsh)} / {fmt(rsp)}</div>
-                    </div>
-                  );
-                })}
-
-                {imaOstataka && (
-                  <>
-                    <button onClick={()=>setShowOstatci(v=>!v)} style={{ background:"transparent", border:"none", color:"#5a4a2a", fontSize:11, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", marginBottom:8, padding:0 }}>
-                      {showOstatci?"▾":"▸"} Ostatci nedelja
-                    </button>
-                    {showOstatci && OSTATAK_FASCIKLE.filter(f=>(mesec.raspored[f]||0)>0).map(f=>{
-                      const rsp = mesec.raspored[f]||0;
-                      const rsh = mesec.rashod[f]||0;
-                      const ost = rsp-rsh;
-                      return (
-                        <div key={f} style={{ background:"#111", border:"1px solid #1a1a1a", borderRadius:8, padding:"10px 14px", marginBottom:6 }}>
-                          <div style={{ display:"flex", justifyContent:"space-between" }}>
-                            <span style={{ fontSize:12, color:"#666" }}>{f}</span>
-                            <span style={{ fontSize:12, color:"#5a4a2a", fontWeight:"bold" }}>{fmt(ost)}</span>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-
-                <div style={{ fontSize:10, color:"#444", letterSpacing:2, textTransform:"uppercase", margin:"12px 0 8px" }}>Fondovi</div>
-                {OSTALE.map(f => {
-                  const rsp = mesec.raspored[f]||0;
-                  const rsh = mesec.rashod[f]||0;
-                  const ost = rsp-rsh;
-                  const pct = rsp>0?Math.min((rsh/rsp)*100,100):0;
-                  return (
-                    <div key={f} style={{ background:"#161616", border:"1px solid #1e1e1e", borderRadius:8, padding:"11px 14px", marginBottom:7 }}>
-                      <div style={{ display:"flex", justifyContent:"space-between", marginBottom:5 }}>
-                        <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                          <div style={{ width:7, height:7, borderRadius:"50%", background:BOJE[f] }} />
-                          <span style={{ fontSize:13 }}>{f}</span>
-                        </div>
-                        <span style={{ fontSize:13, fontWeight:"bold", color:ost<0?"#e08070":"#e8e0d0" }}>{fmt(ost)}</span>
-                      </div>
-                      <div style={{ height:3, background:"#242424", borderRadius:2 }}>
-                        <div style={{ height:"100%", width:`${pct}%`, background:BOJE[f], borderRadius:2 }} />
-                      </div>
-                      <div style={{ fontSize:10, color:"#3a3a3a", marginTop:4 }}>{fmt(rsh)} / {fmt(rsp)}</div>
-                    </div>
-                  );
-                })}
-
-                <div style={{ display:"flex", gap:8, marginTop:14 }}>
-                  <button onClick={()=>setShowPrebaci(true)} style={{ flex:1, padding:"10px", background:"#161616", border:"1px solid #222", color:"#7eb8a4", borderRadius:7, cursor:"pointer", fontSize:12 }}>
-                    Prebaci na stranu
-                  </button>
-                  <button onClick={()=>setShowTx(true)} style={{ flex:1, padding:"10px", background:"#c8a96e", border:"none", color:"#0d0d0d", borderRadius:7, cursor:"pointer", fontSize:12, fontWeight:"bold" }}>
-                    + Rashod
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* TRANSAKCIJE */}
-            {view==="transakcije" && (
-              <div>
-                <button onClick={()=>setShowTx(true)} style={{ width:"100%", padding:"10px", background:"#c8a96e", border:"none", color:"#0d0d0d", borderRadius:7, cursor:"pointer", fontSize:12, fontWeight:"bold", marginBottom:14 }}>+ Novi rashod</button>
-                {mesec.transakcije.length===0
-                  ? <div style={{ color:"#333", fontSize:13 }}>Nema transakcija za {mkLabel(key)}.</div>
-                  : mesec.transakcije.map((t,i)=>(
-                    <div key={i} style={{ background:"#161616", border:"1px solid #1e1e1e", borderRadius:8, padding:"11px 14px", marginBottom:7, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                      <div>
-                        <div style={{ fontSize:13 }}>{t.opis}</div>
-                        <div style={{ fontSize:10, color:"#3a3a3a", marginTop:2 }}>{t.datum} · {t.f}</div>
-                      </div>
-                      <div style={{ color:"#e08070", fontWeight:"bold", fontSize:13 }}>-{fmt(t.iznos)}</div>
-                    </div>
-                  ))
-                }
-              </div>
-            )}
-          </div>
-
-          {/* MODAL: Rasporedi */}
-          {showRaspored && (
-            <Modal title="Raspored plate" onClose={()=>setShowRaspored(false)}>
-              <div style={{ fontSize:10, color:"#555", letterSpacing:2, textTransform:"uppercase", marginBottom:10 }}>Plate</div>
-              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:7 }}>
-                <div style={{ width:7, height:7, borderRadius:"50%", background:"#c8a96e", flexShrink:0 }} />
-                <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Andrija <span style={{ color:"#3a3a3a" }}>· 15-og</span></span>
-                <input value={tempPlataAndrija} onChange={e=>setTempPlataAndrija(e.target.value)} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
-              </div>
-              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
-                <div style={{ width:7, height:7, borderRadius:"50%", background:"#a07bbf", flexShrink:0 }} />
-                <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Katarina <span style={{ color:"#3a3a3a" }}>· 7-og</span></span>
-                <input value={tempPlataKatarina} onChange={e=>setTempPlataKatarina(e.target.value)} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
-              </div>
-              {(parseFloat(tempPlataAndrija)||0)+(parseFloat(tempPlataKatarina)||0) > 0 && (
-                <div style={{ fontSize:12, color:"#888", textAlign:"right", marginBottom:12 }}>
-                  Ukupno: <span style={{ color:"#c8a96e", fontWeight:"bold" }}>{fmt((parseFloat(tempPlataAndrija)||0)+(parseFloat(tempPlataKatarina)||0))}</span>
-                </div>
-              )}
-              <div style={{ fontSize:10, color:"#555", letterSpacing:2, textTransform:"uppercase", margin:"4px 0 8px" }}>Nedelje</div>
-              {NEDELJE.map(f=>(
-                <div key={f} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:7 }}>
-                  <div style={{ width:7, height:7, borderRadius:"50%", background:"#c8a96e", flexShrink:0 }} />
-                  <span style={{ fontSize:12, width:148, flexShrink:0, color:"#aaa" }}>{f}</span>
-                  <input value={tempR[f]||""} onChange={e=>setTempR(p=>({...p,[f]:e.target.value}))} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
-                </div>
-              ))}
-              <div style={{ fontSize:10, color:"#555", letterSpacing:2, textTransform:"uppercase", margin:"14px 0 8px" }}>Fondovi</div>
-              {OSTALE.map(f=>(
-                <div key={f} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:7 }}>
-                  <div style={{ width:7, height:7, borderRadius:"50%", background:BOJE[f], flexShrink:0 }} />
-                  <span style={{ fontSize:12, width:148, flexShrink:0, color:"#aaa" }}>{f}</span>
-                  <input value={tempR[f]||""} onChange={e=>setTempR(p=>({...p,[f]:e.target.value}))} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
-                </div>
-              ))}
-              {(()=>{
-                const sum = FASCIKLE.reduce((a,f)=>a+(parseFloat(tempR[f])||0),0);
-                const pl = (parseFloat(tempPlataAndrija)||0)+(parseFloat(tempPlataKatarina)||0);
-                const diff = pl-sum;
-                if (!pl||diff===0) return null;
-                return <div style={{ fontSize:11, color:diff>0?"#7eb8a4":"#e08070", marginTop:6 }}>
-                  {diff>0?`Ostaje: ${fmt(diff)}`:`Previše za: ${fmt(Math.abs(diff))}`}
-                </div>;
-              })()}
-              <Btns onCancel={()=>setShowRaspored(false)} onOk={saveRaspored} okLabel="Sačuvaj" />
-            </Modal>
-          )}
-
-          {/* MODAL: Rashod */}
-          {showTx && (
-            <Modal title="Novi rashod" onClose={()=>setShowTx(false)}>
-              <input value={tx.opis} onChange={e=>setTx(p=>({...p,opis:e.target.value}))} placeholder="Opis" style={S.inp} />
-              <input value={tx.iznos} onChange={e=>setTx(p=>({...p,iznos:e.target.value}))} type="number" placeholder="Iznos (RSD)" style={{...S.inp,marginTop:8}} />
-              <select value={tx.f} onChange={e=>setTx(p=>({...p,f:e.target.value}))} style={{...S.inp,marginTop:8}}>
-                {SVE_FASCIKLE.map(f=><option key={f}>{f}</option>)}
-              </select>
-              <Btns onCancel={()=>setShowTx(false)} onOk={addTx} okLabel="Dodaj" />
-            </Modal>
-          )}
-
-          {/* MODAL: Prebaci na stranu */}
-          {showPrebaci && (
-            <Modal title="Prebaci na stranu → Štednja" titleColor="#7eb8a4" onClose={()=>setShowPrebaci(false)}>
-              <select value={preb.f} onChange={e=>setPreb(p=>({...p,f:e.target.value}))} style={S.inp}>
-                {SVE_FASCIKLE.filter(f=>f!=="Štednja"&&(mesec.raspored[f]||0)>0).map(f=>(
-                  <option key={f} value={f}>{f} — ostalo: {fmt((mesec.raspored[f]||0)-(mesec.rashod[f]||0))}</option>
-                ))}
-              </select>
-              <input value={preb.iznos} onChange={e=>setPreb(p=>({...p,iznos:e.target.value}))} type="number" placeholder="Iznos (RSD)" style={{...S.inp,marginTop:8}} />
-              <Btns onCancel={()=>setShowPrebaci(false)} onOk={doPrebaciNaStranu} okLabel="Prebaci" okColor="#7eb8a4" />
-            </Modal>
-          )}
-
-          {/* MODAL: Zatvori nedelju */}
-          {showZatvori && (
-            <Modal title={`Zatvori ${showZatvori}?`} titleColor="#e08070" onClose={()=>setShowZatvori(null)}>
-              <div style={{ fontSize:13, color:"#888", lineHeight:1.6 }}>
-                Ostatak od <span style={{ color:"#c8a96e", fontWeight:"bold" }}>{fmt((mesec.raspored[showZatvori]||0)-(mesec.rashod[showZatvori]||0))}</span> će biti prebačen u <span style={{ color:"#5a8a7a" }}>Ostatak - {showZatvori}</span>.
-                <br /><br />
-                Nedelja će biti označena kao zatvorena.
-              </div>
-              <Btns onCancel={()=>setShowZatvori(null)} onOk={()=>zatvoriNedelju(showZatvori)} okLabel="Zatvori nedelju" okColor="#e08070" />
-            </Modal>
-          )}
-        </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("sw.js").catch(() => {});
-      });
-    }
-  </script>
+listenMonth();
+</script>
 </body>
 </html>

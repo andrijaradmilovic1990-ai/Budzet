@@ -335,7 +335,10 @@ window.saveTransaction=function(){
   closeModal();
 };
 
-listenMonth();
+listenMonth();if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/Budzet/sw.js');
+}
+ 
 </script>
 </body>
 </html>

@@ -17,6 +17,17 @@ const BOJE = {
 
 const MESECI = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"];
 const fmt = (n) => new Intl.NumberFormat("sr-RS").format(Math.round(n||0)) + " RSD";
+
+function plataStatus(dayOfMonth, viewKey) {
+  const today = new Date();
+  const [y, m] = viewKey.split("-").map(Number);
+  const isCurrentMonth = today.getFullYear() === y && today.getMonth() === m;
+  if (!isCurrentMonth) return { label: `${dayOfMonth}.`, color: "#444" };
+  const diff = dayOfMonth - today.getDate();
+  if (diff === 0) return { label: "danas leži!", color: "#7eb8a4" };
+  if (diff > 0) return { label: `za ${diff} ${diff === 1 ? "dan" : diff < 5 ? "dana" : "dana"}`, color: "#6e9fc8" };
+  return { label: `ležala ${Math.abs(diff)}. u mes.`, color: "#3a3a3a" };
+}
 const mkKey = (d) => `${d.getFullYear()}-${d.getMonth()}`;
 const mkLabel = (key) => { const [y,m] = key.split("-").map(Number); return `${MESECI[m]} ${y}`; };
 const mkEmpty = () => ({
@@ -226,15 +237,25 @@ export default function App() {
                 <div style={{ flex:1 }}>
                   <div style={{ fontSize:10, color:"#444", letterSpacing:2, textTransform:"uppercase", marginBottom:6 }}>Plate ovog meseca</div>
                   {/* Andrija */}
+                  {(()=>{ const s = plataStatus(15, key); return (
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:4 }}>
-                    <span style={{ fontSize:12, color:"#666" }}>Andrija</span>
+                    <div>
+                      <span style={{ fontSize:12, color:"#666" }}>Andrija</span>
+                      <span style={{ fontSize:10, color:s.color, marginLeft:6 }}>{s.label}</span>
+                    </div>
                     <span style={{ fontSize:14, color:"#c8a96e" }}>{fmt(mesec.plataAndrija||0)}</span>
                   </div>
+                  );})()}
                   {/* Katarina */}
+                  {(()=>{ const s = plataStatus(7, key); return (
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 }}>
-                    <span style={{ fontSize:12, color:"#666" }}>Katarina</span>
+                    <div>
+                      <span style={{ fontSize:12, color:"#666" }}>Katarina</span>
+                      <span style={{ fontSize:10, color:s.color, marginLeft:6 }}>{s.label}</span>
+                    </div>
                     <span style={{ fontSize:14, color:"#c8a96e" }}>{fmt(mesec.plataKatarina||0)}</span>
                   </div>
+                  );})()}
                   {/* Separator */}
                   <div style={{ height:1, background:"#222", marginBottom:8 }} />
                   {/* Ukupno */}
@@ -370,12 +391,12 @@ export default function App() {
           <div style={{ fontSize:10, color:"#555", letterSpacing:2, textTransform:"uppercase", marginBottom:10 }}>Plate</div>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:7 }}>
             <div style={{ width:7, height:7, borderRadius:"50%", background:"#c8a96e", flexShrink:0 }} />
-            <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Andrija</span>
+            <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Andrija <span style={{ color:"#3a3a3a" }}>· 15-og</span></span>
             <input value={tempPlataAndrija} onChange={e=>setTempPlataAndrija(e.target.value)} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
           </div>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
             <div style={{ width:7, height:7, borderRadius:"50%", background:"#a07bbf", flexShrink:0 }} />
-            <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Katarina</span>
+            <span style={{ fontSize:12, width:100, flexShrink:0, color:"#aaa" }}>Katarina <span style={{ color:"#3a3a3a" }}>· 7-og</span></span>
             <input value={tempPlataKatarina} onChange={e=>setTempPlataKatarina(e.target.value)} type="number" placeholder="0" style={{ ...S.inp, flex:1, padding:"6px 10px" }} />
           </div>
           {(parseFloat(tempPlataAndrija)||0)+(parseFloat(tempPlataKatarina)||0) > 0 && (

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0f0f1a">
 <title>Kućni Budžet</title>
+<link rel="manifest" href="manifest.json">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   :root{
@@ -183,9 +184,9 @@ const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust',
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-let state = {salaries:{andrija:0,katarina:0}, budget_items:{}, transactions:{}};
+let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{}};
 
-function dbPath(suffix){ return `budzet/${currentYear}/${currentMonth}/${suffix}` }
+function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
 function setSyncDot(online){
   const d=document.getElementById('sync-dot');
@@ -195,14 +196,14 @@ function setSyncDot(online){
 function listenMonth(){
   setSyncDot(false);
   const r=ref(db,`budzet/${currentYear}/${currentMonth}`);
-  onValue(r, snap=>{
+  onValue(r,snap=>{
     setSyncDot(true);
     const d=snap.val()||{};
     state.salaries=d.salaries||{andrija:0,katarina:0};
     state.budget_items=d.budget_items||{};
     state.transactions=d.transactions||{};
     renderAll();
-  }, ()=>setSyncDot(false));
+  },()=>setSyncDot(false));
 }
 
 function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
@@ -250,7 +251,7 @@ function renderAll(){
   const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
   document.getElementById('month-label').textContent=lbl;
   document.getElementById('month-label-2').textContent=lbl;
-  const a=state.salaries.andrija||0, k=state.salaries.katarina||0;
+  const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
   document.getElementById('sal-andrija').value=a||'';
   document.getElementById('sal-katarina').value=k||'';
   document.getElementById('total-income').textContent=fmtRSD(a+k);

@@ -20,12 +20,28 @@
 <body>
   <div id="root"></div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5aWAgl3WWZm4TCib4HoUwDHrnnAKyDlE",
+      authDomain: "budzet-6e6af.firebaseapp.com",
+      databaseURL: "https://budzet-6e6af-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "budzet-6e6af",
+      storageBucket: "budzet-6e6af.firebasestorage.app",
+      messagingSenderId: "952332899725",
+      appId: "1:952332899725:web:776976552ea0dcc126d9c4"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+
   <script type="text/babel">
-    const { useState, useEffect } = React;
+    const { useState, useEffect, useRef } = React;
 
     const NEDELJE = ["Prva nedelja", "Druga nedelja", "Treća nedelja", "Četvrta nedelja"];
     const OSTALE = ["Nepredviđeni troškovi", "Dodatne stvari", "Računi", "Štednja"];
@@ -63,7 +79,7 @@
       if (!isCurrentMonth) return { label: `${dayOfMonth}.`, color: "#444" };
       const diff = dayOfMonth - today.getDate();
       if (diff === 0) return { label: "danas leži!", color: "#7eb8a4" };
-      if (diff > 0) return { label: `za ${diff} ${diff < 5 ? "dana" : "dana"}`, color: "#6e9fc8" };
+      if (diff > 0) return { label: `za ${diff} dana`, color: "#6e9fc8" };
       return { label: `ležala ${dayOfMonth}. u mes.`, color: "#3a3a3a" };
     }
 
@@ -97,6 +113,7 @@
       const [data, setData] = useState(null);
       const [view, setView] = useState("pregled");
       const [loaded, setLoaded] = useState(false);
+      const [online, setOnline] = useState(true);
 
       const [showRaspored, setShowRaspored] = useState(false);
       const [showTx, setShowTx] = useState(false);
@@ -110,32 +127,47 @@
       const [tx, setTx] = useState({ opis:"", iznos:"", f: FASCIKLE[0] });
       const [preb, setPreb] = useState({ f: FASCIKLE[0], iznos:"" });
 
+      const isRemoteUpdate = useRef(false);
+      const dbRef = db.ref("budzet");
+
+      // Real-time sync: slušaj promene sa Firebase
       useEffect(() => {
-        try {
-          const raw = localStorage.getItem("budzet-data");
-          if (raw) {
-            const parsed = JSON.parse(raw);
-            setData(parsed.data || { [mkKey(today)]: mkEmpty() });
-            if (parsed.key) setKey(parsed.key);
+        const unsub = dbRef.on("value", snapshot => {
+          const val = snapshot.val();
+          isRemoteUpdate.current = true;
+          if (val && val.data) {
+            setData(val.data);
+            if (val.key) setKey(val.key);
           } else {
             setData({ [mkKey(today)]: mkEmpty() });
           }
-        } catch {
+          setLoaded(true);
+        }, () => {
           setData({ [mkKey(today)]: mkEmpty() });
-        }
-        setLoaded(true);
+          setLoaded(true);
+        });
+
+        // Prati online/offline status
+        db.ref(".info/connected").on("value", snap => {
+          setOnline(snap.val() === true);
+        });
+
+        return () => dbRef.off("value");
       }, []);
 
+      // Sačuvaj u Firebase kad se promeni (samo lokalne promene)
       useEffect(() => {
         if (!loaded || !data) return;
-        try {
-          localStorage.setItem("budzet-data", JSON.stringify({ data, key }));
-        } catch {}
+        if (isRemoteUpdate.current) {
+          isRemoteUpdate.current = false;
+          return;
+        }
+        dbRef.set({ data, key }).catch(() => {});
       }, [data, key, loaded]);
 
       if (!loaded || !data) return (
-        <div style={{ minHeight:"100vh", background:"#0d0d0d", display:"flex", alignItems:"center", justifyContent:"center", color:"#555", fontFamily:"Georgia,serif" }}>
-          Učitavanje...
+        <div style={{ minHeight:"100vh", background:"#0d0d0d", display:"flex", alignItems:"center", justifyContent:"center", color:"#555", fontFamily:"Georgia,serif", flexDirection:"column", gap:12 }}>
+          <div style={{ fontSize:13 }}>Povezivanje...</div>
         </div>
       );
 
@@ -227,9 +259,13 @@
       return (
         <div style={{ minHeight:"100vh", background:"#0d0d0d", color:"#e8e0d0", fontFamily:"'Georgia',serif", display:"flex", flexDirection:"column", maxWidth:480, margin:"0 auto" }}>
 
+          {/* Header */}
           <div style={{ padding:"14px 18px", borderBottom:"1px solid #1e1e1e", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
             <div>
-              <div style={{ fontSize:10, letterSpacing:3, color:"#444", textTransform:"uppercase" }}>Andrija & Katarina</div>
+              <div style={{ fontSize:10, letterSpacing:3, color:"#444", textTransform:"uppercase", display:"flex", alignItems:"center", gap:6 }}>
+                Andrija & Katarina
+                <span style={{ width:5, height:5, borderRadius:"50%", background:online?"#7eb8a4":"#e08070", display:"inline-block" }} title={online?"sinhronizovano":"offline"} />
+              </div>
               <div style={{ fontSize:19, color:"#c8a96e", fontWeight:"bold" }}>Kućni budžet</div>
             </div>
             <div style={{ display:"flex", alignItems:"center", gap:6 }}>
@@ -239,6 +275,7 @@
             </div>
           </div>
 
+          {/* Tabs */}
           <div style={{ display:"flex", borderBottom:"1px solid #1a1a1a" }}>
             {[["pregled","Pregled"],["transakcije","Transakcije"]].map(([v,l])=>(
               <button key={v} onClick={()=>setView(v)} style={{ flex:1, padding:"10px 0", background:"transparent", border:"none", color:view===v?"#c8a96e":"#3a3a3a", fontSize:11, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", borderBottom:view===v?"2px solid #c8a96e":"2px solid transparent" }}>{l}</button>
@@ -247,6 +284,7 @@
 
           <div style={{ flex:1, overflow:"auto", padding:"16px" }}>
 
+            {/* PREGLED */}
             {view==="pregled" && (
               <div>
                 <div style={{ background:"#161616", border:"1px solid #222", borderRadius:10, padding:"14px 16px", marginBottom:12 }}>
@@ -375,6 +413,7 @@
               </div>
             )}
 
+            {/* TRANSAKCIJE */}
             {view==="transakcije" && (
               <div>
                 <button onClick={()=>setShowTx(true)} style={{ width:"100%", padding:"10px", background:"#c8a96e", border:"none", color:"#0d0d0d", borderRadius:7, cursor:"pointer", fontSize:12, fontWeight:"bold", marginBottom:14 }}>+ Novi rashod</button>
@@ -394,6 +433,7 @@
             )}
           </div>
 
+          {/* MODAL: Rasporedi */}
           {showRaspored && (
             <Modal title="Raspored plate" onClose={()=>setShowRaspored(false)}>
               <div style={{ fontSize:10, color:"#555", letterSpacing:2, textTransform:"uppercase", marginBottom:10 }}>Plate</div>
@@ -441,6 +481,7 @@
             </Modal>
           )}
 
+          {/* MODAL: Rashod */}
           {showTx && (
             <Modal title="Novi rashod" onClose={()=>setShowTx(false)}>
               <input value={tx.opis} onChange={e=>setTx(p=>({...p,opis:e.target.value}))} placeholder="Opis" style={S.inp} />
@@ -452,6 +493,7 @@
             </Modal>
           )}
 
+          {/* MODAL: Prebaci na stranu */}
           {showPrebaci && (
             <Modal title="Prebaci na stranu → Štednja" titleColor="#7eb8a4" onClose={()=>setShowPrebaci(false)}>
               <select value={preb.f} onChange={e=>setPreb(p=>({...p,f:e.target.value}))} style={S.inp}>
@@ -464,6 +506,7 @@
             </Modal>
           )}
 
+          {/* MODAL: Zatvori nedelju */}
           {showZatvori && (
             <Modal title={`Zatvori ${showZatvori}?`} titleColor="#e08070" onClose={()=>setShowZatvori(null)}>
               <div style={{ fontSize:13, color:"#888", lineHeight:1.6 }}>

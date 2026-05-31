@@ -36,6 +36,11 @@
   .salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
   .salary-total .lbl{font-size:13px;color:var(--text2)}
   .salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
+  .unalloc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;margin-top:-1rem}
+  .unalloc-lbl{font-size:13px;color:var(--text2)}
+  .unalloc-val{font-size:16px;font-weight:700}
+  .unalloc-val.ok{color:var(--green)}
+  .unalloc-val.over{color:var(--red)}
   .section-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin:.75rem 0 .5rem;display:flex;align-items:center;gap:.5rem}
   .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
   .budget-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.5rem}
@@ -143,6 +148,10 @@
   <div class="salary-total">
     <span class="lbl">Ukupno u kasi</span>
     <span class="val" id="total-income">0 RSD</span>
+  </div>
+  <div class="unalloc-card">
+    <span class="unalloc-lbl">Neraspoređeno</span>
+    <span class="unalloc-val" id="unallocated">0 RSD</span>
   </div>
   <div class="savings-card">
     <div class="savings-head">
@@ -402,6 +411,11 @@ function renderAll(){
   document.getElementById('sal-andrija').value=a||'';
   document.getElementById('sal-katarina').value=k||'';
   document.getElementById('total-income').textContent=fmtRSD(a+k);
+  const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
+  const neraspored=(a+k)-planirano;
+  const uel=document.getElementById('unallocated');
+  uel.textContent=fmtRSD(neraspored);
+  uel.className='unalloc-val '+(neraspored<0?'over':'ok');
   renderBudgetSections();
   renderTransactions();
 }

@@ -89,6 +89,21 @@
   .calc-btn.op{background:rgba(108,99,255,.15);color:var(--accent)}
   .calc-btn.fn{background:var(--surface2);color:var(--text2);font-size:18px}
   .calc-btn.eq{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+  .savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+  .savings-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
+  .savings-lbl{font-size:13px;color:var(--text2)}
+  .savings-val{font-size:22px;font-weight:700;color:var(--green)}
+  .savings-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .sv-btn{border:none;border-radius:var(--radius-sm);padding:.6rem;font-size:13px;font-weight:600;cursor:pointer}
+  .sv-btn.add{background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+  .sv-btn.take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+  .sv-btn:active{transform:scale(.97)}
+  .savings-history{margin-top:.85rem}
+  .sv-hist-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:.4rem 0;border-top:1px solid var(--border)}
+  .sv-hist-desc{color:var(--text2)}
+  .sv-hist-amt{font-weight:600}
+  .sv-hist-amt.plus{color:var(--green)}
+  .sv-hist-amt.minus{color:var(--red)}
 </style>
 </head>
 <body>
@@ -128,6 +143,17 @@
   <div class="salary-total">
     <span class="lbl">Ukupno u kasi</span>
     <span class="val" id="total-income">0 RSD</span>
+  </div>
+  <div class="savings-card">
+    <div class="savings-head">
+      <span class="savings-lbl">🏦 Ukupna štednja</span>
+      <span class="savings-val" id="total-savings">0 RSD</span>
+    </div>
+    <div class="savings-btns">
+      <button class="sv-btn add" onclick="transferMonthToTotal()">↑ Prebaci mesečnu</button>
+      <button class="sv-btn take" onclick="openWithdrawModal()">↓ Uzmi iz štednje</button>
+    </div>
+    <div id="savings-history"></div>
   </div>
   <div id="budget-sections"><div class="loading">Učitavanje...</div></div>
 </div>
@@ -190,6 +216,24 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="withdraw-modal" onclick="closeWithdrawOutside(event)">
+  <div class="modal">
+    <h3>Uzmi iz štednje</h3>
+    <div class="form-group">
+      <label>Iznos (RSD)</label>
+      <input type="number" id="wd-amount" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label>Za šta (opciono)</label>
+      <input type="text" id="wd-desc" placeholder="npr. krov, gume...">
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeWithdrawModal()">Otkaži</button>
+      <button class="btn-save" onclick="confirmWithdraw()">Uzmi</button>
+    </div>
+  </div>
+</div>
+
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {getDatabase,ref,set,onValue,remove} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
@@ -222,6 +266,8 @@ const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust',
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{}};
+let totalSavings = 0;
+let savingsLog = {};
 
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
@@ -241,6 +287,16 @@ function listenMonth(){
     state.transactions=d.transactions||{};
     renderAll();
   },()=>setSyncDot(false));
+}
+
+function listenSavings(){
+  const r=ref(db,'budzet/ukupna_stednja');
+  onValue(r,snap=>{
+    const d=snap.val()||{};
+    totalSavings=d.total||0;
+    savingsLog=d.log||{};
+    renderSavings();
+  });
 }
 
 function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
@@ -264,6 +320,60 @@ window.resetWeekToSavings=function(catId,left){
   set(ref(db,dbPath('budget_items')),state.budget_items);
   set(ref(db,dbPath('transactions')),state.transactions);
 };
+
+window.transferMonthToTotal=function(){
+  const mesecna=state.budget_items['stednja']||0;
+  if(mesecna<=0){alert('Nema mesečne štednje za prebacivanje');return}
+  if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u ukupnu štednju?`))return;
+  const ts=Date.now();
+  const noviTotal=totalSavings+mesecna;
+  const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
+  set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
+  state.budget_items['stednja']=0;
+  set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+window.openWithdrawModal=function(){
+  document.getElementById('wd-amount').value='';
+  document.getElementById('wd-desc').value='';
+  document.getElementById('withdraw-modal').classList.add('open');
+};
+window.closeWithdrawModal=function(){document.getElementById('withdraw-modal').classList.remove('open')};
+window.closeWithdrawOutside=function(e){if(e.target===document.getElementById('withdraw-modal'))closeWithdrawModal()};
+
+window.confirmWithdraw=function(){
+  const amount=parseFloat(document.getElementById('wd-amount').value)||0;
+  if(amount<=0){alert('Unesi iznos');return}
+  if(amount>totalSavings){alert(`U štednji imaš samo ${fmtRSD(totalSavings)}`);return}
+  const desc=document.getElementById('wd-desc').value.trim();
+  const ts=Date.now();
+  const noviTotal=totalSavings-amount;
+  const noviLog={...savingsLog,[ts]:{amount:amount,desc:desc||'Uzeto iz štednje',ts,type:'out'}};
+  set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
+  closeWithdrawModal();
+};
+
+window.deleteSavingsLog=function(ts){
+  if(!confirm('Obrisati ovaj zapis? (ne menja iznos štednje)'))return;
+  const noviLog={...savingsLog};
+  delete noviLog[ts];
+  set(ref(db,'budzet/ukupna_stednja'),{total:totalSavings,log:noviLog});
+};
+
+function renderSavings(){
+  document.getElementById('total-savings').textContent=fmtRSD(totalSavings);
+  const cont=document.getElementById('savings-history');
+  const logs=Object.values(savingsLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
+  if(!logs.length){cont.innerHTML='';return}
+  cont.innerHTML=logs.map(l=>`
+    <div class="sv-hist-item">
+      <span class="sv-hist-desc">${l.type==='in'?'↑':'↓'} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
+      <span class="sv-hist-amt ${l.type==='in'?'plus':'minus'}">${l.type==='in'?'+':'−'}${fmtRSD(l.amount)}
+        <button class="tx-del" onclick="deleteSavingsLog(${l.ts})" style="font-size:14px">×</button>
+      </span>
+    </div>
+  `).join('');
+}
 
 window.changeMonth=function(d){
   currentMonth+=d;
@@ -399,6 +509,7 @@ window.calcEq=function(){
 };
 
 listenMonth();
+listenSavings();
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/Budzet/sw.js');
 }

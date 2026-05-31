@@ -109,6 +109,25 @@
   .sv-hist-amt{font-weight:600}
   .sv-hist-amt.plus{color:var(--green)}
   .sv-hist-amt.minus{color:var(--red)}
+  /* Beleške */
+  .notes-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+  .notes-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+  .notes-lbl{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:.5rem}
+  .notes-card textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.75rem;color:var(--text);font-size:14px;font-family:inherit;line-height:1.5;resize:vertical;min-height:90px}
+  .notes-card textarea:focus{outline:none;border-color:var(--accent)}
+  .notes-saved{font-size:11px;color:var(--green);opacity:0;transition:opacity .3s}
+  .notes-saved.show{opacity:1}
+  /* Expand panel ispod stavke */
+  .item-head{cursor:pointer;user-select:none}
+  .item-toggle{font-size:13px;color:var(--text2);transition:transform .2s;flex-shrink:0}
+  .item-toggle.open{transform:rotate(90deg)}
+  .item-txs{max-height:0;overflow:hidden;transition:max-height .25s ease;margin-top:0}
+  .item-txs.open{max-height:600px;margin-top:.6rem}
+  .item-txs-inner{border-top:1px solid var(--border);padding-top:.6rem}
+  .item-tx-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:.35rem 0}
+  .item-tx-left{color:var(--text2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .item-tx-amt{color:var(--red);font-weight:600;margin-left:.5rem;white-space:nowrap}
+  .item-tx-empty{font-size:12px;color:var(--text2);padding:.35rem 0;text-align:center}
 </style>
 </head>
 <body>
@@ -163,6 +182,13 @@
       <button class="sv-btn take" onclick="openWithdrawModal()">↓ Uzmi iz štednje</button>
     </div>
     <div id="savings-history"></div>
+  </div>
+  <div class="notes-card">
+    <div class="notes-head">
+      <span class="notes-lbl">📝 Beleške za ovaj mesec</span>
+      <span class="notes-saved" id="notes-saved">sačuvano ✓</span>
+    </div>
+    <textarea id="notes-text" placeholder="Šta treba kupiti/uraditi ovog meseca..." oninput="saveNotes(this.value)"></textarea>
   </div>
   <div id="budget-sections"><div class="loading">Učitavanje...</div></div>
 </div>
@@ -274,7 +300,9 @@ const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust',
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{}};
+let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{},notes:''};
+let openItems = {};
+let notesTimer = null;
 let totalSavings = 0;
 let savingsLog = {};
 
@@ -294,6 +322,7 @@ function listenMonth(){
     state.salaries=d.salaries||{andrija:0,katarina:0};
     state.budget_items=d.budget_items||{};
     state.transactions=d.transactions||{};
+    state.notes=d.notes||'';
     renderAll();
   },()=>setSyncDot(false));
 }
@@ -318,6 +347,25 @@ window.saveSalary=function(who,val){
 window.saveBudgetItem=function(el){
   state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
   set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+window.saveNotes=function(val){
+  state.notes=val;
+  clearTimeout(notesTimer);
+  notesTimer=setTimeout(()=>{
+    set(ref(db,dbPath('notes')),val);
+    const s=document.getElementById('notes-saved');
+    s.classList.add('show');
+    setTimeout(()=>s.classList.remove('show'),1500);
+  },600);
+};
+
+window.toggleItem=function(catId){
+  openItems[catId]=!openItems[catId];
+  const panel=document.getElementById('txs-'+catId);
+  const toggle=document.getElementById('tgl-'+catId);
+  if(panel)panel.classList.toggle('open',openItems[catId]);
+  if(toggle)toggle.classList.toggle('open',openItems[catId]);
 };
 
 window.resetWeekToSavings=function(catId,left){
@@ -403,6 +451,12 @@ function getSpent(catId){
     .reduce((s,t)=>s+Math.abs(t.amount),0);
 }
 
+function getTxsByCat(catId){
+  return Object.values(state.transactions)
+    .filter(t=>t.cat===catId)
+    .sort((a,b)=>b.ts-a.ts);
+}
+
 function renderAll(){
   const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
   document.getElementById('month-label').textContent=lbl;
@@ -416,6 +470,8 @@ function renderAll(){
   const uel=document.getElementById('unallocated');
   uel.textContent=fmtRSD(neraspored);
   uel.className='unalloc-val '+(neraspored<0?'over':'ok');
+  const nt=document.getElementById('notes-text');
+  if(nt&&document.activeElement!==nt)nt.value=state.notes||'';
   renderBudgetSections();
   renderTransactions();
 }
@@ -432,12 +488,25 @@ function renderBudgetSections(){
     const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
     const isWeek=s.id.startsWith('nedelja');
     const canReset=isWeek&&left>0&&planned>0;
+    const txs=getTxsByCat(s.id);
+    const isOpen=openItems[s.id];
+    let txHtml='';
+    if(txs.length){
+      txHtml=txs.map(t=>`
+        <div class="item-tx-row">
+          <span class="item-tx-left">${t.transfer?'↓ ':''}${t.desc||SECTIONS.find(x=>x.id===t.cat)?.label||'—'} · ${new Date(t.ts).toLocaleDateString('sr-RS')}</span>
+          <span class="item-tx-amt">-${fmtRSD(Math.abs(t.amount))}</span>
+        </div>`).join('');
+    }else{
+      txHtml='<div class="item-tx-empty">Nema troškova iz ove stavke</div>';
+    }
     html+=`<div class="budget-item">
-      <div class="item-row">
+      <div class="item-row item-head" onclick="toggleItem('${s.id}')">
+        <span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
         <span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
         <span class="item-name">${s.label}</span>
-        ${canReset?`<button class="reset-btn" onclick="resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
-        <div class="item-planned">
+        ${canReset?`<button class="reset-btn" onclick="event.stopPropagation();resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
+        <div class="item-planned" onclick="event.stopPropagation()">
           <input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
         </div>
       </div>
@@ -448,6 +517,9 @@ function renderBudgetSections(){
           <span class="bar-left ${cls}">${left>=0?'Ostalo: ':'Prekoračeno: '}${fmtRSD(Math.abs(left))}</span>
         </div>
       </div>`:''}
+      <div class="item-txs ${isOpen?'open':''}" id="txs-${s.id}">
+        <div class="item-txs-inner">${txHtml}</div>
+      </div>
     </div>`;
   });
   cont.innerHTML=html;

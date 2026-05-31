@@ -82,6 +82,13 @@
   .month-nav button{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;padding:0 .5rem;line-height:1}
   .month-nav .month-label{font-size:14px;font-weight:600}
   .loading{text-align:center;color:var(--text2);padding:3rem 0;font-size:14px}
+  .calc-screen{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.25rem;font-size:32px;font-weight:600;text-align:right;margin-bottom:1rem;min-height:80px;display:flex;align-items:center;justify-content:flex-end;word-break:break-all;overflow:hidden}
+  .calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+  .calc-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;color:var(--text);font-size:22px;font-weight:500;cursor:pointer;transition:all .1s}
+  .calc-btn:active{transform:scale(.95);background:var(--surface2)}
+  .calc-btn.op{background:rgba(108,99,255,.15);color:var(--accent)}
+  .calc-btn.fn{background:var(--surface2);color:var(--text2);font-size:18px}
+  .calc-btn.eq{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
 </style>
 </head>
 <body>
@@ -94,6 +101,7 @@
   <div class="tabs">
     <button class="tab active" onclick="switchTab('budzet')">Budžet</button>
     <button class="tab" onclick="switchTab('transakcije')">Transakcije</button>
+    <button class="tab" onclick="switchTab('kalkulator')">Kalkulator</button>
   </div>
 </div>
 
@@ -132,6 +140,32 @@
   </div>
   <button class="add-btn" onclick="openModal()">+ Nova transakcija</button>
   <div id="tx-list"></div>
+</div>
+
+<div id="page-kalkulator" class="page">
+  <div class="calc-screen" id="calc-screen">0</div>
+  <div class="calc-grid">
+    <button class="calc-btn fn" onclick="calcClear()">C</button>
+    <button class="calc-btn fn" onclick="calcDel()">⌫</button>
+    <button class="calc-btn fn" onclick="calcOp('%')">%</button>
+    <button class="calc-btn op" onclick="calcOp('/')">÷</button>
+    <button class="calc-btn" onclick="calcNum('7')">7</button>
+    <button class="calc-btn" onclick="calcNum('8')">8</button>
+    <button class="calc-btn" onclick="calcNum('9')">9</button>
+    <button class="calc-btn op" onclick="calcOp('*')">×</button>
+    <button class="calc-btn" onclick="calcNum('4')">4</button>
+    <button class="calc-btn" onclick="calcNum('5')">5</button>
+    <button class="calc-btn" onclick="calcNum('6')">6</button>
+    <button class="calc-btn op" onclick="calcOp('-')">−</button>
+    <button class="calc-btn" onclick="calcNum('1')">1</button>
+    <button class="calc-btn" onclick="calcNum('2')">2</button>
+    <button class="calc-btn" onclick="calcNum('3')">3</button>
+    <button class="calc-btn op" onclick="calcOp('+')">+</button>
+    <button class="calc-btn" onclick="calcNum('00')">00</button>
+    <button class="calc-btn" onclick="calcNum('0')">0</button>
+    <button class="calc-btn" onclick="calcNum('.')">,</button>
+    <button class="calc-btn eq" onclick="calcEq()">=</button>
+  </div>
 </div>
 
 <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
@@ -236,9 +270,9 @@ window.changeMonth=function(d){
 };
 
 window.switchTab=function(tab){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['budzet','transakcije'][i]===tab));
-  document.getElementById('page-budzet').classList.toggle('active',tab==='budzet');
-  document.getElementById('page-transakcije').classList.toggle('active',tab==='transakcije');
+  const tabs=['budzet','transakcije','kalkulator'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===tab));
+  tabs.forEach(t=>document.getElementById('page-'+t).classList.toggle('active',t===tab));
 };
 
 function getSpent(catId){
@@ -335,10 +369,36 @@ window.saveTransaction=function(){
   closeModal();
 };
 
-listenMonth();if('serviceWorker' in navigator){
+// ---- Kalkulator ----
+let calcExpr='';
+function calcRender(){
+  const s=document.getElementById('calc-screen');
+  s.textContent=calcExpr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/\./g,',')||'0';
+}
+window.calcNum=function(n){calcExpr+=n;calcRender()};
+window.calcOp=function(op){
+  if(!calcExpr&&op!=='-')return;
+  if(/[+\-*/%]$/.test(calcExpr))calcExpr=calcExpr.slice(0,-1);
+  calcExpr+=op;calcRender();
+};
+window.calcClear=function(){calcExpr='';calcRender()};
+window.calcDel=function(){calcExpr=calcExpr.slice(0,-1);calcRender()};
+window.calcEq=function(){
+  if(!/^[0-9+\-*/.()%]+$/.test(calcExpr)){return}
+  try{
+    let e=calcExpr.replace(/(\d+(?:\.\d+)?)%/g,'($1/100)');
+    const r=Function('"use strict";return ('+e+')')();
+    if(typeof r==='number'&&isFinite(r)){
+      calcExpr=String(Math.round(r*100)/100);
+      calcRender();
+    }
+  }catch(e){}
+};
+
+listenMonth();
+if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/Budzet/sw.js');
 }
- 
 </script>
 </body>
 </html>

@@ -534,6 +534,10 @@ renderTransactions();
 }
 function renderBudgetSections(){
 const cont=document.getElementById('budget-sections');
+const active=document.activeElement;
+if(active&&active.closest&&active.closest('.item-planned')){
+return;
+}
 let html='';
 SECTIONS.forEach(s=>{
 const planned=state.budget_items[s.id]||0;
@@ -563,7 +567,7 @@ html+=`<div class="budget-item">
 <span class="item-name">${s.label}</span>
 ${canReset?`<button class="reset-btn" onclick="event.stopPropagation();resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
 <div class="item-planned" onclick="event.stopPropagation()">
-<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
+<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" onchange="saveBudgetItem(this)">
 </div>
 </div>
 ${planned>0?`<div class="item-bar">

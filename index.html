@@ -36,8 +36,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
 .salary-total .lbl{font-size:13px;color:var(--text2)}
 .salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
-.salary-total .val.over{color:var(--red)}
-.salary-sub{font-size:11px;color:var(--text2);margin-top:2px;text-align:right}
 .unalloc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;margin-top:-1rem}
 .unalloc-lbl{font-size:13px;color:var(--text2)}
 .unalloc-val{font-size:16px;font-weight:700}
@@ -96,14 +94,15 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .calc-btn.op{background:rgba(108,99,255,.15);color:var(--accent)}
 .calc-btn.fn{background:var(--surface2);color:var(--text2);font-size:18px}
 .calc-btn.eq{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
-.savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+.savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem}
 .savings-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
 .savings-lbl{font-size:13px;color:var(--text2)}
 .savings-val{font-size:22px;font-weight:700;color:var(--green)}
-.savings-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.sv-btn{border:none;border-radius:var(--radius-sm);padding:.6rem;font-size:13px;font-weight:600;cursor:pointer}
+.savings-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+.sv-btn{border:none;border-radius:var(--radius-sm);padding:.6rem;font-size:12px;font-weight:600;cursor:pointer}
 .sv-btn.add{background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)}
 .sv-btn.take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+.sv-btn.set{background:rgba(108,99,255,.12);color:var(--accent);border:1px solid rgba(108,99,255,.3)}
 .sv-btn:active{transform:scale(.97)}
 .savings-history{margin-top:.85rem}
 .sv-hist-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:.4rem 0;border-top:1px solid var(--border)}
@@ -111,6 +110,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .sv-hist-amt{font-weight:600}
 .sv-hist-amt.plus{color:var(--green)}
 .sv-hist-amt.minus{color:var(--red)}
+.sv-hist-amt.set{color:var(--accent)}
+/* More card */
+.more-card{background:linear-gradient(135deg,rgba(56,189,248,.1),rgba(108,99,255,.08));border:1px solid rgba(56,189,248,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+.more-val{font-size:22px;font-weight:700;color:#38bdf8}
+.more-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+.sv-btn.more-add{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.sv-btn.more-take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
 /* Beleške */
 .notes-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
 .notes-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
@@ -144,6 +150,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <button class="tab" onclick="switchTab('kalkulator')">Kalkulator</button>
 </div>
 </div>
+
 <div id="page-budzet" class="page active">
 <div class="month-nav">
 <button onclick="changeMonth(-1)">‹</button>
@@ -165,16 +172,15 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 <div class="salary-total">
-<span class="lbl">U kasi trenutno</span>
-<div style="text-align:right">
+<span class="lbl">Ukupno u kasi</span>
 <span class="val" id="total-income">0 RSD</span>
-<div class="salary-sub" id="income-sub"></div>
-</div>
 </div>
 <div class="unalloc-card">
 <span class="unalloc-lbl">Neraspoređeno</span>
 <span class="unalloc-val" id="unallocated">0 RSD</span>
 </div>
+
+<!-- ŠTEDNJA KARTICA -->
 <div class="savings-card">
 <div class="savings-head">
 <span class="savings-lbl">🏦 Ukupna štednja</span>
@@ -182,21 +188,26 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 <div class="savings-btns">
 <button class="sv-btn add" onclick="transferMonthToTotal()">↑ Prebaci mesečnu</button>
-<button class="sv-btn take" onclick="openWithdrawModal()">↓ Uzmi iz štednje</button>
+<button class="sv-btn take" onclick="openWithdrawModal('stednja')">↓ Uzmi</button>
+<button class="sv-btn set" onclick="openSetBalanceModal('stednja')">✎ Postavi saldo</button>
 </div>
 <div id="savings-history"></div>
 </div>
-<div class="savings-card" style="background:linear-gradient(135deg,rgba(96,165,250,.12),rgba(108,99,255,.08));border-color:rgba(96,165,250,.35)">
+
+<!-- MORE KARTICA -->
+<div class="more-card">
 <div class="savings-head">
-<span class="savings-lbl">🌊 Ukupno za more</span>
-<span class="savings-val" id="total-more" style="color:#60a5fa">0 RSD</span>
+<span class="savings-lbl">🌊 Štek za more</span>
+<span class="more-val" id="total-more">0 RSD</span>
 </div>
-<div class="savings-btns">
-<button class="sv-btn add" style="background:rgba(96,165,250,.15);color:#60a5fa;border-color:rgba(96,165,250,.3)" onclick="transferInvestToMore()">↑ Prebaci iz investicija</button>
-<button class="sv-btn take" onclick="openWithdrawMoreModal()">↓ Uzmi za more</button>
+<div class="more-btns">
+<button class="sv-btn more-add" onclick="transferMonthToMore()">↑ Prebaci mesečnu</button>
+<button class="sv-btn more-take" onclick="openWithdrawModal('more')">↓ Uzmi</button>
+<button class="sv-btn set" onclick="openSetBalanceModal('more')">✎ Postavi saldo</button>
 </div>
 <div id="more-history"></div>
 </div>
+
 <div class="notes-card">
 <div class="notes-head">
 <span class="notes-lbl">📝 Beleške za ovaj mesec</span>
@@ -206,6 +217,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 <div id="budget-sections"><div class="loading">Učitavanje...</div></div>
 </div>
+
 <div id="page-transakcije" class="page">
 <div class="month-nav">
 <button onclick="changeMonth(-1)">‹</button>
@@ -215,6 +227,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <button class="add-btn" onclick="openModal()">+ Nova transakcija</button>
 <div id="tx-list"></div>
 </div>
+
 <div id="page-kalkulator" class="page">
 <div class="calc-screen" id="calc-screen">0</div>
 <div class="calc-grid">
@@ -236,10 +249,12 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <button class="calc-btn op" onclick="calcOp('+')">+</button>
 <button class="calc-btn" onclick="calcNum('00')">00</button>
 <button class="calc-btn" onclick="calcNum('0')">0</button>
-<button class="calc-btn" onclick="calcNum('.')">,</button>
+<button class="calc-btn" onclick="calcNum('.')">.</button>
 <button class="calc-btn eq" onclick="calcEq()">=</button>
 </div>
 </div>
+
+<!-- MODAL: Nova transakcija -->
 <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
 <div class="modal">
 <h3>Nova transakcija</h3>
@@ -261,9 +276,11 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 </div>
+
+<!-- MODAL: Uzmi iz štednje / more -->
 <div class="modal-overlay" id="withdraw-modal" onclick="closeWithdrawOutside(event)">
 <div class="modal">
-<h3>Uzmi iz štednje</h3>
+<h3 id="withdraw-title">Uzmi iz štednje</h3>
 <div class="form-group">
 <label>Iznos (RSD)</label>
 <input type="number" id="wd-amount" placeholder="0">
@@ -278,26 +295,30 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 </div>
-<div class="modal-overlay" id="withdraw-more-modal" onclick="closeWithdrawMoreOutside(event)">
+
+<!-- MODAL: Postavi početni saldo -->
+<div class="modal-overlay" id="setbalance-modal" onclick="closeSetBalanceOutside(event)">
 <div class="modal">
-<h3>Uzmi za more</h3>
+<h3 id="setbalance-title">Postavi saldo</h3>
 <div class="form-group">
-<label>Iznos (RSD)</label>
-<input type="number" id="wdm-amount" placeholder="0">
+<label>Trenutni iznos (RSD)</label>
+<input type="number" id="sb-amount" placeholder="0">
 </div>
 <div class="form-group">
-<label>Za šta (opciono)</label>
-<input type="text" id="wdm-desc" placeholder="npr. smeštaj, gorivo...">
+<label>Napomena (opciono)</label>
+<input type="text" id="sb-desc" placeholder="npr. početno stanje...">
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" onclick="closeWithdrawMoreModal()">Otkaži</button>
-<button class="btn-save" onclick="confirmWithdrawMore()">Uzmi</button>
+<button class="btn-cancel" onclick="closeSetBalanceModal()">Otkaži</button>
+<button class="btn-save" onclick="confirmSetBalance()">Postavi</button>
 </div>
 </div>
 </div>
+
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {getDatabase,ref,set,onValue,remove} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+
 const firebaseConfig = {
 apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
 authDomain:"budzet-f3992.firebaseapp.com",
@@ -307,8 +328,10 @@ storageBucket:"budzet-f3992.firebasestorage.app",
 messagingSenderId:"633902520397",
 appId:"1:633902520397:web:1488ffe3d9626a8c586404"
 };
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
 const SECTIONS = [
 {id:'nedelja1',label:'Nedelja 1'},{id:'nedelja2',label:'Nedelja 2'},
 {id:'nedelja3',label:'Nedelja 3'},{id:'nedelja4',label:'Nedelja 4'},
@@ -320,6 +343,7 @@ const SECTIONS = [
 ];
 const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',stednja:'🏦',investicije:'📈',licni_katarina:'💄',licni_andrija:'🎸'};
 const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','September','Oktobar','November','Decembar'];
+
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{},notes:''};
@@ -329,11 +353,17 @@ let totalSavings = 0;
 let savingsLog = {};
 let totalMore = 0;
 let moreLog = {};
+
+// za withdraw/setbalance modal
+let activePool = 'stednja'; // 'stednja' ili 'more'
+
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
+
 function setSyncDot(online){
 const d=document.getElementById('sync-dot');
 d.className='sync-dot '+(online?'online':'offline');
 }
+
 function listenMonth(){
 setSyncDot(false);
 const r=ref(db,`budzet/${currentYear}/${currentMonth}`);
@@ -347,6 +377,7 @@ state.notes=d.notes||'';
 renderAll();
 },()=>setSyncDot(false));
 }
+
 function listenSavings(){
 const r=ref(db,'budzet/ukupna_stednja');
 onValue(r,snap=>{
@@ -356,6 +387,7 @@ savingsLog=d.log||{};
 renderSavings();
 });
 }
+
 function listenMore(){
 const r=ref(db,'budzet/ukupno_more');
 onValue(r,snap=>{
@@ -365,21 +397,19 @@ moreLog=d.log||{};
 renderMore();
 });
 }
+
 function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
-// Ukupno potrošeno ovog meseca (prave transakcije, bez internih prenosa)
-function getTotalSpent(){
-return Object.values(state.transactions)
-.filter(t=>!t.transfer)
-.reduce((s,t)=>s+Math.abs(t.amount),0);
-}
+
 window.saveSalary=function(who,val){
 state.salaries[who]=parseFloat(val)||0;
 set(ref(db,dbPath('salaries')),state.salaries);
 };
+
 window.saveBudgetItem=function(el){
 state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
 set(ref(db,dbPath('budget_items')),state.budget_items);
 };
+
 window.saveNotes=function(val){
 state.notes=val;
 clearTimeout(notesTimer);
@@ -390,6 +420,7 @@ s.classList.add('show');
 setTimeout(()=>s.classList.remove('show'),1500);
 },600);
 };
+
 window.toggleItem=function(catId){
 openItems[catId]=!openItems[catId];
 const panel=document.getElementById('txs-'+catId);
@@ -397,6 +428,7 @@ const toggle=document.getElementById('tgl-'+catId);
 if(panel)panel.classList.toggle('open',openItems[catId]);
 if(toggle)toggle.classList.toggle('open',openItems[catId]);
 };
+
 window.resetWeekToSavings=function(catId,left){
 if(!confirm(`Prebaciti ${fmtRSD(left)} u Štednju?`))return;
 const ts=Date.now();
@@ -406,6 +438,8 @@ state.transactions[ts]={amount:-left,cat:'stednja',desc:`Prenos iz ${SECTIONS.fi
 set(ref(db,dbPath('budget_items')),state.budget_items);
 set(ref(db,dbPath('transactions')),state.transactions);
 };
+
+// ---- ŠTEDNJA ----
 window.transferMonthToTotal=function(){
 const mesecna=state.budget_items['stednja']||0;
 if(mesecna<=0){alert('Nema mesečne štednje za prebacivanje');return}
@@ -417,33 +451,11 @@ set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
 state.budget_items['stednja']=0;
 set(ref(db,dbPath('budget_items')),state.budget_items);
 };
-window.openWithdrawModal=function(){
-document.getElementById('wd-amount').value='';
-document.getElementById('wd-desc').value='';
-document.getElementById('withdraw-modal').classList.add('open');
-};
-window.closeWithdrawModal=function(){document.getElementById('withdraw-modal').classList.remove('open')};
-window.closeWithdrawOutside=function(e){if(e.target===document.getElementById('withdraw-modal'))closeWithdrawModal()};
-window.confirmWithdraw=function(){
-const amount=parseFloat(document.getElementById('wd-amount').value)||0;
-if(amount<=0){alert('Unesi iznos');return}
-if(amount>totalSavings){alert(`U štednji imaš samo ${fmtRSD(totalSavings)}`);return}
-const desc=document.getElementById('wd-desc').value.trim();
-const ts=Date.now();
-const noviTotal=totalSavings-amount;
-const noviLog={...savingsLog,[ts]:{amount:amount,desc:desc||'Uzeto iz štednje',ts,type:'out'}};
-set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
-closeWithdrawModal();
-};
-window.deleteSavingsLog=function(ts){
-if(!confirm('Obrisati ovaj zapis? (ne menja iznos štednje)'))return;
-const noviLog={...savingsLog};
-delete noviLog[ts];
-set(ref(db,'budzet/ukupna_stednja'),{total:totalSavings,log:noviLog});
-};
-window.transferInvestToMore=function(){
+
+// ---- MORE ----
+window.transferMonthToMore=function(){
 const mesecna=state.budget_items['investicije']||0;
-if(mesecna<=0){alert('Nema investicija za prebacivanje');return}
+if(mesecna<=0){alert('Nema mesečnog iznosa za more za prebacivanje');return}
 if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u štek za more?`))return;
 const ts=Date.now();
 const noviTotal=totalMore+mesecna;
@@ -452,79 +464,138 @@ set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
 state.budget_items['investicije']=0;
 set(ref(db,dbPath('budget_items')),state.budget_items);
 };
-window.openWithdrawMoreModal=function(){
-document.getElementById('wdm-amount').value='';
-document.getElementById('wdm-desc').value='';
-document.getElementById('withdraw-more-modal').classList.add('open');
+
+// ---- WITHDRAW (štednja ili more) ----
+window.openWithdrawModal=function(pool){
+activePool=pool;
+document.getElementById('withdraw-title').textContent=pool==='stednja'?'Uzmi iz štednje':'Uzmi iz šteka za more';
+document.getElementById('wd-amount').value='';
+document.getElementById('wd-desc').value='';
+document.getElementById('withdraw-modal').classList.add('open');
 };
-window.closeWithdrawMoreModal=function(){document.getElementById('withdraw-more-modal').classList.remove('open')};
-window.closeWithdrawMoreOutside=function(e){if(e.target===document.getElementById('withdraw-more-modal'))closeWithdrawMoreModal()};
-window.confirmWithdrawMore=function(){
-const amount=parseFloat(document.getElementById('wdm-amount').value)||0;
+window.closeWithdrawModal=function(){document.getElementById('withdraw-modal').classList.remove('open')};
+window.closeWithdrawOutside=function(e){if(e.target===document.getElementById('withdraw-modal'))closeWithdrawModal()};
+
+window.confirmWithdraw=function(){
+const amount=parseFloat(document.getElementById('wd-amount').value)||0;
 if(amount<=0){alert('Unesi iznos');return}
-if(amount>totalMore){alert(`U šteku za more imaš samo ${fmtRSD(totalMore)}`);return}
-const desc=document.getElementById('wdm-desc').value.trim();
+const currentTotal=activePool==='stednja'?totalSavings:totalMore;
+if(amount>currentTotal){alert(`U ${activePool==='stednja'?'štednji':'šteku za more'} imaš samo ${fmtRSD(currentTotal)}`);return}
+const desc=document.getElementById('wd-desc').value.trim();
 const ts=Date.now();
-const noviTotal=totalMore-amount;
-const noviLog={...moreLog,[ts]:{amount:amount,desc:desc||'Uzeto za more',ts,type:'out'}};
+const noviTotal=currentTotal-amount;
+if(activePool==='stednja'){
+const noviLog={...savingsLog,[ts]:{amount,desc:desc||'Uzeto iz štednje',ts,type:'out'}};
+set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
+} else {
+const noviLog={...moreLog,[ts]:{amount,desc:desc||'Uzeto iz šteka za more',ts,type:'out'}};
 set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
-closeWithdrawMoreModal();
+}
+closeWithdrawModal();
 };
+
+// ---- POSTAVI POČETNI SALDO ----
+window.openSetBalanceModal=function(pool){
+activePool=pool;
+document.getElementById('setbalance-title').textContent=pool==='stednja'?'Postavi saldo štednje':'Postavi saldo šteka za more';
+const current=pool==='stednja'?totalSavings:totalMore;
+document.getElementById('sb-amount').value=current||'';
+document.getElementById('sb-desc').value='';
+document.getElementById('setbalance-modal').classList.add('open');
+};
+window.closeSetBalanceModal=function(){document.getElementById('setbalance-modal').classList.remove('open')};
+window.closeSetBalanceOutside=function(e){if(e.target===document.getElementById('setbalance-modal'))closeSetBalanceModal()};
+
+window.confirmSetBalance=function(){
+const amount=parseFloat(document.getElementById('sb-amount').value);
+if(isNaN(amount)||amount<0){alert('Unesi ispravan iznos');return}
+const desc=document.getElementById('sb-desc').value.trim()||'Početno stanje';
+const ts=Date.now();
+if(activePool==='stednja'){
+const noviLog={...savingsLog,[ts]:{amount,desc,ts,type:'set'}};
+set(ref(db,'budzet/ukupna_stednja'),{total:amount,log:noviLog});
+} else {
+const noviLog={...moreLog,[ts]:{amount,desc,ts,type:'set'}};
+set(ref(db,'budzet/ukupno_more'),{total:amount,log:noviLog});
+}
+closeSetBalanceModal();
+};
+
+window.deleteSavingsLog=function(ts){
+if(!confirm('Obrisati ovaj zapis? (ne menja iznos štednje)'))return;
+const noviLog={...savingsLog};
+delete noviLog[ts];
+set(ref(db,'budzet/ukupna_stednja'),{total:totalSavings,log:noviLog});
+};
+
 window.deleteMoreLog=function(ts){
-if(!confirm('Obrisati ovaj zapis? (ne menja iznos šteka za more)'))return;
+if(!confirm('Obrisati ovaj zapis?'))return;
 const noviLog={...moreLog};
 delete noviLog[ts];
 set(ref(db,'budzet/ukupno_more'),{total:totalMore,log:noviLog});
 };
-function renderMore(){
-document.getElementById('total-more').textContent=fmtRSD(totalMore);
-const cont=document.getElementById('more-history');
-const logs=Object.values(moreLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
-if(!logs.length){cont.innerHTML='';return}
-cont.innerHTML=logs.map(l=>`
-<div class="sv-hist-item">
-<span class="sv-hist-desc">${l.type==='in'?'↑':'↓'} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
-<span class="sv-hist-amt ${l.type==='in'?'plus':'minus'}">${l.type==='in'?'+':'−'}${fmtRSD(l.amount)}
-<button class="tx-del" onclick="deleteMoreLog(${l.ts})" style="font-size:14px">×</button>
-</span>
-</div>
-`).join('');
-}
+
 function renderSavings(){
 document.getElementById('total-savings').textContent=fmtRSD(totalSavings);
 const cont=document.getElementById('savings-history');
 const logs=Object.values(savingsLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
 if(!logs.length){cont.innerHTML='';return}
-cont.innerHTML=logs.map(l=>`
-<div class="sv-hist-item">
-<span class="sv-hist-desc">${l.type==='in'?'↑':'↓'} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
-<span class="sv-hist-amt ${l.type==='in'?'plus':'minus'}">${l.type==='in'?'+':'−'}${fmtRSD(l.amount)}
+cont.innerHTML=logs.map(l=>{
+const cls=l.type==='in'?'plus':l.type==='out'?'minus':'set';
+const icon=l.type==='in'?'↑':l.type==='out'?'↓':'✎';
+const amtTxt=l.type==='set'?fmtRSD(l.amount):(l.type==='in'?'+':'-')+fmtRSD(l.amount);
+return `<div class="sv-hist-item">
+<span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
+<span class="sv-hist-amt ${cls}">${amtTxt}
 <button class="tx-del" onclick="deleteSavingsLog(${l.ts})" style="font-size:14px">×</button>
 </span>
-</div>
-`).join('');
+</div>`;
+}).join('');
 }
+
+function renderMore(){
+document.getElementById('total-more').textContent=fmtRSD(totalMore);
+const cont=document.getElementById('more-history');
+const logs=Object.values(moreLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
+if(!logs.length){cont.innerHTML='';return}
+cont.innerHTML=logs.map(l=>{
+const cls=l.type==='in'?'plus':l.type==='out'?'minus':'set';
+const icon=l.type==='in'?'↑':l.type==='out'?'↓':'✎';
+const amtTxt=l.type==='set'?fmtRSD(l.amount):(l.type==='in'?'+':'-')+fmtRSD(l.amount);
+return `<div class="sv-hist-item">
+<span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
+<span class="sv-hist-amt ${cls}">${amtTxt}
+<button class="tx-del" onclick="deleteMoreLog(${l.ts})" style="font-size:14px">×</button>
+</span>
+</div>`;
+}).join('');
+}
+
 window.changeMonth=function(d){
 currentMonth+=d;
 if(currentMonth>11){currentMonth=0;currentYear++}
 if(currentMonth<0){currentMonth=11;currentYear--}
 listenMonth();
 };
+
 window.switchTab=function(tab){
 const tabs=['budzet','transakcije','kalkulator'];
 document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===tab));
 tabs.forEach(t=>document.getElementById('page-'+t).classList.toggle('active',t===tab));
 };
+
 function getSpent(catId){
 return Object.values(state.transactions)
 .filter(t=>t.cat===catId&&!t.transfer)
 .reduce((s,t)=>s+Math.abs(t.amount),0);
 }
+
 function getTxsByCat(catId){
 return Object.values(state.transactions)
 .filter(t=>t.cat===catId)
 .sort((a,b)=>b.ts-a.ts);
 }
+
 function renderAll(){
 const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
 document.getElementById('month-label').textContent=lbl;
@@ -532,16 +603,9 @@ document.getElementById('month-label-2').textContent=lbl;
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
 document.getElementById('sal-andrija').value=a||'';
 document.getElementById('sal-katarina').value=k||'';
-// Živo stanje u kasi: prihod - sve potrošeno ovog meseca
-const prihod=a+k;
-const potroseno=getTotalSpent();
-const ukasi=prihod-potroseno;
-const incEl=document.getElementById('total-income');
-incEl.textContent=fmtRSD(ukasi);
-incEl.className='val'+(ukasi<0?' over':'');
-document.getElementById('income-sub').textContent=`prihod ${fmtRSD(prihod)} − potrošeno ${fmtRSD(potroseno)}`;
+document.getElementById('total-income').textContent=fmtRSD(a+k);
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=prihod-planirano;
+const neraspored=(a+k)-planirano;
 const uel=document.getElementById('unallocated');
 uel.textContent=fmtRSD(neraspored);
 uel.className='unalloc-val '+(neraspored<0?'over':'ok');
@@ -550,12 +614,9 @@ if(nt&&document.activeElement!==nt)nt.value=state.notes||'';
 renderBudgetSections();
 renderTransactions();
 }
+
 function renderBudgetSections(){
 const cont=document.getElementById('budget-sections');
-const active=document.activeElement;
-if(active&&active.closest&&active.closest('.item-planned')){
-return;
-}
 let html='';
 SECTIONS.forEach(s=>{
 const planned=state.budget_items[s.id]||0;
@@ -585,7 +646,7 @@ html+=`<div class="budget-item">
 <span class="item-name">${s.label}</span>
 ${canReset?`<button class="reset-btn" onclick="event.stopPropagation();resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
 <div class="item-planned" onclick="event.stopPropagation()">
-<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" onchange="saveBudgetItem(this)">
+<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
 </div>
 </div>
 ${planned>0?`<div class="item-bar">
@@ -602,6 +663,7 @@ ${planned>0?`<div class="item-bar">
 });
 cont.innerHTML=html;
 }
+
 function renderTransactions(){
 const txs=Object.values(state.transactions);
 const list=document.getElementById('tx-list');
@@ -620,9 +682,11 @@ ${t.desc?`<div class="tx-desc">${t.desc}</div>`:''}
 </div>
 `).join('');
 }
+
 window.deleteTx=function(ts){
 remove(ref(db,dbPath(`transactions/${ts}`)));
 };
+
 window.openModal=function(){
 const sel=document.getElementById('tx-cat');
 sel.innerHTML=SECTIONS.map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
@@ -641,6 +705,7 @@ const ts=Date.now();
 set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat,desc,ts});
 closeModal();
 };
+
 // ---- Kalkulator ----
 let calcExpr='';
 function calcRender(){
@@ -666,9 +731,11 @@ calcRender();
 }
 }catch(e){}
 };
+
 listenMonth();
 listenSavings();
 listenMore();
+
 if('serviceWorker' in navigator){
 navigator.serviceWorker.register('/Budzet/sw.js');
 }

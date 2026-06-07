@@ -36,6 +36,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
 .salary-total .lbl{font-size:13px;color:var(--text2)}
 .salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
+.salary-total .val.over{color:var(--red)}
+.salary-sub{font-size:11px;color:var(--text2);margin-top:2px;text-align:right}
 .unalloc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;margin-top:-1rem}
 .unalloc-lbl{font-size:13px;color:var(--text2)}
 .unalloc-val{font-size:16px;font-weight:700}
@@ -163,8 +165,11 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 <div class="salary-total">
-<span class="lbl">Ukupno u kasi</span>
+<span class="lbl">U kasi trenutno</span>
+<div style="text-align:right">
 <span class="val" id="total-income">0 RSD</span>
+<div class="salary-sub" id="income-sub"></div>
+</div>
 </div>
 <div class="unalloc-card">
 <span class="unalloc-lbl">Neraspoređeno</span>
@@ -361,6 +366,12 @@ renderMore();
 });
 }
 function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
+// Ukupno potrošeno ovog meseca (prave transakcije, bez internih prenosa)
+function getTotalSpent(){
+return Object.values(state.transactions)
+.filter(t=>!t.transfer)
+.reduce((s,t)=>s+Math.abs(t.amount),0);
+}
 window.saveSalary=function(who,val){
 state.salaries[who]=parseFloat(val)||0;
 set(ref(db,dbPath('salaries')),state.salaries);
@@ -521,9 +532,16 @@ document.getElementById('month-label-2').textContent=lbl;
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
 document.getElementById('sal-andrija').value=a||'';
 document.getElementById('sal-katarina').value=k||'';
-document.getElementById('total-income').textContent=fmtRSD(a+k);
+// Živo stanje u kasi: prihod - sve potrošeno ovog meseca
+const prihod=a+k;
+const potroseno=getTotalSpent();
+const ukasi=prihod-potroseno;
+const incEl=document.getElementById('total-income');
+incEl.textContent=fmtRSD(ukasi);
+incEl.className='val'+(ukasi<0?' over':'');
+document.getElementById('income-sub').textContent=`prihod ${fmtRSD(prihod)} − potrošeno ${fmtRSD(potroseno)}`;
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=(a+k)-planirano;
+const neraspored=prihod-planirano;
 const uel=document.getElementById('unallocated');
 uel.textContent=fmtRSD(neraspored);
 uel.className='unalloc-val '+(neraspored<0?'over':'ok');

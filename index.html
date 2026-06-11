@@ -148,15 +148,19 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .racun-sub{font-size:11px;color:var(--text2);font-weight:400;margin-top:2px}
 /* Pregled tab */
 .pg-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.6rem}
-.pg-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.pg-head{display:flex;align-items:center;gap:.6rem;cursor:pointer;user-select:none}
 .pg-name{flex:1;font-size:14px;font-weight:600}
 .pg-total{font-size:14px;font-weight:700;color:var(--accent)}
-.pg-row{display:flex;align-items:center;gap:.5rem;padding:.3rem 0;border-top:1px solid var(--border)}
-.pg-row-name{flex:1;font-size:12px;color:var(--text2)}
+.pg-body{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.pg-body.open{max-height:800px;margin-top:.7rem}
+.pg-stack{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-bottom:.7rem;background:var(--surface2)}
+.pg-stack-seg{height:100%}
+.pg-row{display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-top:1px solid var(--border)}
+.pg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.pg-row-name{flex:1;font-size:12px;color:var(--text)}
 .pg-row-cnt{font-size:11px;color:var(--text2)}
+.pg-row-pct{font-size:11px;color:var(--text2);min-width:34px;text-align:right}
 .pg-row-amt{font-size:12px;font-weight:600;min-width:70px;text-align:right}
-.pg-bar{height:3px;background:var(--surface2);border-radius:2px;margin-top:3px;overflow:hidden}
-.pg-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px}
 </style>
 </head>
 <body>
@@ -602,6 +606,16 @@ const norm=t.charAt(0).toUpperCase()+t.slice(1);
 return{key:norm,name:norm,icon:'•'};
 }
 
+const PG_BOJE=['#6c63ff','#ff6b9d','#4ade80','#fbbf24','#38bdf8','#f87171','#a78bfa','#34d399','#fb923c','#e879f9'];
+let openPg={};
+window.togglePg=function(id){
+openPg[id]=!openPg[id];
+const b=document.getElementById('pgb-'+id);
+const t=document.getElementById('pgt-'+id);
+if(b)b.classList.toggle('open',openPg[id]);
+if(t)t.classList.toggle('open',openPg[id]);
+};
+
 function renderPregled(){
 const cont=document.getElementById('pregled-list');
 if(!cont)return;
@@ -620,22 +634,29 @@ if(!groups[g.key])groups[g.key]={...g,sum:0,count:0};
 groups[g.key].sum+=Math.abs(t.amount);
 groups[g.key].count++;
 });
-const rows=Object.values(groups).sort((a,b)=>b.sum-a.sum).map(g=>`
+const sorted=Object.values(groups).sort((a,b)=>b.sum-a.sum);
+const stack=sorted.map((g,i)=>`<div class="pg-stack-seg" style="width:${(g.sum/total)*100}%;background:${PG_BOJE[i%PG_BOJE.length]}"></div>`).join('');
+const rows=sorted.map((g,i)=>`
 <div class="pg-row">
+<span class="pg-dot" style="background:${PG_BOJE[i%PG_BOJE.length]}"></span>
 <span>${g.icon}</span>
 <span class="pg-row-name">${g.name}</span>
 <span class="pg-row-cnt">${g.count}×</span>
+<span class="pg-row-pct">${Math.round((g.sum/total)*100)}%</span>
 <span class="pg-row-amt">${fmtRSD(g.sum)}</span>
-</div>
-<div class="pg-bar"><div class="pg-bar-fill" style="width:${total>0?(g.sum/total)*100:0}%"></div></div>
-`).join('');
+</div>`).join('');
+const isOpen=openPg[s.id];
 html+=`<div class="pg-section">
-<div class="pg-head">
+<div class="pg-head" onclick="togglePg('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="pgt-${s.id}">▶</span>
 <span style="font-size:18px">${ICONS[s.id]||'📦'}</span>
 <span class="pg-name">${s.label}</span>
 <span class="pg-total">${fmtRSD(total)}</span>
 </div>
+<div class="pg-body ${isOpen?'open':''}" id="pgb-${s.id}">
+<div class="pg-stack">${stack}</div>
 ${rows}
+</div>
 </div>`;
 });
 const tot=document.getElementById('pregled-total');

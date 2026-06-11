@@ -179,6 +179,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <span class="unalloc-lbl">Neraspoređeno</span>
 <span class="unalloc-val" id="unallocated">0 RSD</span>
 </div>
+<button id="copy-prev-btn" onclick="copyPrevMonth()" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:.7rem;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;margin-bottom:1.5rem;margin-top:-1rem">📋 Kopiraj raspored iz prošlog meseca</button>
 
 <!-- ŠTEDNJA KARTICA -->
 <div class="savings-card">
@@ -336,7 +337,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import {getDatabase,ref,set,onValue,remove} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+import {getDatabase,ref,set,onValue,remove,get} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
 
 const firebaseConfig = {
 apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
@@ -480,6 +481,29 @@ state.transactions[ts]={amount,cat:activeLicni,desc:desc||'Odvojeno',ts,transfer
 set(ref(db,dbPath('budget_items')),state.budget_items);
 set(ref(db,dbPath('transactions')),state.transactions);
 closeOdvojiModal();
+};
+
+// ---- KOPIRAJ RASPORED IZ PROŠLOG MESECA ----
+window.copyPrevMonth=function(){
+let pm=currentMonth-1, py=currentYear;
+if(pm<0){pm=11;py--}
+get(ref(db,`budzet/${py}/${pm}/budget_items`)).then(snap=>{
+const prev=snap.val();
+if(!prev){alert(`Nema podataka za ${MONTHS_SR[pm]} ${py}`);return}
+// kopiraj samo planske kućne stavke — preskoči lične, štednju i investicije (to su žive pare)
+const skip=[...LICNI,'stednja','investicije'];
+const novi={...state.budget_items};
+let kopirano=0;
+Object.keys(prev).forEach(id=>{
+if(skip.includes(id))return;
+novi[id]=prev[id];
+kopirano++;
+});
+if(!kopirano){alert('Nema kućnih stavki za kopiranje');return}
+if(!confirm(`Kopirati raspored iz ${MONTHS_SR[pm]} ${py}? (${kopirano} stavki, plate i lični troškovi se ne diraju)`))return;
+state.budget_items=novi;
+set(ref(db,dbPath('budget_items')),novi);
+});
 };
 
 // ---- ŠTEDNJA ----
@@ -652,8 +676,15 @@ document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošen
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
 const neraspored=(a+k)-planirano;
 const uel=document.getElementById('unallocated');
+if(neraspored<0&&(a===0||k===0)){
+uel.textContent='čeka se plata…';
+uel.className='unalloc-val';
+uel.style.color='var(--text2)';
+}else{
 uel.textContent=fmtRSD(neraspored);
 uel.className='unalloc-val '+(neraspored<0?'over':'ok');
+uel.style.color='';
+}
 const nt=document.getElementById('notes-text');
 if(nt&&document.activeElement!==nt)nt.value=state.notes||'';
 renderBudgetSections();

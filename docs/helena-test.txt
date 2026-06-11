@@ -1,0 +1,3 @@
+Helena ima ruke. Prvi commit preko Worker konektora — 11.06.2026.
+Ako citas ovo na GitHubu, ceo lanac radi: Claude -> Cloudflare Worker -> GitHub API.
+Slobodno obrisi ovaj fajl, sluzio je samo kao test.

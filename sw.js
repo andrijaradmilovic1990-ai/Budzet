@@ -1,4 +1,4 @@
-const CACHE = 'budzet-v1';
+const CACHE = 'budzet-v2';
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['/', '/Budzet/', '/Budzet/index.html'])));
 });

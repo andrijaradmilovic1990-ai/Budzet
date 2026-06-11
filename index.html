@@ -315,6 +315,25 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 
+<!-- MODAL: Odvoji lični trošak -->
+<div class="modal-overlay" id="odvoji-modal" onclick="closeOdvojiOutside(event)">
+<div class="modal">
+<h3 id="odvoji-title">Odvoji lični trošak</h3>
+<div class="form-group">
+<label>Iznos (RSD)</label>
+<input type="number" id="od-amount" placeholder="npr. 5000">
+</div>
+<div class="form-group">
+<label>Napomena (opciono)</label>
+<input type="text" id="od-desc" placeholder="npr. od Katarinine plate...">
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeOdvojiModal()">Otkaži</button>
+<button class="btn-save" onclick="confirmOdvoji()">Odvoji</button>
+</div>
+</div>
+</div>
+
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {getDatabase,ref,set,onValue,remove} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
@@ -342,6 +361,7 @@ const SECTIONS = [
 {id:'licni_andrija',label:'Andrija lični trošak'},
 ];
 const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',stednja:'🏦',investicije:'📈',licni_katarina:'💄',licni_andrija:'🎸'};
+const LICNI = ['licni_katarina','licni_andrija'];
 const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','September','Oktobar','November','Decembar'];
 
 let currentMonth = new Date().getMonth();
@@ -437,6 +457,29 @@ state.budget_items['stednja']=(state.budget_items['stednja']||0)+left;
 state.transactions[ts]={amount:-left,cat:'stednja',desc:`Prenos iz ${SECTIONS.find(s=>s.id===catId)?.label}`,ts,transfer:true};
 set(ref(db,dbPath('budget_items')),state.budget_items);
 set(ref(db,dbPath('transactions')),state.transactions);
+};
+
+// ---- ODVOJI LIČNI TROŠAK ----
+let activeLicni='licni_andrija';
+window.openOdvojiModal=function(catId){
+activeLicni=catId;
+document.getElementById('odvoji-title').textContent='Odvoji — '+(SECTIONS.find(s=>s.id===catId)?.label||'');
+document.getElementById('od-amount').value='';
+document.getElementById('od-desc').value='';
+document.getElementById('odvoji-modal').classList.add('open');
+};
+window.closeOdvojiModal=function(){document.getElementById('odvoji-modal').classList.remove('open')};
+window.closeOdvojiOutside=function(e){if(e.target===document.getElementById('odvoji-modal'))closeOdvojiModal()};
+window.confirmOdvoji=function(){
+const amount=parseFloat(document.getElementById('od-amount').value)||0;
+if(amount<=0){alert('Unesi iznos');return}
+const desc=document.getElementById('od-desc').value.trim();
+const ts=Date.now();
+state.budget_items[activeLicni]=(parseFloat(state.budget_items[activeLicni])||0)+amount;
+state.transactions[ts]={amount,cat:activeLicni,desc:desc||'Odvojeno',ts,transfer:true};
+set(ref(db,dbPath('budget_items')),state.budget_items);
+set(ref(db,dbPath('transactions')),state.transactions);
+closeOdvojiModal();
 };
 
 // ---- ŠTEDNJA ----
@@ -603,8 +646,9 @@ document.getElementById('month-label-2').textContent=lbl;
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
 document.getElementById('sal-andrija').value=a||'';
 document.getElementById('sal-katarina').value=k||'';
-const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer).reduce((s,t)=>s+Math.abs(t.amount),0);
-document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno);
+const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
+const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
+document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
 const neraspored=(a+k)-planirano;
 const uel=document.getElementById('unallocated');
@@ -621,6 +665,32 @@ const cont=document.getElementById('budget-sections');
 let html='';
 SECTIONS.forEach(s=>{
 const planned=state.budget_items[s.id]||0;
+if(LICNI.includes(s.id)){
+const txs=getTxsByCat(s.id);
+const isOpen=openItems[s.id];
+let txHtml='';
+if(txs.length){
+txHtml=txs.map(t=>`
+<div class="item-tx-row">
+<span class="item-tx-left">↑ ${t.desc||'Odvojeno'} · ${new Date(t.ts).toLocaleDateString('sr-RS')}</span>
+<span class="item-tx-amt">+${fmtRSD(Math.abs(t.amount))}</span>
+</div>`).join('');
+}else{
+txHtml='<div class="item-tx-empty">Još ništa nije odvojeno ovog meseca</div>';
+}
+html+=`<div class="budget-item">
+<div class="item-row item-head" onclick="toggleItem('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
+<span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
+<span class="item-name">${s.label}<div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:2px">Odvojeno: <b style="color:var(--accent)">${fmtRSD(planned)}</b></div></span>
+<button class="reset-btn" style="background:rgba(108,99,255,.12);border-color:rgba(108,99,255,.3);color:var(--accent)" onclick="event.stopPropagation();openOdvojiModal('${s.id}')">+ Odvoji</button>
+</div>
+<div class="item-txs ${isOpen?'open':''}" id="txs-${s.id}">
+<div class="item-txs-inner">${txHtml}</div>
+</div>
+</div>`;
+return;
+}
 const spent=getSpent(s.id);
 const left=planned-spent;
 const pct=planned>0?Math.min(100,(spent/planned)*100):0;
@@ -690,7 +760,7 @@ remove(ref(db,dbPath(`transactions/${ts}`)));
 
 window.openModal=function(){
 const sel=document.getElementById('tx-cat');
-sel.innerHTML=SECTIONS.map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
+sel.innerHTML=SECTIONS.filter(s=>!LICNI.includes(s.id)).map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
 document.getElementById('tx-amount').value='';
 document.getElementById('tx-desc').value='';
 document.getElementById('modal').classList.add('open');

@@ -1328,12 +1328,17 @@ try{await signInWithRedirect(auth,googleProvider)}catch(e2){authError(prettyAuth
 }else{authError(prettyAuthErr(e))}
 }
 };
-document.getElementById('btn-unlock').onclick=async function(){
+let bioPrompting=false;
+async function tryBioUnlock(manual){
+if(bioPrompting)return;
+bioPrompting=true;
 authError('');
 try{
 if(await bioVerify(currentUser.uid)){hideGate();startAppOnce()}
-}catch(e){authError('Otisak nije prepoznat. Pokušaj ponovo.')}
-};
+}catch(e){if(manual)authError('Otisak nije prepoznat. Pokušaj ponovo.')}
+finally{bioPrompting=false}
+}
+document.getElementById('btn-unlock').onclick=function(){tryBioUnlock(true)};
 document.getElementById('btn-logout-locked').onclick=function(){signOut(auth)};
 document.getElementById('btn-bio-enable').onclick=async function(){
 try{await bioRegister(currentUser.uid,currentUser.email);document.getElementById('bio-enroll').style.display='none'}
@@ -1379,6 +1384,7 @@ return;
 if(accBtn)accBtn.style.display='';
 if(bioEnabled(user.uid)){
 gateState('lock');
+tryBioUnlock(false);
 }else{
 hideGate();
 startAppOnce();

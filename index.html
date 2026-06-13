@@ -192,6 +192,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .auth-btn:active{transform:scale(.98)}
 .auth-link{background:none;border:none;color:var(--text2);font-size:13px;cursor:pointer;text-decoration:underline;padding:.5rem}
 .auth-error{color:var(--red);font-size:12px;margin-top:.6rem;min-height:16px;word-break:break-word}
+.bio-touch{width:130px;height:130px;border-radius:50%;margin:0 auto 1.1rem;display:flex;align-items:center;justify-content:center;background:rgba(108,99,255,.12);border:2px solid rgba(108,99,255,.45);color:var(--accent);cursor:pointer;-webkit-tap-highlight-color:transparent;animation:biopulse 1.8s ease-in-out infinite}
+.bio-touch:active{transform:scale(.95)}
+@keyframes biopulse{0%,100%{box-shadow:0 0 0 0 rgba(108,99,255,.35)}70%{box-shadow:0 0 0 16px rgba(108,99,255,0)}}
 .acc-email{font-size:16px;font-weight:600;margin-bottom:.6rem;word-break:break-all}
 .acc-uid{font-size:11px;color:var(--text2);margin-bottom:1rem;word-break:break-all;background:var(--surface2);padding:.5rem .6rem;border-radius:var(--radius-sm)}
 .acc-toggle{display:flex;align-items:center;gap:.6rem;font-size:14px;cursor:pointer;padding:.4rem 0}
@@ -434,7 +437,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <button class="auth-btn auth-google" id="btn-google">Prijavi se Google nalogom</button>
 </div>
 <div id="auth-lock-state" style="display:none">
-<button class="auth-btn auth-google" id="btn-unlock">🔓 Otključaj otiskom</button>
+<div class="bio-touch" id="bio-touch"><svg viewBox="0 0 24 24" width="58" height="58" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2"/></svg></div>
 <button class="auth-link" id="btn-logout-locked">Odjavi se</button>
 </div>
 <div class="auth-error" id="auth-error"></div>
@@ -1274,7 +1277,7 @@ document.getElementById('auth-gate').style.display='flex';
 document.getElementById('auth-login-state').style.display=state==='login'?'block':'none';
 document.getElementById('auth-lock-state').style.display=state==='lock'?'block':'none';
 const sub=document.getElementById('auth-sub');
-sub.textContent=state==='login'?'Prijavi se da nastaviš':state==='lock'?'Otključaj otiskom da nastaviš':'Učitavanje…';
+sub.textContent=state==='login'?'Prijavi se da nastaviš':state==='lock'?'Dodirni ekran za otisak 👆':'Učitavanje…';
 }
 function hideGate(){document.getElementById('auth-gate').style.display='none'}
 function authError(m){document.getElementById('auth-error').textContent=m||''}
@@ -1338,7 +1341,12 @@ if(await bioVerify(currentUser.uid)){hideGate();startAppOnce()}
 }catch(e){if(manual)authError('Otisak nije prepoznat. Pokušaj ponovo.')}
 finally{bioPrompting=false}
 }
-document.getElementById('btn-unlock').onclick=function(){tryBioUnlock(true)};
+// ceo zaključan ekran je „dugme" za otisak (osim linka „Odjavi se")
+document.getElementById('auth-gate').addEventListener('click',function(e){
+if(document.getElementById('auth-lock-state').style.display==='none')return;
+if(e.target.id==='btn-logout-locked')return;
+tryBioUnlock(true);
+});
 document.getElementById('btn-logout-locked').onclick=function(){signOut(auth)};
 document.getElementById('btn-bio-enable').onclick=async function(){
 try{await bioRegister(currentUser.uid,currentUser.email);document.getElementById('bio-enroll').style.display='none'}

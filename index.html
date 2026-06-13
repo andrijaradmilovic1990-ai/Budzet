@@ -181,13 +181,33 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .tcr-diff.up{color:var(--red)}
 .tcr-diff.down{color:var(--green)}
 .tcr-diff.flat{color:var(--text2)}
+/* Auth gate / prijava / otisak */
+.auth-gate{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.auth-box{text-align:center;max-width:320px;width:100%}
+.auth-logo{font-size:52px;margin-bottom:.5rem}
+.auth-title{font-size:22px;font-weight:700;margin-bottom:.35rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.auth-sub{font-size:13px;color:var(--text2);margin-bottom:1.5rem;line-height:1.4}
+.auth-btn{width:100%;border:none;border-radius:var(--radius);padding:.9rem;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:.6rem}
+.auth-google{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.auth-btn:active{transform:scale(.98)}
+.auth-link{background:none;border:none;color:var(--text2);font-size:13px;cursor:pointer;text-decoration:underline;padding:.5rem}
+.auth-error{color:var(--red);font-size:12px;margin-top:.6rem;min-height:16px;word-break:break-word}
+.acc-email{font-size:16px;font-weight:600;margin-bottom:.6rem;word-break:break-all}
+.acc-uid{font-size:11px;color:var(--text2);margin-bottom:1rem;word-break:break-all;background:var(--surface2);padding:.5rem .6rem;border-radius:var(--radius-sm)}
+.acc-toggle{display:flex;align-items:center;gap:.6rem;font-size:14px;cursor:pointer;padding:.4rem 0}
+.acc-toggle input{width:20px;height:20px;flex-shrink:0}
+.acc-btn-icon{background:none;border:none;font-size:18px;cursor:pointer;padding:0;line-height:1}
+.header-actions{display:flex;align-items:center;gap:.75rem}
 </style>
 </head>
 <body>
 <div class="header">
 <div class="header-top">
 <h1>💰 Kućni Budžet</h1>
+<div class="header-actions">
+<button class="acc-btn-icon" id="acc-btn" onclick="openAccountModal()" title="Nalog" style="display:none">👤</button>
 <div class="sync-dot" id="sync-dot" title="Firebase sync"></div>
+</div>
 </div>
 <div class="tabs">
 <button class="tab active" onclick="switchTab('budzet')">Budžet</button>
@@ -404,9 +424,53 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 
+<!-- AUTH GATE: prijava / otisak -->
+<div id="auth-gate" class="auth-gate">
+<div class="auth-box">
+<div class="auth-logo">💰</div>
+<div class="auth-title">Kućni Budžet</div>
+<div class="auth-sub" id="auth-sub">Učitavanje…</div>
+<div id="auth-login-state" style="display:none">
+<button class="auth-btn auth-google" id="btn-google">Prijavi se Google nalogom</button>
+</div>
+<div id="auth-lock-state" style="display:none">
+<button class="auth-btn auth-google" id="btn-unlock">🔓 Otključaj otiskom</button>
+<button class="auth-link" id="btn-logout-locked">Odjavi se</button>
+</div>
+<div class="auth-error" id="auth-error"></div>
+</div>
+</div>
+
+<!-- BIOMETRIJA: ponuda za uključivanje -->
+<div id="bio-enroll" class="auth-gate" style="display:none">
+<div class="auth-box">
+<div class="auth-logo">🔐</div>
+<div class="auth-title">Zaključaj otiskom?</div>
+<div class="auth-sub">Na ovom telefonu možeš da otključavaš aplikaciju otiskom prsta. Otisak ne napušta telefon.</div>
+<button class="auth-btn auth-google" id="btn-bio-enable">Uključi otisak</button>
+<button class="auth-link" id="btn-bio-skip">Ne sada</button>
+<div class="auth-error" id="bio-error"></div>
+</div>
+</div>
+
+<!-- MODAL: Nalog -->
+<div class="modal-overlay" id="account-modal" onclick="closeAccountOutside(event)">
+<div class="modal">
+<h3>Nalog</h3>
+<div class="acc-email" id="acc-email"></div>
+<div class="acc-uid" id="acc-uid"></div>
+<label class="acc-toggle" id="acc-bio-row"><input type="checkbox" id="acc-bio"> Zaključaj otiskom na ovom telefonu</label>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeAccountModal()">Zatvori</button>
+<button class="btn-save" id="btn-logout" style="background:var(--red)">Odjavi se</button>
+</div>
+</div>
+</div>
+
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {getDatabase,ref,set,onValue,remove,get} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,onAuthStateChanged,signOut,setPersistence,browserLocalPersistence} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 const firebaseConfig = {
 apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
@@ -1185,10 +1249,144 @@ calcRender();
 }catch(e){}
 };
 
-listenMonth();
-listenSavings();
-listenMore();
-listenLaptop();
+// ============ PRIJAVA (Google) + BIOMETRIJA (otisak) ============
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+let currentUser = null;
+let appStarted = false;
+
+function startAppOnce(){
+if(appStarted)return;
+appStarted=true;
+listenMonth();listenSavings();listenMore();listenLaptop();
+}
+
+function prettyAuthErr(e){
+const c=(e&&e.code)||'';
+if(c==='auth/unauthorized-domain')return 'Ovaj domen nije dozvoljen u Firebase-u. Dodaj ga: Authentication → Settings → Authorized domains.';
+if(c==='auth/popup-blocked')return 'Pregledač je blokirao prozor za prijavu.';
+if(c==='auth/network-request-failed')return 'Nema internet konekcije.';
+return (e&&e.message)||'Greška pri prijavi.';
+}
+
+function gateState(state){ // 'loading' | 'login' | 'lock'
+document.getElementById('auth-gate').style.display='flex';
+document.getElementById('auth-login-state').style.display=state==='login'?'block':'none';
+document.getElementById('auth-lock-state').style.display=state==='lock'?'block':'none';
+const sub=document.getElementById('auth-sub');
+sub.textContent=state==='login'?'Prijavi se da nastaviš':state==='lock'?'Otključaj otiskom da nastaviš':'Učitavanje…';
+}
+function hideGate(){document.getElementById('auth-gate').style.display='none'}
+function authError(m){document.getElementById('auth-error').textContent=m||''}
+
+// ---- WebAuthn: lokalna brava na ovom telefonu (otisak/Face ID) ----
+// Napomena: ovo je brza brava na ekran aplikacije na samom uređaju.
+// Pravu zaštitu podataka radi Google prijava + Firebase pravila.
+function bioKey(uid){return 'budzet_bio_'+uid}
+function bioDeclinedKey(uid){return 'budzet_bio_declined_'+uid}
+function bioSupported(){return !!(window.PublicKeyCredential&&navigator.credentials&&navigator.credentials.create)}
+function bioEnabled(uid){return !!localStorage.getItem(bioKey(uid))}
+function bioDisable(uid){localStorage.removeItem(bioKey(uid))}
+function randChallenge(){const u=new Uint8Array(32);crypto.getRandomValues(u);return u.buffer}
+function bufToB64(buf){const u=new Uint8Array(buf);let s='';for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)}
+function b64ToBuf(b64){const bin=atob(b64);const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u.buffer}
+async function bioRegister(uid,email){
+if(!bioSupported())throw new Error('Pregledač ne podržava otisak');
+const cred=await navigator.credentials.create({publicKey:{
+challenge:randChallenge(),
+rp:{name:'Kućni Budžet'},
+user:{id:new TextEncoder().encode(uid),name:email||'korisnik',displayName:email||'korisnik'},
+pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],
+authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},
+timeout:60000
+}});
+localStorage.setItem(bioKey(uid),bufToB64(cred.rawId));
+}
+async function bioVerify(uid){
+const id=localStorage.getItem(bioKey(uid));
+if(!id)return false;
+await navigator.credentials.get({publicKey:{
+challenge:randChallenge(),
+allowCredentials:[{type:'public-key',id:b64ToBuf(id)}],
+userVerification:'required',
+timeout:60000
+}});
+return true;
+}
+
+// ---- dugmad na ekranu za prijavu/otisak ----
+document.getElementById('btn-google').onclick=async function(){
+authError('');
+try{
+await signInWithPopup(auth,googleProvider);
+}catch(e){
+const c=(e&&e.code)||'';
+if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
+try{await signInWithRedirect(auth,googleProvider)}catch(e2){authError(prettyAuthErr(e2))}
+}else if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request'){
+/* korisnik odustao */
+}else{authError(prettyAuthErr(e))}
+}
+};
+document.getElementById('btn-unlock').onclick=async function(){
+authError('');
+try{
+if(await bioVerify(currentUser.uid)){hideGate();startAppOnce()}
+}catch(e){authError('Otisak nije prepoznat. Pokušaj ponovo.')}
+};
+document.getElementById('btn-logout-locked').onclick=function(){signOut(auth)};
+document.getElementById('btn-bio-enable').onclick=async function(){
+try{await bioRegister(currentUser.uid,currentUser.email);document.getElementById('bio-enroll').style.display='none'}
+catch(e){document.getElementById('bio-error').textContent='Nije uspelo: '+((e&&e.message)||e)}
+};
+document.getElementById('btn-bio-skip').onclick=function(){
+localStorage.setItem(bioDeclinedKey(currentUser.uid),'1');
+document.getElementById('bio-enroll').style.display='none';
+};
+
+// ---- modal: Nalog ----
+window.openAccountModal=function(){
+if(!currentUser)return;
+document.getElementById('acc-email').textContent=currentUser.email||'—';
+document.getElementById('acc-uid').textContent='UID: '+currentUser.uid;
+document.getElementById('acc-bio').checked=bioEnabled(currentUser.uid);
+document.getElementById('acc-bio-row').style.display=bioSupported()?'flex':'none';
+document.getElementById('account-modal').classList.add('open');
+};
+window.closeAccountModal=function(){document.getElementById('account-modal').classList.remove('open')};
+window.closeAccountOutside=function(e){if(e.target===document.getElementById('account-modal'))closeAccountModal()};
+document.getElementById('acc-bio').onchange=async function(ev){
+if(!currentUser)return;
+if(ev.target.checked){
+try{await bioRegister(currentUser.uid,currentUser.email);localStorage.removeItem(bioDeclinedKey(currentUser.uid))}
+catch(e){ev.target.checked=false;alert('Nije uspelo uključivanje otiska: '+((e&&e.message)||e))}
+}else{bioDisable(currentUser.uid)}
+};
+document.getElementById('btn-logout').onclick=function(){closeAccountModal();signOut(auth)};
+
+// ---- praćenje stanja prijave ----
+setPersistence(auth,browserLocalPersistence).catch(function(){});
+getRedirectResult(auth).catch(function(e){authError(prettyAuthErr(e))});
+onAuthStateChanged(auth,function(user){
+currentUser=user;
+const accBtn=document.getElementById('acc-btn');
+if(!user){
+appStarted=false;
+if(accBtn)accBtn.style.display='none';
+gateState('login');
+return;
+}
+if(accBtn)accBtn.style.display='';
+if(bioEnabled(user.uid)){
+gateState('lock');
+}else{
+hideGate();
+startAppOnce();
+if(bioSupported()&&!localStorage.getItem(bioDeclinedKey(user.uid))){
+document.getElementById('bio-enroll').style.display='flex';
+}
+}
+});
 
 if('serviceWorker' in navigator){
 navigator.serviceWorker.register('/Budzet/sw.js');

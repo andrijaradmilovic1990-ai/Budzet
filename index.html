@@ -1438,6 +1438,24 @@ document.getElementById('bio-enroll').style.display='flex';
 if('serviceWorker' in navigator){
 navigator.serviceWorker.register('/Budzet/sw.js');
 }
+
+// Swipe navigacija između tabova
+(function(){
+  const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
+  let startX=0,startY=0;
+  document.addEventListener('touchstart',function(e){
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    const dx=e.changedTouches[0].clientX-startX;
+    const dy=e.changedTouches[0].clientY-startY;
+    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.5)return;
+    const active=tabs.findIndex(t=>document.getElementById('page-'+t).classList.contains('active'));
+    if(dx>0&&active>0)switchTab(tabs[active-1]);
+    if(dx<0&&active<tabs.length-1)switchTab(tabs[active+1]);
+  },{passive:true});
+})();
 </script>
 </body>
 </html>

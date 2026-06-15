@@ -1,1 +1,1481 @@
-# PLACEHOLDER - needs file content
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f0f1a">
+<title>Kućni Budžet</title>
+<link rel="manifest" href="manifest.json">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0f0f1a;--surface:#1a1a2e;--surface2:#242440;--accent:#6c63ff;
+--accent2:#ff6b9d;--text:#e8e8f0;--text2:#9898b8;--border:#2e2e50;
+--green:#4ade80;--red:#f87171;--amber:#fbbf24;
+--radius:12px;--radius-sm:8px;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:80px}
+.header{background:var(--surface);padding:1rem 1.25rem 0;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.header h1{font-size:18px;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:var(--text2)}
+.sync-dot.online{background:var(--green)}
+.sync-dot.offline{background:var(--red)}
+.tabs{display:flex;gap:4px}
+.tab{flex:1;padding:.6rem .2rem;border:none;background:none;color:var(--text2);font-size:13px;font-weight:500;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.page{display:none;padding:1rem}
+.page.active{display:block}
+.salary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.salary-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
+.salary-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:.4rem}
+.salary-card .name{font-size:13px;font-weight:500;margin-bottom:.5rem}
+.salary-card .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;background:rgba(108,99,255,.15);color:var(--accent);margin-bottom:.6rem}
+.salary-card input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.5rem .75rem;color:var(--text);font-size:15px;font-weight:600}
+.salary-card input:focus{outline:none;border-color:var(--accent)}
+.salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.salary-total .lbl{font-size:13px;color:var(--text2)}
+.salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
+.unalloc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;margin-top:-1rem}
+.unalloc-lbl{font-size:13px;color:var(--text2)}
+.unalloc-val{font-size:16px;font-weight:700}
+.unalloc-val.ok{color:var(--green)}
+.unalloc-val.over{color:var(--red)}
+.section-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin:.75rem 0 .5rem;display:flex;align-items:center;gap:.5rem}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.budget-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.5rem}
+.item-row{display:flex;align-items:center;gap:.75rem}
+.item-name{flex:1;font-size:14px;font-weight:500}
+.item-planned{width:100px}
+.item-planned input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.4rem .6rem;color:var(--text);font-size:13px;text-align:right}
+.item-planned input:focus{outline:none;border-color:var(--accent)}
+.item-planned input[readonly]{opacity:.7;cursor:default;border-color:var(--border)}
+.item-bar{margin-top:.6rem}
+.bar-track{height:4px;background:var(--surface2);border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.bar-info{display:flex;justify-content:space-between;margin-top:.3rem}
+.bar-spent{font-size:11px;color:var(--text2)}
+.bar-left{font-size:11px;font-weight:600}
+.bar-left.ok{color:var(--green)}
+.bar-left.warn{color:var(--amber)}
+.bar-left.over{color:var(--red)}
+.reset-btn{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);border-radius:6px;color:#4ade80;font-size:11px;font-weight:600;padding:3px 8px;cursor:pointer;white-space:nowrap;margin-right:4px}
+.reset-btn:hover{background:rgba(74,222,128,.22)}
+.add-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:var(--radius);padding:.85rem;color:#fff;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:1.25rem}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border-radius:var(--radius) var(--radius) 0 0;padding:1.5rem;width:100%;max-width:480px;transform:translateY(40px);transition:transform .2s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal h3{font-size:16px;font-weight:600;margin-bottom:1.25rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:12px;color:var(--text2);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em}
+.form-group input,.form-group select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.65rem .85rem;color:var(--text);font-size:15px}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--accent)}
+.form-group select option{background:var(--surface2)}
+.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.5rem}
+.btn-cancel{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.75rem;color:var(--text2);font-size:14px;cursor:pointer}
+.btn-save{background:var(--accent);border:none;border-radius:var(--radius-sm);padding:.75rem;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+.tx-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.75rem}
+.tx-icon{width:38px;height:38px;border-radius:10px;background:rgba(108,99,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.tx-info{flex:1}
+.tx-cat{font-size:13px;font-weight:500}
+.tx-desc{font-size:12px;color:var(--text2)}
+.tx-date{font-size:11px;color:var(--text2);margin-top:2px}
+.tx-amount{font-size:16px;font-weight:700;color:var(--red)}
+.tx-del{background:none;border:none;color:var(--text2);font-size:18px;cursor:pointer;padding:0 4px;line-height:1}
+.empty{text-align:center;color:var(--text2);font-size:13px;padding:2rem 0}
+.month-nav{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.6rem 1rem;margin-bottom:1.25rem}
+.month-nav button{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;padding:0 .5rem;line-height:1}
+.month-nav .month-label{font-size:14px;font-weight:600}
+.loading{text-align:center;color:var(--text2);padding:3rem 0;font-size:14px}
+.calc-screen{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.25rem;font-size:32px;font-weight:600;text-align:right;margin-bottom:1rem;min-height:80px;display:flex;align-items:center;justify-content:flex-end;word-break:break-all;overflow:hidden}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.calc-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;color:var(--text);font-size:22px;font-weight:500;cursor:pointer;transition:all .1s}
+.calc-btn:active{transform:scale(.95);background:var(--surface2)}
+.calc-btn.op{background:rgba(108,99,255,.15);color:var(--accent)}
+.calc-btn.fn{background:var(--surface2);color:var(--text2);font-size:18px}
+.calc-btn.eq{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem}
+.savings-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
+.savings-lbl{font-size:13px;color:var(--text2)}
+.savings-val{font-size:22px;font-weight:700;color:var(--green)}
+.savings-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+.sv-btn{border:none;border-radius:var(--radius-sm);padding:.6rem;font-size:12px;font-weight:600;cursor:pointer}
+.sv-btn.add{background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+.sv-btn.take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+.sv-btn.set{background:rgba(108,99,255,.12);color:var(--accent);border:1px solid rgba(108,99,255,.3)}
+.sv-btn:active{transform:scale(.97)}
+.savings-history{margin-top:.85rem}
+.sv-hist-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:.4rem 0;border-top:1px solid var(--border)}
+.sv-hist-desc{color:var(--text2)}
+.sv-hist-amt{font-weight:600}
+.sv-hist-amt.plus{color:var(--green)}
+.sv-hist-amt.minus{color:var(--red)}
+.sv-hist-amt.set{color:var(--accent)}
+/* More card */
+.more-card{background:linear-gradient(135deg,rgba(56,189,248,.1),rgba(108,99,255,.08));border:1px solid rgba(56,189,248,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+.more-val{font-size:22px;font-weight:700;color:#38bdf8}
+.more-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+.sv-btn.more-add{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.sv-btn.more-take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+/* Beleške */
+.notes-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
+.notes-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+.notes-lbl{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:.5rem}
+.notes-card textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.75rem;color:var(--text);font-size:14px;font-family:inherit;line-height:1.5;resize:vertical;min-height:90px}
+.notes-card textarea:focus{outline:none;border-color:var(--accent)}
+.notes-saved{font-size:11px;color:var(--green);opacity:0;transition:opacity .3s}
+.notes-saved.show{opacity:1}
+/* Expand panel ispod stavke */
+.item-head{cursor:pointer;user-select:none}
+.item-toggle{font-size:13px;color:var(--text2);transition:transform .2s;flex-shrink:0}
+.item-toggle.open{transform:rotate(90deg)}
+.item-txs{max-height:0;overflow:hidden;transition:max-height .25s ease;margin-top:0}
+.item-txs.open{max-height:600px;margin-top:.6rem}
+.item-txs-inner{border-top:1px solid var(--border);padding-top:.6rem}
+.item-tx-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:.35rem 0}
+.item-tx-left{color:var(--text2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item-tx-amt{color:var(--red);font-weight:600;margin-left:.5rem;white-space:nowrap}
+.item-tx-empty{font-size:12px;color:var(--text2);padding:.35rem 0;text-align:center}
+/* Računi checklista */
+.racun-row{display:flex;align-items:center;gap:.65rem;padding:.45rem 0;border-top:1px solid var(--border)}
+.racun-chk{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--border);background:var(--surface2);color:transparent;font-size:14px;font-weight:700;cursor:pointer;flex-shrink:0;line-height:1}
+.racun-chk.paid{background:rgba(74,222,128,.2);border-color:var(--green);color:var(--green)}
+.racun-name{flex:1;font-size:13px}
+.racun-name.paid{color:var(--text2);text-decoration:line-through}
+.racun-amt{width:90px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.35rem .5rem;color:var(--text);font-size:13px;text-align:right}
+.racun-amt:disabled{opacity:.55}
+.racun-amt:focus{outline:none;border-color:var(--accent)}
+.racun-sub{font-size:11px;color:var(--text2);font-weight:400;margin-top:2px}
+/* Pregled tab */
+.pg-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:.6rem}
+.pg-head{display:flex;align-items:center;gap:.6rem;cursor:pointer;user-select:none}
+.pg-name{flex:1;font-size:14px;font-weight:600}
+.pg-total{font-size:14px;font-weight:700;color:var(--accent)}
+.pg-body{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.pg-body.open{max-height:800px;margin-top:.7rem}
+.pg-stack{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-bottom:.7rem;background:var(--surface2)}
+.pg-stack-seg{height:100%}
+.pg-row{display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-top:1px solid var(--border)}
+.pg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.pg-row-name{flex:1;font-size:12px;color:var(--text)}
+.pg-row-cnt{font-size:11px;color:var(--text2)}
+.pg-row-pct{font-size:11px;color:var(--text2);min-width:34px;text-align:right}
+.pg-row-amt{font-size:12px;font-weight:600;min-width:70px;text-align:right}
+/* Trend tab */
+.trend-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.trend-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem}
+.trend-card .tc-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:.35rem}
+.trend-card .tc-val{font-size:17px;font-weight:700}
+.trend-card .tc-sub{font-size:11px;color:var(--text2);margin-top:2px}
+.trend-chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
+.trend-chart-card svg{width:100%;height:auto;display:block}
+.trend-legend{display:flex;gap:1rem;margin-bottom:.65rem}
+.trend-legend span{font-size:11px;color:var(--text2);display:flex;align-items:center;gap:.35rem}
+.tl-dot{width:9px;height:9px;border-radius:3px;display:inline-block}
+.trend-cmp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;margin-bottom:1rem}
+.trend-cmp-row{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;border-top:1px solid var(--border);font-size:13px}
+.tcr-name{flex:1}
+.tcr-name .tcr-avg{font-size:11px;color:var(--text2);font-weight:400;margin-top:1px}
+.tcr-now{font-weight:600;text-align:right}
+.tcr-diff{font-size:11px;font-weight:600;min-width:52px;text-align:right}
+.tcr-diff.up{color:var(--red)}
+.tcr-diff.down{color:var(--green)}
+.tcr-diff.flat{color:var(--text2)}
+/* Auth gate / prijava / otisak */
+.auth-gate{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.auth-box{text-align:center;max-width:320px;width:100%}
+.auth-logo{font-size:52px;margin-bottom:.5rem}
+.auth-title{font-size:22px;font-weight:700;margin-bottom:.35rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.auth-sub{font-size:13px;color:var(--text2);margin-bottom:1.5rem;line-height:1.4}
+.auth-btn{width:100%;border:none;border-radius:var(--radius);padding:.9rem;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:.6rem}
+.auth-google{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.auth-btn:active{transform:scale(.98)}
+.auth-link{background:none;border:none;color:var(--text2);font-size:13px;cursor:pointer;text-decoration:underline;padding:.5rem}
+.auth-error{color:var(--red);font-size:12px;margin-top:.6rem;min-height:16px;word-break:break-word}
+.bio-touch{width:130px;height:130px;border-radius:50%;margin:0 auto 1.1rem;display:flex;align-items:center;justify-content:center;background:rgba(108,99,255,.12);border:2px solid rgba(108,99,255,.45);color:var(--accent);cursor:pointer;-webkit-tap-highlight-color:transparent;animation:biopulse 1.8s ease-in-out infinite}
+.bio-touch:active{transform:scale(.95)}
+@keyframes biopulse{0%,100%{box-shadow:0 0 0 0 rgba(108,99,255,.35)}70%{box-shadow:0 0 0 16px rgba(108,99,255,0)}}
+.acc-email{font-size:16px;font-weight:600;margin-bottom:.6rem;word-break:break-all}
+.acc-uid{font-size:11px;color:var(--text2);margin-bottom:1rem;word-break:break-all;background:var(--surface2);padding:.5rem .6rem;border-radius:var(--radius-sm)}
+.acc-toggle{display:flex;align-items:center;gap:.6rem;font-size:14px;cursor:pointer;padding:.4rem 0}
+.acc-toggle input{width:20px;height:20px;flex-shrink:0}
+.acc-btn-icon{background:none;border:none;font-size:18px;cursor:pointer;padding:0;line-height:1}
+.header-actions{display:flex;align-items:center;gap:.75rem}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="header-top">
+<h1>💰 Kućni Budžet</h1>
+<div class="header-actions">
+<button class="acc-btn-icon" id="acc-btn" onclick="openAccountModal()" title="Nalog" style="display:none">👤</button>
+<div class="sync-dot" id="sync-dot" title="Firebase sync"></div>
+</div>
+</div>
+<div class="tabs">
+<button class="tab active" onclick="switchTab('budzet')">Budžet</button>
+<button class="tab" onclick="switchTab('transakcije')">Transakcije</button>
+<button class="tab" onclick="switchTab('pregled')">Pregled</button>
+<button class="tab" onclick="switchTab('trend')">Trend</button>
+<button class="tab" onclick="switchTab('kalkulator')">Kalk.</button>
+</div>
+</div>
+
+<div id="page-budzet" class="page active">
+<div class="month-nav">
+<button onclick="changeMonth(-1)">‹</button>
+<span class="month-label" id="month-label"></span>
+<button onclick="changeMonth(1)">›</button>
+</div>
+<div class="salary-grid">
+<div class="salary-card">
+<div class="label">Plata</div>
+<div class="name">Andrija</div>
+<div class="badge">💼 15. u mesecu</div>
+<input type="number" id="sal-andrija" placeholder="0" oninput="saveSalary('andrija',this.value)">
+</div>
+<div class="salary-card">
+<div class="label">Plata</div>
+<div class="name">Katarina</div>
+<div class="badge">💼 7. u mesecu</div>
+<input type="number" id="sal-katarina" placeholder="0" oninput="saveSalary('katarina',this.value)">
+</div>
+</div>
+<div class="salary-total">
+<span class="lbl">Ukupno u kasi</span>
+<span class="val" id="total-income">0 RSD</span>
+</div>
+<div class="unalloc-card">
+<span class="unalloc-lbl">Neraspoređeno</span>
+<span class="unalloc-val" id="unallocated">0 RSD</span>
+</div>
+<button id="copy-prev-btn" onclick="copyPrevMonth()" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:.7rem;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;margin-bottom:1.5rem;margin-top:-1rem">📋 Kopiraj raspored iz prošlog meseca</button>
+
+<!-- ŠTEDNJA KARTICA -->
+<div class="savings-card">
+<div class="savings-head">
+<span class="savings-lbl">🏦 Ukupna štednja</span>
+<span class="savings-val" id="total-savings">0 RSD</span>
+</div>
+<div class="savings-btns">
+<button class="sv-btn add" onclick="transferMonthToTotal()">↑ Prebaci mesečnu</button>
+<button class="sv-btn take" onclick="openWithdrawModal('stednja')">↓ Uzmi</button>
+<button class="sv-btn set" onclick="openSetBalanceModal('stednja')">✎ Postavi saldo</button>
+</div>
+<div id="savings-history"></div>
+</div>
+
+<!-- MORE KARTICA -->
+<div class="more-card">
+<div class="savings-head">
+<span class="savings-lbl">🌊 Štek za more</span>
+<span class="more-val" id="total-more">0 RSD</span>
+</div>
+<div class="more-btns">
+<button class="sv-btn more-add" onclick="transferMonthToMore()">↑ Prebaci mesečnu</button>
+<button class="sv-btn more-take" onclick="openWithdrawModal('more')">↓ Uzmi</button>
+<button class="sv-btn set" onclick="openSetBalanceModal('more')">✎ Postavi saldo</button>
+</div>
+<div id="more-history"></div>
+</div>
+
+<div class="notes-card">
+<div class="notes-head">
+<span class="notes-lbl">📝 Beleške za ovaj mesec</span>
+<span class="notes-saved" id="notes-saved">sačuvano ✓</span>
+</div>
+<textarea id="notes-text" placeholder="Šta treba kupiti/uraditi ovog meseca..." oninput="saveNotes(this.value)"></textarea>
+</div>
+<div id="budget-sections"><div class="loading">Učitavanje...</div></div>
+</div>
+
+<div id="page-transakcije" class="page">
+<div class="month-nav">
+<button onclick="changeMonth(-1)">‹</button>
+<span class="month-label" id="month-label-2"></span>
+<button onclick="changeMonth(1)">›</button>
+</div>
+<button class="add-btn" onclick="openModal()">+ Nova transakcija</button>
+<div id="tx-list"></div>
+</div>
+
+<div id="page-pregled" class="page">
+<div class="month-nav">
+<button onclick="changeMonth(-1)">‹</button>
+<span class="month-label" id="month-label-3"></span>
+<button onclick="changeMonth(1)">›</button>
+</div>
+<div class="salary-total">
+<span class="lbl">Ukupno potrošeno</span>
+<span class="val" id="pregled-total">0 RSD</span>
+</div>
+<div id="pregled-list"></div>
+</div>
+
+<div id="page-trend" class="page">
+<div class="month-nav">
+<button onclick="changeMonth(-1)">‹</button>
+<span class="month-label" id="month-label-4"></span>
+<button onclick="changeMonth(1)">›</button>
+</div>
+<div id="trend-content"><div class="loading">Učitavanje...</div></div>
+</div>
+
+<div id="page-kalkulator" class="page">
+<div class="calc-screen" id="calc-screen">0</div>
+<div class="calc-grid">
+<button class="calc-btn fn" onclick="calcClear()">C</button>
+<button class="calc-btn fn" onclick="calcDel()">⌫</button>
+<button class="calc-btn fn" onclick="calcOp('%')">%</button>
+<button class="calc-btn op" onclick="calcOp('/')">÷</button>
+<button class="calc-btn" onclick="calcNum('7')">7</button>
+<button class="calc-btn" onclick="calcNum('8')">8</button>
+<button class="calc-btn" onclick="calcNum('9')">9</button>
+<button class="calc-btn op" onclick="calcOp('*')">×</button>
+<button class="calc-btn" onclick="calcNum('4')">4</button>
+<button class="calc-btn" onclick="calcNum('5')">5</button>
+<button class="calc-btn" onclick="calcNum('6')">6</button>
+<button class="calc-btn op" onclick="calcOp('-')">−</button>
+<button class="calc-btn" onclick="calcNum('1')">1</button>
+<button class="calc-btn" onclick="calcNum('2')">2</button>
+<button class="calc-btn" onclick="calcNum('3')">3</button>
+<button class="calc-btn op" onclick="calcOp('+')">+</button>
+<button class="calc-btn" onclick="calcNum('00')">00</button>
+<button class="calc-btn" onclick="calcNum('0')">0</button>
+<button class="calc-btn" onclick="calcNum('.')">.</button>
+<button class="calc-btn eq" onclick="calcEq()">=</button>
+</div>
+</div>
+
+<!-- MODAL: Nova transakcija -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+<div class="modal">
+<h3>Nova transakcija</h3>
+<div class="form-group">
+<label>Iznos (RSD)</label>
+<input type="number" id="tx-amount" placeholder="0">
+</div>
+<div class="form-group">
+<label>Kategorija</label>
+<select id="tx-cat"></select>
+</div>
+<div class="form-group">
+<label>Opis (opciono)</label>
+<input type="text" id="tx-desc" placeholder="npr. Lidl, benzin...">
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeModal()">Otkaži</button>
+<button class="btn-save" onclick="saveTransaction()">Sačuvaj</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: Uzmi iz štednje / more -->
+<div class="modal-overlay" id="withdraw-modal" onclick="closeWithdrawOutside(event)">
+<div class="modal">
+<h3 id="withdraw-title">Uzmi iz štednje</h3>
+<div class="form-group">
+<label>Iznos (RSD)</label>
+<input type="number" id="wd-amount" placeholder="0">
+</div>
+<div class="form-group">
+<label>Za šta (opciono)</label>
+<input type="text" id="wd-desc" placeholder="npr. krov, gume...">
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeWithdrawModal()">Otkaži</button>
+<button class="btn-save" onclick="confirmWithdraw()">Uzmi</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: Postavi početni saldo -->
+<div class="modal-overlay" id="setbalance-modal" onclick="closeSetBalanceOutside(event)">
+<div class="modal">
+<h3 id="setbalance-title">Postavi saldo</h3>
+<div class="form-group">
+<label>Trenutni iznos (RSD)</label>
+<input type="number" id="sb-amount" placeholder="0">
+</div>
+<div class="form-group">
+<label>Napomena (opciono)</label>
+<input type="text" id="sb-desc" placeholder="npr. početno stanje...">
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeSetBalanceModal()">Otkaži</button>
+<button class="btn-save" onclick="confirmSetBalance()">Postavi</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: Odvoji lični trošak -->
+<div class="modal-overlay" id="odvoji-modal" onclick="closeOdvojiOutside(event)">
+<div class="modal">
+<h3 id="odvoji-title">Odvoji lični trošak</h3>
+<div class="form-group">
+<label>Iznos (RSD)</label>
+<input type="number" id="od-amount" placeholder="npr. 5000">
+</div>
+<div class="form-group">
+<label>Napomena (opciono)</label>
+<input type="text" id="od-desc" placeholder="npr. od Katarinine plate...">
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeOdvojiModal()">Otkaži</button>
+<button class="btn-save" onclick="confirmOdvoji()">Odvoji</button>
+</div>
+</div>
+</div>
+
+<!-- AUTH GATE: prijava / otisak -->
+<div id="auth-gate" class="auth-gate">
+<div class="auth-box">
+<div class="auth-logo">💰</div>
+<div class="auth-title">Kućni Budžet</div>
+<div class="auth-sub" id="auth-sub">Učitavanje…</div>
+<div id="auth-login-state" style="display:none">
+<button class="auth-btn auth-google" id="btn-google">Prijavi se Google nalogom</button>
+</div>
+<div id="auth-lock-state" style="display:none">
+<div class="bio-touch" id="bio-touch"><svg viewBox="0 0 24 24" width="58" height="58" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2"/></svg></div>
+<button class="auth-link" id="btn-logout-locked">Odjavi se</button>
+</div>
+<div class="auth-error" id="auth-error"></div>
+</div>
+</div>
+
+<!-- BIOMETRIJA: ponuda za uključivanje -->
+<div id="bio-enroll" class="auth-gate" style="display:none">
+<div class="auth-box">
+<div class="auth-logo">🔐</div>
+<div class="auth-title">Zaključaj otiskom?</div>
+<div class="auth-sub">Na ovom telefonu možeš da otključavaš aplikaciju otiskom prsta. Otisak ne napušta telefon.</div>
+<button class="auth-btn auth-google" id="btn-bio-enable">Uključi otisak</button>
+<button class="auth-link" id="btn-bio-skip">Ne sada</button>
+<div class="auth-error" id="bio-error"></div>
+</div>
+</div>
+
+<!-- MODAL: Nalog -->
+<div class="modal-overlay" id="account-modal" onclick="closeAccountOutside(event)">
+<div class="modal">
+<h3>Nalog</h3>
+<div class="acc-email" id="acc-email"></div>
+<div class="acc-uid" id="acc-uid"></div>
+<label class="acc-toggle" id="acc-bio-row"><input type="checkbox" id="acc-bio"> Zaključaj otiskom na ovom telefonu</label>
+<div class="modal-btns">
+<button class="btn-cancel" onclick="closeAccountModal()">Zatvori</button>
+<button class="btn-save" id="btn-logout" style="background:var(--red)">Odjavi se</button>
+</div>
+</div>
+</div>
+
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import {getDatabase,ref,set,onValue,remove,get} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,onAuthStateChanged,signOut,setPersistence,browserLocalPersistence} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+const firebaseConfig = {
+apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
+authDomain:"budzet-f3992.firebaseapp.com",
+projectId:"budzet-f3992",
+databaseURL:"https://budzet-f3992-default-rtdb.europe-west1.firebasedatabase.app",
+storageBucket:"budzet-f3992.firebasestorage.app",
+messagingSenderId:"633902520397",
+appId:"1:633902520397:web:1488ffe3d9626a8c586404"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const SECTIONS = [
+{id:'nedelja1',label:'Nedelja 1'},{id:'nedelja2',label:'Nedelja 2'},
+{id:'nedelja3',label:'Nedelja 3'},{id:'nedelja4',label:'Nedelja 4'},
+{id:'dodatne',label:'Dodatne stvari'},{id:'nepredvidjeni',label:'Nepredviđeni troškovi'},
+{id:'racuni',label:'Računi'},{id:'stednja',label:'Štednja'},
+{id:'investicije',label:'More (mesečno)'},
+{id:'licni_katarina',label:'Katarina lični trošak'},
+{id:'licni_andrija',label:'Andrija lični trošak'},
+];
+const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',stednja:'🏦',investicije:'🌊',licni_katarina:'💄',licni_andrija:'🎸'};
+const LICNI = ['licni_katarina','licni_andrija'];
+const RACUNI = [
+{id:'osiguranje',label:'Osiguranje'},
+{id:'struja',label:'Struja'},
+{id:'internet',label:'Internet/TV + Netflix'},
+{id:'voda',label:'Voda'},
+{id:'groblje',label:'Groblje'},
+{id:'tel_katarina',label:'Telefon — Katarina'},
+{id:'tel_andrija',label:'Telefon — Andrija'},
+{id:'laptop',label:'Rata laptopa',laptop:true},
+];
+const LAPTOP_UKUPNO = 7;
+const GRUPE = [
+{name:'Prodavnica',icon:'🛒',match:['lidl','maxi','ktk','idea','univerexport','prodavnica','market','aman','dis','tempo','roda','namirnice','hrana','pijaca','mesara','pekara']},
+{name:'Kafić',icon:'☕',match:['kafić','kafic','kafa','kafana','kafe','caffe']},
+{name:'Apoteka',icon:'💊',match:['apoteka','lek','lekovi','suplement']},
+{name:'Benzin',icon:'⛽',match:['benzin','gorivo','pumpa','nis ','omv','mol ','lukoil']},
+];
+const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','September','Oktobar','November','Decembar'];
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{},notes:'',racuni:{}};
+let openItems = {};
+let notesTimer = null;
+let totalSavings = 0;
+let savingsLog = {};
+let totalMore = 0;
+let moreLog = {};
+let laptopPlaceno = 2;
+
+// za withdraw/setbalance modal
+let activePool = 'stednja'; // 'stednja' ili 'more'
+
+// Lokalne vrednosti iznosa računa (pre čekiranja)
+let racuniIznosi = {};
+
+function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
+
+function setSyncDot(online){
+const d=document.getElementById('sync-dot');
+d.className='sync-dot '+(online?'online':'offline');
+}
+
+function listenMonth(){
+setSyncDot(false);
+const r=ref(db,`budzet/${currentYear}/${currentMonth}`);
+onValue(r,snap=>{
+setSyncDot(true);
+const d=snap.val()||{};
+state.salaries=d.salaries||{andrija:0,katarina:0};
+state.budget_items=d.budget_items||{};
+state.transactions=d.transactions||{};
+state.notes=d.notes||'';
+state.racuni=d.racuni||{};
+// Inicijalizuj lokalne iznose iz već upisanih vrednosti
+RACUNI.forEach(r=>{
+const st=state.racuni[r.id];
+if(st&&st.amount&&!(r.id in racuniIznosi)){
+racuniIznosi[r.id]=st.amount;
+}
+});
+renderAll();
+},()=>setSyncDot(false));
+}
+
+function listenSavings(){
+const r=ref(db,'budzet/ukupna_stednja');
+onValue(r,snap=>{
+const d=snap.val()||{};
+totalSavings=d.total||0;
+savingsLog=d.log||{};
+renderSavings();
+});
+}
+
+function listenMore(){
+const r=ref(db,'budzet/ukupno_more');
+onValue(r,snap=>{
+const d=snap.val()||{};
+totalMore=d.total||0;
+moreLog=d.log||{};
+renderMore();
+});
+}
+
+function listenLaptop(){
+const r=ref(db,'budzet/laptop_rata');
+onValue(r,snap=>{
+const v=snap.val();
+laptopPlaceno=(v===null||v===undefined)?2:v;
+renderBudgetSections();
+});
+}
+
+function fmtRSD(n){return Math.round(n).toLocaleString('sr-RS')+' RSD'}
+
+window.saveSalary=function(who,val){
+state.salaries[who]=parseFloat(val)||0;
+set(ref(db,dbPath('salaries')),state.salaries);
+};
+
+window.saveBudgetItem=function(el){
+state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
+set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+// ---- AUTOMATSKI ZBIR RAČUNA ----
+window.updateRacunIznos=function(id, val){
+racuniIznosi[id]=parseFloat(val)||0;
+const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const ukupno=vidljivi.reduce((sum,r)=>{
+const st=state.racuni[r.id];
+if(st&&st.paid)return sum+(st.amount||0);
+return sum+(racuniIznosi[r.id]||0);
+},0);
+state.budget_items['racuni']=ukupno;
+const inp=document.querySelector('[data-id="racuni"]');
+if(inp)inp.value=ukupno||'';
+const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
+const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
+const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
+document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
+const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
+const neraspored=(a+k)-planirano;
+const uel=document.getElementById('unallocated');
+uel.textContent=fmtRSD(neraspored);
+uel.className='unalloc-val '+(neraspored<0?'over':'ok');
+};
+window.saveRacunBlur=function(){
+const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const ukupno=vidljivi.reduce((sum,r)=>{
+const st=state.racuni[r.id];
+if(st&&st.paid)return sum+(st.amount||0);
+return sum+(racuniIznosi[r.id]||0);
+},0);
+state.budget_items['racuni']=ukupno;
+set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+window.saveNotes=function(val){
+state.notes=val;
+clearTimeout(notesTimer);
+notesTimer=setTimeout(()=>{
+set(ref(db,dbPath('notes')),val);
+const s=document.getElementById('notes-saved');
+s.classList.add('show');
+setTimeout(()=>s.classList.remove('show'),1500);
+},600);
+};
+
+window.toggleItem=function(catId){
+openItems[catId]=!openItems[catId];
+const panel=document.getElementById('txs-'+catId);
+const toggle=document.getElementById('tgl-'+catId);
+if(panel)panel.classList.toggle('open',openItems[catId]);
+if(toggle)toggle.classList.toggle('open',openItems[catId]);
+};
+
+window.resetWeekToSavings=function(catId,left){
+if(!confirm(`Prebaciti ${fmtRSD(left)} u Štednju?`))return;
+const ts=Date.now();
+state.budget_items[catId]=(state.budget_items[catId]||0)-left;
+state.budget_items['stednja']=(state.budget_items['stednja']||0)+left;
+state.transactions[ts]={amount:-left,cat:'stednja',desc:`Prenos iz ${SECTIONS.find(s=>s.id===catId)?.label}`,ts,transfer:true};
+set(ref(db,dbPath('budget_items')),state.budget_items);
+set(ref(db,dbPath('transactions')),state.transactions);
+};
+
+// ---- ODVOJI LIČNI TROŠAK ----
+let activeLicni='licni_andrija';
+window.openOdvojiModal=function(catId){
+activeLicni=catId;
+document.getElementById('odvoji-title').textContent='Odvoji — '+(SECTIONS.find(s=>s.id===catId)?.label||'');
+document.getElementById('od-amount').value='';
+document.getElementById('od-desc').value='';
+document.getElementById('odvoji-modal').classList.add('open');
+};
+window.closeOdvojiModal=function(){document.getElementById('odvoji-modal').classList.remove('open')};
+window.closeOdvojiOutside=function(e){if(e.target===document.getElementById('odvoji-modal'))closeOdvojiModal()};
+window.confirmOdvoji=function(){
+const amount=parseFloat(document.getElementById('od-amount').value)||0;
+if(amount<=0){alert('Unesi iznos');return}
+const desc=document.getElementById('od-desc').value.trim();
+const ts=Date.now();
+state.budget_items[activeLicni]=(parseFloat(state.budget_items[activeLicni])||0)+amount;
+state.transactions[ts]={amount,cat:activeLicni,desc:desc||'Odvojeno',ts,transfer:true};
+set(ref(db,dbPath('budget_items')),state.budget_items);
+set(ref(db,dbPath('transactions')),state.transactions);
+closeOdvojiModal();
+};
+
+// ---- KOPIRAJ RASPORED IZ PROŠLOG MESECA ----
+window.copyPrevMonth=function(){
+let pm=currentMonth-1, py=currentYear;
+if(pm<0){pm=11;py--}
+get(ref(db,`budzet/${py}/${pm}/budget_items`)).then(snap=>{
+const prev=snap.val();
+if(!prev){alert(`Nema podataka za ${MONTHS_SR[pm]} ${py}`);return}
+const skip=[...LICNI,'stednja','investicije'];
+const novi={...state.budget_items};
+let kopirano=0;
+Object.keys(prev).forEach(id=>{
+if(skip.includes(id))return;
+novi[id]=prev[id];
+kopirano++;
+});
+if(!kopirano){alert('Nema kućnih stavki za kopiranje');return}
+if(!confirm(`Kopirati raspored iz ${MONTHS_SR[pm]} ${py}? (${kopirano} stavki, plate i lični troškovi se ne diraju)`))return;
+state.budget_items=novi;
+set(ref(db,dbPath('budget_items')),novi);
+});
+};
+
+// ---- RAČUNI CHECKLISTA ----
+window.toggleRacun=function(id){
+const r=RACUNI.find(x=>x.id===id);
+const st=state.racuni[id];
+if(st&&st.paid){
+if(!confirm(`Poništiti plaćanje: ${r.label}?`))return;
+if(st.ts)remove(ref(db,dbPath(`transactions/${st.ts}`)));
+delete state.racuni[id];
+set(ref(db,dbPath('racuni')),state.racuni);
+if(r.laptop)set(ref(db,'budzet/laptop_rata'),Math.max(0,laptopPlaceno-1));
+// Ponovo izračunaj ukupno
+updateRacunIznos(id, racuniIznosi[id]||0);
+}else{
+const amount=parseFloat(document.getElementById('ramt-'+id).value)||0;
+if(amount<=0){alert('Prvo upiši iznos računa');return}
+racuniIznosi[id]=amount;
+const ts=Date.now();
+set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat:'racuni',desc:r.label,ts});
+state.racuni[id]={paid:true,amount,ts};
+set(ref(db,dbPath('racuni')),state.racuni);
+if(r.laptop)set(ref(db,'budzet/laptop_rata'),laptopPlaceno+1);
+}
+};
+
+// ---- PREGLED ----
+function grupaZa(desc){
+const t=(desc||'').toLowerCase().trim();
+if(!t)return{key:'__bez',name:'Bez opisa',icon:'❔'};
+for(const g of GRUPE){
+if(g.match.some(m=>t.includes(m)))return{key:g.name,name:g.name,icon:g.icon};
+}
+const norm=t.charAt(0).toUpperCase()+t.slice(1);
+return{key:norm,name:norm,icon:'•'};
+}
+
+const PG_BOJE=['#6c63ff','#ff6b9d','#4ade80','#fbbf24','#38bdf8','#f87171','#a78bfa','#34d399','#fb923c','#e879f9'];
+let openPg={};
+window.togglePg=function(id){
+openPg[id]=!openPg[id];
+const b=document.getElementById('pgb-'+id);
+const t=document.getElementById('pgt-'+id);
+if(b)b.classList.toggle('open',openPg[id]);
+if(t)t.classList.toggle('open',openPg[id]);
+};
+
+function renderPregled(){
+const cont=document.getElementById('pregled-list');
+if(!cont)return;
+let html='';
+let ukupno=0;
+SECTIONS.forEach(s=>{
+if(LICNI.includes(s.id))return;
+const txs=Object.values(state.transactions).filter(t=>t.cat===s.id&&!t.transfer);
+if(!txs.length)return;
+const total=txs.reduce((a,t)=>a+Math.abs(t.amount),0);
+ukupno+=total;
+const groups={};
+txs.forEach(t=>{
+const g=grupaZa(t.desc);
+if(!groups[g.key])groups[g.key]={...g,sum:0,count:0};
+groups[g.key].sum+=Math.abs(t.amount);
+groups[g.key].count++;
+});
+const sorted=Object.values(groups).sort((a,b)=>b.sum-a.sum);
+const stack=sorted.map((g,i)=>`<div class="pg-stack-seg" style="width:${(g.sum/total)*100}%;background:${PG_BOJE[i%PG_BOJE.length]}"></div>`).join('');
+const rows=sorted.map((g,i)=>`
+<div class="pg-row">
+<span class="pg-dot" style="background:${PG_BOJE[i%PG_BOJE.length]}"></span>
+<span>${g.icon}</span>
+<span class="pg-row-name">${g.name}</span>
+<span class="pg-row-cnt">${g.count}×</span>
+<span class="pg-row-pct">${Math.round((g.sum/total)*100)}%</span>
+<span class="pg-row-amt">${fmtRSD(g.sum)}</span>
+</div>`).join('');
+const isOpen=openPg[s.id];
+html+=`<div class="pg-section">
+<div class="pg-head" onclick="togglePg('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="pgt-${s.id}">▶</span>
+<span style="font-size:18px">${ICONS[s.id]||'📦'}</span>
+<span class="pg-name">${s.label}</span>
+<span class="pg-total">${fmtRSD(total)}</span>
+</div>
+<div class="pg-body ${isOpen?'open':''}" id="pgb-${s.id}">
+<div class="pg-stack">${stack}</div>
+${rows}
+</div>
+</div>`;
+});
+const tot=document.getElementById('pregled-total');
+if(tot)tot.textContent=fmtRSD(ukupno);
+cont.innerHTML=html||'<div class="empty">Nema transakcija ovog meseca</div>';
+}
+
+// ---- ŠTEDNJA ----
+window.transferMonthToTotal=function(){
+const mesecna=state.budget_items['stednja']||0;
+if(mesecna<=0){alert('Nema mesečne štednje za prebacivanje');return}
+if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u ukupnu štednju?`))return;
+const ts=Date.now();
+const noviTotal=totalSavings+mesecna;
+const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
+set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
+state.budget_items['stednja']=0;
+set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+// ---- MORE ----
+window.transferMonthToMore=function(){
+const mesecna=state.budget_items['investicije']||0;
+if(mesecna<=0){alert('Nema mesečnog iznosa za more za prebacivanje');return}
+if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u štek za more?`))return;
+const ts=Date.now();
+const noviTotal=totalMore+mesecna;
+const noviLog={...moreLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
+set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
+state.budget_items['investicije']=0;
+set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+// ---- WITHDRAW (štednja ili more) ----
+window.openWithdrawModal=function(pool){
+activePool=pool;
+document.getElementById('withdraw-title').textContent=pool==='stednja'?'Uzmi iz štednje':'Uzmi iz šteka za more';
+document.getElementById('wd-amount').value='';
+document.getElementById('wd-desc').value='';
+document.getElementById('withdraw-modal').classList.add('open');
+};
+window.closeWithdrawModal=function(){document.getElementById('withdraw-modal').classList.remove('open')};
+window.closeWithdrawOutside=function(e){if(e.target===document.getElementById('withdraw-modal'))closeWithdrawModal()};
+
+window.confirmWithdraw=function(){
+const amount=parseFloat(document.getElementById('wd-amount').value)||0;
+if(amount<=0){alert('Unesi iznos');return}
+const currentTotal=activePool==='stednja'?totalSavings:totalMore;
+if(amount>currentTotal){alert(`U ${activePool==='stednja'?'štednji':'šteku za more'} imaš samo ${fmtRSD(currentTotal)}`);return}
+const desc=document.getElementById('wd-desc').value.trim();
+const ts=Date.now();
+const noviTotal=currentTotal-amount;
+if(activePool==='stednja'){
+const noviLog={...savingsLog,[ts]:{amount,desc:desc||'Uzeto iz štednje',ts,type:'out'}};
+set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
+} else {
+const noviLog={...moreLog,[ts]:{amount,desc:desc||'Uzeto iz šteka za more',ts,type:'out'}};
+set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
+}
+closeWithdrawModal();
+};
+
+// ---- POSTAVI POČETNI SALDO ----
+window.openSetBalanceModal=function(pool){
+activePool=pool;
+document.getElementById('setbalance-title').textContent=pool==='stednja'?'Postavi saldo štednje':'Postavi saldo šteka za more';
+const current=pool==='stednja'?totalSavings:totalMore;
+document.getElementById('sb-amount').value=current||'';
+document.getElementById('sb-desc').value='';
+document.getElementById('setbalance-modal').classList.add('open');
+};
+window.closeSetBalanceModal=function(){document.getElementById('setbalance-modal').classList.remove('open')};
+window.closeSetBalanceOutside=function(e){if(e.target===document.getElementById('setbalance-modal'))closeSetBalanceModal()};
+
+window.confirmSetBalance=function(){
+const amount=parseFloat(document.getElementById('sb-amount').value);
+if(isNaN(amount)||amount<0){alert('Unesi ispravan iznos');return}
+const desc=document.getElementById('sb-desc').value.trim()||'Početno stanje';
+const ts=Date.now();
+if(activePool==='stednja'){
+const noviLog={...savingsLog,[ts]:{amount,desc,ts,type:'set'}};
+set(ref(db,'budzet/ukupna_stednja'),{total:amount,log:noviLog});
+} else {
+const noviLog={...moreLog,[ts]:{amount,desc,ts,type:'set'}};
+set(ref(db,'budzet/ukupno_more'),{total:amount,log:noviLog});
+}
+closeSetBalanceModal();
+};
+
+window.deleteSavingsLog=function(ts){
+if(!confirm('Obrisati ovaj zapis? (ne menja iznos štednje)'))return;
+const noviLog={...savingsLog};
+delete noviLog[ts];
+set(ref(db,'budzet/ukupna_stednja'),{total:totalSavings,log:noviLog});
+};
+
+window.deleteMoreLog=function(ts){
+if(!confirm('Obrisati ovaj zapis?'))return;
+const noviLog={...moreLog};
+delete noviLog[ts];
+set(ref(db,'budzet/ukupno_more'),{total:totalMore,log:noviLog});
+};
+
+function renderSavings(){
+document.getElementById('total-savings').textContent=fmtRSD(totalSavings);
+const cont=document.getElementById('savings-history');
+const logs=Object.values(savingsLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
+if(!logs.length){cont.innerHTML='';return}
+cont.innerHTML=logs.map(l=>{
+const cls=l.type==='in'?'plus':l.type==='out'?'minus':'set';
+const icon=l.type==='in'?'↑':l.type==='out'?'↓':'✎';
+const amtTxt=l.type==='set'?fmtRSD(l.amount):(l.type==='in'?'+':'-')+fmtRSD(l.amount);
+return `<div class="sv-hist-item">
+<span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
+<span class="sv-hist-amt ${cls}">${amtTxt}
+<button class="tx-del" onclick="deleteSavingsLog(${l.ts})" style="font-size:14px">×</button>
+</span>
+</div>`;
+}).join('');
+}
+
+function renderMore(){
+document.getElementById('total-more').textContent=fmtRSD(totalMore);
+const cont=document.getElementById('more-history');
+const logs=Object.values(moreLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
+if(!logs.length){cont.innerHTML='';return}
+cont.innerHTML=logs.map(l=>{
+const cls=l.type==='in'?'plus':l.type==='out'?'minus':'set';
+const icon=l.type==='in'?'↑':l.type==='out'?'↓':'✎';
+const amtTxt=l.type==='set'?fmtRSD(l.amount):(l.type==='in'?'+':'-')+fmtRSD(l.amount);
+return `<div class="sv-hist-item">
+<span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
+<span class="sv-hist-amt ${cls}">${amtTxt}
+<button class="tx-del" onclick="deleteMoreLog(${l.ts})" style="font-size:14px">×</button>
+</span>
+</div>`;
+}).join('');
+}
+
+window.changeMonth=function(d){
+currentMonth+=d;
+if(currentMonth>11){currentMonth=0;currentYear++}
+if(currentMonth<0){currentMonth=11;currentYear--}
+racuniIznosi={};
+listenMonth();
+if(document.getElementById('page-trend').classList.contains('active'))loadTrend();
+};
+
+window.switchTab=function(tab,pushState){
+const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
+document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===tab));
+tabs.forEach(t=>document.getElementById('page-'+t).classList.toggle('active',t===tab));
+if(tab==='trend')loadTrend();
+if(pushState!==false)history.pushState({tab:tab},'','');
+};
+
+// ---- TREND (poslednjih 6 meseci) ----
+const MONTHS_KRATKO=['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Avg','Sep','Okt','Nov','Dec'];
+const CMP_GRUPE=[
+{id:'nedelje',label:'Nedeljne kupovine',icon:'🛒',cats:['nedelja1','nedelja2','nedelja3','nedelja4']},
+{id:'dodatne',label:'Dodatne stvari',icon:'🎯',cats:['dodatne']},
+{id:'nepredvidjeni',label:'Nepredviđeni troškovi',icon:'⚡',cats:['nepredvidjeni']},
+{id:'racuni',label:'Računi',icon:'🧾',cats:['racuni']},
+];
+let trendSeq=0;
+function fmtK(n){return n>=1000?Math.round(n/1000)+'k':String(Math.round(n))}
+function spentOf(d){
+return Object.values(d.transactions||{}).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
+}
+function catSpentOf(d){
+const out={};
+Object.values(d.transactions||{}).forEach(t=>{
+if(t.transfer||LICNI.includes(t.cat))return;
+out[t.cat]=(out[t.cat]||0)+Math.abs(t.amount);
+});
+return out;
+}
+window.loadTrend=function(){
+const cont=document.getElementById('trend-content');
+if(!cont)return;
+const seq=++trendSeq;
+cont.innerHTML='<div class="loading">Učitavanje istorije...</div>';
+const months=[];
+let m=currentMonth,y=currentYear;
+for(let i=0;i<6;i++){months.unshift({m,y});m--;if(m<0){m=11;y--}}
+Promise.all(months.map(o=>get(ref(db,`budzet/${o.y}/${o.m}`)).then(s=>({...o,data:s.val()})).catch(()=>({...o,data:null}))))
+.then(rows=>{if(seq===trendSeq)renderTrend(rows)})
+.catch(()=>{if(seq===trendSeq)cont.innerHTML='<div class="empty">Greška pri učitavanju istorije</div>'});
+};
+function renderTrend(rows){
+const cont=document.getElementById('trend-content');
+const stats=rows.map(r=>{
+const d=r.data||{};
+const income=(parseFloat(d.salaries?.andrija)||0)+(parseFloat(d.salaries?.katarina)||0);
+return{m:r.m,y:r.y,income,spent:spentOf(d),cats:catSpentOf(d),has:!!r.data};
+});
+const active=stats.filter(s=>s.income>0||s.spent>0);
+if(!active.length){cont.innerHTML='<div class="empty">Još nema podataka za trend</div>';return}
+const maxV=Math.max(...stats.map(s=>Math.max(s.income,s.spent)),1);
+const W=340,top=14,bottom=150;
+let grid='',bars='',labels='';
+const axisX=38,gw=(W-axisX-4)/6;
+[1,.5,0].forEach(f=>{
+const yy=bottom-(bottom-top)*f;
+grid+=`<line x1="${axisX}" y1="${yy}" x2="${W}" y2="${yy}" stroke="#2e2e50"/>`;
+grid+=`<text x="${axisX-6}" y="${yy+3}" fill="#9898b8" font-size="9" text-anchor="end">${fmtK(maxV*f)}</text>`;
+});
+stats.forEach((s,i)=>{
+const cx=axisX+i*gw+gw/2;
+const bw=Math.min(15,(gw-12)/2);
+const hI=(s.income/maxV)*(bottom-top),hS=(s.spent/maxV)*(bottom-top);
+if(s.income>0)bars+=`<rect x="${cx-bw-1.5}" y="${bottom-hI}" width="${bw}" height="${Math.max(hI,2)}" rx="2" fill="#6c63ff"/>`;
+if(s.spent>0)bars+=`<rect x="${cx+1.5}" y="${bottom-hS}" width="${bw}" height="${Math.max(hS,2)}" rx="2" fill="#ff6b9d"/>`;
+const isCur=i===stats.length-1;
+labels+=`<text x="${cx}" y="${bottom+15}" fill="${isCur?'#e8e8f0':'#9898b8'}" font-size="10" font-weight="${isCur?'700':'400'}" text-anchor="middle">${MONTHS_KRATKO[s.m]}</text>`;
+});
+const avgSpent=active.reduce((a,s)=>a+s.spent,0)/active.length;
+const fullMonths=active.filter(s=>s.income>0);
+let cardsHtml=`<div class="trend-card"><div class="tc-lbl">Prosečna potrošnja</div><div class="tc-val">${fmtRSD(avgSpent)}</div><div class="tc-sub">mesečno (${active.length} mes.)</div></div>`;
+if(fullMonths.length){
+const avgLeft=fullMonths.reduce((a,s)=>a+(s.income-s.spent),0)/fullMonths.length;
+const avgIncome=fullMonths.reduce((a,s)=>a+s.income,0)/fullMonths.length;
+const rate=avgIncome>0?Math.round((avgLeft/avgIncome)*100):0;
+const best=fullMonths.reduce((a,s)=>(s.income-s.spent)>(a.income-a.spent)?s:a);
+cardsHtml+=`<div class="trend-card"><div class="tc-lbl">Prosečno ostane</div><div class="tc-val" style="color:${avgLeft>=0?'var(--green)':'var(--red)'}">${fmtRSD(avgLeft)}</div><div class="tc-sub">${rate}% od prihoda</div></div>`;
+cardsHtml+=`<div class="trend-card" style="grid-column:1/-1"><div class="tc-lbl">Najštedljiviji mesec</div><div class="tc-val">${MONTHS_SR[best.m]} ${best.y}</div><div class="tc-sub">ostalo ${fmtRSD(best.income-best.spent)} od ${fmtRSD(best.income)}</div></div>`;
+}
+const cur=stats[stats.length-1];
+const prev=stats.slice(0,-1).filter(s=>s.spent>0);
+let cmpHtml='';
+if(prev.length){
+const rows2=CMP_GRUPE.map(g=>{
+const now=g.cats.reduce((a,c)=>a+(cur.cats[c]||0),0);
+const avg=prev.reduce((a,s)=>a+g.cats.reduce((x,c)=>x+(s.cats[c]||0),0),0)/prev.length;
+return{...g,now,avg};
+}).filter(r=>r.now>0||r.avg>0);
+if(rows2.length){
+cmpHtml=`<div class="trend-cmp-card">
+<div class="section-title" style="margin-top:0">${MONTHS_SR[cur.m]} vs prosek</div>
+${rows2.map(r=>{
+let diff='<span class="tcr-diff flat">—</span>';
+if(r.avg>0){
+const p=Math.round(((r.now-r.avg)/r.avg)*100);
+diff=p>3?`<span class="tcr-diff up">▲ ${p}%</span>`:p<-3?`<span class="tcr-diff down">▼ ${Math.abs(p)}%</span>`:'<span class="tcr-diff flat">≈ isto</span>';
+}
+return `<div class="trend-cmp-row">
+<span>${r.icon}</span>
+<span class="tcr-name">${r.label}<div class="tcr-avg">prosek ${fmtRSD(r.avg)}</div></span>
+<span class="tcr-now">${fmtRSD(r.now)}</span>
+${diff}
+</div>`;
+}).join('')}
+</div>`;
+}
+}
+cont.innerHTML=`
+<div class="trend-chart-card">
+<div class="trend-legend">
+<span><span class="tl-dot" style="background:#6c63ff"></span>Prihodi</span>
+<span><span class="tl-dot" style="background:#ff6b9d"></span>Potrošeno</span>
+</div>
+<svg viewBox="0 0 ${W} 172" xmlns="http://www.w3.org/2000/svg">${grid}${bars}${labels}</svg>
+</div>
+<div class="trend-cards">${cardsHtml}</div>
+${cmpHtml}`;
+}
+
+function getSpent(catId){
+return Object.values(state.transactions)
+.filter(t=>t.cat===catId&&!t.transfer)
+.reduce((s,t)=>s+Math.abs(t.amount),0);
+}
+
+function getTxsByCat(catId){
+return Object.values(state.transactions)
+.filter(t=>t.cat===catId)
+.sort((a,b)=>b.ts-a.ts);
+}
+
+function renderAll(){
+const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
+document.getElementById('month-label').textContent=lbl;
+document.getElementById('month-label-2').textContent=lbl;
+const ml3=document.getElementById('month-label-3');
+if(ml3)ml3.textContent=lbl;
+const ml4=document.getElementById('month-label-4');
+if(ml4)ml4.textContent=lbl;
+const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
+document.getElementById('sal-andrija').value=a||'';
+document.getElementById('sal-katarina').value=k||'';
+const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
+const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
+document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
+const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
+const neraspored=(a+k)-planirano;
+const uel=document.getElementById('unallocated');
+if(neraspored<0&&(a===0||k===0)){
+uel.textContent='čeka se plata…';
+uel.className='unalloc-val';
+uel.style.color='var(--text2)';
+}else{
+uel.textContent=fmtRSD(neraspored);
+uel.className='unalloc-val '+(neraspored<0?'over':'ok');
+uel.style.color='';
+}
+const nt=document.getElementById('notes-text');
+if(nt&&document.activeElement!==nt)nt.value=state.notes||'';
+if(!document.activeElement||!document.activeElement.classList.contains('racun-amt')){
+renderBudgetSections();
+}
+renderTransactions();
+renderPregled();
+}
+
+function renderBudgetSections(){
+const cont=document.getElementById('budget-sections');
+let html='';
+SECTIONS.forEach(s=>{
+const planned=state.budget_items[s.id]||0;
+if(LICNI.includes(s.id)){
+const txs=getTxsByCat(s.id);
+const isOpen=openItems[s.id];
+let txHtml='';
+if(txs.length){
+txHtml=txs.map(t=>`
+<div class="item-tx-row">
+<span class="item-tx-left">↑ ${t.desc||'Odvojeno'} · ${new Date(t.ts).toLocaleDateString('sr-RS')}</span>
+<span class="item-tx-amt">+${fmtRSD(Math.abs(t.amount))}</span>
+</div>`).join('');
+}else{
+txHtml='<div class="item-tx-empty">Još ništa nije odvojeno ovog meseca</div>';
+}
+html+=`<div class="budget-item">
+<div class="item-row item-head" onclick="toggleItem('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
+<span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
+<span class="item-name">${s.label}<div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:2px">Odvojeno: <b style="color:var(--accent)">${fmtRSD(planned)}</b></div></span>
+<button class="reset-btn" style="background:rgba(108,99,255,.12);border-color:rgba(108,99,255,.3);color:var(--accent)" onclick="event.stopPropagation();openOdvojiModal('${s.id}')">+ Odvoji</button>
+</div>
+<div class="item-txs ${isOpen?'open':''}" id="txs-${s.id}">
+<div class="item-txs-inner">${txHtml}</div>
+</div>
+</div>`;
+return;
+}
+if(s.id==='racuni'){
+const spent=getSpent(s.id);
+const left=planned-spent;
+const pct=planned>0?Math.min(100,(spent/planned)*100):0;
+const cls=left<0?'over':pct>75?'warn':'ok';
+const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
+const isOpen=openItems[s.id];
+const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const placeno=vidljivi.filter(r=>state.racuni[r.id]?.paid).length;
+let rows=vidljivi.map(r=>{
+const st=state.racuni[r.id]||{};
+const paid=!!st.paid;
+let label=r.label;
+if(r.laptop)label+=` (${paid?laptopPlaceno:laptopPlaceno+1}/${LAPTOP_UKUPNO})`;
+// Koristi sačuvani iznos ili lokalni
+const currentVal=paid?(st.amount||''):(racuniIznosi[r.id]||st.amount||'');
+return `<div class="racun-row">
+<button class="racun-chk ${paid?'paid':''}" onclick="toggleRacun('${r.id}')">✓</button>
+<span class="racun-name ${paid?'paid':''}">${label}</span>
+<input class="racun-amt" type="number" placeholder="0" id="ramt-${r.id}" value="${currentVal}" ${paid?'disabled':''} onclick="event.stopPropagation()" oninput="updateRacunIznos('${r.id}',this.value)" onblur="saveRacunBlur()">
+</div>`;
+}).join('');
+html+=`<div class="budget-item">
+<div class="item-row item-head" onclick="toggleItem('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
+<span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
+<span class="item-name">${s.label}<div class="racun-sub">${placeno}/${vidljivi.length} plaćeno</div></span>
+<div class="item-planned" onclick="event.stopPropagation()">
+<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" readonly style="opacity:.7;cursor:default">
+</div>
+</div>
+${planned>0?`<div class="item-bar">
+<div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+<div class="bar-info">
+<span class="bar-spent">Plaćeno: ${fmtRSD(spent)}</span>
+<span class="bar-left ${cls}">${left>=0?'Ostalo: ':'Prekoračeno: '}${fmtRSD(Math.abs(left))}</span>
+</div>
+</div>`:''}
+<div class="item-txs ${isOpen?'open':''}" id="txs-${s.id}">
+<div class="item-txs-inner">${rows}</div>
+</div>
+</div>`;
+return;
+}
+const spent=getSpent(s.id);
+const left=planned-spent;
+const pct=planned>0?Math.min(100,(spent/planned)*100):0;
+const cls=left<0?'over':pct>75?'warn':'ok';
+const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
+const isWeek=s.id.startsWith('nedelja');
+const canReset=isWeek&&left>0&&planned>0;
+const txs=getTxsByCat(s.id);
+const isOpen=openItems[s.id];
+let txHtml='';
+if(txs.length){
+txHtml=txs.map(t=>`
+<div class="item-tx-row">
+<span class="item-tx-left">${t.transfer?'↓ ':''}${t.desc||SECTIONS.find(x=>x.id===t.cat)?.label||'—'} · ${new Date(t.ts).toLocaleDateString('sr-RS')}</span>
+<span class="item-tx-amt">-${fmtRSD(Math.abs(t.amount))}</span>
+</div>`).join('');
+}else{
+txHtml='<div class="item-tx-empty">Nema troškova iz ove stavke</div>';
+}
+html+=`<div class="budget-item">
+<div class="item-row item-head" onclick="toggleItem('${s.id}')">
+<span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
+<span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
+<span class="item-name">${s.label}</span>
+${canReset?`<button class="reset-btn" onclick="event.stopPropagation();resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
+<div class="item-planned" onclick="event.stopPropagation()">
+<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
+</div>
+</div>
+${planned>0?`<div class="item-bar">
+<div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+<div class="bar-info">
+<span class="bar-spent">Potrošeno: ${fmtRSD(spent)}</span>
+<span class="bar-left ${cls}">${left>=0?'Ostalo: ':'Prekoračeno: '}${fmtRSD(Math.abs(left))}</span>
+</div>
+</div>`:''}
+<div class="item-txs ${isOpen?'open':''}" id="txs-${s.id}">
+<div class="item-txs-inner">${txHtml}</div>
+</div>
+</div>`;
+});
+cont.innerHTML=html;
+}
+
+function renderTransactions(){
+const txs=Object.values(state.transactions);
+const list=document.getElementById('tx-list');
+if(!txs.length){list.innerHTML='<div class="empty">Nema transakcija ovog meseca</div>';return}
+const sorted=[...txs].sort((a,b)=>b.ts-a.ts);
+list.innerHTML=sorted.map(t=>`
+<div class="tx-item">
+<div class="tx-icon">${ICONS[t.cat]||'💳'}</div>
+<div class="tx-info">
+<div class="tx-cat">${SECTIONS.find(s=>s.id===t.cat)?.label||t.cat}</div>
+${t.desc?`<div class="tx-desc">${t.desc}</div>`:''}
+<div class="tx-date">${new Date(t.ts).toLocaleDateString('sr-RS')}</div>
+</div>
+<span class="tx-amount">-${fmtRSD(Math.abs(t.amount))}</span>
+<button class="tx-del" onclick="deleteTx(${t.ts})">×</button>
+</div>
+`).join('');
+}
+
+window.deleteTx=function(ts){
+remove(ref(db,dbPath(`transactions/${ts}`)));
+};
+
+window.openModal=function(){
+const sel=document.getElementById('tx-cat');
+sel.innerHTML=SECTIONS.filter(s=>!LICNI.includes(s.id)).map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
+document.getElementById('tx-amount').value='';
+document.getElementById('tx-desc').value='';
+document.getElementById('modal').classList.add('open');
+};
+window.closeModal=function(){document.getElementById('modal').classList.remove('open')};
+window.closeModalOutside=function(e){if(e.target===document.getElementById('modal'))closeModal()};
+window.saveTransaction=function(){
+const amount=parseFloat(document.getElementById('tx-amount').value)||0;
+if(!amount){alert('Unesi iznos');return}
+const cat=document.getElementById('tx-cat').value;
+const desc=document.getElementById('tx-desc').value.trim();
+const ts=Date.now();
+set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat,desc,ts});
+closeModal();
+};
+
+// ---- Kalkulator ----
+let calcExpr='';
+function calcRender(){
+const s=document.getElementById('calc-screen');
+s.textContent=calcExpr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/\./g,',')||'0';
+}
+window.calcNum=function(n){calcExpr+=n;calcRender()};
+window.calcOp=function(op){
+if(!calcExpr&&op!=='-')return;
+if(/[+\-*/%]$/.test(calcExpr))calcExpr=calcExpr.slice(0,-1);
+calcExpr+=op;calcRender();
+};
+window.calcClear=function(){calcExpr='';calcRender()};
+window.calcDel=function(){calcExpr=calcExpr.slice(0,-1);calcRender()};
+window.calcEq=function(){
+if(!/^[0-9+\-*/.()%]+$/.test(calcExpr)){return}
+try{
+let e=calcExpr.replace(/(\d+(?:\.\d+)?)%/g,'($1/100)');
+const r=Function('"use strict";return ('+e+')')();
+if(typeof r==='number'&&isFinite(r)){
+calcExpr=String(Math.round(r*100)/100);
+calcRender();
+}
+}catch(e){}
+};
+
+// ============ PRIJAVA (Google) + BIOMETRIJA (otisak) ============
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+let currentUser = null;
+let appStarted = false;
+
+function startAppOnce(){
+if(appStarted)return;
+appStarted=true;
+listenMonth();listenSavings();listenMore();listenLaptop();
+}
+
+function prettyAuthErr(e){
+const c=(e&&e.code)||'';
+if(c==='auth/unauthorized-domain')return 'Ovaj domen nije dozvoljen u Firebase-u. Dodaj ga: Authentication → Settings → Authorized domains.';
+if(c==='auth/popup-blocked')return 'Pregledač je blokirao prozor za prijavu.';
+if(c==='auth/network-request-failed')return 'Nema internet konekcije.';
+return (e&&e.message)||'Greška pri prijavi.';
+}
+
+function gateState(state){
+document.getElementById('auth-gate').style.display='flex';
+document.getElementById('auth-login-state').style.display=state==='login'?'block':'none';
+document.getElementById('auth-lock-state').style.display=state==='lock'?'block':'none';
+const sub=document.getElementById('auth-sub');
+sub.textContent=state==='login'?'Prijavi se da nastaviš':state==='lock'?'Dodirni ekran za otisak 👆':'Učitavanje…';
+}
+function hideGate(){document.getElementById('auth-gate').style.display='none'}
+function authError(m){document.getElementById('auth-error').textContent=m||''}
+
+function bioKey(uid){return 'budzet_bio_'+uid}
+function bioDeclinedKey(uid){return 'budzet_bio_declined_'+uid}
+function bioSupported(){return !!(window.PublicKeyCredential&&navigator.credentials&&navigator.credentials.create)}
+function bioEnabled(uid){return !!localStorage.getItem(bioKey(uid))}
+function bioDisable(uid){localStorage.removeItem(bioKey(uid))}
+function randChallenge(){const u=new Uint8Array(32);crypto.getRandomValues(u);return u.buffer}
+function bufToB64(buf){const u=new Uint8Array(buf);let s='';for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)}
+function b64ToBuf(b64){const bin=atob(b64);const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u.buffer}
+async function bioRegister(uid,email){
+if(!bioSupported())throw new Error('Pregledač ne podržava otisak');
+const cred=await navigator.credentials.create({publicKey:{
+challenge:randChallenge(),
+rp:{name:'Kućni Budžet'},
+user:{id:new TextEncoder().encode(uid),name:email||'korisnik',displayName:email||'korisnik'},
+pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],
+authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},
+timeout:60000
+}});
+localStorage.setItem(bioKey(uid),bufToB64(cred.rawId));
+}
+async function bioVerify(uid){
+const id=localStorage.getItem(bioKey(uid));
+if(!id)return false;
+await navigator.credentials.get({publicKey:{
+challenge:randChallenge(),
+allowCredentials:[{type:'public-key',id:b64ToBuf(id)}],
+userVerification:'required',
+timeout:60000
+}});
+return true;
+}
+
+document.getElementById('btn-google').onclick=async function(){
+authError('');
+try{
+await signInWithPopup(auth,googleProvider);
+}catch(e){
+const c=(e&&e.code)||'';
+if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
+try{await signInWithRedirect(auth,googleProvider)}catch(e2){authError(prettyAuthErr(e2))}
+}else if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request'){
+}else{authError(prettyAuthErr(e))}
+}
+};
+let bioPrompting=false;
+async function tryBioUnlock(manual){
+if(bioPrompting)return;
+bioPrompting=true;
+authError('');
+try{
+if(await bioVerify(currentUser.uid)){hideGate();startAppOnce()}
+}catch(e){if(manual)authError('Otisak nije prepoznat. Pokušaj ponovo.')}
+finally{bioPrompting=false}
+}
+document.getElementById('auth-gate').addEventListener('click',function(e){
+if(document.getElementById('auth-lock-state').style.display==='none')return;
+if(e.target.id==='btn-logout-locked')return;
+tryBioUnlock(true);
+});
+document.getElementById('btn-logout-locked').onclick=function(){signOut(auth)};
+document.getElementById('btn-bio-enable').onclick=async function(){
+try{await bioRegister(currentUser.uid,currentUser.email);document.getElementById('bio-enroll').style.display='none'}
+catch(e){document.getElementById('bio-error').textContent='Nije uspelo: '+((e&&e.message)||e)}
+};
+document.getElementById('btn-bio-skip').onclick=function(){
+localStorage.setItem(bioDeclinedKey(currentUser.uid),'1');
+document.getElementById('bio-enroll').style.display='none';
+};
+
+window.openAccountModal=function(){
+if(!currentUser)return;
+document.getElementById('acc-email').textContent=currentUser.email||'—';
+document.getElementById('acc-uid').textContent='UID: '+currentUser.uid;
+document.getElementById('acc-bio').checked=bioEnabled(currentUser.uid);
+document.getElementById('acc-bio-row').style.display=bioSupported()?'flex':'none';
+document.getElementById('account-modal').classList.add('open');
+};
+window.closeAccountModal=function(){document.getElementById('account-modal').classList.remove('open')};
+window.closeAccountOutside=function(e){if(e.target===document.getElementById('account-modal'))closeAccountModal()};
+document.getElementById('acc-bio').onchange=async function(ev){
+if(!currentUser)return;
+if(ev.target.checked){
+try{await bioRegister(currentUser.uid,currentUser.email);localStorage.removeItem(bioDeclinedKey(currentUser.uid))}
+catch(e){ev.target.checked=false;alert('Nije uspelo uključivanje otiska: '+((e&&e.message)||e))}
+}else{bioDisable(currentUser.uid)}
+};
+document.getElementById('btn-logout').onclick=function(){closeAccountModal();signOut(auth)};
+
+setPersistence(auth,browserLocalPersistence).catch(function(){});
+getRedirectResult(auth).catch(function(e){authError(prettyAuthErr(e))});
+onAuthStateChanged(auth,function(user){
+currentUser=user;
+const accBtn=document.getElementById('acc-btn');
+if(!user){
+appStarted=false;
+if(accBtn)accBtn.style.display='none';
+gateState('login');
+return;
+}
+if(accBtn)accBtn.style.display='';
+if(bioEnabled(user.uid)){
+gateState('lock');
+tryBioUnlock(false);
+}else{
+hideGate();
+startAppOnce();
+if(bioSupported()&&!localStorage.getItem(bioDeclinedKey(user.uid))){
+document.getElementById('bio-enroll').style.display='flex';
+}
+}
+});
+
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('/Budzet/sw.js');
+}
+
+// Swipe navigacija + History API (Android back = prethodni tab)
+history.replaceState({tab:'budzet'},'','');
+window.addEventListener('popstate',function(e){
+  switchTab((e.state&&e.state.tab)||'budzet',false);
+});
+(function(){
+  const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
+  let startX=0,startY=0,dir=null;
+  document.addEventListener('touchstart',function(e){
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    dir=null;
+  },{passive:true});
+  document.addEventListener('touchmove',function(e){
+    if(dir===null){
+      const dx=Math.abs(e.touches[0].clientX-startX);
+      const dy=Math.abs(e.touches[0].clientY-startY);
+      if(dx>8||dy>8)dir=dx>dy?'h':'v';
+    }
+    if(dir==='h')e.preventDefault();
+  },{passive:false});
+  document.addEventListener('touchend',function(e){
+    if(dir!=='h')return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)<50)return;
+    const active=tabs.findIndex(t=>document.getElementById('page-'+t).classList.contains('active'));
+    if(dx>0&&active>0)switchTab(tabs[active-1]);
+    if(dx<0&&active<tabs.length-1)switchTab(tabs[active+1]);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

@@ -49,6 +49,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .item-planned{width:100px}
 .item-planned input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.4rem .6rem;color:var(--text);font-size:13px;text-align:right}
 .item-planned input:focus{outline:none;border-color:var(--accent)}
+.item-planned input[readonly]{opacity:.7;cursor:default;border-color:var(--border)}
 .item-bar{margin-top:.6rem}
 .bar-track{height:4px;background:var(--surface2);border-radius:2px;overflow:hidden}
 .bar-fill{height:100%;border-radius:2px;transition:width .3s}
@@ -532,6 +533,9 @@ let laptopPlaceno = 2;
 // za withdraw/setbalance modal
 let activePool = 'stednja'; // 'stednja' ili 'more'
 
+// Lokalne vrednosti iznosa računa (pre čekiranja)
+let racuniIznosi = {};
+
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
 function setSyncDot(online){
@@ -550,6 +554,13 @@ state.budget_items=d.budget_items||{};
 state.transactions=d.transactions||{};
 state.notes=d.notes||'';
 state.racuni=d.racuni||{};
+// Inicijalizuj lokalne iznose iz već upisanih vrednosti
+RACUNI.forEach(r=>{
+const st=state.racuni[r.id];
+if(st&&st.amount&&!(r.id in racuniIznosi)){
+racuniIznosi[r.id]=st.amount;
+}
+});
 renderAll();
 },()=>setSyncDot(false));
 }
@@ -593,6 +604,35 @@ set(ref(db,dbPath('salaries')),state.salaries);
 window.saveBudgetItem=function(el){
 state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
 set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+// ---- AUTOMATSKI ZBIR RAČUNA ----
+window.updateRacunIznos=function(id, val){
+racuniIznosi[id]=parseFloat(val)||0;
+// Zbir svih upisanih iznosa (plaćenih i neplaćenih)
+const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const ukupno=vidljivi.reduce((sum,r)=>{
+const st=state.racuni[r.id];
+if(st&&st.paid){
+return sum+(st.amount||0);
+}
+return sum+(racuniIznosi[r.id]||0);
+},0);
+state.budget_items['racuni']=ukupno;
+set(ref(db,dbPath('budget_items')),state.budget_items);
+// Ažuriraj prikaz polja gore bez re-rendera
+const inp=document.querySelector('[data-id="racuni"]');
+if(inp)inp.value=ukupno||'';
+// Ažuriraj i neraspoređeno
+const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
+const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
+const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
+document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
+const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
+const neraspored=(a+k)-planirano;
+const uel=document.getElementById('unallocated');
+uel.textContent=fmtRSD(neraspored);
+uel.className='unalloc-val '+(neraspored<0?'over':'ok');
 };
 
 window.saveNotes=function(val){
@@ -654,7 +694,6 @@ if(pm<0){pm=11;py--}
 get(ref(db,`budzet/${py}/${pm}/budget_items`)).then(snap=>{
 const prev=snap.val();
 if(!prev){alert(`Nema podataka za ${MONTHS_SR[pm]} ${py}`);return}
-// kopiraj samo planske kućne stavke — preskoči lične, štednju i investicije (to su žive pare)
 const skip=[...LICNI,'stednja','investicije'];
 const novi={...state.budget_items};
 let kopirano=0;
@@ -675,15 +714,17 @@ window.toggleRacun=function(id){
 const r=RACUNI.find(x=>x.id===id);
 const st=state.racuni[id];
 if(st&&st.paid){
-// odčekiraj — briše transakciju i vraća stanje
 if(!confirm(`Poništiti plaćanje: ${r.label}?`))return;
 if(st.ts)remove(ref(db,dbPath(`transactions/${st.ts}`)));
 delete state.racuni[id];
 set(ref(db,dbPath('racuni')),state.racuni);
 if(r.laptop)set(ref(db,'budzet/laptop_rata'),Math.max(0,laptopPlaceno-1));
+// Ponovo izračunaj ukupno
+updateRacunIznos(id, racuniIznosi[id]||0);
 }else{
 const amount=parseFloat(document.getElementById('ramt-'+id).value)||0;
 if(amount<=0){alert('Prvo upiši iznos računa');return}
+racuniIznosi[id]=amount;
 const ts=Date.now();
 set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat:'racuni',desc:r.label,ts});
 state.racuni[id]={paid:true,amount,ts};
@@ -897,6 +938,7 @@ window.changeMonth=function(d){
 currentMonth+=d;
 if(currentMonth>11){currentMonth=0;currentYear++}
 if(currentMonth<0){currentMonth=11;currentYear--}
+racuniIznosi={};
 listenMonth();
 if(document.getElementById('page-trend').classList.contains('active'))loadTrend();
 };
@@ -950,7 +992,6 @@ return{m:r.m,y:r.y,income,spent:spentOf(d),cats:catSpentOf(d),has:!!r.data};
 });
 const active=stats.filter(s=>s.income>0||s.spent>0);
 if(!active.length){cont.innerHTML='<div class="empty">Još nema podataka za trend</div>';return}
-// --- grafikon ---
 const maxV=Math.max(...stats.map(s=>Math.max(s.income,s.spent)),1);
 const W=340,top=14,bottom=150;
 let grid='',bars='',labels='';
@@ -969,7 +1010,6 @@ if(s.spent>0)bars+=`<rect x="${cx+1.5}" y="${bottom-hS}" width="${bw}" height="$
 const isCur=i===stats.length-1;
 labels+=`<text x="${cx}" y="${bottom+15}" fill="${isCur?'#e8e8f0':'#9898b8'}" font-size="10" font-weight="${isCur?'700':'400'}" text-anchor="middle">${MONTHS_KRATKO[s.m]}</text>`;
 });
-// --- statistika ---
 const avgSpent=active.reduce((a,s)=>a+s.spent,0)/active.length;
 const fullMonths=active.filter(s=>s.income>0);
 let cardsHtml=`<div class="trend-card"><div class="tc-lbl">Prosečna potrošnja</div><div class="tc-val">${fmtRSD(avgSpent)}</div><div class="tc-sub">mesečno (${active.length} mes.)</div></div>`;
@@ -981,7 +1021,6 @@ const best=fullMonths.reduce((a,s)=>(s.income-s.spent)>(a.income-a.spent)?s:a);
 cardsHtml+=`<div class="trend-card"><div class="tc-lbl">Prosečno ostane</div><div class="tc-val" style="color:${avgLeft>=0?'var(--green)':'var(--red)'}">${fmtRSD(avgLeft)}</div><div class="tc-sub">${rate}% od prihoda</div></div>`;
 cardsHtml+=`<div class="trend-card" style="grid-column:1/-1"><div class="tc-lbl">Najštedljiviji mesec</div><div class="tc-val">${MONTHS_SR[best.m]} ${best.y}</div><div class="tc-sub">ostalo ${fmtRSD(best.income-best.spent)} od ${fmtRSD(best.income)}</div></div>`;
 }
-// --- poređenje sa prosekom ---
 const cur=stats[stats.length-1];
 const prev=stats.slice(0,-1).filter(s=>s.spent>0);
 let cmpHtml='';
@@ -1112,10 +1151,12 @@ const st=state.racuni[r.id]||{};
 const paid=!!st.paid;
 let label=r.label;
 if(r.laptop)label+=` (${paid?laptopPlaceno:laptopPlaceno+1}/${LAPTOP_UKUPNO})`;
+// Koristi sačuvani iznos ili lokalni
+const currentVal=paid?(st.amount||''):(racuniIznosi[r.id]||st.amount||'');
 return `<div class="racun-row">
 <button class="racun-chk ${paid?'paid':''}" onclick="toggleRacun('${r.id}')">✓</button>
 <span class="racun-name ${paid?'paid':''}">${label}</span>
-<input class="racun-amt" type="number" placeholder="0" id="ramt-${r.id}" value="${st.amount||''}" ${paid?'disabled':''} onclick="event.stopPropagation()">
+<input class="racun-amt" type="number" placeholder="0" id="ramt-${r.id}" value="${currentVal}" ${paid?'disabled':''} onclick="event.stopPropagation()" oninput="updateRacunIznos('${r.id}',this.value)">
 </div>`;
 }).join('');
 html+=`<div class="budget-item">
@@ -1124,7 +1165,7 @@ html+=`<div class="budget-item">
 <span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
 <span class="item-name">${s.label}<div class="racun-sub">${placeno}/${vidljivi.length} plaćeno</div></span>
 <div class="item-planned" onclick="event.stopPropagation()">
-<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
+<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" readonly style="opacity:.7;cursor:default">
 </div>
 </div>
 ${planned>0?`<div class="item-bar">
@@ -1272,7 +1313,7 @@ if(c==='auth/network-request-failed')return 'Nema internet konekcije.';
 return (e&&e.message)||'Greška pri prijavi.';
 }
 
-function gateState(state){ // 'loading' | 'login' | 'lock'
+function gateState(state){
 document.getElementById('auth-gate').style.display='flex';
 document.getElementById('auth-login-state').style.display=state==='login'?'block':'none';
 document.getElementById('auth-lock-state').style.display=state==='lock'?'block':'none';
@@ -1282,9 +1323,6 @@ sub.textContent=state==='login'?'Prijavi se da nastaviš':state==='lock'?'Dodirn
 function hideGate(){document.getElementById('auth-gate').style.display='none'}
 function authError(m){document.getElementById('auth-error').textContent=m||''}
 
-// ---- WebAuthn: lokalna brava na ovom telefonu (otisak/Face ID) ----
-// Napomena: ovo je brza brava na ekran aplikacije na samom uređaju.
-// Pravu zaštitu podataka radi Google prijava + Firebase pravila.
 function bioKey(uid){return 'budzet_bio_'+uid}
 function bioDeclinedKey(uid){return 'budzet_bio_declined_'+uid}
 function bioSupported(){return !!(window.PublicKeyCredential&&navigator.credentials&&navigator.credentials.create)}
@@ -1317,7 +1355,6 @@ timeout:60000
 return true;
 }
 
-// ---- dugmad na ekranu za prijavu/otisak ----
 document.getElementById('btn-google').onclick=async function(){
 authError('');
 try{
@@ -1327,7 +1364,6 @@ const c=(e&&e.code)||'';
 if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
 try{await signInWithRedirect(auth,googleProvider)}catch(e2){authError(prettyAuthErr(e2))}
 }else if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request'){
-/* korisnik odustao */
 }else{authError(prettyAuthErr(e))}
 }
 };
@@ -1341,7 +1377,6 @@ if(await bioVerify(currentUser.uid)){hideGate();startAppOnce()}
 }catch(e){if(manual)authError('Otisak nije prepoznat. Pokušaj ponovo.')}
 finally{bioPrompting=false}
 }
-// ceo zaključan ekran je „dugme" za otisak (osim linka „Odjavi se")
 document.getElementById('auth-gate').addEventListener('click',function(e){
 if(document.getElementById('auth-lock-state').style.display==='none')return;
 if(e.target.id==='btn-logout-locked')return;
@@ -1357,7 +1392,6 @@ localStorage.setItem(bioDeclinedKey(currentUser.uid),'1');
 document.getElementById('bio-enroll').style.display='none';
 };
 
-// ---- modal: Nalog ----
 window.openAccountModal=function(){
 if(!currentUser)return;
 document.getElementById('acc-email').textContent=currentUser.email||'—';
@@ -1377,7 +1411,6 @@ catch(e){ev.target.checked=false;alert('Nije uspelo uključivanje otiska: '+((e&
 };
 document.getElementById('btn-logout').onclick=function(){closeAccountModal();signOut(auth)};
 
-// ---- praćenje stanja prijave ----
 setPersistence(auth,browserLocalPersistence).catch(function(){});
 getRedirectResult(auth).catch(function(e){authError(prettyAuthErr(e))});
 onAuthStateChanged(auth,function(user){

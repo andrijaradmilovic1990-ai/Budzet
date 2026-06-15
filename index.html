@@ -1442,15 +1442,24 @@ navigator.serviceWorker.register('/Budzet/sw.js');
 // Swipe navigacija između tabova
 (function(){
   const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
-  let startX=0,startY=0;
+  let startX=0,startY=0,dir=null;
   document.addEventListener('touchstart',function(e){
     startX=e.touches[0].clientX;
     startY=e.touches[0].clientY;
+    dir=null;
   },{passive:true});
+  document.addEventListener('touchmove',function(e){
+    if(dir===null){
+      const dx=Math.abs(e.touches[0].clientX-startX);
+      const dy=Math.abs(e.touches[0].clientY-startY);
+      if(dx>8||dy>8)dir=dx>dy?'h':'v';
+    }
+    if(dir==='h')e.preventDefault();
+  },{passive:false});
   document.addEventListener('touchend',function(e){
+    if(dir!=='h')return;
     const dx=e.changedTouches[0].clientX-startX;
-    const dy=e.changedTouches[0].clientY-startY;
-    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.5)return;
+    if(Math.abs(dx)<50)return;
     const active=tabs.findIndex(t=>document.getElementById('page-'+t).classList.contains('active'));
     if(dx>0&&active>0)switchTab(tabs[active-1]);
     if(dx<0&&active<tabs.length-1)switchTab(tabs[active+1]);

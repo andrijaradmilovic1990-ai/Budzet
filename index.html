@@ -1087,8 +1087,11 @@ if(ml3)ml3.textContent=lbl;
 const ml4=document.getElementById('month-label-4');
 if(ml4)ml4.textContent=lbl;
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
-document.getElementById('sal-andrija').value=a||'';
-document.getElementById('sal-katarina').value=k||'';
+const af=document.activeElement;
+const salA=document.getElementById('sal-andrija');
+const salK=document.getElementById('sal-katarina');
+if(af!==salA)salA.value=a||'';
+if(af!==salK)salK.value=k||'';
 const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
 const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
 document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
@@ -1106,7 +1109,13 @@ uel.style.color='';
 }
 const nt=document.getElementById('notes-text');
 if(nt&&document.activeElement!==nt)nt.value=state.notes||'';
-if(!document.activeElement||!document.activeElement.classList.contains('racun-amt')){
+// Ne re-renderuj budget sekcije ako korisnik trenutno kuca u nekom input polju
+const ae=document.activeElement;
+const kucaUInput=ae&&ae.tagName==='INPUT'&&(
+ae.classList.contains('racun-amt')||
+(ae.closest&&ae.closest('#budget-sections'))
+);
+if(!kucaUInput){
 renderBudgetSections();
 }
 renderTransactions();

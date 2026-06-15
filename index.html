@@ -943,11 +943,12 @@ listenMonth();
 if(document.getElementById('page-trend').classList.contains('active'))loadTrend();
 };
 
-window.switchTab=function(tab){
+window.switchTab=function(tab,pushState){
 const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
 document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===tab));
 tabs.forEach(t=>document.getElementById('page-'+t).classList.toggle('active',t===tab));
 if(tab==='trend')loadTrend();
+if(pushState!==false)history.pushState({tab:tab},'','');
 };
 
 // ---- TREND (poslednjih 6 meseci) ----
@@ -1439,7 +1440,11 @@ if('serviceWorker' in navigator){
 navigator.serviceWorker.register('/Budzet/sw.js');
 }
 
-// Swipe navigacija između tabova
+// Swipe navigacija + History API (Android back gesta navigira kroz tabove)
+history.replaceState({tab:'budzet'},'','');
+window.addEventListener('popstate',function(e){
+  switchTab((e.state&&e.state.tab)||'budzet',false);
+});
 (function(){
   const tabs=['budzet','transakcije','pregled','trend','kalkulator'];
   let startX=0,startY=0,dir=null;

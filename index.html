@@ -533,8 +533,9 @@ let laptopPlaceno = 2;
 // za withdraw/setbalance modal
 let activePool = 'stednja'; // 'stednja' ili 'more'
 
-// Lokalne vrednosti iznosa računa (pre čekiranja)
+// Lokalne vrednosti iznosa računa (pre čekiranja) — sada se čuvaju u Firebase
 let racuniIznosi = {};
+let racuniTimer = null;
 
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
@@ -554,13 +555,16 @@ state.budget_items=d.budget_items||{};
 state.transactions=d.transactions||{};
 state.notes=d.notes||'';
 state.racuni=d.racuni||{};
-// Inicijalizuj lokalne iznose iz već upisanih vrednosti
+// Iznosi računa: prvo iz sačuvanog čvora racuni_iznosi, pa override iz plaćenih
+const af=document.activeElement;
+const kucaURacun=af&&af.classList&&af.classList.contains('racun-amt');
+if(!kucaURacun){
+racuniIznosi={...(d.racuni_iznosi||{})};
 RACUNI.forEach(r=>{
 const st=state.racuni[r.id];
-if(st&&st.amount&&!(r.id in racuniIznosi)){
-racuniIznosi[r.id]=st.amount;
-}
+if(st&&st.amount){racuniIznosi[r.id]=st.amount}
 });
+}
 renderAll();
 },()=>setSyncDot(false));
 }
@@ -606,18 +610,47 @@ state.budget_items[el.dataset.id]=parseFloat(el.value)||0;
 set(ref(db,dbPath('budget_items')),state.budget_items);
 };
 
-// ---- AUTOMATSKI ZBIR RAČUNA ----
-window.updateRacunIznos=function(id, val){
-racuniIznosi[id]=parseFloat(val)||0;
+// ---- ZBIR RAČUNA (samo prikaz "Računi" planiranog) ----
+function izracunajRacuniZbir(){
 const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
-const ukupno=vidljivi.reduce((sum,r)=>{
+return vidljivi.reduce((sum,r)=>{
 const st=state.racuni[r.id];
 if(st&&st.paid)return sum+(st.amount||0);
 return sum+(racuniIznosi[r.id]||0);
 },0);
+}
+
+// Kucanje iznosa računa: ažurira "Računi" planirano + neraspoređeno, i SNIMA u Firebase
+window.updateRacunIznos=function(id, val){
+racuniIznosi[id]=parseFloat(val)||0;
+const ukupno=izracunajRacuniZbir();
 state.budget_items['racuni']=ukupno;
 const inp=document.querySelector('[data-id="racuni"]');
 if(inp)inp.value=ukupno||'';
+// Prebroj plaćeno/ukupno za podnaslov
+const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const placeno=vidljivi.filter(r=>state.racuni[r.id]?.paid).length;
+const sub=document.getElementById('racuni-sub');
+if(sub)sub.textContent=`${placeno}/${vidljivi.length} plaćeno`;
+// Osveži kasu i neraspoređeno bez punog re-rendera
+osveziKasuNeraspored();
+// Debounce snimanje u Firebase
+clearTimeout(racuniTimer);
+racuniTimer=setTimeout(()=>{
+set(ref(db,dbPath('racuni_iznosi')),racuniIznosi);
+set(ref(db,dbPath('budget_items')),state.budget_items);
+},500);
+};
+
+window.saveRacunBlur=function(){
+state.budget_items['racuni']=izracunajRacuniZbir();
+clearTimeout(racuniTimer);
+set(ref(db,dbPath('racuni_iznosi')),racuniIznosi);
+set(ref(db,dbPath('budget_items')),state.budget_items);
+};
+
+// Osveži "Ukupno u kasi" i "Neraspoređeno" (bez diranja inputa u koje se kuca)
+function osveziKasuNeraspored(){
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
 const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
 const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
@@ -625,19 +658,16 @@ document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošen
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
 const neraspored=(a+k)-planirano;
 const uel=document.getElementById('unallocated');
+if(neraspored<0&&(a===0||k===0)){
+uel.textContent='čeka se plata…';
+uel.className='unalloc-val';
+uel.style.color='var(--text2)';
+}else{
 uel.textContent=fmtRSD(neraspored);
 uel.className='unalloc-val '+(neraspored<0?'over':'ok');
-};
-window.saveRacunBlur=function(){
-const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
-const ukupno=vidljivi.reduce((sum,r)=>{
-const st=state.racuni[r.id];
-if(st&&st.paid)return sum+(st.amount||0);
-return sum+(racuniIznosi[r.id]||0);
-},0);
-state.budget_items['racuni']=ukupno;
-set(ref(db,dbPath('budget_items')),state.budget_items);
-};
+uel.style.color='';
+}
+}
 
 window.saveNotes=function(val){
 state.notes=val;
@@ -710,6 +740,11 @@ if(!kopirano){alert('Nema kućnih stavki za kopiranje');return}
 if(!confirm(`Kopirati raspored iz ${MONTHS_SR[pm]} ${py}? (${kopirano} stavki, plate i lični troškovi se ne diraju)`))return;
 state.budget_items=novi;
 set(ref(db,dbPath('budget_items')),novi);
+// Kopiraj i pojedinačne iznose računa
+get(ref(db,`budzet/${py}/${pm}/racuni_iznosi`)).then(s2=>{
+const prevIz=s2.val();
+if(prevIz){racuniIznosi={...prevIz};set(ref(db,dbPath('racuni_iznosi')),racuniIznosi)}
+});
 });
 };
 
@@ -724,11 +759,13 @@ delete state.racuni[id];
 set(ref(db,dbPath('racuni')),state.racuni);
 if(r.laptop)set(ref(db,'budzet/laptop_rata'),Math.max(0,laptopPlaceno-1));
 // Ponovo izračunaj ukupno
-updateRacunIznos(id, racuniIznosi[id]||0);
+state.budget_items['racuni']=izracunajRacuniZbir();
+set(ref(db,dbPath('budget_items')),state.budget_items);
 }else{
 const amount=parseFloat(document.getElementById('ramt-'+id).value)||0;
 if(amount<=0){alert('Prvo upiši iznos računa');return}
 racuniIznosi[id]=amount;
+set(ref(db,dbPath('racuni_iznosi')),racuniIznosi);
 const ts=Date.now();
 set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat:'racuni',desc:r.label,ts});
 state.racuni[id]={paid:true,amount,ts};
@@ -942,7 +979,6 @@ window.changeMonth=function(d){
 currentMonth+=d;
 if(currentMonth>11){currentMonth=0;currentYear++}
 if(currentMonth<0){currentMonth=11;currentYear--}
-racuniIznosi={};
 listenMonth();
 if(document.getElementById('page-trend').classList.contains('active'))loadTrend();
 };
@@ -1154,9 +1190,10 @@ html+=`<div class="budget-item">
 return;
 }
 if(s.id==='racuni'){
+const realniZbir=izracunajRacuniZbir();
 const spent=getSpent(s.id);
-const left=planned-spent;
-const pct=planned>0?Math.min(100,(spent/planned)*100):0;
+const left=realniZbir-spent;
+const pct=realniZbir>0?Math.min(100,(spent/realniZbir)*100):0;
 const cls=left<0?'over':pct>75?'warn':'ok';
 const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
 const isOpen=openItems[s.id];
@@ -1179,12 +1216,12 @@ html+=`<div class="budget-item">
 <div class="item-row item-head" onclick="toggleItem('${s.id}')">
 <span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
 <span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
-<span class="item-name">${s.label}<div class="racun-sub">${placeno}/${vidljivi.length} plaćeno</div></span>
+<span class="item-name">${s.label}<div class="racun-sub" id="racuni-sub">${placeno}/${vidljivi.length} plaćeno</div></span>
 <div class="item-planned" onclick="event.stopPropagation()">
-<input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" readonly style="opacity:.7;cursor:default">
+<input type="number" placeholder="0" value="${realniZbir||''}" data-id="${s.id}" readonly style="opacity:.7;cursor:default">
 </div>
 </div>
-${planned>0?`<div class="item-bar">
+${realniZbir>0?`<div class="item-bar">
 <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
 <div class="bar-info">
 <span class="bar-spent">Plaćeno: ${fmtRSD(spent)}</span>

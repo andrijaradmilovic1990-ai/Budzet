@@ -1,7 +1,9 @@
 {
+  "id": "/Budzet/",
   "name": "Kućni Budžet",
   "short_name": "Budžet",
   "start_url": "/Budzet/",
+  "scope": "/Budzet/",
   "display": "standalone",
   "background_color": "#0f0f1a",
   "theme_color": "#0f0f1a",

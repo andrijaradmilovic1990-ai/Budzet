@@ -1,8 +1,9 @@
 {
+  "id": "/Budzet/brzi-unos.html",
   "name": "Brzi unos",
   "short_name": "Brzi unos",
   "start_url": "/Budzet/brzi-unos.html",
-  "scope": "/Budzet/",
+  "scope": "/Budzet/brzi-unos.html",
   "display": "standalone",
   "background_color": "#0f0f1a",
   "theme_color": "#0f0f1a",

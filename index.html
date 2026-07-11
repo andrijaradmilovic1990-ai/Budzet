@@ -493,12 +493,12 @@ const SECTIONS = [
 {id:'nedelja1',label:'Nedelja 1'},{id:'nedelja2',label:'Nedelja 2'},
 {id:'nedelja3',label:'Nedelja 3'},{id:'nedelja4',label:'Nedelja 4'},
 {id:'dodatne',label:'Dodatne stvari'},{id:'nepredvidjeni',label:'Nepredviđeni troškovi'},
-{id:'racuni',label:'Računi'},{id:'stednja',label:'Štednja'},
+{id:'racuni',label:'Računi'},{id:'gorivo',label:'Gorivo'},{id:'stednja',label:'Štednja'},
 {id:'investicije',label:'More (mesečno)'},
 {id:'licni_katarina',label:'Katarina lični trošak'},
 {id:'licni_andrija',label:'Andrija lični trošak'},
 ];
-const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',stednja:'🏦',investicije:'🌊',licni_katarina:'💄',licni_andrija:'🎸'};
+const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',gorivo:'⛽',stednja:'🏦',investicije:'🌊',licni_katarina:'💄',licni_andrija:'🎸'};
 const LICNI = ['licni_katarina','licni_andrija'];
 const RACUNI = [
 {id:'osiguranje',label:'Osiguranje'},
@@ -998,6 +998,7 @@ const CMP_GRUPE=[
 {id:'dodatne',label:'Dodatne stvari',icon:'🎯',cats:['dodatne']},
 {id:'nepredvidjeni',label:'Nepredviđeni troškovi',icon:'⚡',cats:['nepredvidjeni']},
 {id:'racuni',label:'Računi',icon:'🧾',cats:['racuni']},
+{id:'gorivo',label:'Gorivo',icon:'⛽',cats:['gorivo']},
 ];
 let trendSeq=0;
 function fmtK(n){return n>=1000?Math.round(n/1000)+'k':String(Math.round(n))}

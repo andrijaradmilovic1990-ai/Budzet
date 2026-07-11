@@ -179,7 +179,7 @@ hideGate();
 });
 
 if('serviceWorker' in navigator){
-navigator.serviceWorker.register('/Budzet/sw.js');
+navigator.serviceWorker.register('/Budzet/brzi-sw.js',{scope:'/Budzet/brzi-unos.html'});
 }
 </script>
 </body>

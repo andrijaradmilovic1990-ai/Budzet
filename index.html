@@ -852,8 +852,9 @@ const ts=Date.now();
 const noviTotal=totalSavings+mesecna;
 const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
 set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
-state.budget_items['stednja']=0;
-set(ref(db,dbPath('budget_items')),state.budget_items);
+// Napomena: budget_items['stednja'] se NAMERNO ne dira/ne resetuje.
+// Taj iznos ostaje "planiran/potrošen" za ovaj mesec (otišao je u štednju),
+// pa se Neraspoređeno ne vraća kao da pare nikad nisu raspoređene.
 };
 
 // ---- MORE ----
@@ -865,8 +866,8 @@ const ts=Date.now();
 const noviTotal=totalMore+mesecna;
 const noviLog={...moreLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
 set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
-state.budget_items['investicije']=0;
-set(ref(db,dbPath('budget_items')),state.budget_items);
+// Napomena: budget_items['investicije'] se NAMERNO ne dira/ne resetuje —
+// isti razlog kao kod štednje (vidi transferMonthToTotal).
 };
 
 // ---- WITHDRAW (štednja ili more) ----

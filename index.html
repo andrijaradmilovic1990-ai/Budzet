@@ -521,7 +521,7 @@ const MONTHS_SR = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust',
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{},notes:'',racuni:{}};
+let state = {salaries:{andrija:0,katarina:0},budget_items:{},transactions:{},notes:'',racuni:{},preneto:{}};
 let openItems = {};
 let notesTimer = null;
 let totalSavings = 0;
@@ -539,6 +539,13 @@ let racuniTimer = null;
 
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
+// FIX: koliko je OVOG meseca preneto u glavni saldo (stednja+more).
+// Taj iznos ostaje "rasporedjen" iako je mesecna stavka pala na 0.
+function prenetoUkupno(){
+const p=state.preneto||{};
+return (parseFloat(p.stednja)||0)+(parseFloat(p.investicije)||0);
+}
+
 function setSyncDot(online){
 const d=document.getElementById('sync-dot');
 d.className='sync-dot '+(online?'online':'offline');
@@ -555,6 +562,7 @@ state.budget_items=d.budget_items||{};
 state.transactions=d.transactions||{};
 state.notes=d.notes||'';
 state.racuni=d.racuni||{};
+state.preneto=d.preneto||{};
 // Iznosi računa: prvo iz sačuvanog čvora racuni_iznosi, pa override iz plaćenih
 const af=document.activeElement;
 const kucaURacun=af&&af.classList&&af.classList.contains('racun-amt');
@@ -656,7 +664,7 @@ const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&
 const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
 document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=(a+k)-planirano;
+const neraspored=(a+k)-planirano-prenetoUkupno();
 const uel=document.getElementById('unallocated');
 if(neraspored<0&&(a===0||k===0)){
 uel.textContent='čeka se plata…';
@@ -852,9 +860,13 @@ const ts=Date.now();
 const noviTotal=totalSavings+mesecna;
 const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
 set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
-// Napomena: budget_items['stednja'] se NAMERNO ne dira/ne resetuje.
-// Taj iznos ostaje "planiran/potrošen" za ovaj mesec (otišao je u štednju),
-// pa se Neraspoređeno ne vraća kao da pare nikad nisu raspoređene.
+// FIX: iznos je otisao u glavni saldo. Pamti ga u mesecni "preneto" (ostaje rasporedjeno),
+// pa resetuj mesecnu stavku na 0. Tako Neraspored ostaje 0 i pare se ne dupliraju.
+const prethodno=(parseFloat(state.preneto&&state.preneto.stednja)||0);
+state.preneto={...(state.preneto||{}),stednja:prethodno+mesecna};
+state.budget_items['stednja']=0;
+set(ref(db,dbPath('preneto')),state.preneto);
+set(ref(db,dbPath('budget_items')),state.budget_items);
 };
 
 // ---- MORE ----
@@ -866,8 +878,12 @@ const ts=Date.now();
 const noviTotal=totalMore+mesecna;
 const noviLog={...moreLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
 set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
-// Napomena: budget_items['investicije'] se NAMERNO ne dira/ne resetuje —
-// isti razlog kao kod štednje (vidi transferMonthToTotal).
+// FIX: isto kao kod stednje — pamti u "preneto.investicije" i resetuj mesecnu na 0.
+const prethodno=(parseFloat(state.preneto&&state.preneto.investicije)||0);
+state.preneto={...(state.preneto||{}),investicije:prethodno+mesecna};
+state.budget_items['investicije']=0;
+set(ref(db,dbPath('preneto')),state.preneto);
+set(ref(db,dbPath('budget_items')),state.budget_items);
 };
 
 // ---- WITHDRAW (štednja ili more) ----
@@ -1134,7 +1150,7 @@ const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&
 const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
 document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=(a+k)-planirano;
+const neraspored=(a+k)-planirano-prenetoUkupno();
 const uel=document.getElementById('unallocated');
 if(neraspored<0&&(a===0||k===0)){
 uel.textContent='čeka se plata…';

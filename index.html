@@ -36,6 +36,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .salary-total{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(255,107,157,.1));border:1px solid rgba(108,99,255,.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
 .salary-total .lbl{font-size:13px;color:var(--text2)}
 .salary-total .val{font-size:20px;font-weight:700;color:var(--accent)}
+.salary-total .val.over{color:var(--red)}
 .unalloc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;margin-top:-1rem}
 .unalloc-lbl{font-size:13px;color:var(--text2)}
 .unalloc-val{font-size:16px;font-weight:700}
@@ -549,6 +550,23 @@ const p=state.preneto||{};
 return (parseFloat(p.stednja)||0)+(parseFloat(p.investicije)||0);
 }
 
+// NOVO: "Ukupno u kasi" = zbir OSTALO po svim stavkama (planirano - potroseno),
+// minus licno odvojeno (izlazi iz kase odmah), minus preneto u glavni saldo.
+// Glavni saldo stednje i mora se NE dira. Prekoracenje ide u minus.
+function ukupnoUKasi(){
+let ostalo=0;
+SECTIONS.forEach(s=>{
+if(LICNI.includes(s.id))return; // licno se oduzima posebno (ceo iznos)
+let planirano;
+if(s.id==='racuni'){planirano=izracunajRacuniZbir();}
+else{planirano=parseFloat(state.budget_items[s.id])||0;}
+const potroseno=getSpent(s.id);
+ostalo+=(planirano-potroseno); // moze u minus ako je prekoraceno
+});
+const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
+return ostalo-licniOdvojeno-prenetoUkupno();
+}
+
 function setSyncDot(online){
 const d=document.getElementById('sync-dot');
 d.className='sync-dot '+(online?'online':'offline');
@@ -662,12 +680,18 @@ set(ref(db,dbPath('racuni_iznosi')),racuniIznosi);
 set(ref(db,dbPath('budget_items')),state.budget_items);
 };
 
+// Prikazi "Ukupno u kasi" i "Neraspoređeno"
+function prikaziKasu(){
+const kasa=ukupnoUKasi();
+const kel=document.getElementById('total-income');
+kel.textContent=fmtRSD(kasa);
+kel.className='val'+(kasa<0?' over':'');
+}
+
 // Osveži "Ukupno u kasi" i "Neraspoređeno" (bez diranja inputa u koje se kuca)
 function osveziKasuNeraspored(){
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
-const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
-const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
-document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
+prikaziKasu();
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
 const neraspored=(a+k)-planirano-prenetoUkupno();
 const uel=document.getElementById('unallocated');
@@ -1159,9 +1183,7 @@ const salA=document.getElementById('sal-andrija');
 const salK=document.getElementById('sal-katarina');
 if(af!==salA)salA.value=a||'';
 if(af!==salK)salK.value=k||'';
-const ukupnoPotrošeno=Object.values(state.transactions).filter(t=>!t.transfer&&!LICNI.includes(t.cat)).reduce((s,t)=>s+Math.abs(t.amount),0);
-const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
-document.getElementById('total-income').textContent=fmtRSD((a+k)-ukupnoPotrošeno-licniOdvojeno);
+prikaziKasu();
 const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
 const neraspored=(a+k)-planirano-prenetoUkupno();
 const uel=document.getElementById('unallocated');

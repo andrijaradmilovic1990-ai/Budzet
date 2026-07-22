@@ -550,21 +550,21 @@ const p=state.preneto||{};
 return (parseFloat(p.stednja)||0)+(parseFloat(p.investicije)||0);
 }
 
-// NOVO: "Ukupno u kasi" = zbir OSTALO po svim stavkama (planirano - potroseno),
-// minus licno odvojeno (izlazi iz kase odmah), minus preneto u glavni saldo.
+// "Ukupno u kasi" = zbir OSTALO (planirano - potroseno) po svim stavkama OSIM licnog.
+// Licno i preneto su vec "izasli" iz kase (licne stavke se preskacu; mesecna stednja/more
+// su pale na 0 kad su prebacene, pa im je Ostalo vec 0). Zato NEMA dodatnog oduzimanja.
 // Glavni saldo stednje i mora se NE dira. Prekoracenje ide u minus.
 function ukupnoUKasi(){
 let ostalo=0;
 SECTIONS.forEach(s=>{
-if(LICNI.includes(s.id))return; // licno se oduzima posebno (ceo iznos)
+if(LICNI.includes(s.id))return; // licno ne ulazi u kasu (vec je uzeto)
 let planirano;
 if(s.id==='racuni'){planirano=izracunajRacuniZbir();}
 else{planirano=parseFloat(state.budget_items[s.id])||0;}
 const potroseno=getSpent(s.id);
 ostalo+=(planirano-potroseno); // moze u minus ako je prekoraceno
 });
-const licniOdvojeno=LICNI.reduce((s,id)=>s+(parseFloat(state.budget_items[id])||0),0);
-return ostalo-licniOdvojeno-prenetoUkupno();
+return ostalo;
 }
 
 function setSyncDot(online){

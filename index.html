@@ -96,7 +96,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .calc-btn.op{background:rgba(108,99,255,.15);color:var(--accent)}
 .calc-btn.fn{background:var(--surface2);color:var(--text2);font-size:18px}
 .calc-btn.eq{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
-.savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem}
+.savings-card{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(108,99,255,.08));border:1px solid rgba(74,222,128,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
 .savings-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
 .savings-lbl{font-size:13px;color:var(--text2)}
 .savings-val{font-size:22px;font-weight:700;color:var(--green)}
@@ -114,12 +114,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .sv-hist-amt.plus{color:var(--green)}
 .sv-hist-amt.minus{color:var(--red)}
 .sv-hist-amt.set{color:var(--accent)}
-/* More card */
-.more-card{background:linear-gradient(135deg,rgba(56,189,248,.1),rgba(108,99,255,.08));border:1px solid rgba(56,189,248,.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
-.more-val{font-size:22px;font-weight:700;color:#38bdf8}
-.more-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
-.sv-btn.more-add{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
-.sv-btn.more-take{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3)}
 /* Beleške */
 .notes-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem}
 .notes-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
@@ -262,24 +256,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 <div class="savings-btns">
 <button class="sv-btn add" id="btn-transfer-stednja" onclick="transferMonthToTotal()">↑ Prebaci mesečnu</button>
-<button class="sv-btn take" onclick="openWithdrawModal('stednja')">↓ Uzmi</button>
-<button class="sv-btn set" onclick="openSetBalanceModal('stednja')">✎ Postavi saldo</button>
+<button class="sv-btn take" onclick="openWithdrawModal()">↓ Uzmi</button>
+<button class="sv-btn set" onclick="openSetBalanceModal()">✎ Postavi saldo</button>
 </div>
 <div id="savings-history"></div>
-</div>
-
-<!-- MORE KARTICA -->
-<div class="more-card">
-<div class="savings-head">
-<span class="savings-lbl">🌊 Štek za more</span>
-<span class="more-val" id="total-more">0 RSD</span>
-</div>
-<div class="more-btns">
-<button class="sv-btn more-add" id="btn-transfer-more" onclick="transferMonthToMore()">↑ Prebaci mesečnu</button>
-<button class="sv-btn more-take" onclick="openWithdrawModal('more')">↓ Uzmi</button>
-<button class="sv-btn set" onclick="openSetBalanceModal('more')">✎ Postavi saldo</button>
-</div>
-<div id="more-history"></div>
 </div>
 
 <div class="notes-card">
@@ -373,7 +353,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 </div>
 
-<!-- MODAL: Uzmi iz štednje / more -->
+<!-- MODAL: Uzmi iz štednje -->
 <div class="modal-overlay" id="withdraw-modal" onclick="closeWithdrawOutside(event)">
 <div class="modal">
 <h3 id="withdraw-title">Uzmi iz štednje</h3>
@@ -395,7 +375,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <!-- MODAL: Postavi početni saldo -->
 <div class="modal-overlay" id="setbalance-modal" onclick="closeSetBalanceOutside(event)">
 <div class="modal">
-<h3 id="setbalance-title">Postavi saldo</h3>
+<h3 id="setbalance-title">Postavi saldo štednje</h3>
 <div class="form-group">
 <label>Trenutni iznos (RSD)</label>
 <input type="number" id="sb-amount" placeholder="0">
@@ -496,11 +476,10 @@ const SECTIONS = [
 {id:'nedelja3',label:'Nedelja 3'},{id:'nedelja4',label:'Nedelja 4'},
 {id:'dodatne',label:'Dodatne stvari'},{id:'nepredvidjeni',label:'Nepredviđeni troškovi'},
 {id:'racuni',label:'Računi'},{id:'gorivo',label:'Gorivo'},{id:'stednja',label:'Štednja'},
-{id:'investicije',label:'More (mesečno)'},
 {id:'licni_katarina',label:'Katarina lični trošak'},
 {id:'licni_andrija',label:'Andrija lični trošak'},
 ];
-const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',gorivo:'⛽',stednja:'🏦',investicije:'🌊',licni_katarina:'💄',licni_andrija:'🎸'};
+const ICONS = {nedelja1:'🛒',nedelja2:'🛒',nedelja3:'🛒',nedelja4:'🛒',dodatne:'🎯',nepredvidjeni:'⚡',racuni:'🧾',gorivo:'⛽',stednja:'🏦',licni_katarina:'💄',licni_andrija:'🎸'};
 const LICNI = ['licni_katarina','licni_andrija'];
 const RACUNI = [
 {id:'osiguranje',label:'Osiguranje'},
@@ -510,9 +489,9 @@ const RACUNI = [
 {id:'groblje',label:'Groblje'},
 {id:'tel_katarina',label:'Telefon — Katarina'},
 {id:'tel_andrija',label:'Telefon — Andrija'},
-{id:'laptop',label:'Rata laptopa',laptop:true},
+{id:'laptop',label:'Rata laptopa',rataKey:'laptop_rata',rataUkupno:7},
+{id:'tv',label:'Rata TV',rataKey:'tv_rata',rataUkupno:12,fiksno:11250},
 ];
-const LAPTOP_UKUPNO = 7;
 const GRUPE = [
 {name:'Prodavnica',icon:'🛒',match:['lidl','maxi','ktk','idea','univerexport','prodavnica','market','aman','dis','tempo','roda','namirnice','hrana','pijaca','mesara','pekara']},
 {name:'Kafić',icon:'☕',match:['kafić','kafic','kafa','kafana','kafe','caffe']},
@@ -528,14 +507,11 @@ let openItems = {};
 let notesTimer = null;
 let totalSavings = 0;
 let savingsLog = {};
-let totalMore = 0;
-let moreLog = {};
-let laptopPlaceno = 2;
+// Brojaci placenih rata po kljucu (laptop_rata, tv_rata...)
+let ratePlaceno = {};
+RACUNI.forEach(r=>{if(r.rataKey)ratePlaceno[r.rataKey]=0});
 // FIX: brava protiv duplog klika na "Prebaci mesečnu"
 let transferLock = false;
-
-// za withdraw/setbalance modal
-let activePool = 'stednja'; // 'stednja' ili 'more'
 
 // Lokalne vrednosti iznosa računa (pre čekiranja) — sada se čuvaju u Firebase
 let racuniIznosi = {};
@@ -543,17 +519,30 @@ let racuniTimer = null;
 
 function dbPath(suffix){return `budzet/${currentYear}/${currentMonth}/${suffix}`}
 
-// FIX: koliko je OVOG meseca preneto u glavni saldo (stednja+more).
+// Podrazumevani iznos racuna: sacuvana vrednost, pa fiksna iz sifarnika, pa 0
+function racunIznos(r){
+if(racuniIznosi[r.id]!==undefined&&racuniIznosi[r.id]!==null)return parseFloat(racuniIznosi[r.id])||0;
+return r.fiksno||0;
+}
+
+// Da li se stavka rate jos prikazuje (sakriva se kad su sve rate placene)
+function rataVidljiva(r){
+if(!r.rataKey)return true;
+if(state.racuni[r.id]&&state.racuni[r.id].paid)return true;
+return (ratePlaceno[r.rataKey]||0)<r.rataUkupno;
+}
+
+// FIX: koliko je OVOG meseca preneto u glavni saldo stednje.
 // Taj iznos ostaje "rasporedjen" iako je mesecna stavka pala na 0.
 function prenetoUkupno(){
 const p=state.preneto||{};
-return (parseFloat(p.stednja)||0)+(parseFloat(p.investicije)||0);
+return (parseFloat(p.stednja)||0);
 }
 
 // "Ukupno u kasi" = zbir OSTALO (planirano - potroseno) po svim stavkama OSIM licnog.
-// Licno i preneto su vec "izasli" iz kase (licne stavke se preskacu; mesecna stednja/more
-// su pale na 0 kad su prebacene, pa im je Ostalo vec 0). Zato NEMA dodatnog oduzimanja.
-// Glavni saldo stednje i mora se NE dira. Prekoracenje ide u minus.
+// Licno i preneto su vec "izasli" iz kase (licne stavke se preskacu; mesecna stednja
+// je pala na 0 kad je prebacena, pa joj je Ostalo vec 0). Zato NEMA dodatnog oduzimanja.
+// Glavni saldo stednje se NE dira. Prekoracenje ide u minus.
 function ukupnoUKasi(){
 let ostalo=0;
 SECTIONS.forEach(s=>{
@@ -608,22 +597,13 @@ renderSavings();
 });
 }
 
-function listenMore(){
-const r=ref(db,'budzet/ukupno_more');
-onValue(r,snap=>{
-const d=snap.val()||{};
-totalMore=d.total||0;
-moreLog=d.log||{};
-renderMore();
-});
-}
-
-function listenLaptop(){
-const r=ref(db,'budzet/laptop_rata');
-onValue(r,snap=>{
+function listenRate(){
+RACUNI.filter(r=>r.rataKey).forEach(r=>{
+onValue(ref(db,'budzet/'+r.rataKey),snap=>{
 const v=snap.val();
-laptopPlaceno=(v===null||v===undefined)?2:v;
+ratePlaceno[r.rataKey]=(v===null||v===undefined)?0:v;
 renderBudgetSections();
+});
 });
 }
 
@@ -643,11 +623,11 @@ set(ref(db,dbPath('budget_items')),state.budget_items);
 
 // ---- ZBIR RAČUNA (samo prikaz "Računi" planiranog) ----
 function izracunajRacuniZbir(){
-const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const vidljivi=RACUNI.filter(rataVidljiva);
 return vidljivi.reduce((sum,r)=>{
 const st=state.racuni[r.id];
 if(st&&st.paid)return sum+(st.amount||0);
-return sum+(racuniIznosi[r.id]||0);
+return sum+racunIznos(r);
 },0);
 }
 
@@ -659,7 +639,7 @@ state.budget_items['racuni']=ukupno;
 const inp=document.querySelector('[data-id="racuni"]');
 if(inp)inp.value=ukupno||'';
 // Prebroj plaćeno/ukupno za podnaslov
-const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const vidljivi=RACUNI.filter(rataVidljiva);
 const placeno=vidljivi.filter(r=>state.racuni[r.id]?.paid).length;
 const sub=document.getElementById('racuni-sub');
 if(sub)sub.textContent=`${placeno}/${vidljivi.length} plaćeno`;
@@ -794,7 +774,7 @@ if(!confirm(`Poništiti plaćanje: ${r.label}?`))return;
 if(st.ts)remove(ref(db,dbPath(`transactions/${st.ts}`)));
 delete state.racuni[id];
 set(ref(db,dbPath('racuni')),state.racuni);
-if(r.laptop)set(ref(db,'budzet/laptop_rata'),Math.max(0,laptopPlaceno-1));
+if(r.rataKey)set(ref(db,'budzet/'+r.rataKey),Math.max(0,(ratePlaceno[r.rataKey]||0)-1));
 // Ponovo izračunaj ukupno
 state.budget_items['racuni']=izracunajRacuniZbir();
 set(ref(db,dbPath('budget_items')),state.budget_items);
@@ -807,7 +787,7 @@ const ts=Date.now();
 set(ref(db,dbPath(`transactions/${ts}`)),{amount,cat:'racuni',desc:r.label,ts});
 state.racuni[id]={paid:true,amount,ts};
 set(ref(db,dbPath('racuni')),state.racuni);
-if(r.laptop)set(ref(db,'budzet/laptop_rata'),laptopPlaceno+1);
+if(r.rataKey)set(ref(db,'budzet/'+r.rataKey),(ratePlaceno[r.rataKey]||0)+1);
 }
 };
 
@@ -902,31 +882,8 @@ set(ref(db,dbPath('budget_items')),state.budget_items);
 setTimeout(()=>{transferLock=false;const bb=document.getElementById('btn-transfer-stednja');if(bb)bb.disabled=false;},3000);
 };
 
-// ---- MORE ----
-window.transferMonthToMore=function(){
-if(transferLock)return; // FIX: sprecava dupli klik
-const mesecna=state.budget_items['investicije']||0;
-if(mesecna<=0){alert('Nema mesečnog iznosa za more za prebacivanje');return}
-if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u štek za more?`))return;
-transferLock=true;
-const b=document.getElementById('btn-transfer-more');if(b)b.disabled=true;
-const ts=Date.now();
-const noviTotal=totalMore+mesecna;
-const noviLog={...moreLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
-set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
-// FIX: isto kao kod stednje — pamti u "preneto.investicije" i resetuj mesecnu na 0.
-const prethodno=(parseFloat(state.preneto&&state.preneto.investicije)||0);
-state.preneto={...(state.preneto||{}),investicije:prethodno+mesecna};
-state.budget_items['investicije']=0;
-set(ref(db,dbPath('preneto')),state.preneto);
-set(ref(db,dbPath('budget_items')),state.budget_items);
-setTimeout(()=>{transferLock=false;const bb=document.getElementById('btn-transfer-more');if(bb)bb.disabled=false;},3000);
-};
-
-// ---- WITHDRAW (štednja ili more) ----
-window.openWithdrawModal=function(pool){
-activePool=pool;
-document.getElementById('withdraw-title').textContent=pool==='stednja'?'Uzmi iz štednje':'Uzmi iz šteka za more';
+// ---- UZMI IZ ŠTEDNJE ----
+window.openWithdrawModal=function(){
 document.getElementById('wd-amount').value='';
 document.getElementById('wd-desc').value='';
 document.getElementById('withdraw-modal').classList.add('open');
@@ -937,27 +894,18 @@ window.closeWithdrawOutside=function(e){if(e.target===document.getElementById('w
 window.confirmWithdraw=function(){
 const amount=parseFloat(document.getElementById('wd-amount').value)||0;
 if(amount<=0){alert('Unesi iznos');return}
-const currentTotal=activePool==='stednja'?totalSavings:totalMore;
-if(amount>currentTotal){alert(`U ${activePool==='stednja'?'štednji':'šteku za more'} imaš samo ${fmtRSD(currentTotal)}`);return}
+if(amount>totalSavings){alert(`U štednji imaš samo ${fmtRSD(totalSavings)}`);return}
 const desc=document.getElementById('wd-desc').value.trim();
 const ts=Date.now();
-const noviTotal=currentTotal-amount;
-if(activePool==='stednja'){
+const noviTotal=totalSavings-amount;
 const noviLog={...savingsLog,[ts]:{amount,desc:desc||'Uzeto iz štednje',ts,type:'out'}};
 set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
-} else {
-const noviLog={...moreLog,[ts]:{amount,desc:desc||'Uzeto iz šteka za more',ts,type:'out'}};
-set(ref(db,'budzet/ukupno_more'),{total:noviTotal,log:noviLog});
-}
 closeWithdrawModal();
 };
 
 // ---- POSTAVI POČETNI SALDO ----
-window.openSetBalanceModal=function(pool){
-activePool=pool;
-document.getElementById('setbalance-title').textContent=pool==='stednja'?'Postavi saldo štednje':'Postavi saldo šteka za more';
-const current=pool==='stednja'?totalSavings:totalMore;
-document.getElementById('sb-amount').value=current||'';
+window.openSetBalanceModal=function(){
+document.getElementById('sb-amount').value=totalSavings||'';
 document.getElementById('sb-desc').value='';
 document.getElementById('setbalance-modal').classList.add('open');
 };
@@ -969,13 +917,8 @@ const amount=parseFloat(document.getElementById('sb-amount').value);
 if(isNaN(amount)||amount<0){alert('Unesi ispravan iznos');return}
 const desc=document.getElementById('sb-desc').value.trim()||'Početno stanje';
 const ts=Date.now();
-if(activePool==='stednja'){
 const noviLog={...savingsLog,[ts]:{amount,desc,ts,type:'set'}};
 set(ref(db,'budzet/ukupna_stednja'),{total:amount,log:noviLog});
-} else {
-const noviLog={...moreLog,[ts]:{amount,desc,ts,type:'set'}};
-set(ref(db,'budzet/ukupno_more'),{total:amount,log:noviLog});
-}
 closeSetBalanceModal();
 };
 
@@ -984,13 +927,6 @@ if(!confirm('Obrisati ovaj zapis? (ne menja iznos štednje)'))return;
 const noviLog={...savingsLog};
 delete noviLog[ts];
 set(ref(db,'budzet/ukupna_stednja'),{total:totalSavings,log:noviLog});
-};
-
-window.deleteMoreLog=function(ts){
-if(!confirm('Obrisati ovaj zapis?'))return;
-const noviLog={...moreLog};
-delete noviLog[ts];
-set(ref(db,'budzet/ukupno_more'),{total:totalMore,log:noviLog});
 };
 
 function renderSavings(){
@@ -1006,24 +942,6 @@ return `<div class="sv-hist-item">
 <span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
 <span class="sv-hist-amt ${cls}">${amtTxt}
 <button class="tx-del" onclick="deleteSavingsLog(${l.ts})" style="font-size:14px">×</button>
-</span>
-</div>`;
-}).join('');
-}
-
-function renderMore(){
-document.getElementById('total-more').textContent=fmtRSD(totalMore);
-const cont=document.getElementById('more-history');
-const logs=Object.values(moreLog).sort((a,b)=>b.ts-a.ts).slice(0,5);
-if(!logs.length){cont.innerHTML='';return}
-cont.innerHTML=logs.map(l=>{
-const cls=l.type==='in'?'plus':l.type==='out'?'minus':'set';
-const icon=l.type==='in'?'↑':l.type==='out'?'↓':'✎';
-const amtTxt=l.type==='set'?fmtRSD(l.amount):(l.type==='in'?'+':'-')+fmtRSD(l.amount);
-return `<div class="sv-hist-item">
-<span class="sv-hist-desc">${icon} ${l.desc} · ${new Date(l.ts).toLocaleDateString('sr-RS')}</span>
-<span class="sv-hist-amt ${cls}">${amtTxt}
-<button class="tx-del" onclick="deleteMoreLog(${l.ts})" style="font-size:14px">×</button>
 </span>
 </div>`;
 }).join('');
@@ -1250,15 +1168,18 @@ const pct=realniZbir>0?Math.min(100,(spent/realniZbir)*100):0;
 const cls=left<0?'over':pct>75?'warn':'ok';
 const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
 const isOpen=openItems[s.id];
-const vidljivi=RACUNI.filter(r=>!(r.laptop&&laptopPlaceno>=LAPTOP_UKUPNO&&!state.racuni[r.id]?.paid));
+const vidljivi=RACUNI.filter(rataVidljiva);
 const placeno=vidljivi.filter(r=>state.racuni[r.id]?.paid).length;
 let rows=vidljivi.map(r=>{
 const st=state.racuni[r.id]||{};
 const paid=!!st.paid;
 let label=r.label;
-if(r.laptop)label+=` (${paid?laptopPlaceno:laptopPlaceno+1}/${LAPTOP_UKUPNO})`;
-// Koristi sačuvani iznos ili lokalni
-const currentVal=paid?(st.amount||''):(racuniIznosi[r.id]||st.amount||'');
+if(r.rataKey){
+const br=ratePlaceno[r.rataKey]||0;
+label+=` (${paid?br:br+1}/${r.rataUkupno})`;
+}
+// Koristi sačuvani iznos, pa fiksni iz šifarnika
+const currentVal=paid?(st.amount||''):(racuniIznosi[r.id]!==undefined&&racuniIznosi[r.id]!==null?racuniIznosi[r.id]:(st.amount||r.fiksno||''));
 return `<div class="racun-row">
 <button class="racun-chk ${paid?'paid':''}" onclick="toggleRacun('${r.id}')">✓</button>
 <span class="racun-name ${paid?'paid':''}">${label}</span>
@@ -1411,7 +1332,7 @@ let appStarted = false;
 function startAppOnce(){
 if(appStarted)return;
 appStarted=true;
-listenMonth();listenSavings();listenMore();listenLaptop();
+listenMonth();listenSavings();listenRate();
 }
 
 function prettyAuthErr(e){

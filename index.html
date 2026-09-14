@@ -558,6 +558,19 @@ ostalo+=(planirano-potroseno); // moze u minus ako je prekoraceno
 return ostalo;
 }
 
+// Ukupno PLANIRANO (za "Neraspoređeno"). Ukljucuje i licne stavke — i one su
+// raspored plate. Racuni se racunaju uzivo, isto kao u ukupnoUKasi(): kljuc
+// budget_items.racuni postoji tek kad se ukuca neki iznos racuna, pa bi cist
+// zbir budget_items u svezem mesecu prikazao previse neraspredjenog.
+function ukupnoPlanirano(){
+let planirano=izracunajRacuniZbir();
+Object.keys(state.budget_items).forEach(id=>{
+if(id==='racuni')return; // vec uracunato uzivo
+planirano+=parseFloat(state.budget_items[id])||0;
+});
+return planirano;
+}
+
 function setSyncDot(online){
 const d=document.getElementById('sync-dot');
 d.className='sync-dot '+(online?'online':'offline');
@@ -674,8 +687,7 @@ kel.className='val'+(kasa<0?' over':'');
 function osveziKasuNeraspored(){
 const a=state.salaries.andrija||0,k=state.salaries.katarina||0;
 prikaziKasu();
-const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=(a+k)-planirano-prenetoUkupno();
+const neraspored=(a+k)-ukupnoPlanirano()-prenetoUkupno();
 const uel=document.getElementById('unallocated');
 if(neraspored<0&&(a===0||k===0)){
 uel.textContent='čeka se plata…';
@@ -1105,8 +1117,7 @@ const salK=document.getElementById('sal-katarina');
 if(af!==salA)salA.value=a||'';
 if(af!==salK)salK.value=k||'';
 prikaziKasu();
-const planirano=Object.values(state.budget_items).reduce((s,v)=>s+(parseFloat(v)||0),0);
-const neraspored=(a+k)-planirano-prenetoUkupno();
+const neraspored=(a+k)-ukupnoPlanirano()-prenetoUkupno();
 const uel=document.getElementById('unallocated');
 if(neraspored<0&&(a===0||k===0)){
 uel.textContent='čeka se plata…';

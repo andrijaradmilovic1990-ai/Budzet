@@ -514,6 +514,7 @@ let ratePlaceno = {};
 RACUNI.forEach(r=>{if(r.rataKey)ratePlaceno[r.rataKey]=0});
 // FIX: brava protiv duplog klika na "Prebaci mesečnu"
 let transferLock = false;
+const PRENOS_DESC='Prebačeno u ukupnu štednju';
 
 // Lokalne vrednosti iznosa računa (pre čekiranja) — sada se čuvaju u Firebase
 let racuniIznosi = {};
@@ -895,7 +896,7 @@ const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth
 const prethodno=(parseFloat(state.preneto&&state.preneto.stednja)||0);
 state.preneto={...(state.preneto||{}),stednja:prethodno+mesecna};
 state.budget_items={...state.budget_items,stednja:0};
-state.transactions={...state.transactions,[ts]:{amount:-mesecna,cat:'stednja',desc:'Prebačeno u ukupnu štednju',ts,transfer:true}};
+state.transactions={...state.transactions,[ts]:{amount:-mesecna,cat:'stednja',desc:PRENOS_DESC,ts,transfer:true}};
 // FIX: jedan atomican upis. Ranije su saldo stednje i mesecni raspored isli kao
 // odvojeni set()-ovi, pa je pad jednog ostavljao pare i u steku i u mesecnoj stavci.
 const upis={};
@@ -908,6 +909,35 @@ update(ref(db),upis).catch(e=>alert('Prenos nije sačuvan: '+(e&&e.message?e.mes
 totalSavings=noviTotal;savingsLog=noviLog;renderSavings();
 renderAll(true);
 setTimeout(()=>{transferLock=false;const bb=document.getElementById('btn-transfer-stednja');if(bb)bb.disabled=false;},3000);
+};
+
+// ---- PONISTI PRENOS MESECNE U STEK ----
+// Tacan inverz prenosa: vrati iznos iz glavnog saldo u mesecnu stavku i obrisi trag.
+// Sluzi i kao popravka kad se raspored pobrkao — ponisti pa prebaci ponovo.
+window.ponistiPrenos=function(){
+const preneto=parseFloat(state.preneto&&state.preneto.stednja)||0;
+if(preneto<=0)return;
+if(!confirm(`Vratiti ${fmtRSD(preneto)} iz ukupne štednje nazad u mesečnu stavku Štednja?`))return;
+const ts=Date.now();
+const noviTotal=totalSavings-preneto;
+const noviLog={...savingsLog,[ts]:{amount:preneto,desc:`Poništen prenos — ${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'out'}};
+const noveTx={};
+Object.keys(state.transactions).forEach(k=>{
+const t=state.transactions[k];
+if(t&&t.transfer&&t.cat==='stednja'&&t.desc===PRENOS_DESC)return; // izbaci trag prenosa
+noveTx[k]=t;
+});
+state.transactions=noveTx;
+state.budget_items={...state.budget_items,stednja:(parseFloat(state.budget_items['stednja'])||0)+preneto};
+state.preneto={...(state.preneto||{}),stednja:0};
+const upis={};
+upis['budzet/ukupna_stednja']={total:noviTotal,log:noviLog};
+upis[dbPath('preneto')]=state.preneto;
+upis[dbPath('budget_items')]=state.budget_items;
+upis[dbPath('transactions')]=state.transactions;
+update(ref(db),upis).catch(e=>alert('Poništavanje nije sačuvano: '+(e&&e.message?e.message:e)));
+totalSavings=noviTotal;savingsLog=noviLog;renderSavings();
+renderAll(true);
 };
 
 // ---- UZMI IZ ŠTEDNJE ----
@@ -1242,6 +1272,8 @@ const left=planned-spent;
 const pct=planned>0?Math.min(100,(spent/planned)*100):0;
 const cls=left<0?'over':pct>75?'warn':'ok';
 const barColor=left<0?'#f87171':pct>75?'#fbbf24':'#4ade80';
+// FIX: "preneto" vise nije nevidljivo. Taj iznos skida Neraspredjeno, pa mora da se vidi.
+const prenetoS=(s.id==='stednja')?(parseFloat(state.preneto&&state.preneto.stednja)||0):0;
 const isWeek=s.id.startsWith('nedelja');
 const canReset=isWeek&&left>0&&planned>0;
 const txs=getTxsByCat(s.id);
@@ -1260,8 +1292,9 @@ html+=`<div class="budget-item">
 <div class="item-row item-head" onclick="toggleItem('${s.id}')">
 <span class="item-toggle ${isOpen?'open':''}" id="tgl-${s.id}">▶</span>
 <span style="font-size:20px">${ICONS[s.id]||'📦'}</span>
-<span class="item-name">${s.label}</span>
+<span class="item-name">${s.label}${prenetoS>0?`<div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:2px">Prebačeno u štek: <b style="color:var(--accent)">${fmtRSD(prenetoS)}</b></div>`:''}</span>
 ${canReset?`<button class="reset-btn" onclick="event.stopPropagation();resetWeekToSavings('${s.id}',${left})">↓ Štednja</button>`:''}
+${prenetoS>0?`<button class="reset-btn" onclick="event.stopPropagation();ponistiPrenos()">↩ Poništi</button>`:''}
 <div class="item-planned" onclick="event.stopPropagation()">
 <input type="number" placeholder="0" value="${planned||''}" data-id="${s.id}" oninput="saveBudgetItem(this)">
 </div>

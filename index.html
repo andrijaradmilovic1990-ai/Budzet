@@ -455,7 +455,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import {getDatabase,ref,set,onValue,remove,get} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+import {getDatabase,ref,set,update,onValue,remove,get} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
 import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,onAuthStateChanged,signOut,setPersistence,browserLocalPersistence} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 const firebaseConfig = {
@@ -877,7 +877,12 @@ cont.innerHTML=html||'<div class="empty">Nema transakcija ovog meseca</div>';
 // ---- ŠTEDNJA ----
 window.transferMonthToTotal=function(){
 if(transferLock)return; // FIX: sprecava dupli klik
-const mesecna=state.budget_items['stednja']||0;
+// FIX: ako je fokus u nekom inputu rasporeda, skini ga PRE prenosa. Inace renderAll()
+// preskoci re-render sekcija (cuva kucanje), pa mesecna stavka na ekranu ostane stara
+// i sledeci `oninput` u tom polju vrati stari iznos nazad u Firebase (pare se dupliraju).
+const fokus=document.activeElement;
+if(fokus&&fokus.tagName==='INPUT'&&fokus.closest&&fokus.closest('#budget-sections'))fokus.blur();
+const mesecna=parseFloat(state.budget_items['stednja'])||0;
 if(mesecna<=0){alert('Nema mesečne štednje za prebacivanje');return}
 if(!confirm(`Prebaciti ${fmtRSD(mesecna)} u ukupnu štednju?`))return;
 transferLock=true;
@@ -885,14 +890,23 @@ const b=document.getElementById('btn-transfer-stednja');if(b)b.disabled=true;
 const ts=Date.now();
 const noviTotal=totalSavings+mesecna;
 const noviLog={...savingsLog,[ts]:{amount:mesecna,desc:`${MONTHS_SR[currentMonth]} ${currentYear}`,ts,type:'in'}};
-set(ref(db,'budzet/ukupna_stednja'),{total:noviTotal,log:noviLog});
 // FIX: iznos je otisao u glavni saldo. Pamti ga u mesecni "preneto" (ostaje rasporedjeno),
-// pa resetuj mesecnu stavku na 0. Tako Neraspored ostaje 0 i pare se ne dupliraju.
+// mesecna stavka pada na 0 (izlazi iz "Ukupno u kasi"), a u mesecu ostaje trag transakcije.
 const prethodno=(parseFloat(state.preneto&&state.preneto.stednja)||0);
 state.preneto={...(state.preneto||{}),stednja:prethodno+mesecna};
-state.budget_items['stednja']=0;
-set(ref(db,dbPath('preneto')),state.preneto);
-set(ref(db,dbPath('budget_items')),state.budget_items);
+state.budget_items={...state.budget_items,stednja:0};
+state.transactions={...state.transactions,[ts]:{amount:-mesecna,cat:'stednja',desc:'Prebačeno u ukupnu štednju',ts,transfer:true}};
+// FIX: jedan atomican upis. Ranije su saldo stednje i mesecni raspored isli kao
+// odvojeni set()-ovi, pa je pad jednog ostavljao pare i u steku i u mesecnoj stavci.
+const upis={};
+upis['budzet/ukupna_stednja']={total:noviTotal,log:noviLog};
+upis[dbPath('preneto')]=state.preneto;
+upis[dbPath('budget_items')]=state.budget_items;
+upis[dbPath('transactions')]=state.transactions;
+update(ref(db),upis).catch(e=>alert('Prenos nije sačuvan: '+(e&&e.message?e.message:e)));
+// FIX: odmah osvezi ekran, ne cekaj echo iz Firebase-a
+totalSavings=noviTotal;savingsLog=noviLog;renderSavings();
+renderAll(true);
 setTimeout(()=>{transferLock=false;const bb=document.getElementById('btn-transfer-stednja');if(bb)bb.disabled=false;},3000);
 };
 
@@ -1102,7 +1116,8 @@ return Object.values(state.transactions)
 .sort((a,b)=>b.ts-a.ts);
 }
 
-function renderAll(){
+// force=true: obavezan re-render sekcija (posle prenosa), i kad je fokus u inputu
+function renderAll(force){
 const lbl=`${MONTHS_SR[currentMonth]} ${currentYear}`;
 document.getElementById('month-label').textContent=lbl;
 document.getElementById('month-label-2').textContent=lbl;
@@ -1136,7 +1151,7 @@ const kucaUInput=ae&&ae.tagName==='INPUT'&&(
 ae.classList.contains('racun-amt')||
 (ae.closest&&ae.closest('#budget-sections'))
 );
-if(!kucaUInput){
+if(force||!kucaUInput){
 renderBudgetSections();
 }
 renderTransactions();

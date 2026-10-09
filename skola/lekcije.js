@@ -1513,11 +1513,279 @@ kartice:[
 razgovor:['Kao pisac: da li ti se desilo da reč promeni misao, a ne obrnuto? Daj primer.','Kako bi nekome objasnio da „pokvaren jezik" ne postoji, nego samo jezik koji se menja?']}
 ]},
 {id:'6', naziv:'Kako smo stigli dovde', ikona:'🏛️', era:'300.000 god. → 1900.', lekcije:[
-{id:'6-1', naslov:'Poreklo čoveka i lovci-sakupljači'},
-{id:'6-2', naslov:'Poljoprivreda, gradovi, pismo — prve civilizacije'},
-{id:'6-3', naslov:'Antika — Grčka, Rim, Persija, Indija, Kina'},
-{id:'6-4', naslov:'Srednji vek — Vizantija, islamski svet, Mongoli, Evropa'},
-{id:'6-5', naslov:'Otkrića, naučna i industrijska revolucija'}
+{id:'6-1', naslov:'Poreklo čoveka i lovci-sakupljači',
+kuka:{p:'Koliko dugo, otprilike, postoji naša vrsta — Homo sapiens?', o:['Oko 6.000 godina','Oko 300.000 godina','Oko 3 miliona godina'], t:1},
+delovi:[
+{n:'Rođaci, ne potomci majmuna', t:`Najčešća zabluda: „čovek je postao od majmuna". Nije. Čovek i šimpanza imaju ZAJEDNIČKOG PRETKA koji je živeo u Africi pre oko 6–7 miliona godina. Od njega su se razdvojile dve loze: jedna je vodila do šimpanzi, druga do nas. Šimpanza nam je rođak, ne deda.
+
+Na našoj liniji bilo je mnogo vrsta. Nisu išle u jednom redu, „jedna za drugom", nego kao grane žbuna — neke su živele istovremeno, većina je izumrla bez potomaka.
+
+Prvo je došao USPRAVAN HOD, tek kasnije VELIKI MOZAK. Najpoznatija fosilna „baka" je LUSI, australopitek iz Etiopije, stara oko 3,2 miliona godina: hodala je na dve noge, a mozak joj je bio veličine šimpanzinog.`,
+pr:{p:'Kakav je odnos čoveka i šimpanze?', o:['Čovek je nastao od šimpanze','Imaju zajedničkog pretka od pre 6–7 miliona godina','Nisu nikako povezani'], t:1, z:'Šimpanza nam je rođak — obe vrste potiču od istog pretka, pa su se loze razdvojile.'}},
+{n:'Od kamena do vatre', t:`Rod HOMO („čovek") pojavljuje se pre oko 2,5 miliona godina, sa prvim kamenim alatkama — oštrim odbijenim komadima kamena za sečenje mesa.
+
+HOMO EREKTUS (pre oko 1,9 miliona godina) imao je telo skoro kao naše, pravio bolje alatke i prvi je izašao iz Afrike — stigao je do Kine i Jave.
+
+Najveći skok: VATRA. Tragovi upotrebe vatre stari su oko milion godina, a redovna upotreba je tu pre oko 400.000 godina. Vatra greje, tera zveri, a najviše od svega — KUVA. Kuvana hrana se lakše vari, pa telo dobija više energije uz manje creva. Neki naučnici misle da je baš to hranilo sve veći mozak.
+
+Naša vrsta, HOMO SAPIENS, pojavljuje se u Africi pre oko 300.000 godina (najstariji nalazi su iz Maroka).`,
+pr:{p:'Zašto je vatra bila toliki skok?', o:['Samo zbog svetla noću','Kuvana hrana daje više energije, a vatra još greje i štiti','Zbog pravljenja metala'], t:1, z:'Kuvanje olakšava varenje i daje više energije — a vatra usput greje i tera zveri.'}},
+{n:'Izlazak iz Afrike', t:`Pre oko 60–70.000 godina male grupe sapijensa krenule su iz Afrike i za desetine hiljada godina naselile ceo svet: Aziju, Evropu, Australiju (pre oko 50.000 godina, preko mora!), a Ameriku poslednju, pre najmanje 15–20.000 godina, preko kopna koje je tada spajalo Sibir i Aljasku.
+
+Nisu bili sami. U Evropi i zapadnoj Aziji živeli su NEANDERTALCI — snažni, sa mozgom velikim kao naš, sahranjivali su mrtve i pravili nakit. Nestali su pre oko 40.000 godina. Ali ne potpuno: sapijensi i neandertalci su imali zajedničku decu. Svaki čovek čiji su preci van Afrike nosi oko 1–2% neandertalske DNK.
+
+I još nešto: svi ljudi danas su genetski vrlo bliski — mnogo bliži nego dve grupe šimpanzi iz susednih šuma. Razlike koje nas „dele" na rase su tanak sloj na površini.`,
+pr:{p:'Šta se desilo sa neandertalcima?', o:['Izumrli su bez traga','Nestali su pre oko 40.000 godina, ali deo njihove DNK nosimo i mi','Žive i danas u planinama'], t:1, z:'Sapijensi i neandertalci su imali zajedničku decu — zato ljudi van Afrike nose 1–2% neandertalske DNK.'}},
+{n:'Kako su živeli lovci-sakupljači', t:`Više od 95% vremena koje postojimo, ljudi su bili LOVCI-SAKUPLJAČI: lov, ribolov, skupljanje plodova, korenja i meda. Živeli su u malim grupama od nekoliko desetina ljudi, selili se za hranom i imali malo stvari — sve što imaš, moraš da nosiš.
+
+Istraživanja današnjih lovaca-sakupljača pokazuju: ishrana raznovrsna, a uglavnom veća jednakost nego kasnije — nema kraljeva, nema bogataša. Ali i surovo: mnogo dece je umiralo, a sukobi između grupa nisu bili retki. Ni raj, ni pakao.
+
+Pre oko 40–50.000 godina eksplodira simbolički svet: pećinski crteži (Šove u Francuskoj, preko 30.000 godina; još stariji na ostrvu Sulavesi), figurice, frule od kosti, nakit. Ljudi pričaju priče, crtaju i — verovatno — veruju.
+
+Naše telo i um su uglavnom oblikovani za taj život. Zato volimo slatko i masno (retko i dragoceno tada), zato smo dobri u malim grupama i čitanju lica, a lošiji u brojkama i dugom sedenju.`,
+pr:{p:'Koliki deo ljudske istorije smo bili lovci-sakupljači?', o:['Oko polovine','Više od 95%','Oko 10%'], t:1, z:'Poljoprivreda je stara samo oko 12.000 godina, a vrsta oko 300.000 — ostalo je bio lov i sakupljanje.'}},
+{n:'Lepenski Vir — i kraj jednog sveta', t:`Na Dunavu, u Đerdapu, nalazi se LEPENSKI VIR — naselje ribara i lovaca, naseljavano hiljadama godina. Najpoznatija faza, stara oko 8.000 godina, ostavila je kuće trapeznog oblika, ognjišta, i čuvene kamene skulpture sa ljudskim licem i ribljim crtama. Jedna od najvažnijih praistorijskih lokacija u Evropi.
+
+Lepenski Vir je zanimljiv i zato što se vidi PRELAZ: kasniji slojevi pokazuju dolazak ratara i stočara. Svet lovaca polako se gasi i počinje nešto novo.
+
+Kostur do sada: zajednički predak sa šimpanzom → uspravan hod → alatke i vatra → sapijens u Africi → naselili ceo svet → umetnost i simboli. Sve to bez ijednog grada i ijedne njive.
+
+Sledeće: zašto smo posle 290.000 godina lutanja odjednom seli i počeli da oremo.`,
+pr:{p:'Šta je Lepenski Vir?', o:['Rimski grad','Praistorijsko naselje ribara i lovaca na Dunavu, sa kućama i skulpturama starim oko 8.000 godina','Srednjovekovni manastir'], t:1, z:'Lepenski Vir u Đerdapu je mezolitsko naselje sa poznatim kamenim skulpturama i tragovima prelaza na zemljoradnju.'}}
+],
+kljucno:['Čovek i šimpanza imaju zajedničkog pretka od pre 6–7 miliona godina; prvo uspravan hod, pa veliki mozak.','Alatke (2,5 mil. god.), vatra i kuvanje; Homo sapiens u Africi pre oko 300.000 godina.','Izlazak iz Afrike pre 60–70.000 godina; neandertalci nestali pre oko 40.000, a deo njihove DNK nosimo.','Više od 95% istorije smo bili lovci-sakupljači u malim grupama; telo i um su oblikovani za taj život.','Lepenski Vir na Dunavu: naselje ribara i lovaca (najpoznatija faza oko 8.000 godina), sa tragovima prelaza na zemljoradnju.'],
+kartice:[
+{p:'Koliko je stara vrsta Homo sapiens?', o:'Oko 300.000 godina.'},
+{p:'Kada su se razdvojile loze čoveka i šimpanze?', o:'Pre oko 6–7 miliona godina, od zajedničkog pretka.'},
+{p:'Koliko neandertalske DNK nose ljudi čiji su preci van Afrike?', o:'Oko 1–2%.'},
+{p:'Zašto je kuvanje bilo važno za evoluciju čoveka?', o:'Kuvana hrana daje više energije uz lakše varenje — verovatno je hranila veći mozak.'},
+{p:'Šta je Lepenski Vir?', o:'Naselje ribara i lovaca u Đerdapu; kuće i skulpture stare oko 8.000 godina.'}
+],
+razgovor:['Šta u tvom svakodnevnom životu najjasnije pokazuje da nam je telo „napravljeno" za lovce-sakupljače?','Da li misliš da su lovci-sakupljači bili srećniji od nas? Šta bi ti nedostajalo, a šta ne?']},
+{id:'6-2', naslov:'Poljoprivreda, gradovi, pismo — prve civilizacije',
+kuka:{p:'Zašto je, po tvom mišljenju, izmišljeno pismo?', o:['Da se zapišu pesme i mitovi','Da se vodi evidencija — žito, stoka, porezi','Da se pišu pisma'], t:1},
+delovi:[
+{n:'Najveća promena: njiva', t:`Pre oko 12.000 godina, kad se završilo poslednje ledeno doba, ljudi u PLODNOM POLUMESECU (današnji Irak, Sirija, Turska, Izrael) počeli su da seju pšenicu i ječam i da drže koze i ovce. To je NEOLITSKA REVOLUCIJA.
+
+Nije se desila samo jednom. Nezavisno, na više mesta: u Kini (pirinač, proso), u Mezoamerici (kukuruz), u Andima (krompir), na Novoj Gvineji, u Africi. Kad jednom postane moguće, ljudi to otkrivaju svuda.
+
+Zanimljivo: u Turskoj postoji GEBEKLI TEPE, ogromni kameni hram star oko 11.500 godina — stariji od poljoprivrede u tom kraju. Možda su ljudi prvo počeli da se okupljaju zbog verovanja, a tek onda da seju da bi nahranili okupljene.`,
+pr:{p:'Gde je poljoprivreda počela?', o:['Samo u Egiptu','Na više mesta nezavisno — prvo u Plodnom polumesecu, pa u Kini, Americi i drugde','U Evropi'], t:1, z:'Plodni polumesec je najraniji, ali su Kina, Mezoamerika, Andi i drugi do nje stigli sami.'}},
+{n:'Cena napretka', t:`Poljoprivreda je dala VIŠE HRANE PO KOMADU ZEMLJE, pa je ljudi bilo mnogo više. Ali pojedinac nije uvek živeo bolje:
+
+• ishrana je postala jednoličnija (nekoliko žitarica), pa su prvi ratari često bili niži i bolesniji od lovaca;
+• život uz stoku i u gužvi doneo je ZARAZNE BOLESTI (mnoge su prešle sa životinja);
+• rad je bio težak i od jutra do mraka;
+• pojavio se VIŠAK — žito koje može da se čuva. A višak može da se otme, nasledi i gomila. Rađaju se bogati i siromašni, ratovi oko zemlje i ambara.
+
+Zato neki istoričari kažu da je poljoprivreda bila „zamka": kad jednom imaš deset puta više ljudi, ne možeš nazad u lov.
+
+U Srbiji je to vreme VINČE (oko 5.400–4.500. p. n. e.) — velika naselja, keramika, figurice. Na Pločniku kod Prokuplja nađeni su jedni od najstarijih tragova topljenja bakra na svetu, stari oko 7.000 godina.`,
+pr:{p:'Zašto se kaže da je poljoprivreda donela i nejednakost?', o:['Zbog lošeg vremena','Zbog viška hrane koji može da se gomila, nasleđuje i otima','Zato što su ratari bili lenji'], t:1, z:'Višak žita može da se čuva i poseduje — iz toga nastaju bogati i siromašni, vlast i ratovi.'}},
+{n:'Gradovi i država', t:`Sa viškom hrane, ne mora svako da ore. Pojavljuju se SPECIJALISTE: zanatlije, sveštenici, vojnici, činovnici. I prvi GRADOVI — najpre u MESOPOTAMIJI, između Tigra i Eufrata. Uruk je oko 3.200. p. n. e. imao desetine hiljada stanovnika.
+
+Uporedo nastaju velike civilizacije uz velike reke, jer reka znači vodu za navodnjavanje:
+• EGIPAT uz Nil — piramide u Gizi oko 2.560. p. n. e.;
+• Dolina INDA (Harapa, Mohendžo-Daro) — gradovi sa ulicama pod pravim uglom i kanalizacijom;
+• KINA uz Žutu reku.
+
+Grad traži organizaciju: ko upravlja kanalima, ko deli žito, ko sudi. Tako se rađa DRŽAVA — vladar, činovnici, porez, vojska i zakon. Jedan od najstarijih sačuvanih zakonika je HAMURABIJEV (Vavilon, oko 1.750. p. n. e.) — urezan u kamen, sa čuvenim „oko za oko", ali i sa različitim kaznama za robove i gospodare.`,
+pr:{p:'Zašto su prve civilizacije nastale uz velike reke?', o:['Zbog ribe','Reke su davale vodu za navodnjavanje i plodnu zemlju','Zbog lepog pogleda'], t:1, z:'Navodnjavanje uz Tigar, Eufrat, Nil, Ind i Žutu reku davalo je velike viškove hrane.'}},
+{n:'Pismo — knjigovodstvo koje je promenilo sve', t:`Pismo NIJE izmišljeno za pesme. Najstariji zapisi (Sumer, oko 3.200. p. n. e.) su — spiskovi: koliko džakova ječma, koliko ovaca, ko kome duguje. Pisalo se trščanom pisaljkom po mekoj glini, otud KLINASTO PISMO.
+
+Pismo je izmišljeno nezavisno bar tri puta: u Mesopotamiji (pa skoro odmah u Egiptu — hijeroglifi), u Kini (oko 1.200. p. n. e.) i u Mezoamerici.
+
+Prva pisma su imala stotine znakova — učili su ih samo pisari, godinama. Onda su FENIČANI (oko 1.000. p. n. e.) napravili ALFABET: dvadesetak znakova, jedan za jedan glas. Od njega je grčko pismo, od grčkog latinica i — kasnije — ćirilica.
+
+Kad se jednom piše, znanje više ne zavisi od pamćenja jednog starca. Može da se gomila, prenosi, proverava. Odatle počinje ISTORIJA u užem smislu; sve pre toga je praistorija.`,
+pr:{p:'Šta su bili najstariji pisani zapisi?', o:['Ljubavne pesme','Spiskovi i računi — žito, stoka, dugovi','Molitve'], t:1, z:'Pismo je u Sumeru nastalo iz knjigovodstva; književnost je došla kasnije.'}},
+{n:'Bronza, gvožđe i prvi slom', t:`Ljudi su naučili da tope bakar, pa da ga mešaju sa kalajem u BRONZU (oko 3.300. p. n. e.) — tvrđu, za oružje i alat. Kasnije, GVOŽĐE (oko 1.200. p. n. e.) — teže za obradu, ali ruda ga ima svuda, pa je jeftinije.
+
+Oko 1.200–1.150. p. n. e. desio se SLOM KASNOG BRONZANOG DOBA: u par decenija propalo je više velikih država istočnog Mediterana (Hetiti, mikenska Grčka), a Egipat je oslabio. Uzroci su verovatno udruženi — suše, zemljotresi, pobune, napadi „naroda sa mora", pucanje trgovine od koje su svi zavisili. Lekcija koja važi i danas: sistem koji je čvrsto povezan može i da padne zajedno.
+
+Kostur: njiva → višak → gradovi i specijalisti → država, zakon i porez → pismo → metal. Sve to za oko 8.000 godina — tren u odnosu na 300.000.
+
+Sledeće: antika — vreme kad su se na nekoliko mesta odjednom rodile ideje sa kojima i danas živimo.`,
+pr:{p:'Šta pokazuje slom kasnog bronzanog doba?', o:['Da je gvožđe bolje od bronze','Da međusobno povezani sistemi mogu da padnu zajedno kad se nevolje udruže','Da su Hetiti bili najjači'], t:1, z:'Suše, ratovi i prekid trgovine su se sabrali — pale su države koje su zavisile jedna od druge.'}}
+],
+kljucno:['Neolitska revolucija pre oko 12.000 godina: Plodni polumesec, pa nezavisno Kina, Amerika i drugi.','Poljoprivreda: više ljudi i višak hrane, ali i bolesti, težak rad i nejednakost.','Prvi gradovi i države uz velike reke (Mesopotamija, Egipat, Ind, Kina); Hamurabijev zakonik.','Pismo nastaje iz knjigovodstva (Sumer, oko 3.200. p. n. e.); Feničani daju alfabet → grčko → latinica i ćirilica.','Bronza, pa gvožđe; slom oko 1.200. p. n. e. pokazuje da povezani sistemi padaju zajedno. Kod nas: Vinča i bakar sa Pločnika.'],
+kartice:[
+{p:'Kada i gde počinje poljoprivreda?', o:'Pre oko 12.000 godina, prvo u Plodnom polumesecu.'},
+{p:'Zbog čega je izmišljeno pismo?', o:'Zbog evidencije — računi, žito, stoka, dugovi (Sumer, oko 3.200. p. n. e.).'},
+{p:'Ko je napravio alfabet od kog potiču grčko pismo, latinica i ćirilica?', o:'Feničani, oko 1.000. p. n. e.'},
+{p:'Koja praistorijska kultura je bila na tlu Srbije oko 5.000. p. n. e.?', o:'Vinča (i topljenje bakra na Pločniku).'},
+{p:'Šta je „cena" poljoprivrede?', o:'Bolesti, težak rad, jednolična ishrana i nejednakost zbog viška koji se gomila.'}
+],
+razgovor:['Da li je poljoprivreda bila napredak ili zamka? Gde bi ti stao u toj raspravi?','Pismo je počelo kao knjigovodstvo, a završilo kao Bukovski. Šta misliš, šta je danas „knjigovodstvo" koje će jednog dana postati umetnost?']},
+{id:'6-3', naslov:'Antika — Grčka, Rim, Persija, Indija, Kina',
+kuka:{p:'Koliko je rimskih careva rođeno na tlu današnje Srbije?', o:['Nijedan','Dvojica','Oko sedamnaest'], t:2},
+delovi:[
+{n:'Osovinsko doba', t:`Između otprilike 800. i 200. p. n. e., na nekoliko mesta u svetu, nezavisno, javljaju se misli koje i danas nosimo: u Grčkoj filozofi, u Indiji Buda, u Kini Konfučije i Lao Ce, u Persiji Zaratustrina vera, kod Jevreja proroci. Filozof Karl Jaspers je to nazvao OSOVINSKO DOBA.
+
+Zajedničko: pitanja se pomeraju sa „kako umiliti bogove" na „kako treba živeti", „šta je pravedno", „šta je istina". Nije baš jasno zašto tada — možda zbog gradova, trgovine i novca, koji su ljude stavili jedne naspram drugih.
+
+Kroz ovu lekciju gledaj pet velikih svetova antike. Nisu bili izolovani: trgovina, ratovi i ideje putovali su između njih.`,
+pr:{p:'Šta je „osovinsko doba"?', o:['Doba izuma točka','Period oko 800–200. p. n. e. kada se na više mesta rađaju velike filozofske i verske ideje','Doba kad je Zemlja promenila osu'], t:1, z:'Grčka filozofija, Buda, Konfučije, proroci — nezavisno, u istim vekovima.'}},
+{n:'Persija i Grčka', t:`PERSIJA: Kir Veliki oko 550. p. n. e. stvara najveće carstvo do tada — od Egipta i Male Azije do Indije. Persijanci su vladali pametno: puštali narode da zadrže svoju veru i običaje, gradili Kraljevski put i poštu na konjima. (Kir je pustio Jevreje da se vrate iz vavilonskog ropstva.)
+
+GRČKA nije bila jedna država, nego stotine GRADOVA-DRŽAVA (polis). U ATINI je oko 508. p. n. e. uvedena DEMOKRATIJA — vlast naroda: građani su sami glasali na skupštini. Ali „građani" su bili samo slobodni muškarci; žene, robovi i stranci nisu.
+
+Kad je Persija napala, grčki gradovi su se ujedinili i pobedili (Maraton 490., Salamina 480. p. n. e.). Usledio je zlatni vek Atine: Sokrat, Platon, Aristotel, tragedija, Partenon, istorija kao nauka (Herodot), medicina (Hipokrat).
+
+Onda ALEKSANDAR MAKEDONSKI (vladao 336–323. p. n. e.): za desetak godina osvojio Persiju do Indije. Umro je sa 32 godine, carstvo se raspalo, ali grčki jezik i kultura proširili su se celim istokom — to je HELENIZAM.`,
+pr:{p:'Ko je imao pravo glasa u atinskoj demokratiji?', o:['Svi stanovnici','Samo slobodni muški građani','Samo bogati'], t:1, z:'Žene, robovi i stranci nisu glasali — demokratija je bila prava novost, ali uska.'}},
+{n:'Rim', t:`RIM je počeo kao gradić u Italiji (po predanju osnovan 753. p. n. e.). Oko 509. p. n. e. proterao je kralja i postao REPUBLIKA: vlast su delili dva godišnja konzula i Senat. Republika je osvojila celo Sredozemlje, ali su je razjeli građanski ratovi. Cezar je ubijen 44. p. n. e., a njegov naslednik AVGUST je 27. p. n. e. postao prvi CAR.
+
+Na vrhuncu (oko 117. n. e.) carstvo se protezalo od Britanije do Mesopotamije. Rim je ostavio: PUTEVE, akvadukte, beton, LATINSKI jezik (iz njega su italijanski, španski, francuski, rumunski) i RIMSKO PRAVO — temelj prava većine Evrope, pa i našeg.
+
+I Srbija: oko sedamnaest rimskih careva rođeno je na tlu današnje Srbije (broj zavisi od toga kako se računa). Najpoznatiji je KONSTANTIN VELIKI, rođen u Nišu (Naisus). SIRMIJUM (Sremska Mitrovica) bio je jedna od prestonica carstva, a FELIKS ROMULIANA kod Zaječara je Galerijeva palata pod zaštitom UNESKA.
+
+Konstantin je 313. Milanskim ediktom dozvolio hrišćanstvo, a 330. preneo prestonicu u Konstantinopolj. Carstvo je 395. podeljeno na zapadno i istočno; ZAPADNO je palo 476., ISTOČNO (Vizantija) trajalo je još skoro hiljadu godina.`,
+pr:{p:'Šta je Konstantin Veliki, rođen u Nišu, uradio za hrišćanstvo?', o:['Zabranio ga','Milanskim ediktom 313. ga dozvolio','Napisao Bibliju'], t:1, z:'Edikt iz 313. je hrišćanima dao slobodu veroispovesti; kasnije hrišćanstvo postaje državna vera.'}},
+{n:'Indija i Kina', t:`INDIJA: car AŠOKA (3. vek p. n. e.) iz dinastije Maurja ujedinio je skoro ceo potkontinent — pa se, užasnut krvoprolićem posle jedne bitke, okrenuo budizmu i nenasilju i poslao monahe po Aziji. Kasnije (oko 5–7. veka n. e.) indijski matematičari razvijaju DESETIČNI SISTEM SA NULOM — brojeve koje danas zovemo „arapskim", jer su ih Evropljani dobili od Arapa.
+
+KINA: posle vekova „zaraćenih država", ČIN ŠI HUANG 221. p. n. e. ujedinjuje zemlju i postaje prvi car. Ujednačio je pismo, mere, novac i širinu osovina na kolima; spajao je zidove u zaštitni pojas (začetak Kineskog zida); sahranjen je sa vojskom od hiljade glinenih ratnika. Vladao je surovo i dinastija mu je trajala samo 15 godina.
+
+Dinastija HAN (206. p. n. e. – 220. n. e.) je zlatno doba: država činovnika vaspitanih na KONFUČIJEVIM idejama (poštovanje, red, obrazovanje), PAPIR, i PUT SVILE — trgovački putevi kojima je kineska svila stizala čak do Rima. Han i Rim su bili savremenici i znali su jedno za drugo — ali uglavnom iz druge ruke, preko trgovaca.`,
+pr:{p:'Odakle potiče desetični sistem sa nulom koji danas koristimo?', o:['Iz Rima','Iz Indije (preko Arapa do Evrope)','Iz Grčke'], t:1, z:'Indijski matematičari su ga razvili; Arapi preneli — zato „arapski" brojevi.'}},
+{n:'Šta je antika ostavila', t:`Da sažmemo nasleđe koje i danas koristiš, a da ne znaš:
+• iz GRČKE: filozofija, demokratija, pozorište, olimpijske igre, geometrija;
+• iz RIMA: pravo, latinica, kalendar (jul i avgust su po Cezaru i Avgustu), mreža gradova (mnogi evropski gradovi, i Beograd — Singidunum, bili su rimski);
+• iz PERSIJE: ideja carstva mnogih naroda i vera;
+• iz INDIJE: nula i brojevi, budizam;
+• iz KINE: papir, država činovnika, ideja da se služba dobija ispitom.
+
+Zašto je Zapadno rimsko carstvo palo? Na to postoji preko dvesta objašnjenja. Danas istoričari uglavnom kažu: nije pad jednog dana, nego više vekova slabljenja — građanski ratovi, pritisak naroda sa granica, kuge, novac koji gubi vrednost, podela carstva. Istok je bio bogatiji i odoleo je.
+
+Sledeće: srednji vek — kad su Vizantija, islamski svet i Mongoli bili centar, a Evropa periferija. I gde su tu bili Srbi.`,
+pr:{p:'Zašto je palo Zapadno rimsko carstvo, po današnjim istoričarima?', o:['Jedan veliki napad 476.','Vekovima slabljenja — građanski ratovi, pritisak sa granica, kuge, slab novac','Zbog hrišćanstva i ničeg drugog'], t:1, z:'Godina 476. je samo kraj dugog procesa sa više uzroka; istočni deo je opstao.'}}
+],
+kljucno:['Osovinsko doba (oko 800–200. p. n. e.): filozofi, Buda, Konfučije, proroci — nezavisno, u istim vekovima.','Persija: prvo carstvo mnogih naroda; Atina: demokratija samo za slobodne muške građane; Aleksandar → helenizam.','Rim: republika → carstvo (Avgust, 27. p. n. e.); putevi, latinski, rimsko pravo; Zapad pao 476., Istok trajao do 1453.','Oko 17 rimskih careva rođeno na tlu Srbije; Konstantin (Niš) dozvolio hrišćanstvo 313.','Indija: Ašoka i budizam, nula i desetični sistem; Kina: Čin Ši Huang ujedinio 221. p. n. e., Han: papir, konfučijanska država, Put svile.'],
+kartice:[
+{p:'Kada je u Atini uvedena demokratija i ko je glasao?', o:'Oko 508. p. n. e.; samo slobodni muški građani.'},
+{p:'Ko je bio prvi rimski car i od kada?', o:'Avgust, od 27. p. n. e.'},
+{p:'Koji car rođen u Nišu je dozvolio hrišćanstvo i kada?', o:'Konstantin Veliki, Milanski edikt 313.'},
+{p:'Kada je palo Zapadno rimsko carstvo?', o:'476. godine (Istočno — Vizantija — 1453.).'},
+{p:'Ko je prvi ujedinio Kinu?', o:'Čin Ši Huang, 221. p. n. e.'}
+],
+razgovor:['Atinska demokratija nije puštala žene i robove da glasaju. Koga bi današnja demokratija, gledano za 500 godina, mogla da „zaboravlja"?','Rim je pao sporo, iznutra i spolja. Vidiš li neki savremeni sistem koji slabi na sličan način?']},
+{id:'6-4', naslov:'Srednji vek — Vizantija, islamski svet, Mongoli, Evropa',
+kuka:{p:'Koje je najveće kopneno carstvo u istoriji (bez prekida)?', o:['Rimsko','Mongolsko','Osmansko'], t:1},
+delovi:[
+{n:'Vizantija — Rim koji je ostao', t:`Kad je Zapad pao, ISTOČNO RIMSKO CARSTVO je živelo dalje, sa prestonicom u KONSTANTINOPOLJU. Sami su sebe zvali Rimljanima; ime „Vizantija" su im dali kasnije istoričari. Govorili su grčki, verovali pravoslavno.
+
+Car JUSTINIJAN (vladao 527–565) sagradio je crkvu AJA SOFIJA i sredio rimsko pravo u jedan zbornik (Corpus iuris civilis) — preko njega je rimsko pravo stiglo do moderne Evrope.
+
+Godine 1054. hrišćanstvo se podelilo na istočno (PRAVOSLAVNO) i zapadno (KATOLIČKO) — VELIKI RASKOL. Razlozi: ko je glavni (papa u Rimu ili jednaki patrijarsi), jezik, obredi, ali i politika.
+
+Godine 1204. krstaši Četvrtog krstaškog rata — hrišćani sa Zapada — opljačkali su Konstantinopolj. Vizantija se više nikad nije oporavila. Pala je pod Osmanlije 1453. — za mnoge istoričare to je kraj srednjeg veka.`,
+pr:{p:'Šta je Veliki raskol 1054?', o:['Podela Rimskog carstva','Podela hrišćanstva na pravoslavno i katoličko','Rat Vizantije i Persije'], t:1, z:'Istočna i zapadna crkva su se razišle oko vlasti pape, obreda i politike.'}},
+{n:'Islamski svet', t:`MUHAMED (oko 570–632) propoveda u Arabiji novu veru, ISLAM. Godine 622. seli se iz Meke u Medinu (HIDŽRA) — odatle počinje islamski kalendar. Za samo sto godina posle njegove smrti, kalifat se proteže od Španije (711.) do Indije.
+
+U 8–10. veku BAGDAD je jedan od najvećih gradova sveta, a „Kuća mudrosti" mesto gde se prevode grčki filozofi i lekari. Islamski učenjaci razvijaju ALGEBRU (reč dolazi od arapskog al-džabr, a „algoritam" od imena matematičara Al-Hvarizmija), astronomiju, medicinu, optiku; preko njih Evropa ponovo dobija Aristotela i dobija indijske brojeve.
+
+Krstaški ratovi (1096–1291): pohodi hrišćanske Evrope da osvoji Jerusalim. Hrišćani ih pamte kao sveti rat, muslimani kao najezdu; obe strane su činile i junaštva i pokolje. Na kraju je Sveta zemlja ostala muslimanska.
+
+Od 14. veka raste nova islamska sila — OSMANLIJE, koji će osvojiti Balkan.`,
+pr:{p:'Kako je Evropa ponovo dobila Aristotela i indijske brojeve?', o:['Iz Kine','Preko islamskog sveta — prevoda i učenjaka','Nikad ih nije izgubila'], t:1, z:'Islamski učenjaci su čuvali, prevodili i razvijali grčko i indijsko znanje; Evropa ga je preuzela preko Španije i Sicilije.'}},
+{n:'Mongoli i kuga', t:`DŽINGIS-KAN (Temudžin) je 1206. ujedinio mongolska plemena, a on i njegovi naslednici napravili su NAJVEĆE KOPNENO CARSTVO u istoriji — od Koreje do istočne Evrope; pohodi su stizali i do Poljske i Mađarske. Osvajali su brzo i surovo; gradovi koji su se opirali bili su sravnjeni.
+
+Ali kad je carstvo stalo, Putem svile se moglo putovati bezbedno kao nikad — „Mongolski mir". Marko Polo je tako stigao u Kinu. Robe, ideje (barut, papir, kompas su stizali na zapad)… i zaraze.
+
+Sredinom 14. veka (1347–1351) kuga — CRNA SMRT — došla je tim putevima u Evropu i ubila otprilike trećinu do polovinu stanovništva. Posledice: manjak radnika, pa skuplji rad; slabljenje feudalnih obaveza; strah, progoni (Jevreja su okrivljivali), ali i nova pitanja o veri i životu.`,
+pr:{p:'Kako je Crna smrt stigla do Evrope?', o:['Morem iz Amerike','Trgovačkim putevima iz Azije, koje su Mongoli učinili prohodnim','Iz Afrike preko Sahare'], t:1, z:'Bezbedni putevi su prenosili robu i ljude — i bakteriju kuge.'}},
+{n:'Zapadna Evropa', t:`Na Zapadu je posle Rima nastalo mnoštvo germanskih kraljevina. KARLO VELIKI je krunisan za cara na Božić 800. i ujedinio veliki deo zapadne Evrope.
+
+Društvo je bilo FEUDALNO: kralj daje zemlju plemićima, plemići mu duguju vojnu službu; seljaci (KMETOVI) rade zemlju gospodara i ne smeju da je napuste. Okvir svega bila je CRKVA — ona je držala škole, knjige, kalendar i moral, a papa se otimao o vlast sa carevima.
+
+„Mračni srednji vek" je uglavnom mit. Iz tog vremena su: UNIVERZITETI (Bolonja oko 1088, Pariz, Oksford), gotske katedrale, vetrenjače, plug, naočare, mehanički satovi, i ideja da i vladar mora poštovati zakon (Magna karta, Engleska, 1215).
+
+Ipak: većina ljudi je bila nepismena, živela na selu i retko putovala dalje od susednog sela.`,
+pr:{p:'Da li je srednji vek bio samo „mračno doba"?', o:['Da, ništa novo nije nastalo','Ne — nastali su univerziteti, katedrale, satovi, Magna karta','Da, jer nije bilo knjiga'], t:1, z:'„Mračni srednji vek" je pojednostavljenje — bilo je teško, ali i mnogo novog.'}},
+{n:'Gde su Srbi', t:`Sloveni dolaze na Balkan u 6. i 7. veku. Srbi primaju hrišćanstvo od Vizantije, pa su na granici dva sveta — istoka i zapada.
+
+PISMO: braća Ćirilo i Metodije 863. kreću u misiju među Slovene i sastavljaju GLAGOLJICU; njihovi učenici u Bugarskoj krajem 9. veka prave ĆIRILICU, nazvanu po Ćirilu.
+
+NEMANJIĆI (oko 200 godina): STEFAN NEMANJA ujedinjuje srpske zemlje; njegov sin SAVA 1219. dobija samostalnu (autokefalnu) srpsku crkvu i postaje prvi arhiepiskop; Savin brat Stefan je 1217. krunisan kao „Prvovenčani" kralj. Iz tog vremena su Studenica, Žiča, Mileševa, Sopoćani. Car DUŠAN (car od 1346) proširuje državu do Grčke i donosi ZAKONIK (1349, dopunjen 1354).
+
+Posle Dušanove smrti država se rasparčala. KOSOVSKA BITKA 1389: poginuli su i knez Lazar i sultan Murat. Vojno je bila nerešena ili teška za obe strane, a dugoročno je Srbiju oslabila; vremenom je postala središnja priča srpskog pamćenja (kosovski zavet) — istoričari razlikuju samu bitku od kasnijeg mita. Srbija je kao despotovina trajala do pada Smedereva 1459.
+
+Kraj oblasti je blizu: sledeće je kako je mali deo sveta — Zapadna Evropa — za četiri veka stigao do vrha.`,
+pr:{p:'Šta je Sava Nemanjić postigao 1219?', o:['Krunisan je za kralja','Dobio samostalnu srpsku crkvu i postao prvi arhiepiskop','Napisao zakonik'], t:1, z:'Autokefalnost 1219. — Stefan Prvovenčani je krunisan 1217., a Dušanov zakonik je iz 1349.'}}
+],
+kljucno:['Vizantija = istočno Rimsko carstvo do 1453; Justinijan, Aja Sofija, zbornik prava; raskol 1054; krstaši opljačkali Carigrad 1204.','Islam od 7. veka; Bagdad i Kuća mudrosti; algebra; preko islamskog sveta Evropa dobija Aristotela i indijske brojeve.','Mongoli (Džingis-kan, 1206): najveće kopneno carstvo; putevima stiže i Crna smrt (1347–1351), umire trećina do polovina Evrope.','Zapad: Karlo Veliki (800), feudalizam, Crkva; ali i univerziteti, katedrale, Magna karta — „mračni vek" je mit.','Srbi: ćirilica (učenici Ćirila i Metodija), Nemanjići, Sava 1219, Dušanov zakonik 1349, Kosovo 1389, pad Smedereva 1459.'],
+kartice:[
+{p:'Šta je Veliki raskol i kada?', o:'Podela hrišćanstva na pravoslavno i katoličko, 1054.'},
+{p:'Kada je pala Vizantija?', o:'1453, pod Osmanlije.'},
+{p:'Odakle dolaze reči „algebra" i „algoritam"?', o:'Iz arapskog — al-džabr i ime matematičara Al-Hvarizmija.'},
+{p:'Koliko je Evropljana ubila Crna smrt?', o:'Otprilike trećinu do polovinu (1347–1351).'},
+{p:'Kada je srpska crkva postala samostalna i ko je bio prvi arhiepiskop?', o:'1219, Sveti Sava.'}
+],
+razgovor:['Srbi su od početka između Istoka i Zapada. Da li to vidiš i danas — u sebi, u ljudima oko sebe?','Kosovska bitka i kosovski mit nisu ista stvar. Zašto narodima trebaju takve priče — i kad pomažu, a kad smetaju?']},
+{id:'6-5', naslov:'Otkrića, naučna i industrijska revolucija',
+kuka:{p:'Oko 1800. godine na Zemlji je živelo oko milijardu ljudi. Koliko danas?', o:['Oko 2 milijarde','Oko 4 milijarde','Preko 8 milijardi'], t:2},
+delovi:[
+{n:'Štamparija i preporod', t:`Oko 1450. JOHAN GUTENBERG u Majncu pravi ŠTAMPARIJU sa pokretnim slovima. Pre toga se knjiga prepisivala rukom mesecima; posle — hiljade primeraka. Za pedeset godina Evropa je odštampala milione knjiga. Znanje je prestalo da bude retkost.
+
+Istovremeno, u Italiji, RENESANSA („preporod"): povratak antičkim uzorima, čovek u centru — Leonardo, Mikelanđelo, Rafael. (Više o tome u oblasti „Umetnost i priče".)
+
+Štamparija je omogućila i REFORMACIJU: Martin Luter 1517. napada prodaju oproštaja grehova; njegovi spisi se šire štampom brže nego što crkva može da ih zabrani. Zapadno hrišćanstvo se deli na katolike i protestante, a sledi vek verskih ratova.
+
+Mi smo bili rani: prva štampana knjiga na srpskoj redakciji crkvenoslovenskog jezika, OKTOIH, štampana je 1494. u Cetinju, u štampariji Crnojevića.`,
+pr:{p:'Zašto je štamparija bila tako važna?', o:['Knjige su postale lepše','Knjige su postale jeftine i brze — znanje i ideje su se širili kao nikad','Zbog papira'], t:1, z:'Hiljade primeraka umesto jednog prepisa — reformacija i nauka bez toga ne bi išle tako brzo.'}},
+{n:'Velika otkrića — i njihova cena', t:`Osmanlije su držale puteve na istok, pa su Evropljani tražili put morem do Indije i začina:
+• KOLUMBO 1492. stiže u Ameriku (mislio je da je u Aziji);
+• VASKO DA GAMA 1498. oplovljava Afriku do Indije;
+• Magelanova ekspedicija (1519–1522) prvi put oplovljava svet.
+
+Usledila je KOLUMBOVSKA RAZMENA: Evropa dobija krompir, kukuruz, paradajz, papriku, duvan — bez Amerike ne bi bilo ni ajvara ni sarme sa kukuruznim hlebom. Amerika dobija konje, goveda, pšenicu… i BOLESTI. Velike boginje i druge zaraze ubile su veliki deo starosedelaca — u nekim krajevima i do devet desetina.
+
+Potom ROPSTVO: preko Atlantika je za oko tri i po veka prevezeno oko 12 miliona Afrikanaca, za rad na plantažama šećera, duvana i pamuka. Evropske kolonije pokrivaju svet. Bogatstvo Evrope u ovom periodu ima i ovu stranu.`,
+pr:{p:'Šta je najviše ubijalo starosedeoce Amerike posle 1492?', o:['Samo ratovi','Zarazne bolesti donete iz Evrope, uz ratove i prinudni rad','Glad zbog suše'], t:1, z:'Nisu imali otpornost na boginje i druge evropske zaraze; uz to ratovi i prinudni rad.'}},
+{n:'Naučna revolucija', t:`Za oko 150 godina promenio se način na koji ljudi saznaju svet:
+• KOPERNIK (1543): Zemlja se okreće oko Sunca, ne obrnuto;
+• GALILEJ (oko 1610) kroz teleskop vidi Jupiterove mesece i mene Venere; 1633. crkveni sud ga primorava da se odrekne učenja;
+• NJUTN (1687): isti zakoni kretanja i gravitacije važe i za jabuku i za planete.
+
+Novo nije bilo samo ŠTA su otkrili, nego KAKO: ne veruj autoritetu, nego MERI, OGLEDAJ i proveravaj. (Više u lekciji „Naučni metod".)
+
+Iz toga je izraslo PROSVETITELJSTVO (18. vek): ako razum može da objasni prirodu, može da sredi i društvo. Prava čoveka, verska tolerancija, podela vlasti. Te ideje stoje iza AMERIČKE (1776) i FRANCUSKE REVOLUCIJE (1789) — i iza nacionalnih pokreta 19. veka.
+
+Kod nas: PRVI SRPSKI USTANAK 1804. (Karađorđe), DRUGI 1815. (Miloš Obrenović); Srbija postaje kneževina sa autonomijom, a punu međunarodno priznatu nezavisnost dobija na BERLINSKOM KONGRESU 1878. Vuk Karadžić reformiše jezik i pismo („piši kao što govoriš").`,
+pr:{p:'Šta je bilo najnovije u naučnoj revoluciji?', o:['Otkriće teleskopa','Način saznavanja: meri, ogledaj, proveri — umesto da veruješ autoritetu','Povratak Aristotelu'], t:1, z:'Kopernik, Galilej i Njutn su važni, ali najveća promena je metod — dokaz preko merenja i ogleda.'}},
+{n:'Industrijska revolucija', t:`Od oko 1760. u ENGLESKOJ počinje ono što je promenilo život više od svega posle poljoprivrede. MAŠINE preuzimaju posao ruku: prvo u tekstilu, pa sve. PARNA MAŠINA (Džejms Vat ju je usavršio oko 1770-ih) pokreće fabrike, pa VOZOVE (prva javna parna železnica 1825) i brodove. Gorivo: UGALJ.
+
+Zašto baš Engleska? Spoj više stvari: mnogo uglja blizu površine, skupa radna snaga (pa se isplati mašina), banke, kolonije i trgovina, zaštićeni patenti, stabilna vlast.
+
+Posledice:
+• ljudi se sele sa sela u GRADOVE i FABRIKE; radni dan 12–14 sati, deca u rudnicima — iz toga se rađaju sindikati, socijalizam, Marks;
+• proizvodnja i stanovništvo rastu kao nikad: oko 1800. milijardu ljudi, oko 1900. preko milijardu i po;
+• prvi put u istoriji, zemlje koje se industrijalizuju izlaze iz večitog siromaštva.
+
+Krajem 19. veka DRUGA industrijska revolucija: čelik, hemija, nafta i — STRUJA. Tu je i NIKOLA TESLA: naizmenična struja kojom se danas napajaju kuće širom sveta.`,
+pr:{p:'Šta je pokretalo prvu industrijsku revoluciju?', o:['Struja i nafta','Parna mašina na ugalj','Vetrenjače'], t:1, z:'Ugalj i para pokreću fabrike, vozove i brodove; struja i nafta dolaze u drugoj revoluciji, krajem 19. veka.'}},
+{n:'Zašto Evropa — i kraj oblasti', t:`Pitanje koje muči istoričare: zašto je baš Zapadna Evropa, koja je 1000. godine bila periferija, do 1900. zavladala većim delom sveta? Kina je imala papir, barut, kompas i štampu pre nje.
+
+Glavni odgovori (verovatno svi delimično tačni):
+• GEOGRAFIJA i podeljenost — mnogo manjih država koje se takmiče; kad jedan vladar zabrani, drugi dozvoli (Kolumbo je dobio brodove tek u Španiji);
+• INSTITUCIJE — zaštita imovine, banke, ugovori, patenti;
+• NAUKA kao sistem — otkrića se objavljuju i proveravaju;
+• SREĆA I NASILJE — ugalj blizu površine, i bogatstvo iz kolonija i ropstva.
+
+Kostur oblasti: lovci-sakupljači → njiva, gradovi, pismo → antika i velike ideje → srednji vek tri sveta → štampa, otkrića, nauka, mašine. Za 300.000 godina od vatre do struje.
+
+Sledeće: alat — verovatnoća i rizik, pa onda religije: šta su ljudi verovali kroz sve ovo vreme.`,
+pr:{p:'Šta je, po jednom od objašnjenja, pomoglo Evropi što je bila podeljena na mnoge države?', o:['Ništa, podela je samo smetala','Takmičenje — kad jedan vladar zabrani, drugi dozvoli','Zbog jednog jezika'], t:1, z:'Kolumbo je odbijen u Portugaliji, a dobio brodove u Španiji; ideje su imale gde da pobegnu.'}}
+],
+kljucno:['Gutenbergova štampa (oko 1450) širi znanje; renesansa; reformacija 1517 (Luter). Kod nas Oktoih 1494, Cetinje.','Otkrića: Kolumbo 1492, Vasko da Gama 1498, Magelan 1519–22; kolumbovska razmena — krompir i kukuruz, ali i bolesti, kolonije i ropstvo (~12 miliona Afrikanaca).','Naučna revolucija: Kopernik, Galilej, Njutn — metod merenja i ogleda; prosvetiteljstvo → revolucije 1776 i 1789.','Srbija: ustanci 1804 i 1815, puna nezavisnost 1878 (Berlinski kongres), Vukova reforma.','Industrijska revolucija od oko 1760, Engleska: para i ugalj, fabrike, gradovi, rast stanovništva; kasnije struja (i Tesla).'],
+kartice:[
+{p:'Kada je Gutenberg napravio štampariju?', o:'Oko 1450.'},
+{p:'Šta je kolumbovska razmena?', o:'Razmena biljaka, životinja i bolesti između Amerike i Starog sveta posle 1492.'},
+{p:'Šta je Njutn pokazao 1687?', o:'Da isti zakoni kretanja i gravitacije važe na Zemlji i na nebu.'},
+{p:'Kada je Srbija dobila punu međunarodno priznatu nezavisnost?', o:'1878, na Berlinskom kongresu.'},
+{p:'Gde i kada počinje industrijska revolucija i šta je pokreće?', o:'Engleska, oko 1760; parna mašina na ugalj.'}
+],
+razgovor:['Da si živeo 1850. u Engleskoj — selo ili fabrika? I kako bi o tome pisao?','Bogatstvo Evrope ima i ružnu stranu: kolonije i ropstvo. Kako se, po tebi, pošteno priča o ponosu i o sramoti u istoj istoriji?']}
 ]},
 
 {id:'7', naziv:'Religije i velike ideje', ikona:'🕯️', era:'ideje', lekcije:[

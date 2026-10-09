@@ -1,4 +1,5 @@
 // Škola — sadržaj (kurikulum v2, 09.10.2026). Lekcije se pišu jednom, ovde.
+// Oblast '13' (20. vek, dodata 09.10.) stoji posle oblasti 6; id 13 da se ne pomere id-jevi i napredak.
 // Napredak, odgovori i kartice su u bazi (skola/...), ne ovde.
 //
 // Lekcija: kuka (pogodi pre čitanja) → delovi (svaki sa proverom odmah) →
@@ -1774,7 +1775,7 @@ Glavni odgovori (verovatno svi delimično tačni):
 
 Kostur oblasti: lovci-sakupljači → njiva, gradovi, pismo → antika i velike ideje → srednji vek tri sveta → štampa, otkrića, nauka, mašine. Za 300.000 godina od vatre do struje.
 
-Sledeće: alat — verovatnoća i rizik, pa onda religije: šta su ljudi verovali kroz sve ovo vreme.`,
+Sledeće: 20. vek — dva svetska rata, Hladni rat i naša zemlja od 1918. do danas.`,
 pr:{p:'Šta je, po jednom od objašnjenja, pomoglo Evropi što je bila podeljena na mnoge države?', o:['Ništa, podela je samo smetala','Takmičenje — kad jedan vladar zabrani, drugi dozvoli','Zbog jednog jezika'], t:1, z:'Kolumbo je odbijen u Portugaliji, a dobio brodove u Španiji; ideje su imale gde da pobegnu.'}}
 ],
 kljucno:['Gutenbergova štampa (oko 1450) širi znanje; renesansa; reformacija 1517 (Luter). Kod nas Oktoih 1494, Cetinje.','Otkrića: Kolumbo 1492, Vasko da Gama 1498, Magelan 1519–22; kolumbovska razmena — krompir i kukuruz, ali i bolesti, kolonije i ropstvo (~12 miliona Afrikanaca).','Naučna revolucija: Kopernik, Galilej, Njutn — metod merenja i ogleda; prosvetiteljstvo → revolucije 1776 i 1789.','Srbija: ustanci 1804 i 1815, puna nezavisnost 1878 (Berlinski kongres), Vukova reforma.','Industrijska revolucija od oko 1760, Engleska: para i ugalj, fabrike, gradovi, rast stanovništva; kasnije struja (i Tesla).'],
@@ -1786,6 +1787,312 @@ kartice:[
 {p:'Gde i kada počinje industrijska revolucija i šta je pokreće?', o:'Engleska, oko 1760; parna mašina na ugalj.'}
 ],
 razgovor:['Da si živeo 1850. u Engleskoj — selo ili fabrika? I kako bi o tome pisao?','Bogatstvo Evrope ima i ružnu stranu: kolonije i ropstvo. Kako se, po tebi, pošteno priča o ponosu i o sramoti u istoj istoriji?']}
+]},
+
+{id:'13', naziv:'20. vek', ikona:'📻', era:'1900 → danas', lekcije:[
+
+{id:'13-1', naslov:'Prvi svetski rat i rađanje novog sveta',
+kuka:{p:'Koliko je, po većini procena, stanovništva Srbija izgubila u Prvom svetskom ratu?', o:['Oko 2%','Oko 10%','Između petine i četvrtine'], t:2},
+delovi:[
+{n:'Svet 1900. i zašto je pukao', t:`Oko 1900. Evropa je na vrhu sveta: industrija, kolonije, nauka, železnice. Ljudi veruju u napredak. Ali ispod površine:
+• SAVEZI — Nemačka i Austrougarska s jedne strane, Francuska, Rusija i Britanija (Antanta) s druge; lokalni sukob lako postaje opšti;
+• TRKA U NAORUŽANJU i planovi za brz rat;
+• NACIONALIZMI — narodi u velikim carstvima (Austrougarskoj, Osmanskom, Ruskom) traže svoje države;
+• Balkan posle balkanskih ratova (1912–1913): Srbija ojačala, Austrougarska u strahu od nje.
+
+Istoričari se i danas spore oko krivice: jedni ističu nemačke ambicije, drugi austrougarsku želju da slomi Srbiju, treći da su se sve velike sile „mesečarski" uvukle u rat (Kristofer Klark). Većina se slaže da nije bilo jednog uzroka.`,
+pr:{p:'Zašto je lokalni sukob 1914. postao svetski rat?', o:['Slučajno','Zbog sistema saveza, trke u naoružanju i nacionalizama — svaka sila je povukla svoje saveznike','Jer je Srbija napala Evropu'], t:1, z:'Savezi su lokalni rat Austrougarske i Srbije za nekoliko dana pretvorili u rat velikih sila.'}},
+{n:'Sarajevo i rat', t:`28. juna 1914. u Sarajevu GAVRILO PRINCIP, član organizacije Mlada Bosna, ubija austrougarskog prestolonaslednika FRANCA FERDINANDA. Austrougarska optužuje Srbiju, šalje ultimatum, i 28. jula objavljuje rat. Za nekoliko dana uključuju se Rusija, Nemačka, Francuska i Britanija.
+
+Princip je za jedne oslobodilac koji je pucao na okupatora Bosne, za druge terorista. Obe slike postoje i danas — u Beogradu i Sarajevu različito.
+
+Rat na zapadu postaje ROVOVSKI: milioni ljudi u blatu, mitraljezi, bodljikava žica, otrovni gasovi. U bici na Somi 1916. samo prvog dana poginulo je i ranjeno blizu 60.000 britanskih vojnika. Front se mesecima pomera po nekoliko kilometara.
+
+Ukupno je u ratu poginulo oko 15–20 miliona ljudi, vojnika i civila.`,
+pr:{p:'Šta je bio neposredni povod rata?', o:['Napad Nemačke na Francusku','Atentat na Franca Ferdinanda u Sarajevu 28. juna 1914.','Ruska revolucija'], t:1, z:'Princip je ubio prestolonaslednika; Austrougarska je posle ultimatuma objavila rat Srbiji 28. jula.'}},
+{n:'Srbija u ratu', t:`Srbija je 1914. iznenadila svet: pobede na CERU (avgust) i na KOLUBARI (novembar–decembar) bile su prve savezničke pobede u ratu.
+
+1915. napadaju je zajedno Austrougarska, Nemačka i Bugarska. Vojska, kralj, vlada i deo naroda povlače se zimi preko planina ALBANIJE do mora — ALBANSKA GOLGOTA. Desetine hiljada umiru od gladi, hladnoće i bolesti. Preživeli se oporavljaju na KRFU (Plava grobnica — more u koje su sahranjivani umrli).
+
+1918. srpska vojska sa saveznicima probija SOLUNSKI FRONT i za nekoliko nedelja oslobađa zemlju.
+
+Cena je bila strašna: po većini procena Srbija je izgubila između petine i četvrtine stanovništva — u borbama, od epidemija (tifus 1915) i gladi. Procentualno među najvećim gubicima u ratu.`,
+pr:{p:'Šta je Albanska golgota?', o:['Bitka na Ceru','Povlačenje srpske vojske i naroda preko albanskih planina zimi 1915.','Proboj Solunskog fronta'], t:1, z:'Posle napada tri sile, povlačenje do mora i Krfa koštalo je desetine hiljada života.'}},
+{n:'Kraj carstava', t:`Rat je srušio četiri carstva:
+• RUSKO — 1917. revolucija; u oktobru vlast preuzimaju BOLJŠEVICI (Lenjin). Sledi građanski rat i 1922. Sovjetski Savez — prva komunistička država.
+• NEMAČKO — car abdicira, Nemačka postaje republika (Vajmarska).
+• AUSTROUGARSKO — raspada se na Austriju, Mađarsku, Čehoslovačku, Poljsku (delom) i jugoslovenske zemlje.
+• OSMANSKO — od njega ostaje Turska (republika 1923, Ataturk), a Bliski istok dele Britanija i Francuska — granice koje i danas izazivaju sukobe.
+
+1. DECEMBRA 1918. nastaje KRALJEVINA SRBA, HRVATA I SLOVENACA — prva Jugoslavija (o njoj posebna lekcija).
+
+Mir je potpisan u VERSAJU 1919. Nemačka je proglašena krivom, izgubila je teritorije i morala da plaća velike odštete. Mnogi istoričari smatraju da je takav mir — ponižavajući a nedovoljno čvrst — pomogao da za 20 godina dođe novi rat.`,
+pr:{p:'Šta je nastalo 1. decembra 1918?', o:['SFR Jugoslavija','Kraljevina Srba, Hrvata i Slovenaca','Kraljevina Srbija'], t:1, z:'Prva zajednička država južnih Slovena, od 1929. zvana Kraljevina Jugoslavija.'}},
+{n:'Novi svet — i šta sledi', t:`Posle 1918. svet više nije isti:
+• ŠPANSKI GRIP (1918–1920) ubio je više ljudi nego sam rat — procene oko 50 miliona;
+• ŽENE u mnogim zemljama dobijaju pravo glasa (radile su u fabrikama dok su muškarci bili na frontu);
+• MASOVNA POLITIKA — milioni bivših vojnika, radnika i razočaranih traže nove odgovore: komunizam, fašizam, demokratiju;
+• SAD izlaze kao najbogatija zemlja; Evropa je zadužena i iscrpljena;
+• stvara se DRUŠTVO NARODA (preteča UN) — ali bez SAD i bez moći.
+
+Kostur lekcije: savezi, naoružanje i nacionalizmi → Sarajevo 1914 → rovovi → Cer i Kolubara, Albanska golgota, Solunski front → pad četiri carstva, revolucija u Rusiji, Kraljevina SHS → Versaj, španski grip.
+
+Sledeće: kako je za samo dvadeset godina od „rata koji će okončati sve ratove" došlo do još goreg.`,
+pr:{p:'Šta je ubilo više ljudi od samog Prvog svetskog rata?', o:['Glad 1919.','Španski grip (1918–1920)','Ruski građanski rat'], t:1, z:'Pandemija gripa ubila je po procenama oko 50 miliona ljudi.'}}
+],
+kljucno:['Uzroci rata: savezi, trka u naoružanju, nacionalizmi, Balkan — istoričari se spore oko krivice.','Sarajevo 28. 6. 1914 (Princip, Franc Ferdinand) → rat 28. 7.; rovovski rat; 15–20 miliona mrtvih.','Srbija: Cer i Kolubara (1914), Albanska golgota i Krf (1915), proboj Solunskog fronta (1918); izgubila petinu do četvrtinu stanovništva.','Pala četiri carstva; Oktobarska revolucija 1917 → SSSR; Kraljevina SHS 1. 12. 1918; Versaj 1919.','Španski grip (~50 miliona), pravo glasa ženama, masovna politika, Društvo naroda.'],
+kartice:[
+{p:'Šta se desilo 28. juna 1914?', o:'Gavrilo Princip je u Sarajevu ubio Franca Ferdinanda.'},
+{p:'Koje su prve savezničke pobede u Prvom svetskom ratu?', o:'Srpske pobede na Ceru i Kolubari 1914.'},
+{p:'Šta je Albanska golgota?', o:'Povlačenje srpske vojske i naroda preko Albanije zimi 1915.'},
+{p:'Koja četiri carstva su pala posle Prvog svetskog rata?', o:'Rusko, Nemačko, Austrougarsko, Osmansko.'},
+{p:'Kada je nastala Kraljevina SHS?', o:'1. decembra 1918.'}
+],
+razgovor:['Gavrilo Princip — oslobodilac ili terorista? Kako bi pošteno objasnio obe strane?','Šta se u tvojoj porodici pričalo o ratovima — i koliko je to bila istorija, a koliko porodični mit?']},
+
+{id:'13-2', naslov:'Između ratova i Drugi svetski rat',
+kuka:{p:'Otprilike koliko je ljudi poginulo u Drugom svetskom ratu?', o:['Oko 5 miliona','Oko 20 miliona','Između 70 i 85 miliona'], t:2},
+delovi:[
+{n:'Uspon diktatura', t:`Između ratova (1918–1939) demokratije su u mnogim zemljama propale:
+• U SSSR-u STALJIN gradi totalitarnu državu: prisilna kolektivizacija, glad (u Ukrajini 1932–33 — HOLODOMOR, milioni mrtvih), logori GULAG, veliki procesi i streljanja.
+• U Italiji MUSOLINI (1922) uvodi FAŠIZAM.
+• Velika depresija (1929) gura Nemačku u bedu i bes; HITLER 1933. dolazi na vlast — legalno, preko izbora i dogovora elita — i za par meseci ukida demokratiju. Nacizam: krajnji nacionalizam, kult vođe i RASIZAM — Jevreji proglašeni krivcima za sve.
+
+Zapadne demokratije su popuštale (Minhenski sporazum 1938 — Hitleru data čehoslovačka Sudetska oblast „za mir"). U avgustu 1939. Hitler i Staljin potpisuju pakt o nenapadanju i tajno dele istočnu Evropu.
+
+1. SEPTEMBRA 1939. Nemačka napada Poljsku. Britanija i Francuska objavljuju rat.`,
+pr:{p:'Kako je Hitler došao na vlast?', o:['Vojnim pučem','Legalno, preko izbora i dogovora elita, pa je onda ukinuo demokratiju','Silom iz inostranstva'], t:1, z:'Godina 1933. pokazuje da demokratija može biti ukinuta i iznutra, kroz sopstvene institucije.'}},
+{n:'Rat u svetu', t:`Kratko, kao kostur:
+• 1939–1940 — Nemačka osvaja Poljsku, pa Francusku za šest nedelja; Britanija ostaje sama (bitka za Britaniju u vazduhu).
+• JUN 1941 — Nemačka napada SSSR. Najveći i najkrvaviji front u istoriji; SSSR gubi oko 27 miliona ljudi.
+• DECEMBAR 1941 — Japan napada američku bazu PERL HARBOR; SAD ulaze u rat.
+• Prelomi: STALJINGRAD (1942–43) na istoku, El Alamejn u Africi, Midvej na Pacifiku.
+• JUN 1944 — iskrcavanje saveznika u NORMANDIJI.
+• MAJ 1945 — pad Berlina, Nemačka kapitulira (8/9. maja).
+• AVGUST 1945 — SAD bacaju ATOMSKE BOMBE na HIROŠIMU (6. avgusta) i NAGASAKI (9. avgusta); Japan kapitulira.
+
+Ukupno je poginulo između 70 i 85 miliona ljudi — većina civili. Rasprava o atomskim bombama traje i danas: da li su skratile rat i spasle živote, ili su bile zločin nad civilima?`,
+pr:{p:'Koja zemlja je imala najveće gubitke u Drugom svetskom ratu?', o:['SAD','Sovjetski Savez — oko 27 miliona','Francuska'], t:1, z:'Istočni front je bio najveći i najkrvaviji; SSSR je izgubio oko 27 miliona ljudi.'}},
+{n:'Holokaust', t:`HOLOKAUST (na hebrejskom ŠOA) je sistematsko, industrijski organizovano ubijanje oko ŠEST MILIONA JEVREJA od strane nacističke Nemačke i njenih saradnika — otprilike dve trećine Jevreja Evrope. Ubijani su i Romi (romski genocid — Porajmos), osobe sa invaliditetom, politički protivnici i drugi.
+
+Kako je bilo moguće? Ne odjednom. Korak po korak: govor mržnje → zakoni koji Jevrejima oduzimaju prava (1935) → pogromi (Kristalna noć, 1938) → geta → streljanja na istoku → logori smrti sa gasnim komorama (AUŠVIC, Treblinka). Učestvovali su hiljade „običnih" ljudi — činovnika, železničara, policajaca.
+
+U okupiranoj Srbiji je skoro cela jevrejska zajednica ubijena već do proleća 1942. — streljanjima i u logoru na SAJMIŠTU u Beogradu.
+
+Posle rata su u NIRNBERGU nacističke vođe suđene za zločine protiv mira i čovečnosti. Iz tog iskustva rođeni su pojmovi GENOCID (Rafael Lemkin) i Konvencija o genocidu (1948).`,
+pr:{p:'Kako je Holokaust postao moguć?', o:['Odjednom, jednom naredbom','Korak po korak — od govora mržnje i zakona do logora smrti, uz učešće mnogo „običnih" ljudi','Bez znanja ikoga u Nemačkoj'], t:1, z:'Svaki korak je pripremao sledeći; zato se upozorava već na prve.'}},
+{n:'Jugoslavija 1941–1945', t:`6. APRILA 1941. Nemačka bombarduje Beograd; za manje od dve nedelje Kraljevina Jugoslavija kapitulira i deli se među okupatorima (Nemačka, Italija, Mađarska, Bugarska, Albanija pod Italijom).
+
+Stvara se NEZAVISNA DRŽAVA HRVATSKA (ustaše, Ante Pavelić), saveznik Hitlera, koja sprovodi GENOCID nad Srbima, Jevrejima i Romima. Najveći logor je JASENOVAC. Broj žrtava Jasenovca je predmet dugih sporova; Spomen-područje Jasenovac ima poimenični spisak od oko 83.000 žrtava, a mnoge procene su više.
+
+U okupiranoj Srbiji Nemci za svakog ubijenog vojnika streljaju stotinu civila: KRAGUJEVAC (oktobar 1941, oko 2.800 streljanih), Kraljevo, logori Banjica i Sajmište.
+
+Otpor su pružala dva pokreta:
+• ČETNICI (Dragoljub Draža Mihailović) — rojalisti, vezani za kralja u izbeglištvu;
+• PARTIZANI (Josip Broz TITO, Komunistička partija) — sa programom nove, socijalističke Jugoslavije.
+Brzo su postali i ljuti protivnici: rat je bio istovremeno okupacija, otpor i GRAĐANSKI RAT. Delovi četničkog pokreta sarađivali su sa okupatorima protiv partizana, a obe strane su činile i zločine nad civilima. Saveznici su 1943. prešli na podršku partizanima. Ocena četnika i partizana i danas deli Srbiju; zakonom iz 2004. oba pokreta priznata su kao antifašistička, a Mihailović je 2015. sudski rehabilitovan — što mnogi istoričari osporavaju.
+
+Beograd je oslobođen 20. oktobra 1944, uz Crvenu armiju. U Jugoslaviji je u ratu poginulo oko milion ljudi. Posle pobede komunisti su se surovo obračunali sa stvarnim i navodnim protivnicima.`,
+pr:{p:'Zašto se rat u Jugoslaviji 1941–45. naziva i građanskim ratom?', o:['Jer nije bilo okupatora','Jer su se uz borbu protiv okupatora međusobno borili i domaći pokreti — partizani, četnici, ustaše','Jer se vodio samo u gradovima'], t:1, z:'Okupacija, otpor i obračun domaćih strana preplitali su se istovremeno.'}},
+{n:'Šta je ostalo — i kraj', t:`Posle 1945:
+• Evropa u ruševinama; desetine miliona izbeglica i preseljenih;
+• dve nove SUPERSILE — SAD i SSSR; Evropa podeljena „gvozdenom zavesom";
+• nastaju UN (1945) i ideja ljudskih prava (1948) — „nikad više";
+• atomsko oružje menja rat zauvek;
+• počinje kraj kolonijalnih carstava.
+
+Lekcija koju je 20. vek platio skupo: demokratija nije večna, a mržnja počinje rečima. I: „obični ljudi" mogu učestvovati u užasu kad im se kaže da je to normalno — ali mogu i da spasavaju: desetine hiljada ljudi u Evropi, među njima i više od stotinu iz Srbije, proglašeno je „Pravednicima među narodima" jer su skrivali Jevreje.
+
+Kostur lekcije: diktature između ratova (Staljin, Musolini, Hitler) → 1939 → istočni front, Perl Harbor, Staljingrad, Normandija → Holokaust → atomske bombe → Jugoslavija: okupacija, NDH i Jasenovac, četnici i partizani, građanski rat.
+
+Sledeće: Hladni rat — kako su dve supersile podelile svet, a nisu zaratile direktno.`,
+pr:{p:'Ko su „Pravednici među narodima"?', o:['Saveznički generali','Ljudi koji su rizikujući život spasavali Jevreje tokom Holokausta','Sudije u Nirnbergu'], t:1, z:'Izrael tako odaje počast spasiocima; među njima je i više od stotinu ljudi iz Srbije.'}}
+],
+kljucno:['Između ratova: Staljinov teror (Holodomor, Gulag), Musolini, Hitler (1933, legalno pa diktatura); Minhen 1938; pakt Hitler–Staljin.','Rat 1939–1945: Poljska, Francuska, napad na SSSR (27 miliona mrtvih), Perl Harbor, Staljingrad, Normandija, Hirošima i Nagasaki; 70–85 miliona mrtvih.','Holokaust: oko 6 miliona Jevreja ubijeno korak po korak; Romi i drugi; Nirnberg i pojam genocida.','Jugoslavija: 6. 4. 1941, podela; NDH i genocid (Jasenovac); represalije (Kragujevac); četnici i partizani — otpor i građanski rat; oko milion mrtvih; Beograd oslobođen 20. 10. 1944.','Posle 1945: supersile, UN i ljudska prava, atomsko doba, kraj kolonija.'],
+kartice:[
+{p:'Kada je počeo Drugi svetski rat?', o:'1. septembra 1939, napadom Nemačke na Poljsku.'},
+{p:'Šta je Holokaust?', o:'Sistematsko ubijanje oko 6 miliona Jevreja od strane nacističke Nemačke i saradnika.'},
+{p:'Kada je napadnuta Jugoslavija?', o:'6. aprila 1941.'},
+{p:'Ko su bili glavni pokreti otpora u Jugoslaviji?', o:'Četnici (Mihailović) i partizani (Tito) — i međusobno su ratovali.'},
+{p:'Kada su bačene atomske bombe?', o:'6. avgusta 1945. na Hirošimu i 9. avgusta na Nagasaki.'}
+],
+razgovor:['Kako se u tvojoj porodici pamte četnici i partizani — i da li se to slaže sa onim što si sad pročitao?','Kad bi pisao priču o „običnom čoveku" 1941. — kakav bi izbor morao da napravi, i šta bi ti uradio?']},
+
+{id:'13-3', naslov:'Hladni rat i dekolonizacija',
+kuka:{p:'Gde je 1961. održan prvi samit Pokreta nesvrstanih?', o:['U Kairu','U Beogradu','U Nju Delhiju'], t:1},
+delovi:[
+{n:'Dve supersile', t:`Posle 1945. SAD i SSSR su jedine prave supersile, sa suprotnim sistemima: tržište i višestranačje protiv planske privrede i jedne partije. Pošto obe brzo imaju ATOMSKU BOMBU (SSSR od 1949), direktan rat bi bio samoubistvo. Zato je rat „HLADAN": takmičenje u naoružanju, uticaju, propagandi, nauci, sportu — i ratovi preko drugih (posredni ratovi).
+
+Evropa je podeljena „GVOZDENOM ZAVESOM": zapad u NATO-u (1949), istok u Varšavskom paktu (1955), pod sovjetskom kontrolom. Kad su se Mađarska (1956) i Čehoslovačka (1968) pokušale osloboditi, sovjetski tenkovi su ih slomili.
+
+NEMAČKA je podeljena na dve države, a BERLIN, usred istočne, na dva dela. Godine 1961. podignut je BERLINSKI ZID da građani Istoka ne beže na Zapad — simbol celog Hladnog rata.`,
+pr:{p:'Zašto se Hladni rat nije pretvorio u direktan rat supersila?', o:['Jer su bile prijatelji','Zbog nuklearnog oružja — direktan rat bi uništio obe','Jer nisu imale vojsku'], t:1, z:'Nuklearno odvraćanje: rat bi bio samoubistvo, pa se sukob vodio posredno.'}},
+{n:'Na ivici', t:`Hladni rat je imao i vruće tačke:
+• KOREJA (1950–1953) — sever (uz SSSR i Kinu) napada jug (uz SAD i UN); milioni mrtvih; poluostrvo podeljeno do danas.
+• KUBANSKA KRIZA (oktobar 1962) — SSSR postavlja rakete na Kubi, 150 km od SAD. Trinaest dana svet je bio najbliže nuklearnom ratu. Rešeno tajnim dogovorom: sovjetske rakete sa Kube, američke iz Turske.
+• VIJETNAM (do 1975) — SAD gube rat protiv komunističkog severa; preko milion mrtvih; u Americi talas protesta.
+• AVGANISTAN (1979–1989) — sovjetska intervencija; SAD naoružavaju mudžahedine (odatle i kasnija priča o talibanima i Al Kaidi).
+
+Takmičilo se i u svemiru: SPUTNJIK (1957, prvi satelit), JURIJ GAGARIN (1961, prvi čovek u svemiru), NIL ARMSTRONG na Mesecu (1969).`,
+pr:{p:'Šta je bila Kubanska kriza?', o:['Revolucija na Kubi','Trinaest dana 1962. kada je svet bio najbliži nuklearnom ratu zbog sovjetskih raketa na Kubi','Rat SAD i Kube'], t:1, z:'Rešena je dogovorom — rakete sa Kube za rakete iz Turske.'}},
+{n:'Kraj kolonija', t:`Za tridesetak godina posle rata gotovo sve kolonije postaju nezavisne države — DEKOLONIZACIJA:
+• INDIJA 1947 (Gandi i nenasilni otpor) — podeljena na Indiju i Pakistan, uz pokolje i preseljenje oko 15 miliona ljudi;
+• KINA 1949 — komunisti (Mao) pobeđuju u građanskom ratu: Narodna Republika Kina;
+• AFRIKA — 1960. je „godina Afrike": sedamnaest država postaje nezavisno; Alžir posle krvavog rata sa Francuskom (1954–1962);
+• Bliski istok — 1948. država IZRAEL; Palestinci pamte tu godinu kao NAKBU („katastrofu") — izgon i bekstvo stotina hiljada ljudi; sukob traje do danas.
+
+Nove države često nasleđuju veštačke granice, slabe institucije i siromaštvo — i postaju poprište nadmetanja supersila. Neke su uspele (Južna Koreja, Singapur, Bocvana), mnoge su završile u diktaturama i građanskim ratovima.`,
+pr:{p:'Šta je dekolonizacija?', o:['Osnivanje novih kolonija','Sticanje nezavisnosti bivših kolonija posle Drugog svetskog rata','Rat Evrope i Amerike'], t:1, z:'Indija 1947, „godina Afrike" 1960 — za tri decenije nestala su kolonijalna carstva.'}},
+{n:'Nesvrstani — Jugoslavija između', t:`Jugoslavija je 1948. uradila nešto jedinstveno: TITO se razišao sa STALJINOM (Rezolucija Informbiroa). Zemlja je preživela pritisak, ali je i u zemlji stvarno ili navodno „prosovjetske" ljude slala u logor na GOLOM OTOKU.
+
+Ni na Istoku ni na Zapadu, Jugoslavija je sa Indijom (Nehru), Egiptom (Naser), Indonezijom (Sukarno) i Ganom (Nkruma) pokrenula POKRET NESVRSTANIH. Prvi samit održan je u BEOGRADU 1961. Pokret je okupio većinu novih država sveta.
+
+To je Jugoslaviji donelo ugled, pomoć i sa Istoka i sa Zapada, trgovinu sa Afrikom i Azijom i pasoš sa kojim se putovalo skoro svuda. Stariji ljudi to i danas pamte kao doba kad se „bilo neko u svetu".`,
+pr:{p:'Šta je bio Pokret nesvrstanih?', o:['Vojni savez sa SSSR-om','Grupa država koje nisu htele u nijedan blok, sa prvim samitom u Beogradu 1961.','Deo NATO-a'], t:1, z:'Jugoslavija, Indija, Egipat, Indonezija i Gana su ga pokrenule kao treći put.'}},
+{n:'Kraj Hladnog rata — i kraj', t:`U 1980-im je sovjetska planska privreda zaostajala sve više, a trka u naoružanju je bila preskupa. MIHAIL GORBAČOV (od 1985) pokušava reforme: otvorenost (glasnost) i preuređenje (perestrojka). Ali čim su ljudi smeli da govore, sistem je počeo da puca.
+
+1989. u istočnoj Evropi komunistički režimi padaju jedan za drugim, uglavnom mirno („plišana revolucija" u Čehoslovačkoj), krvavo u Rumuniji. 9. NOVEMBRA 1989. pada BERLINSKI ZID. Nemačka se ujedinjuje 1990. Krajem 1991. SOVJETSKI SAVEZ se raspada na 15 država.
+
+Za jedne je to bila pobeda slobode i demokratije; za mnoge u Rusiji — poniženje i haos 1990-ih (siromaštvo, kriminal, pad životnog veka). I to drugo pamćenje objašnjava deo današnje ruske politike.
+
+Kostur lekcije: supersile i nuklearno odvraćanje → gvozdena zavesa, NATO i Varšavski pakt, Berlinski zid → Koreja, Kuba, Vijetnam, Avganistan → svemirska trka → dekolonizacija → nesvrstani (Beograd 1961) → Gorbačov, 1989, 1991.
+
+Sledeće: naša zemlja kroz ceo vek — Jugoslavija od nastanka do raspada.`,
+pr:{p:'Kada je pao Berlinski zid?', o:['1961.','9. novembra 1989.','1991.'], t:1, z:'Zid je podignut 1961, pao 1989; SSSR se raspao krajem 1991.'}}
+],
+kljucno:['Hladni rat (1947–1991): SAD i SSSR, nuklearno odvraćanje, posredni ratovi; NATO (1949) i Varšavski pakt (1955); Berlinski zid 1961–1989.','Vruće tačke: Koreja, Kubanska kriza 1962, Vijetnam, Avganistan; svemirska trka (Sputnjik, Gagarin, Mesec 1969).','Dekolonizacija: Indija 1947, Kina 1949, „godina Afrike" 1960; Izrael 1948 i Nakba.','Jugoslavija: raskol sa Staljinom 1948 (i Goli otok); Pokret nesvrstanih, prvi samit u Beogradu 1961.','Gorbačov, 1989, pad zida, raspad SSSR-a 1991 — za jedne pobeda slobode, za mnoge Ruse poniženje.'],
+kartice:[
+{p:'Zašto je Hladni rat bio „hladan"?', o:'Zbog nuklearnog oružja supersile nisu ratovale direktno, nego posredno.'},
+{p:'Šta je bila Kubanska kriza?', o:'Oktobar 1962 — sovjetske rakete na Kubi; svet najbliži nuklearnom ratu.'},
+{p:'Kada se Tito razišao sa Staljinom?', o:'1948 (Rezolucija Informbiroa).'},
+{p:'Gde i kada je bio prvi samit nesvrstanih?', o:'U Beogradu, 1961.'},
+{p:'Kada se raspao Sovjetski Savez?', o:'Krajem 1991.'}
+],
+razgovor:['Kako su tvoji stariji pamtili Jugoslaviju nesvrstanih — i šta misliš, koliko je u tome istine, a koliko nostalgije?','Pad zida je za jedne pobeda, za druge poniženje. Kako ista istorija proizvodi tako različita sećanja?']},
+
+{id:'13-4', naslov:'Jugoslavija — od nastanka do raspada',
+kuka:{p:'Koliko je dugo, ukupno, postojala neka Jugoslavija (od 1918. do 2003. ili 2006)?', o:['Oko 20 godina','Oko 45 godina','Oko 85 godina'], t:2},
+delovi:[
+{n:'Prva Jugoslavija (1918–1941)', t:`Ideja jugoslovenstva — da su južni Sloveni jedan narod ili bar srodni narodi koji treba da žive zajedno — rasla je u 19. veku. Posle Prvog svetskog rata 1. decembra 1918. nastaje KRALJEVINA SRBA, HRVATA I SLOVENACA, sa srpskom dinastijom Karađorđevića.
+
+Od početka glavni sukob: CENTRALIZAM (jaka vlast iz Beograda, uglavnom stav srpskih stranaka) protiv FEDERALIZMA (široka samouprava, stav hrvatskih stranaka). 1928. u skupštini je ubijen vođa Hrvatske seljačke stranke STJEPAN RADIĆ. 1929. kralj ALEKSANDAR uvodi diktaturu i menja ime u KRALJEVINA JUGOSLAVIJA. 1934. kralj je ubijen u MARSELJU (atentat su organizovali ustaše i makedonski VMRO).
+
+1939. sporazum Cvetković–Maček stvara Banovinu Hrvatsku — kasni pokušaj dogovora. 25. marta 1941. vlada pristupa Trojnom paktu; 27. marta oficiri prave puč uz demonstracije („bolje rat nego pakt"); 6. aprila Hitler napada.`,
+pr:{p:'Koji je bio glavni unutrašnji spor prve Jugoslavije?', o:['Oko jezika','Centralizam (jaka vlast iz Beograda) protiv federalizma (samouprava)','Oko vere'], t:1, z:'Srpske stranke su uglavnom bile za centralizam, hrvatske za federalizam — spor koji je obeležio celu državu.'}},
+{n:'Druga Jugoslavija — Titova (1945–1980)', t:`Posle rata komunisti stvaraju FEDERATIVNU NARODNU REPUBLIKU JUGOSLAVIJU (kasnije SFRJ): šest republika (Srbija, Hrvatska, Slovenija, Bosna i Hercegovina, Crna Gora, Makedonija) i, u Srbiji, dve pokrajine (Vojvodina, Kosovo). Vlast ima jedna partija, a vrh — TITO, do smrti.
+
+Faze:
+• 1945–48 — po sovjetskom uzoru: nacionalizacija, obračun sa protivnicima, kolektivizacija;
+• 1948 — raskol sa Staljinom; Goli otok;
+• od 1950 — SAMOUPRAVLJANJE, otvaranje ka Zapadu, nesvrstani; od 1960-ih otvorene granice i odlazak radnika u Nemačku i dalje („gastarbajteri");
+• 1960-e i 70-e — rast standarda: stanovi, letovanja, fiće, crveni pasoš; ali i gušenje kritike (Đilas, „hrvatsko proleće" 1971, „liberali" u Srbiji 1972);
+• USTAV 1974 — republike i pokrajine dobijaju veliku samostalnost; Kosovo i Vojvodina skoro ravni republikama. Mnogi u Srbiji su to doživeli kao slabljenje Srbije; drugi kao jedini način da se država drži na okupu.
+
+„Bratstvo i jedinstvo" je bilo i stvarno (mešoviti brakovi, zajednički život, sport, muzika) i nametnuto (o ratnim zločinima 1941–45 među narodima se javno malo govorilo).`,
+pr:{p:'Šta je doneo Ustav iz 1974?', o:['Ukidanje republika','Veliku samostalnost republikama i pokrajinama, Kosovu i Vojvodini skoro kao republikama','Višestranačje'], t:1, z:'Decentralizacija — jedni je vide kao razlog raspada, drugi kao pokušaj da se on spreči.'}},
+{n:'Kriza 1980-ih', t:`TITO umire 4. maja 1980. Ostaje kolektivno predsedništvo — i nerešeni problemi:
+• EKONOMIJA: ogroman spoljni dug (oko 20 milijardi dolara), inflacija, nezaposlenost, nestašice (benzin na bonove, redukcije struje);
+• KOSOVO: 1981. demonstracije Albanaca za status republike; srpsko stanovništvo se iseljava i oseća ugroženo;
+• NACIONALIZMI rastu u svim republikama. Memorandum SANU (1986, nacrt) u Srbiji; u Sloveniji i Hrvatskoj pokreti za samostalnost;
+• SLOBODAN MILOŠEVIĆ (od 1987) u Srbiji preuzima vlast i, preko masovnih mitinga („antibirokratska revolucija"), smenjuje rukovodstva Vojvodine, Kosova i Crne Gore; 1989. pokrajinama se oduzima veći deo autonomije;
+• 1989–1990: pad komunizma u Evropi; prvi višestranački izbori 1990. u svim republikama pobeđuju uglavnom nacionalne stranke (u Hrvatskoj Tuđman, u Srbiji Milošević).
+
+Zašto se Jugoslavija raspala? Istoričari navode: ekonomski slom, nacionalizme svih strana, Ustav 1974 i neslaganje oko budućeg uređenja (savez država ili jača federacija), kraj Hladnog rata, Titovu smrt bez naslednika, uticaj stranih sila. Oko TEŽINE pojedinih uzroka i ODGOVORNOSTI vođa spor traje i različito se predaje u školama svake od bivših republika.`,
+pr:{p:'Šta je, po istoričarima, uzrokovalo raspad Jugoslavije?', o:['Samo jedan čovek','Više uzroka zajedno: ekonomski slom, nacionalizmi, ustavno uređenje, kraj Hladnog rata, nestanak Tita','Samo strane sile'], t:1, z:'Istoričari se slažu da je uzroka više; spor je oko njihove težine i odgovornosti.'}},
+{n:'Ratovi 1991–1999', t:`Ovo je najbolnija lekcija. Činjenice, bez ulepšavanja ijedne strane:
+
+• SLOVENIJA (jun–jul 1991) — kratak rat, oko 60 poginulih; JNA se povlači.
+• HRVATSKA (1991–1995) — Srbi u Krajini odbijaju da ostanu u nezavisnoj Hrvatskoj, uz podršku JNA i Beograda. Opsada i razaranje VUKOVARA (1991) i zločin na Ovčari (oko 200 ubijenih zarobljenika); granatiranje Dubrovnika; zločini nad Srbima u Gospiću, Medačkom džepu i drugde. Avgusta 1995. akcija OLUJA: Hrvatska vraća Krajinu, oko 200.000 Srba izbegne ili bude proterano, uz ubistva civila koji su ostali. U Hrvatskoj je to praznik pobede, u Srbiji dan sećanja na stradanje.
+• BOSNA I HERCEGOVINA (1992–1995) — najkrvaviji rat: oko 100.000 mrtvih, više od dva miliona raseljenih. Rat sve tri strane (Srbi, Bošnjaci, Hrvati; neko vreme i Bošnjaci i Hrvati jedni protiv drugih). OPSADA SARAJEVA skoro četiri godine. Logori (Omarska, Čelebići i drugi). U julu 1995. posle pada SREBRENICE snage Vojske Republike Srpske ubile su oko 8.000 bošnjačkih muškaraca i dečaka. Haški tribunal i Međunarodni sud pravde kvalifikovali su to kao genocid (MSP 2007: Srbija nije odgovorna za izvršenje, ali jeste za to što ga nije sprečila); u Srbiji i Republici Srpskoj zločin se uglavnom priznaje, ali se ta kvalifikacija osporava. Rat je završen DEJTONSKIM SPORAZUMOM (1995): BiH sa dva entiteta — Federacijom BiH i Republikom Srpskom.
+• KOSOVO (1998–1999) — sukob OVK i srpskih snaga, pa NATO bombardovanje 1999 (lekcija 9-5); proterivanje stotina hiljada Albanaca tokom rata, a posle juna 1999. odlazak oko 200.000 Srba i drugih nealbanaca sa Kosova.
+
+Haški tribunal (1993–2017) osudio je pripadnike svih strana, najviše srpske; mnogi u Srbiji ga vide kao pristrasan, mnogi drugde kao nedovoljno strog. Sve strane imaju svoje žrtve i svoje zločince — i sve strane najčešće pamte prvo svoje žrtve.`,
+pr:{p:'Kako je završen rat u Bosni i Hercegovini?', o:['Pobedom jedne strane','Dejtonskim sporazumom 1995 — BiH sa dva entiteta','Ulaskom u EU'], t:1, z:'Dejton je zaustavio rat i napravio složenu državu: Federaciju BiH i Republiku Srpsku.'}},
+{n:'Kraj jedne zemlje — i kraj', t:`Kako se Jugoslavija gasila:
+• 1991–1992 — nezavisnost Slovenije, Hrvatske, Makedonije i BiH;
+• 1992 — Srbija i Crna Gora formiraju SAVEZNU REPUBLIKU JUGOSLAVIJU; sankcije UN, hiperinflacija (lekcija 8-2);
+• 5. OKTOBAR 2000 — masovni protesti i pad Miloševića, posle izbora; Milošević je 2001. izručen Hagu, umro 2006. pre presude;
+• 12. MART 2003 — ubijen premijer ZORAN ĐINĐIĆ; iste godine SRJ postaje Državna zajednica SRBIJA I CRNA GORA;
+• 2006 — Crna Gora na referendumu bira nezavisnost; Srbija je ponovo samostalna država, posle 88 godina.
+• 2008 — Kosovo proglašava nezavisnost (lekcija 9-5).
+
+Zbirno: neka Jugoslavija je postojala 85–88 godina, zavisno od toga šta se broji. Sedam država danas stoji na njenom prostoru.
+
+Kostur lekcije: prva Jugoslavija (centralizam protiv federalizma, diktatura 1929, Marselj 1934, 27. mart) → Titova (samoupravljanje, nesvrstani, Ustav 1974) → kriza 1980-ih (dug, Kosovo, nacionalizmi, Milošević, 1990) → ratovi 1991–1999 → 5. oktobar, Đinđić, 2006.
+
+Pravilo za ovu lekciju više nego za ijednu drugu: kada neko priča o 1990-im, pitaj šta preskače.`,
+pr:{p:'Kada je Srbija ponovo postala samostalna država?', o:['1992.','2000.','2006, kad je Crna Gora izabrala nezavisnost'], t:2, z:'Posle referenduma u Crnoj Gori 2006. Srbija je ponovo samostalna, prvi put posle 1918.'}}
+],
+kljucno:['Kraljevina SHS (1. 12. 1918): centralizam protiv federalizma; Radić 1928, diktatura 1929, Marselj 1934, 27. mart 1941.','Titova Jugoslavija: šest republika i dve pokrajine; raskol sa Staljinom 1948, samoupravljanje, nesvrstani, Ustav 1974.','Kriza 1980-ih: dug i inflacija, Kosovo 1981, nacionalizmi, Milošević, višestranački izbori 1990; uzroka raspada više, spor o težini i odgovornosti.','Ratovi 1991–1999: Slovenija, Hrvatska (Vukovar, Oluja), BiH (Sarajevo, Srebrenica, Dejton), Kosovo — žrtve i zločinci na svim stranama.','5. oktobar 2000, Đinđić 2003, Crna Gora 2006 → samostalna Srbija; Kosovo 2008.'],
+kartice:[
+{p:'Kada je kralj Aleksandar uveo diktaturu i promenio ime države?', o:'1929. — Kraljevina Jugoslavija.'},
+{p:'Šta je bio Ustav iz 1974?', o:'Ustav koji je republikama i pokrajinama dao veliku samostalnost.'},
+{p:'Kada je umro Tito?', o:'4. maja 1980.'},
+{p:'Šta je Dejtonski sporazum?', o:'Mirovni sporazum 1995. kojim je završen rat u BiH (dva entiteta).'},
+{p:'Šta se desilo 5. oktobra 2000?', o:'Pad Slobodana Miloševića posle izbora i masovnih protesta.'}
+],
+razgovor:['Šta si o 1990-im naučio u školi ili kod kuće — i šta ti je u ovoj lekciji bilo novo ili neprijatno?','Kad bi pisao priču o ratu 1990-ih, čije oči bi izabrao — i zašto baš njegove?']},
+
+{id:'13-5', naslov:'Svet od 1991. do danas',
+kuka:{p:'Šta od ovoga se desilo pre — pad Berlinskog zida ili pojava veba?', o:['Veb je stariji','Skoro istovremeno: zid 1989, veb 1989–1991','Zid je pao posle 2000.'], t:1},
+delovi:[
+{n:'Optimizam 1990-ih', t:`Posle 1991. mnogi su verovali da je istorija velikih sukoba završena. Politikolog Frensis Fukujama je 1989. pisao o „KRAJU ISTORIJE": liberalna demokratija i tržište su pobedili i drugih ozbiljnih protivnika nemaju.
+
+Tako je i izgledalo:
+• SAD su jedina supersila;
+• GLOBALIZACIJA (lekcija 8-5): Kina se otvara, Indija se reformiše, trgovina cveta;
+• INTERNET ulazi u kuće;
+• EVROPSKA UNIJA se širi na istok (2004, 2007) i uvodi evro (1999/2002);
+• u Južnoj Africi pada aparthejd, NELSON MANDELA postaje predsednik (1994).
+
+Ali isto desetleće je donelo i ratove u Jugoslaviji i GENOCID U RUANDI (1994, oko 800.000 ubijenih Tutsija i umerenih Hutua za oko sto dana) — dok je svet gledao. Istorija se nije završila.`,
+pr:{p:'Šta je Fukujama mislio pod „krajem istorije"?', o:['Da će svet nestati','Da su liberalna demokratija i tržište pobedili i da nemaju ozbiljnu alternativu','Da se istorija više ne uči'], t:1, z:'Bila je to teza o pobedi jednog modela — događaji posle 2000. su je ozbiljno uzdrmali.'}},
+{n:'11. septembar i ratovi', t:`11. SEPTEMBRA 2001. teroristi Al Kaide otimaju četiri putnička aviona; dva udaraju u Svetski trgovinski centar u Njujorku, jedan u Pentagon, četvrti pada u Pensilvaniji. Gine skoro 3.000 ljudi.
+
+Posledice:
+• SAD napadaju AVGANISTAN (2001), gde su vladali talibani koji su štitili Al Kaidu; posle 20 godina SAD se povlače (2021), a talibani se vraćaju na vlast;
+• 2003. SAD i saveznici napadaju IRAK, uz tvrdnju da Sadam Husein ima oružje za masovno uništenje — oružje nije pronađeno; sledi dug haos, stotine hiljada mrtvih i rađanje „Islamske države";
+• „rat protiv terorizma": nadzor, aerodromske kontrole, zatvor Gvantanamo, rasprava o mučenju.
+
+Za mnoge u svetu Irak je postao primer kako i demokratija može da započne rat na lažnoj osnovi; za druge — da je svrgavanje diktatora bilo opravdano, ali izvedeno katastrofalno.`,
+pr:{p:'Šta je bio zvanični razlog napada na Irak 2003. i šta se pokazalo?', o:['Nafta, i to je potvrđeno','Navodno oružje za masovno uništenje — koje nije pronađeno','Napad Iraka na SAD'], t:1, z:'Glavni razlog se pokazao netačnim — zato je rat u Iraku i danas primer obaveštajne i političke greške.'}},
+{n:'Krize i preokreti', t:`• 2008 — svetska ekonomska kriza (lekcija 8-4); u mnogim zemljama poverenje u elite opada, raste populizam.
+• 2010–2011 — ARAPSKO PROLEĆE: protesti protiv diktatura u Tunisu, Egiptu, Libiji, Siriji… Nade su se uglavnom izjalovile: u Siriji građanski rat sa stotinama hiljada mrtvih i milionima izbeglica — mnogi su 2015. prošli i kroz Srbiju („balkanska ruta").
+• USPON KINE — od siromašne zemlje do druge privrede sveta i tehnološke sile; SAD je vide kao glavnog suparnika.
+• Društvene mreže i pametni telefoni menjaju politiku: brzo okupljanje protesta, ali i dezinformacije i polarizacija.
+• 2016 — Bregzit i izbor Donalda Trampa: znaci pobune dela birača protiv globalizacije i elita.
+• 2020 — PANDEMIJA KOVIDA-19: zatvaranje celog sveta; zvanično oko 7 miliona umrlih, a procene ukupnog viška smrtnosti su višestruko veće; vakcine razvijene za manje od godinu dana.`,
+pr:{p:'Kako se završilo Arapsko proleće u većini zemalja?', o:['Stabilnim demokratijama svuda','Uglavnom razočaranjem — povratkom diktatura ili građanskim ratovima (Sirija, Libija)','Ništa se nije desilo'], t:1, z:'Tunis je dugo bio izuzetak; u Siriji i Libiji izbili su ratovi, u Egiptu se vratila vojska.'}},
+{n:'Ratovi danas', t:`Dva sukoba su posle 2020. najviše oblikovala vesti — i podelila mišljenja. Ovde samo osnove, jer se stanje menja:
+
+• UKRAJINA: 2014. Rusija pripaja Krim i podržava pobunjenike na istoku Ukrajine; 24. FEBRUARA 2022. Rusija pokreće sveobuhvatni napad na Ukrajinu. Rusija to predstavlja kao odgovor na širenje NATO-a i zaštitu ruskog stanovništva; Ukrajina, većina zapadnih država i većina članica UN u Generalnoj skupštini (2022) osudile su ga kao agresiju. Srbija je glasala za tu rezoluciju UN, ali nije uvela sankcije Rusiji. Rat je doneo stotine hiljada mrtvih i ranjenih i milione izbeglica.
+• IZRAEL I GAZA: 7. OKTOBRA 2023. Hamas napada Izrael, ubija oko 1.200 ljudi i odvodi oko 250 talaca. Izrael odgovara ratom u Gazi; po podacima zdravstvenih vlasti Gaze, ubijeno je desetine hiljada ljudi, velika većina Gaze je razorena, a humanitarna kriza je ogromna. Izrael ističe pravo na odbranu i borbu protiv Hamasa; kritičari, uključujući UN agencije i mnoge države, optužuju Izrael za nesrazmernu silu i kršenje međunarodnog prava; pred Međunarodnim sudom pravde vodi se postupak.
+
+Za oba sukoba važi pravilo iz lekcije 12-5: proveri izvor, čitaj više strana, pitaj se ko ti šta i zašto govori.`,
+pr:{p:'Koji je dobar način da se prate ovakvi sukobi?', o:['Verovati jednom izvoru koji ti se dopada','Proveravati izvore i čitati više strana','Ne pratiti ništa'], t:1, z:'U ratu je istina prva žrtva — zato bočno čitanje i više izvora.'}},
+{n:'Kraj oblasti — dug vek u kratkoj liniji', t:`Kostur 20. veka (i početka 21.):
+1. 1914–1918 — Prvi svetski rat, pad carstava, revolucija u Rusiji, prva Jugoslavija;
+2. 1918–1945 — diktature, Drugi svetski rat, Holokaust, atomska bomba;
+3. 1945–1991 — Hladni rat, dekolonizacija, nesvrstani, pad zida;
+4. naša zemlja — od Kraljevine SHS do samostalne Srbije;
+5. od 1991 — globalizacija i internet, 11. septembar, krize, uspon Kine, pandemija, novi ratovi.
+
+Šta se kroz ceo vek ponavlja? Tehnologija daje sve veću moć — i za dobro i za zlo. Demokratija nije zagarantovana. Velike sile i dalje vuku male. I svaki narod pamti prvo svoje žrtve.
+
+Srbija u 21. veku: posle 2000. demokratske promene, kandidatura za EU, vojna neutralnost, odnosi sa Zapadom, Rusijom i Kinom (lekcija 9-5), odlazak mladih na rad u inostranstvo, i rasprave o prošlosti koje nisu završene.
+
+Sledeće: alat — verovatnoća i rizik. Pa religije: šta su ljudi verovali kroz sve to vreme.`,
+pr:{p:'Šta se, po ovoj oblasti, ponavlja kroz ceo 20. vek?', o:['Ništa, svaki period je drugačiji','Rast moći tehnologije, krhkost demokratije, uticaj velikih sila i pamćenje prvo svojih žrtava','Samo ratovi na Balkanu'], t:1, z:'Ovi obrasci se vide od 1914. do danas.'}}
+],
+kljucno:['Posle 1991: „kraj istorije", globalizacija, internet, širenje EU, Mandela — ali i Ruanda 1994 i ratovi u Jugoslaviji.','11. septembar 2001 → Avganistan (2001–2021), Irak 2003 (oružje nije nađeno), rat protiv terorizma.','2008, Arapsko proleće i Sirija (balkanska ruta 2015), uspon Kine, Bregzit i Tramp 2016, kovid 2020.','Ukrajina (Krim 2014, napad 24. 2. 2022) i Izrael–Gaza (7. 10. 2023 i rat) — različita tumačenja; proveri izvore.','Kroz vek: moć tehnologije, krhka demokratija, velike sile, svako pamti svoje žrtve.'],
+kartice:[
+{p:'Šta je Fukujamin „kraj istorije"?', o:'Teza da su liberalna demokratija i tržište pobedili bez ozbiljne alternative (1989).'},
+{p:'Šta se desilo 11. septembra 2001?', o:'Teroristi Al Kaide napali su SAD otetim avionima; skoro 3.000 mrtvih.'},
+{p:'Zašto je rat u Iraku 2003. sporan?', o:'Glavni razlog — oružje za masovno uništenje — nije pronađen.'},
+{p:'Šta je bilo Arapsko proleće?', o:'Talas protesta protiv diktatura 2010–2011; uglavnom se završio razočaranjem ili ratovima.'},
+{p:'Kada je Rusija pokrenula sveobuhvatni napad na Ukrajinu?', o:'24. februara 2022.'}
+],
+razgovor:['Koji događaj iz ovog perioda pamtiš kao „onaj gde si bio kad se desio" — i kako je promenio tvoj pogled na svet?','Fukujama je mislio da je istorija gotova. Šta bi ti predvideo za sledećih 30 godina — i koliko bi ti verovao?']}
 ]},
 
 {id:'7', naziv:'Religije i velike ideje', ikona:'🕯️', era:'ideje', lekcije:[
@@ -3346,6 +3653,7 @@ pr:{p:'Šta je CRISPR?', o:['Kvantni računar','Alat za precizno menjanje DNK �
 4. TELO — sistem organa, hrana, imunitet, mozak i san.
 5. UM — pamćenje, emocije, pristrasnosti, jezik.
 6. ISTORIJA — lovci-sakupljači, njiva, gradovi i pismo, antika, srednji vek, nauka i mašine.
+   + 20. VEK — svetski ratovi, Hladni rat, Jugoslavija od nastanka do raspada, svet posle 1991.
 7. IDEJE — religije i filozofija: šta je svet, šta je dobro.
 8. NOVAC — izbor u oskudici, poverenje, tržište i država.
 9. VLAST — država, pravo, ideologije, karta sveta.
@@ -3358,7 +3666,7 @@ Jedna rečenica: od praska do tvog telefona, priča je o tome kako materija, pa 
 Kartice će se i dalje vraćati na ponavljanje. A gde god poželiš da kopaš dublje — „Hoću više o ovome".`,
 pr:{p:'Šta povezuje celu priču ove škole?', o:['Samo datumi','Materija, pa život, pa um sve više znaju o sebi — i svako znanje nosi novu odgovornost','Ništa, to su odvojene teme'], t:1, z:'Big History: od Velikog praska do tehnologije — rastuća složenost i znanje.'}}
 ],
-kljucno:['Oko 80% energije sveta još iz fosilnih goriva; Srbija — ugalj (većina struje) i hidro; zadatak: više energije, manje CO₂.','Sunce i vetar pojeftinili oko 90% (2010–2020), baterije takođe; problem je stalnost — baterije i mreže.','Fisija: bez CO₂, stabilna, ali nesreće, otpad i cena; Srbija ukinula zabranu krajem 2024; fuzija — 2022. prvi neto dobitak u laboratoriji.','Budućnost: CRISPR i mRNK, AI, kvantni računari, svemir — pitanje je ko kontroliše i kome koristi.','Cela priča: kosmos → Zemlja → život → telo → um → istorija → ideje → novac → vlast → umetnost → tehnologija, uz alate mišljenja.'],
+kljucno:['Oko 80% energije sveta još iz fosilnih goriva; Srbija — ugalj (većina struje) i hidro; zadatak: više energije, manje CO₂.','Sunce i vetar pojeftinili oko 90% (2010–2020), baterije takođe; problem je stalnost — baterije i mreže.','Fisija: bez CO₂, stabilna, ali nesreće, otpad i cena; Srbija ukinula zabranu krajem 2024; fuzija — 2022. prvi neto dobitak u laboratoriji.','Budućnost: CRISPR i mRNK, AI, kvantni računari, svemir — pitanje je ko kontroliše i kome koristi.','Cela priča: kosmos → Zemlja → život → telo → um → istorija → 20. vek → ideje → novac → vlast → umetnost → tehnologija, uz alate mišljenja.'],
 kartice:[
 {p:'Koliki deo energije sveta danas daju fosilna goriva?', o:'Oko 80%.'},
 {p:'Za koliko su pojeftinili solarni paneli 2010–2020?', o:'Oko 90%.'},
@@ -3682,7 +3990,7 @@ razgovor:['Koja je poslednja stvar koju si kupio ili poverovao zbog neke od Čal
 export const RED = (() => {
   const o = id => OBLASTI.find(x => x.id === id).lekcije.map(l => l.id);
   const a = o('12');
-  return [...o('1'), ...o('2'), a[0], ...o('3'), ...o('4'), a[1], ...o('5'), ...o('6'), a[2],
+  return [...o('1'), ...o('2'), a[0], ...o('3'), ...o('4'), a[1], ...o('5'), ...o('6'), ...o('13'), a[2],
           ...o('7'), ...o('8'), a[3], ...o('9'), ...o('10'), a[4], ...o('11')];
 })();
 

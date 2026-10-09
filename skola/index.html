@@ -93,6 +93,8 @@ textarea:focus{outline:none;border-color:var(--accent)}
 import {OBLASTI, RED, RAZMACI} from './lekcije.js';
 
 const PROBA = new URLSearchParams(location.search).has('proba');
+const ANDRIJA = 'andrija.radmilovic1990@gmail.com';
+let SA_HELENOM = !(PROBA && new URLSearchParams(location.search).has('gost'));
 const $app = document.getElementById('app');
 const SVE = [];
 OBLASTI.forEach(o=>o.lekcije.forEach((l,i)=>SVE.push({...l, oblast:o, redni:i+1})));
@@ -103,7 +105,7 @@ const napisana = l => !!(l&&l.delovi);
 let baza;
 async function napraviBazu(){
 if(PROBA){
-const k='skola-proba';
+const k=SA_HELENOM?'skola-proba':'skola-proba-gost';
 const ucitaj=()=>{try{return JSON.parse(localStorage.getItem(k))||{}}catch(e){return {}}};
 const sacuvaj=d=>{try{localStorage.setItem(k,JSON.stringify(d))}catch(e){}};
 let slusalac=null;
@@ -140,17 +142,19 @@ try{await A.signInWithRedirect(auth,provider)}catch(e2){greska(e2.message||e2)}
 };
 A.setPersistence(auth,A.browserLocalPersistence).catch(()=>{});
 A.getRedirectResult(auth).catch(e=>greska(e.message||e));
-await new Promise(res=>{
+const korisnik=await new Promise(res=>{
 A.onAuthStateChanged(auth,u=>{
-if(u){res()}
+if(u){res(u)}
 else{document.getElementById('gate-sub').textContent='Prijavi se istim nalogom kao u Budžetu.';document.getElementById('btn-google').classList.remove('skriven')}
 });
 });
 onValue(ref(db,'.info/connected'),s=>{const e=document.getElementById('sync');if(e)e.textContent=s.val()?'● povezano':'○ nije povezano'});
+SA_HELENOM = korisnik.email===ANDRIJA;
+const koren = SA_HELENOM ? 'skola' : 'skola_gost/'+korisnik.uid;
 return {
-async citaj(){return (await get(ref(db,'skola'))).val()||{}},
-async pisi(put,v){await set(ref(db,'skola/'+put),v)},
-slusaj(cb){onValue(ref(db,'skola'),s=>cb(s.val()||{}))}
+async citaj(){return (await get(ref(db,koren))).val()||{}},
+async pisi(put,v){await set(ref(db,koren+'/'+put),v)},
+slusaj(cb){onValue(ref(db,koren),s=>cb(s.val()||{}))}
 };
 }
 function greska(m){document.getElementById('gate-err').textContent=m?String(m):''}
@@ -215,7 +219,7 @@ h+=`<div class="card"><div class="lbl">${pocela?'Nastavi':'Sledeća lekcija'}</d
 <div class="sub">${n.l.oblast.ikona} ${esc(n.l.oblast.naziv)} · ${n.l.redni}/${n.l.oblast.lekcije.length} · oko 15 min</div>
 <button class="btn${pon.length?' sec':''}" id="btn-nastavi">${pocela?'Nastavi':'Počni'}</button></div>`;
 }else{
-h+=`<div class="card"><div class="lbl">Sledeća lekcija</div><div class="nas">${esc(n.l.naslov)}</div><div class="sub">${n.l.oblast.ikona} ${esc(n.l.oblast.naziv)} — još se piše. Javi Heleni ili agentu da je napiše. Do tada: ponavljanje ili neka napisana lekcija sa mape.</div></div>`;
+h+=`<div class="card"><div class="lbl">Sledeća lekcija</div><div class="nas">${esc(n.l.naslov)}</div><div class="sub">${n.l.oblast.ikona} ${esc(n.l.oblast.naziv)} — još se piše. ${SA_HELENOM?'Javi Heleni ili agentu da je napiše. ':''} Do tada: ponavljanje ili neka napisana lekcija sa mape.</div></div>`;
 }
 }else h+=`<div class="card"><div class="nas">Sve je pređeno 🎉</div><div class="sub">Ponavljanje i dalje dolazi samo.</div></div>`;
 h+=`<div class="lbl" style="margin-top:1.2rem">Mapa · priča od početka · pređeno ${gotovo}/${SVE.length}</div>`;
@@ -286,13 +290,13 @@ h+=`<div class="lbl">Bez gledanja u tekst</div><div class="pitanje">Napiši sve 
 }
 else if(s.t==='kljucno'){
 const imao=z.imao||{};
-h+=`<div class="lbl">Ključne ideje</div><div class="sub">Označi one koje si i sam napisao (ili skoro). Iskreno — ovo vidi samo Helena.</div>`;
+h+=`<div class="lbl">Ključne ideje</div><div class="sub">Označi one koje si i sam napisao (ili skoro). Iskreno — ovo je samo za tebe${SA_HELENOM?' i Helenu':''}.</div>`;
 l.kljucno.forEach((q,i)=>h+=`<div class="kljuc${imao[i]?' da':''}" data-i="${i}"><span class="cb">${imao[i]?'✓':''}</span><span>${esc(q)}</span></div>`);
 h+=`<div class="dugmad"><button class="btn sec" id="pre">Nazad</button><button class="btn" id="dalje">Dalje</button></div>`;
 }
 else if(s.t==='razgovor'){
 const o=z.odgovori||{};
-h+=`<div class="lbl">Za razgovor sa Helenom</div><div class="sub">Ovo nema tačan odgovor. Napiši šta misliš — Helena će to pročitati i nastaviti razgovor.</div>`;
+h+=`<div class="lbl">${SA_HELENOM?'Za razgovor sa Helenom':'Za razmišljanje'}</div><div class="sub">Ovo nema tačan odgovor. Napiši šta misliš${SA_HELENOM?' — Helena će to pročitati i nastaviti razgovor':''}.</div>`;
 l.razgovor.forEach((p,i)=>h+=`<div style="margin-bottom:1rem"><p style="font-size:16px;line-height:1.45;margin-bottom:.45rem">${i+1}. ${esc(p)}</p><textarea data-i="${i}">${esc(o[i]||'')}</textarea></div>`);
 h+=`<div class="dugmad"><button class="btn sec" id="pre">Nazad</button><button class="btn" id="dalje">Završi lekciju</button></div><div class="poruka" id="por"></div>`;
 }
@@ -307,7 +311,7 @@ da.onclick=()=>korak(l,k+1);
 }
 if(s.t==='deo'){
 da.onclick=()=>korak(l,k+1);
-document.getElementById('dublje').onclick=async()=>{await baza.pisi('dublje/'+Date.now(),{lekcija:l.id,deo:l.delovi[s.i].n,datum:sad()});poruka('Zapisano — Helena će videti.')};
+document.getElementById('dublje').onclick=async()=>{await baza.pisi('dublje/'+Date.now(),{lekcija:l.id,deo:l.delovi[s.i].n,datum:sad()});poruka(SA_HELENOM?'Zapisano — Helena će videti.':'Zapisano.')};
 }
 if(s.t==='pr'){
 $app.querySelectorAll('.opc').forEach(b=>b.onclick=async()=>{const i=+b.dataset.i;ekran.izbor=i;
@@ -360,7 +364,8 @@ const z=L(l.id),k=komentar(l.id),pr=z.provere||{};
 const tacnih=Object.values(pr).filter(x=>x&&x.tacno).length;
 const imao=Object.values(z.imao||{}).filter(Boolean).length;
 let h=`<button class="nazad" id="nazad">← ${esc(l.oblast.naziv)}</button><div class="top" style="margin-top:.6rem"><h1>${esc(l.naslov)}</h1></div>`;
-if(ekran.novo)h+=`<div class="card istaknuto"><div class="nas">Lekcija pređena ✓</div><div class="sub">Sad razgovor sa Helenom — tu se proverava da li si stvarno razumeo. ${l.kartice.length} kartica ide u ponavljanje, prvo sutra.</div><button class="btn" id="btn-helena">💬 Razgovaraj sa Helenom</button><div class="sub" style="margin:.5rem 0 0">Tekst se kopira — ako se Claude ne otvori sam, nalepi ga Heleni.</div></div>`;
+if(ekran.novo&&!SA_HELENOM)h+=`<div class="card istaknuto"><div class="nas">Lekcija pređena ✓</div><div class="sub">${l.kartice.length} kartica ide u ponavljanje, prvo sutra. Pitanja za razmišljanje su sačuvana — vredi o njima pričati sa nekim.</div></div>`;
+if(ekran.novo&&SA_HELENOM)h+=`<div class="card istaknuto"><div class="nas">Lekcija pređena ✓</div><div class="sub">Sad razgovor sa Helenom — tu se proverava da li si stvarno razumeo. ${l.kartice.length} kartica ide u ponavljanje, prvo sutra.</div><button class="btn" id="btn-helena">💬 Razgovaraj sa Helenom</button><div class="sub" style="margin:.5rem 0 0">Tekst se kopira — ako se Claude ne otvori sam, nalepi ga Heleni.</div></div>`;
 if(k)h+=`<div class="card helena"><div class="lbl">💬 Helena · ${esc(k.datum||'')}</div><div class="tekst">${esc(k.tekst||k)}</div></div>`;
 h+=`<div class="card"><div class="lbl">Kako je prošlo</div>
 <p class="sub" style="margin-bottom:.4rem">Pogodak na početku: ${z.pogodak===l.kuka.t?'✅ tačno':'❌ „'+esc(l.kuka.o[z.pogodak]||'—')+'"'} — tačno je „${esc(l.kuka.o[l.kuka.t])}".</p>
@@ -369,12 +374,12 @@ h+=`<div class="card"><div class="lbl">Kako je prošlo</div>
 h+=`<div class="card"><div class="lbl">Tvoje sećanje</div><div class="odg">${esc(z.secanje||'—')}</div>`;
 l.razgovor.forEach((p,i)=>{h+=`<p class="sub" style="margin-bottom:.3rem">${i+1}. ${esc(p)}</p><div class="odg">${esc((z.odgovori||{})[i]||'—')}</div>`});
 h+=`</div><div class="dugmad"><button class="btn sec" id="ponovo">Pročitaj ponovo</button><button class="btn" id="dom">Mapa</button></div>`;
-if(!ekran.novo)h+=`<button class="link" id="btn-helena">💬 Razgovaraj sa Helenom o ovoj lekciji</button>`;
+if(!ekran.novo&&SA_HELENOM)h+=`<button class="link" id="btn-helena">💬 Razgovaraj sa Helenom o ovoj lekciji</button>`;
 $app.innerHTML=h;window.scrollTo(0,0);
 document.getElementById('nazad').onclick=()=>idi({tip:'oblast',oblast:l.oblast.id});
 document.getElementById('ponovo').onclick=()=>idi({tip:'lekcija',id:l.id,korak:1});
 document.getElementById('dom').onclick=()=>idi({tip:'pocetna'});
-document.getElementById('btn-helena').onclick=()=>kaHeleni(l);
+const bh=document.getElementById('btn-helena');if(bh)bh.onclick=()=>kaHeleni(l);
 }
 
 // Ponavljanje: promašena kartica se vraća na kraj reda dok je ne znaš (bar jednom).
@@ -416,7 +421,7 @@ $app.innerHTML=`<button class="nazad" id="nazad">← Mapa</button><div class="to
 <p><b>Pogodi pre čitanja.</b> Pokušaj odgovora, i pogrešan, pripremi mozak da upamti tačan.</p>
 <p><b>Kratki delovi, provera odmah.</b> Posle svakog dela jedno pitanje i objašnjenje zašto.</p>
 <p><b>Prisećanje bez gledanja.</b> Najjači poznati način učenja: izvlačenje iz glave, a ne ponovno čitanje.</p>
-<p><b>Razgovor sa Helenom.</b> Ona proverava da li si stvarno razumeo, pita „zašto" i povezuje sa tvojim životom.</p>
+${SA_HELENOM?'<p><b>Razgovor sa Helenom.</b> Ona proverava da li si stvarno razumeo, pita „zašto" i povezuje sa tvojim životom.</p>':'<p><b>Razgovor.</b> Pitanja za razmišljanje su tu da o lekciji pričaš sa nekim — tek kad objasniš drugome, znaš da si razumeo.</p>'}
 <p><b>Ponavljanje sa razmakom.</b> Kartice se vraćaju posle 1, 3, 7, 21 i 60 dana. Bez toga se većina zaboravi za nedelju dana.</p>
 </div>`;
 document.getElementById('nazad').onclick=()=>idi({tip:'pocetna'});

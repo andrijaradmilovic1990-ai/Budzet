@@ -3476,9 +3476,205 @@ kartice:[
 {p:'Najčešći trik sa grafikonom?', o:'Osa koja ne počinje od nule.'}
 ],
 razgovor:['Nađi u vestima ove nedelje jedan broj bez „u odnosu na šta". Šta ti fali da bi ga razumeo?','Objasni nekome razliku između prosečne i medijalne plate, na primeru koji on razume.']},
-{id:'12-3', naslov:'Verovatnoća i rizik'},
-{id:'12-4', naslov:'Naučni metod — kako se nešto dokazuje'},
-{id:'12-5', naslov:'Kako te ubeđuju — retorika, propaganda, manipulacija'}
+{id:'12-3', naslov:'Verovatnoća i rizik',
+kuka:{p:'Novčić je pao pismo pet puta zaredom. Šta je verovatnije u šestom bacanju?', o:['Glava — „red je"','Pismo — „ide mu"','Isto: pola-pola'], t:2},
+delovi:[
+{n:'Šta je verovatnoća', t:`VEROVATNOĆA je broj od 0 do 1 (ili od 0% do 100%) koji kaže koliko je nešto očekivano: 0 — nemoguće, 1 — sigurno, 0,5 — pola-pola.
+
+Najprostiji način da se računa: povoljni ishodi / svi mogući ishodi. Kocka ima 6 strana; šestica je 1 od 6, oko 17%. Dve kocke: zbir 7 se može dobiti na 6 načina od 36 — zato je sedmica najčešći zbir.
+
+Kada se nešto ponavlja mnogo puta, ZAKON VELIKIH BROJEVA kaže da se udeo približava pravoj verovatnoći. Bacaj novčić 10 puta — možeš dobiti 7 glava. Bacaj 10.000 puta — biće vrlo blizu pola.
+
+To je i razlog zašto KOCKARNICA uvek dobija: svaka igra ima malu prednost za kuću; pojedinac može da dobije večeras, ali na hiljadama igara i igrača kuća sigurno zarađuje.`,
+pr:{p:'Šta kaže zakon velikih brojeva?', o:['Veliki brojevi su sigurniji','Što se nešto više puta ponovi, to je udeo bliži pravoj verovatnoći','Posle niza gubitaka sledi dobitak'], t:1, z:'Na malo bacanja sve je moguće; na mnogo — udeo se smiri oko prave verovatnoće.'}},
+{n:'Kockarska zabluda', t:`Novčić nema pamćenje. Posle pet pisama, šesto bacanje je i dalje pola-pola. Verovanje da „mora doći glava jer je red" zove se KOCKARSKA ZABLUDA.
+
+Najpoznatiji slučaj: kazino u Monte Karlu, 1913 — na ruletu je crna pala 26 puta zaredom. Ljudi su sve vreme ulagali na crvenu, sve više, uvereni da „mora". Izgubili su milione.
+
+Obrnuta greška je „VRUĆA RUKA": „ide mi — nastaviću". U igrama na sreću ni to ne postoji.
+
+Zašto mozak greši? Traži OBRASCE i u slučajnosti (sećaš se lekcije o pristrasnostima). Pravi slučajni niz izgleda „neslučajno" — ima više dugih nizova nego što očekujemo. Kad ljude zamoliš da izmisle slučajan niz bacanja, retko stave više od tri ista zaredom; prava slučajnost to radi često.`,
+pr:{p:'Rulet je pao crno 10 puta zaredom. Kolika je šansa za crveno sledeći put?', o:['Mnogo veća nego inače','Ista kao inače — rulet nema pamćenje','Nula'], t:1, z:'Svako okretanje je nezavisno; „red je" je kockarska zabluda.'}},
+{n:'Očekivana vrednost — zašto se loto ne isplati', t:`OČEKIVANA VREDNOST je prosek onoga što dobiješ kad se nešto ponovi mnogo puta: svaki ishod pomnožen svojom verovatnoćom, pa sabran.
+
+Loto 7/39 (izvlači se 7 od 39 brojeva): šansa za sedmicu jednim tiketom je 1 prema 15.380.937. Srbija ima oko 6,6 miliona stanovnika; zamisli šešir sa 15 miliona imena — više od dve Srbije — iz kog se izvlači baš tvoje. Ako bi uplaćivao jednu kombinaciju svakog izvlačenja, dvaput nedeljno, sedmicu bi u proseku čekao oko 150.000 godina.
+
+Igre na sreću su napravljene tako da je očekivana vrednost za igrača NEGATIVNA — u proseku vraćaju manje nego što se uplati. Nije zabranjeno kupiti tiket radi zabave i maštanja; to je cena karte za san. Ali to nije ulaganje.
+
+Isti alat služi i za prave odluke: osiguranje (malo plaćaš sigurno da ne bi platio mnogo s malom šansom), garancija za uređaj (često se ne isplati), pa i: da li ići na pregled kad je trošak mali a mogući gubitak veliki.`,
+pr:{p:'Zašto se igre na sreću na dugi rok ne isplate igraču?', o:['Jer su nameštene','Jer im je očekivana vrednost za igrača negativna — u proseku vraćaju manje od uplate','Jer niko nikad ne dobije'], t:1, z:'Neko dobije, ali na milione uplata isplata je uvek manja od uplate — razlika je zarada priređivača.'}},
+{n:'Lažno pozitivan test', t:`Najvažnija i najmanje intuitivna lekcija o verovatnoći. Zamisli:
+• neku bolest ima 1 od 100 ljudi;
+• test otkrije 90% bolesnih;
+• ali kod zdravih greši u 9% slučajeva (kaže „pozitivan" iako nisu bolesni).
+Test ti je pozitivan. Kolika je šansa da si stvarno bolestan? Većina — i mnogi lekari — kaže oko 90%. Tačno je oko 9%!
+
+Računaj na 1.000 ljudi:
+• bolesnih je 10; test nađe 9 od njih;
+• zdravih je 990; test greškom kaže „pozitivan" kod njih oko 89;
+• ukupno pozitivnih: 9 + 89 = 98, a bolesnih među njima — samo 9.
+
+Pouka: kad je nešto RETKO, čak i dobar test daje mnogo lažnih uzbuna. Zato se posle pozitivnog skrining testa obično radi drugi, precizniji test, a lekar uzima u obzir da li uopšte imaš razloga za sumnju. I trik: kad te brojevi zbune, računaj na 1.000 LJUDI umesto u procentima — tako i lekari mnogo ređe greše (Gerd Gigerencer).`,
+pr:{p:'Kod retke bolesti, šta najčešće znači pozitivan rezultat prvog testa?', o:['Skoro sigurno si bolestan','Moguće je, ali mnogi pozitivni su lažna uzbuna — treba potvrda drugim testom','Test ne radi'], t:1, z:'Kad je bolest retka, zdravih ima toliko da i mala greška testa među njima napravi više pozitivnih od pravih bolesnika.'}},
+{n:'Kako se plašimo pogrešnih stvari', t:`Ljudi loše procenjuju RIZIK, i to predvidivo:
+• Plašimo se onoga što je STRAŠNO i RETKO (avion, ajkula, teroristi), a ne onoga što je ČESTO i POZNATO (auto, pušenje, sedenje, visok pritisak).
+• Plašimo se više onoga što ne kontrolišemo (putnik) nego onoga što kontrolišemo (vozač).
+• Ono što smo skoro videli u vestima deluje češće nego što jeste (dostupnost, lekcija 5-4).
+
+Primer: posle napada 11. septembra 2001. mnogi Amerikanci su umesto aviona seli u auta. Gigerencer je procenio da je zbog toga u narednoj godini u saobraćaju poginulo oko 1.500 ljudi više nego inače — više nego putnika u otetim avionima.
+
+I APSOLUTNI vs RELATIVNI rizik (sećaš se 12-2): „lek DUPLIRA rizik od tromboze" zvuči strašno; ako je to sa 1 na 10.000 na 2 na 10.000 — razlika je jedan čovek na deset hiljada. Uvek pitaj: od koliko na koliko?
+
+Kostur lekcije: verovatnoća 0–1; zakon velikih brojeva; kockarska zabluda; očekivana vrednost (loto 1 prema 15 miliona); lažno pozitivni testovi — računaj na 1.000 ljudi; plašimo se retkog i strašnog, a ne čestog i poznatog.
+
+Sledeće: religije — šta su ljudi kroz istoriju verovali.`,
+pr:{p:'„Rizik je dupliran" — šta prvo treba pitati?', o:['Ko je to rekao','Od koliko na koliko — koliki je apsolutni rizik','Ništa, dupliran je dupliran'], t:1, z:'Dupliranje sa 1 na 2 od 10.000 i sa 10 na 20 od 100 nije isto — odlučuje apsolutni broj.'}}
+],
+kljucno:['Verovatnoća 0–1 = povoljni / mogući ishodi; zakon velikih brojeva — na mnogo ponavljanja udeo se smiri.','Kockarska zabluda: slučajni događaji nemaju pamćenje (Monte Karlo 1913); mozak traži obrasce i u slučajnosti.','Očekivana vrednost: igre na sreću su u minusu za igrača; loto 7/39 = 1 prema 15.380.937.','Lažno pozitivni: kod retke bolesti i dobar test daje mnogo lažnih uzbuna — računaj na 1.000 ljudi.','Plašimo se retkog i strašnog umesto čestog i poznatog; uvek pitaj apsolutni rizik — od koliko na koliko.'],
+kartice:[
+{p:'Šta je kockarska zabluda?', o:'Verovanje da posle niza istih ishoda „mora" doći drugi — iako su događaji nezavisni.'},
+{p:'Šta je očekivana vrednost?', o:'Prosečan ishod na mnogo ponavljanja: svaki ishod puta njegova verovatnoća, sabrano.'},
+{p:'Kolika je šansa za sedmicu u lotu 7/39 jednim tiketom?', o:'1 prema 15.380.937.'},
+{p:'Najbolji trik da ne pogrešiš sa testovima i procentima?', o:'Računaj na 1.000 ljudi umesto u procentima.'},
+{p:'Koja je razlika između relativnog i apsolutnog rizika?', o:'Relativni kaže „duplo", apsolutni „sa 1 na 2 od 10.000".'}
+],
+razgovor:['Čega se ti plašiš više nego što statistika kaže da treba — a šta potcenjuješ?','Da li te je ikada „uhvatila" kockarska zabluda — u igri, u ljubavi, u poslu?']},
+{id:'12-4', naslov:'Naučni metod — kako se nešto dokazuje',
+kuka:{p:'U gradovima gde se prodaje više sladoleda više se ljudi i udavi. Šta to znači?', o:['Sladoled izaziva davljenje','Verovatno ništa direktno — oboje raste leti, kad je toplo','Davljenici jedu sladoled'], t:1},
+delovi:[
+{n:'Krug nauke', t:`Naučni metod nije jedna formula, nego navika koja ide u krug:
+1. POSMATRAŠ nešto što ne razumeš;
+2. postaviš HIPOTEZU — moguće objašnjenje;
+3. iz nje izvedeš PREDVIĐANJE — šta bi moralo da se desi ako je hipoteza tačna;
+4. PROVERIŠ ogledom ili merenjem;
+5. ako predviđanje padne — hipoteza ide na doradu ili u kantu; ako prođe — ostaje, ali nikad „zauvek".
+
+Lep primer iz istorije: lekar IGNAC ZEMELVAJS u Beču 1847. primećuje da u porodilištu gde rade lekari umire mnogo više porodilja nego tamo gde rade babice. Hipoteza: lekari dolaze sa obdukcija i na rukama nose „nešto" od mrtvih. Predviđanje: ako lekari peru ruke hlornim krečom, smrtnost će pasti. Proverio je — smrtnost je pala sa preko 10% na oko 1–2%. (Kolege mu nisu verovale; tek kasnije, sa otkrićem bakterija, je postalo jasno zašto je bio u pravu. Pouka i o tome kako i naučnici odbijaju ono što im kvari sliku.)`,
+pr:{p:'Šta je hipoteza?', o:['Dokazana činjenica','Moguće objašnjenje iz kog se izvodi predviđanje koje se proverava','Mišljenje autoriteta'], t:1, z:'Hipoteza nije još znanje — vredi onoliko koliko preživi proveru svojih predviđanja.'}},
+{n:'Opovrgljivost — Poperov test', t:`Filozof KARL POPER (20. vek) je pitao: šta razlikuje nauku od onoga što samo liči na nauku?
+
+Odgovor: naučna tvrdnja mora biti OPOVRGLJIVA — mora postojati zamisliv ishod koji bi pokazao da je netačna. „Svi labudovi su beli" je naučna tvrdnja: jedan crni labud je obara (i bio je pronađen, u Australiji).
+
+Tvrdnja koja se uklapa u BAŠ SVAKI ishod — nije jaka, nego prazna. Horoskop koji kaže „ove nedelje očekuj promene" ne može da padne, pa ništa i ne kaže. Teorija zavere u kojoj je svaki dokaz protiv nje „dokaz kako su sve sakrili" — takođe.
+
+Ajnštajnova teorija je rizikovala: predvidela je tačno koliko će se svetlost zvezde savijati pored Sunca. Da je merenje (1919) pokazalo drugačije, pala bi. Nije pala. To je dobra nauka: kladi se na nešto što može da izgubi.
+
+Posledica: nauka ne „dokazuje" konačno kao matematika. Ona gomila teorije koje su preživele mnogo pokušaja obaranja. Što je pokušaja više, poverenje je veće — ali vrata za ispravku ostaju otvorena.`,
+pr:{p:'Zašto horoskop „očekuj promene" nije naučna tvrdnja?', o:['Jer je star','Jer ga nijedan ishod ne može opovrgnuti — uklapa se u sve','Jer ga pišu astrolozi'], t:1, z:'Tvrdnja koja ne može da padne ništa i ne govori — Poperov kriterijum opovrgljivosti.'}},
+{n:'Korelacija nije uzrok', t:`KORELACIJA znači da dve stvari idu zajedno (kad raste jedno, raste i drugo). To NE znači da jedno izaziva drugo. Tri česte zamke:
+
+1. TREĆI UZROK (zbunjujući činilac). Sladoled i davljenja idu zajedno — zbog leta. U nekim krajevima Evrope gde ima više rodâ rađa se više dece — jer su to seoski krajevi, gde su porodice veće.
+2. OBRNUTI SMER. „Ljudi koji idu u bolnicu češće umiru" — ne zato što bolnica ubija, nego zato što u bolnicu idu bolesni.
+3. SLUČAJNOST. Ako uporediš dovoljno mnogo stvari, neke će se poklopiti slučajno. Postoje cele zbirke smešnih poklapanja (broj filmova Nikolasa Kejdža i broj utopljenih u bazenima u SAD kroz godine).
+
+Kako se onda dokazuje uzrok? Najbolje — OGLEDOM SA KONTROLNOM GRUPOM, gde se ljudi NASUMIČNO dele na one koji dobijaju lek i one koji ne dobijaju (lekcija 4-5). Nasumična podela izjednači sve ostale razlike, pa ostaje samo ono što ispitujemo. Kad ogled nije moguć (pušenje — ne možeš nasumično terati ljude da puše), uzrok se gradi iz više nezavisnih dokaza koji svi pokazuju isto, kao kod pušenja i raka pluća.`,
+pr:{p:'Ljudi koji piju više kafe žive duže. Šta je dobro prvo pitanje?', o:['Koliko kafe da pijem','Da li postoji treći uzrok — npr. da li su ljudi koji piju kafu drugačiji po zdravlju, poslu, navikama','Ništa, kafa produžava život'], t:1, z:'Korelacija nije uzrok: pre zaključka traži treći činilac, obrnut smer ili slučajnost.'}},
+{n:'Ponavljanje i provera', t:`Jedno istraživanje nije dokaz. Nauka se oslanja na:
+• RECENZIJU — pre objave, drugi stručnjaci traže greške (ne hvata sve, ali pomaže);
+• PONOVLJIVOST — drugi tim, ista metoda, isti rezultat? Ako ne — oprez.
+
+KRIZA PONOVLJIVOSTI: 2015. veliki projekat je pokušao da ponovi 100 objavljenih istraživanja iz psihologije — jasno se ponovilo tek oko trećine. Slični problemi nađeni su i u medicini. Razlozi: mali uzorci, objavljuje se ono što je „zanimljivo", pritisak da se objavljuje, sitno „štelovanje" podataka dok ne ispadne značajno.
+
+Da li to znači „nauci se ne može verovati"? Ne — to znači da nauka RADI: sama je otkrila sopstvene greške i uvela popravke (unapred prijavljena istraživanja, veći uzorci, objavljivanje podataka).
+
+Praktično pravilo: jedna nova studija u novinama („naučnici otkrili da čokolada…") — zanimljivo, ali slabo. SAGLASNOST mnogih istraživanja i stručnih tela (npr. o vakcinama, o klimi, o pušenju) — to je ono čemu se veruje.`,
+pr:{p:'Šta je pokazala kriza ponovljivosti?', o:['Da je nauka bezvredna','Da se mnoga pojedinačna istraživanja ne ponove — zato vredi saglasnost mnogih, a ne jedna studija','Da psihologija nije nauka'], t:1, z:'Nauka je sama otkrila problem i uvela popravke; pojedinačna studija je slab dokaz.'}},
+{n:'Kako proceniti tvrdnju — i kraj', t:`Kratka lestvica dokaza, od najslabijeg ka najjačem:
+1. „Meni je pomoglo", „čuo sam" — lična priča;
+2. mišljenje stručnjaka bez podataka;
+3. jedno istraživanje koje posmatra (korelacija);
+4. ogled sa kontrolnom grupom, nasumično podeljenom;
+5. pregled MNOGO takvih ogleda zajedno (meta-analiza) i saglasnost struke.
+
+Pet pitanja za svaku „naučnu" vest:
+• Ko je istraživao i ko je platio?
+• Na koliko ljudi (ili samo na miševima)?
+• Da li je bila kontrolna grupa?
+• Korelacija ili ogled?
+• Da li se slaže sa drugim istraživanjima?
+
+DŽON SNOU je 1854. u Londonu ucrtao na mapu svaki slučaj kolere i video da se gomilaju oko jedne pumpe za vodu u ulici Brod. Vlasti su na njegov zahtev skinule ručku pumpe, a njegovi dokazi su postepeno promenili shvatanje kolere: širi se prljavom vodom, ne „lošim vazduhom". Posmatranje, hipoteza, provera — pre nego što je iko video bakteriju kolere.
+
+Kostur lekcije: krug — posmatranje, hipoteza, predviđanje, provera; Poper — opovrgljivost; korelacija nije uzrok (treći uzrok, obrnut smer, slučajnost); kontrolna grupa; ponovljivost; lestvica dokaza.
+
+Sledeće: vlast, pravo i svet.`,
+pr:{p:'Šta je najjači dokaz na lestvici?', o:['Lična priča poznatog čoveka','Pregled mnogo ogleda sa kontrolnom grupom i saglasnost struke','Jedno novo istraživanje'], t:1, z:'Što više nezavisnih ogleda pokazuje isto, to je zaključak sigurniji.'}}
+],
+kljucno:['Krug nauke: posmatranje → hipoteza → predviđanje → provera → dorada (Zemelvajs i pranje ruku, 1847).','Poper: naučna tvrdnja mora biti opovrgljiva; ono što se uklapa u svaki ishod ništa ne kaže.','Korelacija nije uzrok: treći uzrok, obrnut smer, slučajnost; uzrok najbolje pokazuje nasumičan ogled sa kontrolnom grupom.','Jedna studija je slaba; ponovljivost i saglasnost su jake; kriza ponovljivosti — nauka sama ispravlja greške.','Lestvica dokaza od lične priče do meta-analize; pet pitanja za svaku naučnu vest (Snou i kolera, 1854).'],
+kartice:[
+{p:'Šta je opovrgljivost (Poper)?', o:'Naučna tvrdnja mora imati zamisliv ishod koji bi je oborio.'},
+{p:'Koja su tri razloga zašto korelacija ne mora biti uzrok?', o:'Treći uzrok, obrnut smer, slučajnost.'},
+{p:'Šta je otkrio Zemelvajs?', o:'Da pranje ruku lekara drastično smanjuje smrtnost porodilja (1847).'},
+{p:'Šta je kriza ponovljivosti?', o:'Otkriće da se mnoga objavljena istraživanja ne ponove kad ih drugi provere.'},
+{p:'Šta je najjači dokaz u nauci?', o:'Saglasnost mnogo ogleda sa kontrolnom grupom (meta-analiza) i struke.'}
+],
+razgovor:['Koje svoje uverenje bi mogao da proveriš kao naučnik — šta bi ga oborilo?','Navedi jednu „korelaciju" iz svog života (posao, san, raspoloženje) za koju si mislio da je uzrok — a možda je treći činilac.']},
+{id:'12-5', naslov:'Kako te ubeđuju — retorika, propaganda, manipulacija',
+kuka:{p:'Šta se desi kad čuješ istu netačnu tvrdnju više puta?', o:['Sve manje joj veruješ','Počinje da ti zvuči istinitije — čak i kad znaš da nije','Ništa'], t:1},
+delovi:[
+{n:'Retorika — tri dugmeta (Aristotel)', t:`Ubeđivanje nije samo po sebi loše — tako advokat brani nevinog, a lekar ubedi pušača da prestane. Aristotel je u „Retorici" opisao tri sredstva ubeđivanja:
+
+• ETOS — ko govori: poverenje u govornika (stručnost, poštenje, „jedan od nas");
+• PATOS — osećanja publike: strah, ponos, bes, sažaljenje, nada;
+• LOGOS — argument: činjenice, logika, primeri.
+
+Dobar govor obično koristi sva tri. Manipulacija počinje kad se patosom i etosom PREKRIJE slab ili nikakav logos: „Veruj mi, ja sam stručnjak, a oni hoće da ti naude" — bez ijednog proverljivog podatka.
+
+Pitanja koja vrate logos u igru: Šta je tačno tvrdnja? Šta je dokaz? Kako bih znao da nije tačno?`,
+pr:{p:'Šta je patos u retorici?', o:['Logika argumenta','Ubeđivanje preko osećanja publike','Poverenje u govornika'], t:1, z:'Etos — govornik, patos — osećanja, logos — argument (Aristotel).'}},
+{n:'Šest prečica (Čaldini)', t:`Psiholog Robert Čaldini je proučavao prodavce, regrutere i prevarante i našao šest prečica kojima nas ubeđuju — jer mozak njima štedi vreme:
+
+1. RECIPROCITET — dobio si nešto (besplatan uzorak, uslugu), pa osećaš dug.
+2. DOSLEDNOST — kad jednom kažeš „da" na malo, lakše kažeš „da" na veće.
+3. DRUŠTVENI DOKAZ — „svi to kupuju", „najprodavanije", puna kafana.
+4. AUTORITET — beli mantil, titula, uniforma, poznato lice.
+5. SIMPATIJA — lakše kažemo „da" onima koje volimo i koji liče na nas.
+6. OSKUDNOST — „samo danas", „poslednja 2 komada", „ograničeno izdanje".
+
+Sve ovo su često razumne prečice. Problem je kad ih neko svesno okida da bi preskočio tvoje razmišljanje. Prepoznaš li prečicu — dobiješ sekund da pitaš: da li bih ovo hteo i bez nje?`,
+pr:{p:'Natpis „samo danas, poslednja 2 komada" koristi koju prečicu?', o:['Autoritet','Oskudnost','Reciprocitet'], t:1, z:'Ono čega ima malo deluje vrednije — i požuruje odluku pre razmišljanja.'}},
+{n:'Propaganda', t:`PROPAGANDA je organizovano ubeđivanje masa, obično u korist vlasti, partije ili pokreta. Njeni alati se vekovima ne menjaju:
+• PONAVLJANJE — ista poruka, svuda, stalno. Istraživanja pokazuju EFEKAT ILUZIJE ISTINE: rečenica koju si čuo više puta zvuči istinitije, čak i kad znaš da je netačna, jer je mozak lako obradi.
+• JEDNOSTAVAN SLOGAN umesto složene stvarnosti.
+• SLIKA NEPRIJATELJA — „oni" (stranci, izdajnici, manjina, elita) su krivi za sve; spoljna pretnja zbija redove i ućutkuje kritiku.
+• OSEĆANJA — strah i ponos jači su od argumenata.
+• KONTROLA KANALA — ko drži medije, bira i šta se NE kaže. Ćutanje je propaganda koliko i laž.
+
+Nacistička propaganda i staljinistički kult ličnosti su najpoznatiji primeri; ali alati se koriste u svim sistemima i u svim ratovima — i danas, i na svim stranama. Pošten test: prepoznaješ li iste trikove kad dolaze od strane koja ti je bliska?`,
+pr:{p:'Šta je efekat iluzije istine?', o:['Istina se uvek otkrije','Ponovljena tvrdnja deluje istinitije, čak i kad je netačna','Laž se brzo zaboravi'], t:1, z:'Ono što je poznato mozak lakše obradi — i to brka sa istinitim. Zato propaganda ponavlja.'}},
+{n:'Trikovi u raspravi i na mreži', t:`Pored grešaka iz lekcije o logici (napad na čoveka, slamnati čovek, lažna dilema), često ćeš sresti:
+• „A ŠTA JE SA…" (kvazi-kontra, eng. whataboutism) — umesto odgovora na kritiku, uperi prst na tuđu krivicu. Tuđa greška ne briše tvoju.
+• BIRANJE TREŠANJA — pokaži samo podatke koji ti idu u prilog, ćuti o ostalima.
+• ZATRPAVANJE — izgovori deset netačnih tvrdnji za minut; za opovrgavanje svake treba deset minuta.
+• NAGLASAK I NASLOV — tačne činjenice, a lažan utisak („Posle vakcine umro čovek" — od saobraćajne nesreće).
+• LAŽNA RAVNOTEŽA — „ima dve strane", kad na jednoj stoji jedan čovek, a na drugoj hiljadu istraživanja.
+• MAMAC ZA KLIK I BES — sadržaj koji te razbesni širi se brže, jer algoritmi nagrađuju reakciju. Ako te nešto na mreži jako naljuti, to je trenutak da usporiš.
+• DUBOKI LAŽNJACI (dipfejk) — glas i lice napravljeni veštačkom inteligencijom.`,
+pr:{p:'Šta je „a šta je sa…"?', o:['Pošteno pitanje','Skretanje sa kritike na tuđu krivicu umesto odgovora','Dokaz'], t:1, z:'Tuđa greška ne odgovara na pitanje o tvojoj — to je samo promena teme.'}},
+{n:'Odbrana — i kraj', t:`Šta stvarno pomaže (ovo je proveravano u istraživanjima):
+• STANI. Pre deljenja — sekund. Najviše laži se širi iz brzine, ne iz zlobe.
+• ISTRAŽI IZVOR. Ko ovo kaže? Šta je to za sajt? Ne čitaj samo stranicu — otvori novi prozor i proveri ko stoji iza nje (tako rade profesionalni proveravači činjenica — „bočno čitanje").
+• NAĐI BOLJE IZVEŠTAVANJE. Da li to prenose i drugi, ozbiljni izvori, sa različitih strana?
+• VRATI SE NA ORIGINAL. Šta tačno piše u studiji, ceo snimak, cela rečenica — ne isečak.
+
+I „VAKCINA PROTIV MANIPULACIJE": istraživanja (npr. Sander van der Linden) pokazuju da ljudi koji unapred upoznaju trikove — kao ti sada — ređe nasedaju kad ih sretnu. Doza slabog virusa da se razvije otpornost.
+
+Kostur lekcije: etos, patos, logos; Čaldinijevih šest prečica; propaganda — ponavljanje, slogan, neprijatelj, osećanje, kontrola kanala; trikovi u raspravi i na mreži; odbrana — stani, izvor, drugi izvori, original.
+
+Kostur „Alata mišljenja": logika → brojevi → verovatnoća → naučni metod → otpornost na manipulaciju. Zajedno: kako da misliš sam.
+
+Sledeće: tehnologija — od vatre do veštačke inteligencije.`,
+pr:{p:'Šta je „bočno čitanje"?', o:['Čitanje brže','Proveravanje ko stoji iza izvora tako što ga potražiš na drugim mestima, umesto da veruješ samoj stranici','Čitanje samo naslova'], t:1, z:'Profesionalni proveravači činjenica odmah izađu sa sajta i provere ko je on — umesto da ga analiziraju iznutra.'}}
+],
+kljucno:['Retorika: etos (govornik), patos (osećanja), logos (argument); manipulacija prekriva slab logos.','Čaldini: reciprocitet, doslednost, društveni dokaz, autoritet, simpatija, oskudnost.','Propaganda: ponavljanje (iluzija istine), slogan, slika neprijatelja, strah i ponos, kontrola kanala — na svim stranama.','Trikovi: „a šta je sa…", biranje trešanja, zatrpavanje, lažna ravnoteža, bes kao mamac, dipfejk.','Odbrana: stani, istraži izvor (bočno čitanje), nađi druge izvore, vrati se na original; poznavanje trikova „vakciniše".'],
+kartice:[
+{p:'Šta su etos, patos i logos?', o:'Poverenje u govornika, osećanja publike, argument.'},
+{p:'Navedi Čaldinijevih šest prečica.', o:'Reciprocitet, doslednost, društveni dokaz, autoritet, simpatija, oskudnost.'},
+{p:'Zašto propaganda ponavlja?', o:'Zbog efekta iluzije istine — ponovljeno zvuči istinitije.'},
+{p:'Šta je biranje trešanja?', o:'Pokazivanje samo podataka koji idu u prilog, uz ćutanje o ostalima.'},
+{p:'Koja su četiri koraka odbrane od dezinformacija?', o:'Stani, istraži izvor, nađi druge izvore, vrati se na original.'}
+],
+razgovor:['Koja je poslednja stvar koju si kupio ili poverovao zbog neke od Čaldinijevih prečica?','Kad bi pisao lik manipulatora — koje trikove bi mu dao, i kako bi ga čitalac prozreo?']}
 ]}
 ];
 

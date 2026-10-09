@@ -2718,11 +2718,323 @@ kartice:[
 razgovor:['Kako bi ti objasnio strancu zašto je 1999. u Srbiji drugačije zapamćena nego na Zapadu — a da budeš pošten prema obe strane?','Da sutra biraš: EU, neutralnost kakva je sad, ili nešto treće? Šta bi ti presudilo?']}
 ]},
 {id:'10', naziv:'Umetnost i priče', ikona:'🎭', era:'ideje', lekcije:[
-{id:'10-1', naslov:'Šta je umetnost i čemu služi'},
-{id:'10-2', naslov:'Mit, ep i tragedija'},
-{id:'10-3', naslov:'Roman i epohe književnosti u jednoj liniji'},
-{id:'10-4', naslov:'Slikarstvo i arhitektura kroz epohe'},
-{id:'10-5', naslov:'Muzika — od klasike do roka'}
+{id:'10-1', naslov:'Šta je umetnost i čemu služi',
+kuka:{p:'Marsel Dišan je 1917. na izložbu poslao običan pisoar i potpisao ga. Šta se desilo kasnije?', o:['Zaboravljen je kao šala','Stručnjaci su ga 2004. proglasili jednim od najuticajnijih umetničkih dela 20. veka','Zabranjen je zakonom'], t:1},
+delovi:[
+{n:'Umetnost je stara koliko i mi', t:`Pre nego što smo imali njive, gradove i pismo — crtali smo. Pećinski crteži stari desetine hiljada godina, figurice, ogrlice od školjki, frule od kosti. Nema poznate ljudske kulture bez neke umetnosti: pesme, plesa, priče, ukrasa.
+
+Zašto? Umetnost ne hrani i ne greje. Postoji više objašnjenja (verovatno se dopunjuju):
+• POVEZIVANJE — zajedničko pevanje, ples i priča prave od pojedinaca grupu;
+• PRIČA KAO VEŽBA — kroz priču proživljavamo tuđe situacije bez rizika, kao letački simulator za život;
+• POKAZIVANJE — veština i mašta su znak sposobnosti, kao paunov rep (ovo je spornije);
+• IGRA UMA — mozak voli obrasce, ritam i iznenađenje.
+
+Ono što je sigurno: umetnost je jedna od stvari koje nas najdublje čine ljudima.`,
+pr:{p:'Šta pokazuju pećinski crteži stari desetine hiljada godina?', o:['Da je umetnost nastala sa gradovima','Da je umetnost starija od poljoprivrede i gradova','Da su samo neki narodi pravili umetnost'], t:1, z:'Lovci-sakupljači su crtali, svirali i pravili nakit — umetnost je stara koliko i moderan čovek.'}},
+{n:'Tri odgovora na pitanje „šta je umetnost"', t:`Filozofi su predlagali različite definicije, i svaka hvata deo istine:
+
+1. PODRAŽAVANJE (mimezis) — Platon i Aristotel: umetnost prikazuje svet. Platon joj zato nije verovao (kopija kopije, daleko od istine); Aristotel ju je branio — kroz podražavanje učimo, a tragedija nas pročišćava.
+2. IZRAŽAVANJE — Lav Tolstoj (1897): umetnost je kad umetnik u sebi probudi osećanje i prenese ga drugome tako da ga i on oseti. Ako te nije „zarazila" — nije uspela.
+3. FORMA — umetnost je ono što nam daje doživljaj kroz oblik, boju, ritam, kompoziciju, čak i kad ništa ne prikazuje (apstraktno slikarstvo, muzika bez reči).
+
+Dišanov pisoar (1917) otvorio je četvrti odgovor: umetnost je ono što SVET UMETNOSTI (umetnici, galerije, kritičari) prihvati kao umetnost i o čemu vodi razgovor. Mnogima je to i danas provokacija, a ne odgovor.`,
+pr:{p:'Šta je umetnost po Tolstoju?', o:['Verno podražavanje prirode','Prenošenje osećanja sa umetnika na drugoga, tako da ga i on oseti','Ono što stoji u galeriji'], t:1, z:'Tolstoj: umetnost „zarazi" osećanjem — ako ga ne preneseš, nisi uspeo.'}},
+{n:'Čemu služi', t:`Umetnost je kroz istoriju radila mnogo poslova:
+• OBRED i vera — ikone, hramovi, crkvena muzika, maske;
+• MOĆ — portreti vladara, palate, spomenici, propaganda;
+• PAMĆENJE — epovi i pesme koje čuvaju istoriju naroda;
+• LEPOTA i zadovoljstvo — ono što nas raduje bez ikakve koristi;
+• IZRAŽAVANJE — da kažeš ono što ne može drugačije da se kaže;
+• KRITIKA — da pokaže ono što društvo neće da vidi (Gojine slike rata, satira, angažovana književnost);
+• SMISAO — pomaže da preživimo ono što ne razumemo: smrt, gubitak, ljubav.
+
+Aristotel je za tragediju uveo reč KATARZA — pročišćenje: gledajući tuđu patnju, oslobađamo se sopstvenog straha i sažaljenja i izlazimo lakši. Zašto volimo tužne priče i mračne pesme? Možda baš zato.`,
+pr:{p:'Šta je katarza?', o:['Vrsta pozorišta','Pročišćenje — oslobađanje osećanja kroz doživljaj tuđe patnje u delu','Kraj priče'], t:1, z:'Aristotel: tragedija budi strah i sažaljenje i tako nas od njih pročišćava.'}},
+{n:'Ukus — da li je lepota u oku posmatrača', t:`Dva stara stava:
+• Lepota je SUBJEKTIVNA — „o ukusima ne vredi raspravljati".
+• Ali: neke knjige, slike i muzika vekovima pogađaju ljude iz različitih kultura. Šekspir se igra i u Japanu, Bah se sluša u Africi.
+
+Filozof Dejvid Hjum (18. vek) predložio je srednji put: ukus je lični, ali nisu svi ukusi jednako izvežbani. Dobar sud ima onaj ko je mnogo video, poredi, nema predrasuda i pažljivo gleda — kao što iskusni degustator vina primeti ono što početnik ne oseti. Vreme je najbolji kritičar: ono što preživi vekove verovatno ima nešto u sebi.
+
+Imanuel Kant je dodao: kad kažemo „ovo je lepo", ne mislimo samo „meni se sviđa" — nekako očekujemo da bi i drugi trebalo da se slože. Zato se o ukusu ipak raspravlja.
+
+Praktično: „ne sviđa mi se" i „nije dobro" nisu ista rečenica. Možeš da poštuješ delo koje ne voliš.`,
+pr:{p:'Šta je Hjum rekao o ukusu?', o:['Svi ukusi su jednako dobri','Ukus je lični, ali izvežban ukus — iskustvo, poređenje, pažnja — daje bolji sud','Lepotu određuje crkva'], t:1, z:'Kao kod degustatora: iskustvo i pažnja daju pouzdaniji sud, a vreme prosuđuje najbolje.'}},
+{n:'Kako gledati — i šta sledi', t:`Nekoliko pitanja koja otvaraju skoro svako delo (sliku, pesmu, film, knjigu):
+1. Šta VIDIM / čujem? (pre tumačenja — samo opiši)
+2. Šta OSEĆAM i čime je to postignuto? (boja, ritam, reč, tišina)
+3. ŠTA HOĆE da kaže — i šta kaže a da možda nije hteo?
+4. KADA i GDE je nastalo, i protiv čega je pisano ili slikano?
+5. Šta bi NEDOSTAJALO da ga nema?
+
+Kostur lekcije: umetnost je stara koliko i mi; definicije — podražavanje, izražavanje, forma, „svet umetnosti"; služi obredu, moći, pamćenju, lepoti, kritici i smislu; katarza; ukus je ličan, ali se vežba.
+
+Sledeće: najstarije priče — mit, ep i tragedija — od kojih je sve krenulo. (I ispostaviće se da su srpski guslari pomogli da se razume Homer.)`,
+pr:{p:'Koje je prvo pitanje pre tumačenja dela?', o:['Koliko vredi','Šta zaista vidim ili čujem — samo opis','Ko je autor'], t:1, z:'Prvo pažljivo opiši; tumačenje bez gledanja je nagađanje.'}}
+],
+kljucno:['Umetnost postoji u svakoj kulturi i starija je od gradova; objašnjenja: povezivanje, priča kao vežba, pokazivanje, igra uma.','Definicije: podražavanje (Platon, Aristotel), izražavanje (Tolstoj), forma, „svet umetnosti" (Dišan 1917).','Služi obredu, moći, pamćenju, lepoti, izražavanju, kritici i smislu; katarza = pročišćenje.','Ukus je ličan, ali se vežba (Hjum); „ne sviđa mi se" nije isto što i „nije dobro".','Gledanje: opiši → oseti → šta kaže → kad i protiv čega → šta bi falilo.'],
+kartice:[
+{p:'Šta je mimezis?', o:'Podražavanje — umetnost kao prikaz sveta (Platon, Aristotel).'},
+{p:'Kako Tolstoj definiše umetnost?', o:'Kao prenošenje osećanja sa umetnika na drugoga.'},
+{p:'Šta je Dišan izložio 1917. i zašto je važno?', o:'Pisoar („Fontana") — otvorio pitanje da li je umetnost ono što svet umetnosti prihvati.'},
+{p:'Šta je katarza?', o:'Pročišćenje osećanja kroz doživljaj tuđe patnje u delu.'},
+{p:'Šta je Hjum rekao o ukusu?', o:'Ukus je ličan, ali izvežban ukus daje bolji sud; vreme je najbolji kritičar.'}
+],
+razgovor:['Kad pišeš — koji od tri odgovora je tvoj: podražavaš, izražavaš ili gradiš formu? Ili sve troje?','Zašto, po tebi, ljudi vole tužne i mračne priče? Šta ti daje Bukovski što ti vesela knjiga ne da?']},
+{id:'10-2', naslov:'Mit, ep i tragedija',
+kuka:{p:'Koji je najstariji poznati veliki književni ep na svetu?', o:['Ilijada','Ep o Gilgamešu','Mahabharata'], t:1},
+delovi:[
+{n:'Mit — priča koja objašnjava', t:`MIT je sveta priča zajednice o postanku sveta, bogovima, prvim ljudima i junacima. Ne laž (to je kasnije značenje reči), nego način da se objasni: zašto postoji smrt, odakle zlo, zašto se smenjuju godišnja doba, zašto je naš narod ovde.
+
+Mitovi rade četiri posla:
+• objašnjavaju svet (Prometej donosi vatru ljudima);
+• daju smisao obredima i praznicima;
+• uče moralu (Ikar koji je leteo previsoko);
+• drže zajednicu na okupu — „to smo mi".
+
+Iste slike se ponavljaju širom sveta: POTOP (Mesopotamija, Biblija, Indija), bogovi koji umiru i vaskrsavaju, junak koji silazi u podzemlje, krađa vatre. Psiholog Karl Jung je mislio da postoje zajednički ARHETIPOVI u ljudskoj psihi; drugi objašnjavaju sličnosti preuzimanjem i sličnim iskustvima.
+
+Džozef Kembel je u knjizi „Junak sa hiljadu lica" (1949) opisao MONOMIT — zajednički kostur junačke priče: poziv → odlazak → iskušenja → najveća proba → povratak promenjen. Holivud ga je kasnije svesno koristio (Ratovi zvezda). Kritičari kažu da je pojednostavio ogromnu raznolikost mitova.`,
+pr:{p:'Šta je Kembelov monomit?', o:['Mit jednog naroda','Zajednički kostur junačke priče: poziv, odlazak, iskušenja, povratak promenjen','Mit o potopu'], t:1, z:'Kembel je u mitovima sveta našao isti obrazac junačkog puta; Holivud ga koristi i danas.'}},
+{n:'Gilgameš i Homer', t:`Najstariji veliki ep je EP O GILGAMEŠU iz Mesopotamije — najstarije pesme o njemu zapisane su pre oko 4.000 godina. Gilgameš, moćni kralj Uruka, gubi prijatelja Enkidua i, užasnut smrću, kreće u potragu za besmrtnošću. Ne nalazi je. Vraća se i shvata da ono što ostaje — jesu grad koji je sagradio i priča o njemu. U epu postoji i priča o POTOPU, veoma slična biblijskoj o Noju.
+
+HOMER (Grčka, verovatno 8. vek p. n. e.):
+• ILIJADA — nekoliko nedelja Trojanskog rata; Ahilejev gnev, smrt Hektora. Ep o slavi, ratu i ceni slave.
+• ODISEJA — Odisejev desetogodišnji povratak kući na Itaku, ženi Penelopi. Ep o lukavstvu, lutanju i povratku.
+
+Iz Indije: MAHABHARATA (najduži ep na svetu) i RAMAJANA; iz Persije — Ferdusijeva „Šahnama".
+
+Svi veliki epovi pitaju isto: šta je junaštvo, šta je smrt, šta ostaje posle nas.`,
+pr:{p:'Šta Gilgameš na kraju shvata?', o:['Da je postao besmrtan','Da besmrtnosti nema — ostaje ono što si stvorio i priča o tebi','Da su bogovi zli'], t:1, z:'Ne nalazi biljku besmrtnosti; vraća se Uruku i u gradu i priči vidi ono što traje.'}},
+{n:'Usmena tradicija — i srpski guslari', t:`Homer verovatno nije „pisao" u našem smislu. Njegovi epovi su nastali u USMENOJ tradiciji — pevači su ih vekovima pevali napamet, svaki put malo drugačije, i tek kasnije su zapisani.
+
+Kako se to zna? Ovde dolazimo mi. Američki naučnici MILMAN PERI i ALBERT LORD su 1930-ih putovali po Jugoslaviji i snimali GUSLARE — poslednju živu evropsku tradiciju dugih usmenih epova. Videli su kako pevač, ne znajući da čita, peva pesme od hiljada stihova: služi se gotovim FORMULAMA („a na noge lake skočio", „bijela vila", „knjigu piše"), ponovljenim scenama i ritmom deseterca, i svaki put iznova sklapa pesmu. Isti alati se vide kod Homera („ružoprsta Zora", „brzonogi Ahilej"). Guslar Avdo Međedović spevao im je ep duži od Odiseje.
+
+Srpske epske pesme sakupio je VUK KARADŽIĆ početkom 19. veka; divili su im se Gete i braća Grim. Ciklusi: pre Kosova, KOSOVSKI (Lazar, Miloš Obilić, Kosovka devojka), MARKO KRALJEVIĆ, hajduci i uskoci, ustanci. U epu je istorija pretvorena u mit — Marko Kraljević je istorijski bio turski vazal, a u pesmi je junak koji pije vino sa šarcem.`,
+pr:{p:'Kako su srpski guslari pomogli nauci o Homeru?', o:['Preveli su Homera','Peri i Lord su na njima videli kako se dugi ep peva napamet uz formule — i tako objasnili Homera','Napisali su Ilijadu'], t:1, z:'Formule, ponovljene scene i ritam koje su koristili guslari nalaze se i kod Homera — dokaz usmenog nastanka.'}},
+{n:'Grčka tragedija', t:`U Atini 5. veka p. n. e. iz obreda u čast boga Dionisa nastala je TRAGEDIJA. Tri velika pisca:
+• ESHIL — „Orestija": krvna osveta koja se prenosi kroz pokolenja dok je ne prekine sud;
+• SOFOKLE — „Kralj Edip" (čovek koji bežeći od proročanstva upravo njega ispuni: ubije oca i oženi majku, ne znajući) i „Antigona" (sestra koja sahranjuje brata protivno kraljevoj zabrani — božji zakon protiv državnog);
+• EURIPID — „Medeja": ljudska strast, prevara i osveta; najmoderniji od trojice.
+
+Aristotel je u „Poetici" opisao šta tragediju čini dobrom:
+• junak nije ni sasvim dobar ni sasvim zao, i pada zbog GREŠKE (hamartija), ne zbog zloće;
+• OBRT (peripetija) — sreća se okrene u nesreću;
+• PREPOZNAVANJE — junak shvati istinu, prekasno;
+• i na kraju KATARZA kod gledalaca.
+
+Tragedija ne kaže „zli su kažnjeni". Kaže nešto teže: i dobri propadaju — zbog sudbine, slepila, sopstvene veličine.`,
+pr:{p:'Zašto pada tragični junak po Aristotelu?', o:['Jer je zao','Zbog greške (hamartija), a ne zbog zloće','Slučajno'], t:1, z:'Junak je kao mi — ni svetac ni zlikovac — pa nas njegov pad pogađa i pročišćava.'}},
+{n:'Šta je ostalo — i kraj', t:`Mit, ep i tragedija nisu muzejski predmeti. Žive u svemu:
+• Edipov kompleks — Frojd je uzeo ime iz Sofokla;
+• „Ahilova peta", „Trojanski konj" (i kompjuterski virus), „odiseja", „Pandorina kutija", „sizifovski posao";
+• svaka priča o povratku kući, svaka priča o junaku koji zna da će izgubiti, a ide — od Odiseje do vesterna i kriminalističke priče.
+
+I srpska tradicija: „kosovski zavet" — izbor carstva nebeskog umesto zemaljskog — oblikovao je kako mnogi generacijama razumeju poraz, žrtvu i čast. Njegoš, Andrić, Pekić i mnogi drugi su razgovarali sa njim, slagali se i svađali.
+
+Kostur lekcije: mit objašnjava svet i drži zajednicu; Kembelov monomit; Gilgameš — prva velika priča o smrti; Homer i usmena tradicija (Peri, Lord i guslari); tragedija — dobri ljudi koji padaju, i katarza.
+
+Sledeće: roman — mladi oblik koji je od svih ovih starih priča napravio unutrašnji svet pojedinca.`,
+pr:{p:'Odakle je Frojd uzeo naziv „Edipov kompleks"?', o:['Iz Biblije','Iz Sofoklove tragedije „Kralj Edip"','Iz Homera'], t:1, z:'Edip, ne znajući, ubija oca i ženi se majkom — Frojd je tako nazvao dečje osećanje prema roditeljima.'}}
+],
+kljucno:['Mit je sveta priča koja objašnjava svet, daje smisao obredima, uči moralu i drži zajednicu; monomit (Kembel).','Gilgameš (Mesopotamija, oko 4.000 godina) — prva velika priča o smrti i prijateljstvu; Homer: Ilijada i Odiseja.','Usmena tradicija: Peri i Lord su na srpskim guslarima (formule, deseterac) objasnili kako je nastao Homer; Vuk sakupio epske pesme.','Grčka tragedija: Eshil, Sofokle (Edip, Antigona), Euripid; Aristotel: greška, obrt, prepoznavanje, katarza.','Mit i ep žive u jeziku i pričama danas (Edipov kompleks, Trojanski konj, kosovski zavet).'],
+kartice:[
+{p:'Koji je najstariji veliki ep i o čemu je?', o:'Ep o Gilgamešu — kralj koji posle smrti prijatelja traži besmrtnost i ne nalazi je.'},
+{p:'Koja dva epa se pripisuju Homeru?', o:'Ilijada i Odiseja.'},
+{p:'Ko su Peri i Lord i šta su otkrili?', o:'Američki naučnici koji su 1930-ih na guslarima pokazali kako se usmeni ep peva pomoću formula — ključ za Homera.'},
+{p:'Ko su tri velika grčka tragičara?', o:'Eshil, Sofokle, Euripid.'},
+{p:'Šta je hamartija?', o:'Tragična greška junaka koja dovodi do pada.'}
+],
+razgovor:['Koji mit ili epski lik ti je najbliži, i zašto baš on?','Tragedija kaže da i dobri propadaju. Tvoje priče imaju gorko-slatke krajeve — šta je, po tebi, razlika između tragedije i obične nesreće u priči?']},
+{id:'10-3', naslov:'Roman i epohe književnosti u jednoj liniji',
+kuka:{p:'Koji se roman najčešće naziva prvim modernim romanom Evrope?', o:['„Rat i mir"','„Don Kihot" (1605)','„Ana Karenjina"'], t:1},
+delovi:[
+{n:'Šta je roman', t:`ROMAN je duga priča u prozi o izmišljenim ljudima — ali najvažnije: o UNUTRAŠNJEM svetu pojedinca. Ep je pevao o junaku i narodu; roman priča o običnom čoveku, njegovim mislima, sumnjama, lažima i promenama.
+
+Prvi veliki „roman" po nekim merilima je japanska „PRIČA O GENĐIJU" (Murasaki Šikibu, oko 1000. godine). U Evropi se za prvi moderni roman najčešće uzima SERVANTESOV „DON KIHOT" (1605. i 1615): siromašni plemić koji je od čitanja viteških romana poludeo, polazi u svet da bude vitez — i sve vreme se sudara sa stvarnošću. Smešno i tužno istovremeno; ruga se starim pričama, a stvara novu.
+
+Zašto roman cveta baš u novom veku? Štamparija i jeftine knjige, rast gradova i srednjeg sloja, više pismenih — i više ljudi koji imaju privatan život vredan pričanja.`,
+pr:{p:'Po čemu se roman najviše razlikuje od epa?', o:['Roman je kraći','Roman priča o unutrašnjem svetu običnog pojedinca, ep o junaku i narodu','Roman je uvek u stihu'], t:1, z:'Ep peva o junaštvu zajednice; roman ulazi u glavu jednog čoveka.'}},
+{n:'Od renesanse do romantizma', t:`Velike epohe se smenjuju, i svaka je delom pobuna protiv prethodne.
+
+• RENESANSA (15–16. vek): čovek u centru, povratak antici. U književnosti — ŠEKSPIR (Hamlet, Magbet, Kralj Lir, Romeo i Julija): ljudska duša u svoj svojoj protivrečnosti. Kod nas: dubrovačka književnost (Marin Držić).
+• BAROK (17. vek): kontrasti, prolaznost, raskoš i strah od smrti.
+• KLASICIZAM i PROSVETITELJSTVO (17–18. vek): red, razum, pravila; satira (Volter, „Kandid"; Svift, „Guliverova putovanja"). Kod nas Dositej Obradović.
+• ROMANTIZAM (kraj 18. – sredina 19. veka): pobuna protiv razuma — OSEĆANJE, priroda, mašta, narod, buntovni pojedinac. Gete (Verter), Bajron, Puškin, Igo. Romantizam je otkrio narodnu poeziju i naciju. Kod nas: NJEGOŠ („Gorski vijenac", 1847), Branko Radičević, i Vukov rad.`,
+pr:{p:'Šta je u središtu romantizma?', o:['Razum i pravila','Osećanje, priroda, mašta, narod i buntovni pojedinac','Prikaz društva kakvo jeste'], t:1, z:'Romantizam je pobuna protiv prosvetiteljskog razuma; tu su Bajron, Puškin i Njegoš.'}},
+{n:'Realizam — veliki 19. vek', t:`Sredinom 19. veka, REALIZAM: prikaži društvo i ljude onakve kakvi jesu — novac, klase, brak, posao, preljube, siromaštvo. Roman postaje ogledalo celog društva.
+• BALZAK — „Ljudska komedija": stotine likova Pariza, sve se vrti oko novca;
+• FLOBER — „Gospođa Bovari": žena koja je čitala previše romana i ne može da podnese običan život (nešto kao Don Kihot, samo bez smeha);
+• DIKENS — siromašni London, deca u fabrikama;
+• TOLSTOJ — „Rat i mir", „Ana Karenjina";
+• DOSTOJEVSKI — „Zločin i kazna", „Braća Karamazovi": realizam koji silazi u podrum duše — krivica, vera, sumnja, zločin. Za mnoge pisce 20. veka on je preteča moderne psihologije u književnosti.
+
+Kod nas: Borisav Stanković („Nečista krv"), Laza Lazarević, Stevan Sremac („Zona Zamfirova"), Radoje Domanović (satira).
+
+Iz realizma je izrastao NATURALIZAM (Zola): čovek kao proizvod nasleđa i sredine, bez ulepšavanja — i bede i prljavštine.`,
+pr:{p:'Šta je bio cilj realizma?', o:['Bekstvo u maštu','Prikazati društvo i ljude onakve kakvi jesu','Pisati samo u stihu'], t:1, z:'Balzak, Flober, Tolstoj, Dostojevski — novac, klase, brak i duša, bez romantičnog ulepšavanja.'}},
+{n:'Modernizam i posle', t:`Početkom 20. veka — Frojd, Ajnštajn, Prvi svetski rat — svet više ne izgleda čvrsto. Književnost to oseća. MODERNIZAM:
+• TOK SVESTI — misli onako kako zaista teku, bez reda (Džems DŽOJS, „Uliks", 1922; Virdžinija VULF);
+• PRUST — „U traganju za izgubljenim vremenom": kolačić umočen u čaj vraća celo detinjstvo;
+• KAFKA — „Proces", „Preobražaj": čovek u apsurdnom svetu koji ga melje bez objašnjenja;
+• kod nas: Miloš CRNJANSKI („Seobe", „Dnevnik o Čarnojeviću"), Rastko Petrović.
+
+Posle 1945: egzistencijalizam (Kami, „Stranac"), pa POSTMODERNIZAM — igra sa samom pričom, citatima, više istina (Borhes, Eko, „Ime ruže"; kod nas Milorad PAVIĆ, „Hazarski rečnik", roman-leksikon koji se čita kojim god redom). MAGIJSKI REALIZAM: Markes, „Sto godina samoće" (1967) — čuda ispričana kao svakodnevica.
+
+Američka linija koju dobro znaš: HEMINGVEJ (kratka rečenica, ono najvažnije prećutano — „ledeni breg"), pa Bukovski i Karver — ogoljena svakodnevica, rad, piće, usamljenost.
+
+Srpski nobelovac: IVO ANDRIĆ (Nobelova nagrada 1961; „Na Drini ćuprija", „Prokleta avlija"). I Danilo KIŠ („Grobnica za Borisa Davidoviča", „Bašta, pepeo").`,
+pr:{p:'Šta je „tok svesti"?', o:['Naučni opis mozga','Tehnika koja prikazuje misli onako kako zaista teku, bez reda','Vrsta rime'], t:1, z:'Džojs i Vulf pišu misao kako skače — modernizam ulazi još dublje u glavu.'}},
+{n:'Linija u jednoj rečenici — i kraj', t:`Da se zapamti kao kostur:
+ep (zajednica, junak) → renesansa (čovek u centru, Šekspir) → barok i klasicizam (prolaznost, pa red) → ROMANTIZAM (osećanje, pobuna, narod) → REALIZAM (društvo kakvo jeste, novac i duša) → MODERNIZAM (svet se raspada, tok svesti, apsurd) → POSTMODERNIZAM (igra sa pričom, više istina).
+
+Svaka epoha je pobuna protiv prethodne — romantizam protiv razuma, realizam protiv romantičnog ulepšavanja, modernizam protiv realističkog „pouzdanog pripovedača".
+
+Za pisca, nekoliko alata koje je roman izmislio:
+• PRIPOVEDAČ — ko priča? (sveznajući, ja-pripovedač, nepouzdani pripovedač koji laže ili ne zna);
+• TAČKA GLEDIŠTA — kroz čije oči gledamo;
+• PODTEKST — ono što se ne kaže (Hemingvej, Čehov);
+• VREME — linearno, unazad, isprekidano.
+
+Sledeće: slike i zgrade — kako su se kroz iste epohe menjali slikarstvo i arhitektura.`,
+pr:{p:'Šta je nepouzdani pripovedač?', o:['Pripovedač koji ne zna pravopis','Pripovedač kome čitalac ne može potpuno da veruje — laže, greši ili ne vidi','Sveznajući pripovedač'], t:1, z:'Modernizam je razbio poverenje u pripovedača — čitalac mora sam da sklopi istinu.'}}
+],
+kljucno:['Roman = unutrašnji svet pojedinca; Genđi (oko 1000), u Evropi „Don Kihot" (1605/1615).','Renesansa (Šekspir) → barok → klasicizam i prosvetiteljstvo → romantizam (osećanje, narod; Njegoš 1847).','Realizam: Balzak, Flober, Dikens, Tolstoj, Dostojevski; kod nas Stanković, Sremac, Domanović.','Modernizam: Džojs, Vulf, Prust, Kafka, Crnjanski; posle 1945: egzistencijalizam, postmodernizam (Pavić), magijski realizam (Markes); Hemingvej → Bukovski i Karver.','Andrić — Nobel 1961; alati romana: pripovedač, tačka gledišta, podtekst, vreme.'],
+kartice:[
+{p:'Ko je napisao „Don Kihota" i kada?', o:'Servantes, 1605. i 1615.'},
+{p:'Koje su glavne odlike romantizma?', o:'Osećanje, priroda, mašta, narod, buntovni pojedinac.'},
+{p:'Šta je realizam u književnosti?', o:'Prikaz društva i ljudi onakvih kakvi jesu (19. vek).'},
+{p:'Ko je dobio Nobelovu nagradu za književnost iz Srbije i kada?', o:'Ivo Andrić, 1961.'},
+{p:'Šta je Hemingvejev „ledeni breg"?', o:'Najvažnije ostaje ispod površine — prećutano, u podtekstu.'}
+],
+razgovor:['Gde bi u ovoj liniji smestio sebe kao pisca — kojoj epohi pripada tvoj glas?','Bukovski i Karver dolaze iz realizma, a ne iz modernizma. Šta misliš, zašto im je baš ogoljena svakodnevica bila dovoljna?']},
+{id:'10-4', naslov:'Slikarstvo i arhitektura kroz epohe',
+kuka:{p:'Fresku „Beli anđeo" mnogi smatraju jednim od remek-dela evropskog srednjeg veka. Gde se nalazi?', o:['U Rimu','U manastiru Mileševa','U Parizu'], t:1},
+delovi:[
+{n:'Antika i srednji vek', t:`ANTIKA:
+• EGIPAT — piramide i hramovi za večnost; ljudi naslikani uvek isto, glava iz profila, oko spreda — slika nije trebalo da bude „verna", nego jasna i večna.
+• GRČKA — ideal lepote i proporcije: skulpture idealnih tela; hramovi sa STUBOVIMA (dorski — prost, jonski — sa uvojcima, korintski — sa lišćem). Partenon u Atini.
+• RIM — inženjeri: LUK, SVOD, KUPOLA i beton. Panteon u Rimu ima betonsku kupolu staru skoro 1.900 godina, i danas najveću od nearmiranog betona na svetu.
+
+SREDNJI VEK:
+• VIZANTIJA — mozaici sa zlatnom pozadinom, IKONE: ne prikaz sveta nego prozor u nebo, zato ravne, svečane, bez dubine.
+• SRPSKO SREDNJOVEKOVNO SLIKARSTVO — freske u manastirima: „BELI ANĐEO" u Mileševi (13. vek), Sopoćani (oko 1265) — freske tako žive da ih istoričari umetnosti ubrajaju u vrh evropske umetnosti svog vremena, pre italijanske renesanse. Studenica, Dečani i Gračanica su pod zaštitom UNESKA.
+• ZAPAD — ROMANIKA (debeli zidovi, mali prozori, polukružni lukovi) pa GOTIKA (od 12. veka): šiljati luk i potporni lukovi omogućili su visoke, tanke zidove i ogromne VITRAŽE — katedrala puna svetla (Notr Dam, Šartr, Keln).`,
+pr:{p:'Šta je gotika omogućila u arhitekturi?', o:['Niske zgrade debelih zidova','Visoke katedrale sa tankim zidovima i ogromnim vitražima — puno svetla','Kupolu od betona'], t:1, z:'Šiljati luk i potporni lukovi rasteretili su zidove, pa su mogli da budu visoki i staklom ispunjeni.'}},
+{n:'Renesansa i barok', t:`RENESANSA (Italija, 15–16. vek) — dva otkrića:
+• LINEARNA PERSPEKTIVA (Bruneleski, oko 1420): matematički način da se na ravnoj površini nacrta dubina. Slika postaje prozor u svet, a ne ikona.
+• čovek, telo i priroda proučeni do kraja: anatomija, svetlo, senka.
+Velika trojka: LEONARDO („Mona Liza", „Tajna večera"), MIKELANĐELO (David, tavanica Sikstinske kapele 1508–1512), RAFAEL („Atinska škola"). Na severu: Direr, Van Ajk (ulje na platnu).
+
+BAROK (17. vek) — drama i pokret: snažan kontrast svetla i tame, kao reflektor u mraku.
+• KARAVAĐO — svetac kao obični čovek prljavih stopala, osvetljen iz mraka;
+• REMBRANT — autoportreti kroz ceo život, do starosti, bez ulepšavanja;
+• VELASKES — „Dvorske dame";
+• arhitektura: Trg Svetog Petra, Versaj — moć i raskoš.`,
+pr:{p:'Šta je linearna perspektiva?', o:['Slikanje svetlim bojama','Matematički način da se na ravnoj slici prikaže dubina','Slikanje na zidu'], t:1, z:'Bruneleski je oko 1420. pokazao kako linije teže tački nestajanja — slika postaje prozor.'}},
+{n:'19. vek — od akademije do impresionizma', t:`Do sredine 19. veka slikarstvom vladaju AKADEMIJE: istorijske i mitološke scene, savršena tehnika.
+
+• ROMANTIZAM — osećanje i drama: Delakroa („Sloboda predvodi narod"), Turner (oluje i svetlost), Goja (užasi rata).
+• REALIZAM — Kurbe: slikaj radnike i sahrane na selu, ne bogove.
+
+Onda je stigla FOTOGRAFIJA (1839) — ona je verno prikazivanje uradila bolje i jeftinije. Slikarstvo je moralo da pita: čemu onda ja?
+
+Odgovor je bio IMPRESIONIZAM. Mone, Renoar, Dega slikaju napolju, brzo, sitnim potezima čiste boje — ne predmet, nego SVETLO i trenutni utisak. Ime dolazi od Moneove slike „Impresija, izlazak sunca" (1872); kritičar je to mislio podrugljivo. Prva njihova izložba bila je 1874.
+
+POSTIMPRESIONISTI idu dalje, svaki na svoju stranu: VAN GOG (boja kao osećanje — „Zvezdana noć"; za života prodao jedva neku sliku), SEZAN (priroda svedena na valjak, kuglu i kupu — put ka kubizmu), Gogen.
+
+Kod nas: Paja Jovanović (akademski realizam, „Seoba Srba"), Nadežda Petrović (fovizam, snažna boja; umrla kao bolničarka 1915).`,
+pr:{p:'Zašto je fotografija promenila slikarstvo?', o:['Jer je zabranila slikanje','Jer je verno prikazivanje radila bolje, pa je slikarstvo tražilo novo — svetlo, utisak, osećanje','Nije ga promenila'], t:1, z:'Kad mašina beleži stvarnost, slikar pita šta samo on može — i nastaju impresionizam i dalje.'}},
+{n:'20. vek', t:`Za pedeset godina slikarstvo je napustilo prikaz sveta:
+• KUBIZAM (Pikaso, Brak, oko 1907): predmet razbijen i viđen iz više uglova odjednom. Pikasova „Gernika" (1937) — bombardovanje grada u Španiji, krik protiv rata.
+• APSTRAKCIJA (Kandinski, Maljevič, Mondrijan): slika ne prikazuje ništa — samo boja, linija, oblik, kao muzika. Maljevičev „Crni kvadrat" (1915).
+• NADREALIZAM (Dali, Magrit): san i nesvesno po Frojdu — satovi koji se tope.
+• APSTRAKTNI EKSPRESIONIZAM (Polok — boja prolivena po platnu na podu), pa POP-ART (Endi Vorhol — Kola, Merilin, konzerva supe: umetnost od reklame i masovne kulture).
+
+Kod nas: Sava Šumanović, Milena Pavlović Barili, Petar Lubarda, Marina Abramović (umetnost performansa — telo kao delo).
+
+Česta rečenica pred apstraktnom slikom: „to bi i moje dete nacrtalo". Odgovor iz lekcije o umetnosti: pitanje nije samo „može li se nacrtati", nego zašto je to bilo novo tada i šta je otvorilo.`,
+pr:{p:'Šta radi kubizam?', o:['Slika svetlo u prirodi','Razbija predmet i prikazuje ga iz više uglova odjednom','Slika snove'], t:1, z:'Pikaso i Brak — kao da obilaziš predmet i sve strane vidiš istovremeno.'}},
+{n:'Moderna arhitektura — i kraj', t:`Čelik, armirani beton, staklo i lift (krajem 19. veka) promenili su grad: prvi NEBODERI u Čikagu i Njujorku.
+
+Moderna arhitektura (20. vek) kaže: dosta ukrasa.
+• „FORMA PRATI FUNKCIJU" (Luis Salivan): zgrada izgleda kako je to potrebno za ono čemu služi.
+• BAUHAUS (Nemačka, 1919) — škola koja je spojila umetnost, zanat i industriju: prost, funkcionalan dizajn koji danas vidiš i u IKEA nameštaju.
+• LE KORBIZJE — „kuća je mašina za stanovanje"; zgrade na stubovima, ravni krovovi, trake prozora. Njegove ideje su oblikovale i NOVI BEOGRAD: blokovi, zelenilo između, odvojeni saobraćaj; „Geneks kula" i Muzej savremene umetnosti su primeri jugoslovenskog modernizma koji danas izazivaju divljenje stranih arhitekata.
+• Pa reakcija: POSTMODERNA arhitektura (ukras, boja, ironija se vraćaju) i danas „zelena" arhitektura.
+
+Kostur lekcije: Egipat (večnost) → Grčka (proporcija) → Rim (luk i kupola) → ikona i freska (nebo) → gotika (svetlo) → renesansa (perspektiva) → barok (drama) → impresionizam (svetlo i trenutak, posle fotografije) → kubizam i apstrakcija (razbijanje prikaza) → moderna arhitektura (funkcija).
+
+Sledeće: muzika — od Baha do roka.`,
+pr:{p:'Šta znači „forma prati funkciju"?', o:['Zgrada mora biti lepa','Zgrada treba da izgleda onako kako zahteva ono čemu služi, bez suvišnog ukrasa','Svaka zgrada mora imati stubove'], t:1, z:'Moto moderne arhitekture (Salivan): prvo namena, pa iz nje oblik.'}}
+],
+kljucno:['Antika: Egipat (večnost), Grčka (proporcija, stubovi), Rim (luk, svod, kupola — Panteon).','Srednji vek: ikona i mozaik; srpske freske (Beli anđeo, Sopoćani) u vrhu evropske umetnosti; romanika → gotika (vitraži, svetlo).','Renesansa: perspektiva, Leonardo, Mikelanđelo, Rafael; barok: svetlo i tama (Karavađo, Rembrant).','Posle fotografije (1839): impresionizam (Mone, 1872/1874), postimpresionizam (Van Gog, Sezan); 20. vek: kubizam, apstrakcija, nadrealizam, pop-art.','Moderna arhitektura: forma prati funkciju, Bauhaus, Le Korbizje — i Novi Beograd.'],
+kartice:[
+{p:'Gde je freska „Beli anđeo"?', o:'U manastiru Mileševa (13. vek).'},
+{p:'Šta je gotika donela arhitekturi?', o:'Šiljati luk, visoke tanke zidove i velike vitraže — katedralu punu svetla.'},
+{p:'Ko je oslikao tavanicu Sikstinske kapele?', o:'Mikelanđelo (1508–1512).'},
+{p:'Odakle ime impresionizam?', o:'Od Moneove slike „Impresija, izlazak sunca" (1872).'},
+{p:'Šta je Bauhaus?', o:'Nemačka škola (1919) koja je spojila umetnost, zanat i industriju — funkcionalan dizajn.'}
+],
+razgovor:['Koja slika ili zgrada te je stvarno zaustavila — i šta se tad desilo u tebi?','Novi Beograd: ružni blokovi ili utopija od betona? Šta vidiš kad prođeš tuda?']},
+{id:'10-5', naslov:'Muzika — od klasike do roka',
+kuka:{p:'Šta se dešava sa tonom kad mu se frekvencija udvostruči?', o:['Postane disonantan','Čujemo „isti" ton, samo oktavu više','Postane tiši'], t:1},
+delovi:[
+{n:'Od čega je muzika', t:`Muzika je zvuk organizovan u vremenu. Četiri osnovna sastojka:
+• RITAM — raspored trajanja i naglasaka; ono na šta lupkaš nogom.
+• MELODIJA — niz tonova različite visine; ono što pevušiš.
+• HARMONIJA — više tonova istovremeno (akordi); ono što daje „boju" — durski akord zvuči svetlo, molski tužno.
+• BOJA ZVUKA — po čemu razlikuješ violinu od trube iako sviraju isti ton.
+
+Visina tona je FREKVENCIJA treperenja. Kad se frekvencija udvostruči, čujemo isti ton, više — OKTAVU. Još je Pitagora primetio da prijatni sazvuci odgovaraju prostim odnosima (2:1, 3:2). Zapadna muzika deli oktavu na 12 polustepena.
+
+Muzika deluje direktno na telo: istraživanja pokazuju da u trenucima najjačeg doživljaja („trnci niz kičmu") mozak oslobađa DOPAMIN — isti hemijski signal nagrade kao kod hrane ili ljubavi. I to u iščekivanju vrhunca, ne samo u njemu.`,
+pr:{p:'Šta je harmonija?', o:['Brzina pesme','Više tonova istovremeno — akordi','Glasnoća'], t:1, z:'Ritam je vreme, melodija niz tonova, harmonija tonovi zajedno.'}},
+{n:'Klasična muzika — epohe', t:`„Klasična" muzika (umetnička muzika Zapada) ima svoju liniju epoha:
+• SREDNJI VEK — gregorijanski koral: jedan glas, crkva, bez instrumenata.
+• BAROK (oko 1600–1750) — VIVALDI („Četiri godišnja doba"), BAH (1685–1750): složeno preplitanje više melodija istovremeno (kontrapunkt), matematika i vera.
+• KLASICIZAM (oko 1750–1820) — jasnoća, ravnoteža, forma: HAJDN, MOCART (1756–1791; za 35 godina života preko 600 dela), rani BETOVEN. Simfonija i sonata dobijaju svoj oblik.
+• ROMANTIZAM (19. vek) — osećanje, strast, nacija: BETOVEN je most (Deveta simfonija, pisana kad je bio potpuno gluv — „Oda radosti" je danas himna EU), pa Šopen, Šubert, Verdi i Vagner (opera), Čajkovski.
+• 20. VEK — pravila se ruše: STRAVINSKI („Posvećenje proleća", 1913 — na premijeri u Parizu publika se pobunila), Šenberg (muzika bez tonaliteta), pa filmska muzika.
+
+Kod nas: Stevan MOKRANJAC („Rukoveti" — narodne pesme u horskoj obradi), Josif Marinković.`,
+pr:{p:'Koja je posebnost Betovenove Devete simfonije?', o:['Napisana je za pet minuta','Napisao ju je kad je bio potpuno gluv; „Oda radosti" je danas himna EU','Nema melodiju'], t:1, z:'Betoven je komponovao Devetu ne čujući je — muziku je „slušao" u glavi.'}},
+{n:'Bluz i džez — muzika koja je promenila 20. vek', t:`Gotovo sva popularna muzika 20. veka ima koren na jednom mestu: kod potomaka afričkih robova na jugu SAD.
+
+• BLUZ (kraj 19. – početak 20. veka) — iz radnih pesama, duhovne muzike i afričkih ritmova. Jednostavan oblik (najčešće 12 taktova, tri akorda), „plave note" koje vise između dura i mola, i tekstovi o bedi, ljubavi, putu i izdaji. Bluz je muzika koja tugu ne leči, nego je kaže.
+• DŽEZ (Nju Orleans, početak 20. veka) — bluz + marševi + IMPROVIZACIJA: muzičar izmišlja na licu mesta. Luj Armstrong, Djuk Elington, kasnije Čarli Parker, Majls Dejvis, Džon Koltrejn.
+
+Tehnika je promenila sve: GRAMOFONSKA PLOČA i RADIO (1920-ih) — prvi put muzika može da se sluša bez svirača u sobi, i ista pesma stiže do miliona ljudi. Pojavljuje se ZVEZDA.`,
+pr:{p:'Šta je posebno u džezu?', o:['Svira se samo po notama','Improvizacija — muzičar izmišlja na licu mesta','Nema ritam'], t:1, z:'Džez spaja bluz i marševe, a srce mu je improvizacija.'}},
+{n:'Rok i posle', t:`ROKENROL (sredina 1950-ih): bluz i ritam, električna gitara, mladost i pobuna. Čak Beri, Elvis Prisli, Litl Ričard. Prvi put muzika pripada TINEJDŽERIMA — i roditelji je mrze.
+
+1960-e: BITLSI (od jednostavnih ljubavnih pesama do studijskih eksperimenata), ROLING STOUNSI (prljaviji, bliži bluzu), Bob Dilan (tekst kao poezija — 2016. dobio Nobelovu nagradu za književnost), Džimi Hendriks. Rok postaje glas generacije i protesta.
+
+Zatim grananje: HARD ROK i METAL (Led Cepelin, Blek Sabat), PANK (sredina 1970-ih — tri akorda, bes, „uradi sam"; Sex Pistols, Ramones), NOVI TALAS, HIP-HOP (Bronks, 1970-ih — ritam i reč, DJ i reper), elektronska muzika.
+
+Jugoslavija je imala jednu od najživljih rok scena van Zapada: BIJELO DUGME, RIBLJA ČORBA, Smak, YU grupa; početkom 1980-ih NOVI TALAS — Električni orgazam, Idoli, Šarlo Akrobata, pa EKV i Partibrejkers. Pesme su često nosile i ono što se nije smelo reći direktno.`,
+pr:{p:'Iz čega je nastao rokenrol?', o:['Iz klasične muzike','Iz bluza i „ritam i bluz" muzike, uz električnu gitaru','Iz narodne muzike Evrope'], t:1, z:'Koreni roka su u afroameričkom bluzu; 1950-ih postaje muzika mladih.'}},
+{n:'Kraj oblasti', t:`Zašto nam muzika toliko znači?
+• Pamćenje: pesma iz 17. godine vraća te tamo bolje od fotografije — muzika i emocije su povezane u mozgu.
+• Zajednica: navijačka pesma, slava, koncert, kafana — muzika od pojedinaca pravi „mi".
+• Osećanje bez reči: muzika kaže ono što ne znaš da kažeš.
+
+Kostur lekcije: ritam, melodija, harmonija, boja; oktava = dvostruka frekvencija; klasika — barok (Bah), klasicizam (Mocart), romantizam (Betoven, Šopen), 20. vek (Stravinski); bluz i džez iz afroameričke tradicije; rok, pank, hip-hop; jugoslovenski rok i novi talas.
+
+Kostur cele oblasti „Umetnost i priče": umetnost je stara koliko i mi i služi smislu → mit, ep i tragedija → roman od Don Kihota do Bukovskog → slike i zgrade od piramide do Novog Beograda → muzika od Baha do Električnog orgazma.
+
+Sledeće (poslednji alat pa poslednja oblast): kako te ubeđuju — pa tehnologija: od vatre do veštačke inteligencije.`,
+pr:{p:'Zašto pesma iz mladosti vraća sećanja jače od fotografije?', o:['Slučajno','Muzika je u mozgu tesno povezana sa emocijama i pamćenjem','Jer je glasna'], t:1, z:'Muzika budi emocije, a emocije učvršćuju sećanja — pesma vraća ceo trenutak.'}}
+],
+kljucno:['Muzika = ritam, melodija, harmonija, boja; oktava je dvostruka frekvencija; vrhunac doživljaja oslobađa dopamin.','Klasika: srednji vek (koral) → barok (Bah, Vivaldi) → klasicizam (Hajdn, Mocart) → romantizam (Betoven, Šopen, Verdi) → 20. vek (Stravinski); kod nas Mokranjac.','Bluz i džez iz afroameričke tradicije; improvizacija; ploča i radio stvaraju zvezde.','Rokenrol (1950-ih), Bitlsi i Stounsi, Dilan, metal, pank, hip-hop; jugoslovenski rok i novi talas.','Muzika veže pamćenje, osećanja i zajednicu.'],
+kartice:[
+{p:'Koja su četiri sastojka muzike?', o:'Ritam, melodija, harmonija, boja zvuka.'},
+{p:'Šta je oktava?', o:'Ton dvostruko veće frekvencije — „isti" ton, više.'},
+{p:'Koji kompozitor je Devetu simfoniju napisao gluv?', o:'Betoven.'},
+{p:'Gde su koreni bluza i džeza?', o:'U muzici afroameričke zajednice na jugu SAD.'},
+{p:'Koji muzičar je dobio Nobelovu nagradu za književnost?', o:'Bob Dilan, 2016.'}
+],
+razgovor:['Koja pesma te vraća u neko tačno vreme i mesto — i šta ti donese?','Bluz „ne leči tugu, nego je kaže". Da li i tvoje pisanje radi isto?']}
 ]},
 {id:'11', naziv:'Tehnologija', ikona:'💻', era:'danas → sutra', lekcije:[
 {id:'11-1', naslov:'Kako tehnologija menja ljude — od vatre do struje'},

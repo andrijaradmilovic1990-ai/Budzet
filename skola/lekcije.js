@@ -320,18 +320,595 @@ razgovor:['Kvanti kažu da na dnu stvarnosti nema sigurnosti, samo verovatnoće.
 ]},
 
 {id:'2', naziv:'Zemlja', ikona:'🌍', era:'pre 4,6 mlrd god.', lekcije:[
-{id:'2-1', naslov:'Kako je nastala Zemlja i šta je u njoj'},
-{id:'2-2', naslov:'Tektonske ploče — kontinenti, planine, zemljotresi, vulkani'},
-{id:'2-3', naslov:'Atmosfera i okeani — vreme nije isto što i klima'},
-{id:'2-4', naslov:'Klimatske promene — šta je dokazano, a šta sporno'},
-{id:'2-5', naslov:'Resursi — voda, energija, hrana, sirovine'}
+{id:'2-1', naslov:'Kako je nastala Zemlja i šta je u njoj',
+kuka:{p:'Koliko je stara planeta Zemlja?', o:['Oko 10.000 godina','Oko 4,5 milijardi godina','Oko 13,8 milijardi godina'], t:1},
+delovi:[
+{n:'Rođenje od prašine', t:`Pre oko 4,5 milijardi godina oko mladog Sunca kružio je disk gasa i prašine — ostaci starih zvezda iz prošle oblasti.
+
+Zrnca su se lepila u grudvice, grudvice u kamenje, kamenje u tela velika kilometrima. Ta tela su se sudarala i spajala. Svaki sudar je oslobađao toplotu, pa je mlada Zemlja bila užarena, rastopljena kugla, bombardovana sa svih strana.
+
+Kako znamo koliko je stara? Neki elementi se raspadaju stalnom brzinom — uran polako prelazi u olovo, kao pesak u peščanom satu. Kad izmeriš koliko je urana ostalo, a koliko olova nastalo, znaš koliko je sat radio. Najstariji meteoriti (ostaci istog diska) su stari oko 4,57 milijardi godina; najstariji zrnci minerala na Zemlji, nađeni u Australiji, oko 4,4 milijarde.`,
+pr:{p:'Kako znamo koliko je Zemlja stara?', o:['Po brzini radioaktivnog raspada u stenama i meteoritima','Po broju slojeva zemlje u dubokom bunaru','Iz najstarijih zapisa starih naroda'], t:0, z:'Radioaktivni elementi (npr. uran → olovo) raspadaju se stalnom brzinom, pa rade kao sat u steni.'}},
+{n:'Sudar koji je napravio Mesec', t:`Ubrzo posle nastanka, Zemlja je doživela najveći udarac u svojoj istoriji. Telo veličine Marsa (naučnici ga zovu Teja) udarilo je u nju iskosa.
+
+Deo Zemlje i Teje rasprsnuo se u svemir, oblak se okretao oko Zemlje i za kratko vreme slepio u — MESEC. Zato je Mesec po sastavu skoro kao Zemljin omotač.
+
+Mesec nije ukras:
+• Stabilizuje nagib Zemljine ose, pa su godišnja doba stabilna milionima godina.
+• Pravi plimu i oseku.
+• Polako se udaljava — oko 3,8 cm godišnje (izmereno laserom odbijenim od ogledala koja su ostavili astronauti).`,
+pr:{p:'Kako je, najverovatnije, nastao Mesec?', o:['Zemlja ga je uhvatila dok je prolazio','Od materijala izbačenog u sudaru Zemlje i tela veličine Marsa','Nastao je zajedno sa Suncem, pa ga je Zemlja privukla'], t:1, z:'Sudar sa „Tejom" izbacio je materijal koji se slepio u Mesec — zato liči na Zemljin omotač.'}},
+{n:'Šta je ispod nas', t:`Zemlja je kao breskva, u slojevima:
+
+• KORA — tanka, 5 do 70 km. Prema celoj Zemlji tanja je od ljuske na jabuci. Na njoj je sve što znamo.
+• PLAŠT — oko 2.900 km vrele stene. Čvrst je, ali kroz milione godina teče, kao vosak ili asfalt na suncu.
+• SPOLJAŠNJE JEZGRO — tečno gvožđe i nikl.
+• UNUTRAŠNJE JEZGRO — čvrsto gvožđe, vrelo oko 5.000 °C, skoro kao površina Sunca. Čvrsto je samo zato što je pritisak strašan.
+
+Najdublja rupa koju je čovek iskopao ima oko 12 km — ni kroz koru nismo prošli. Kako onda znamo? Po ZEMLJOTRESIMA. Njihovi talasi prolaze kroz celu planetu, menjaju brzinu na granicama slojeva, a jedna vrsta talasa uopšte ne prolazi kroz tečnost. Tako je otkriveno da je spoljašnje jezgro tečno — kao ultrazvuk planete.`,
+pr:{p:'Kako znamo šta je u središtu Zemlje?', o:['Iskopali smo bušotinu do jezgra','Po tome kako zemljotresni talasi putuju kroz unutrašnjost','Po lavi koja izbija iz vulkana'], t:1, z:'Najdublja bušotina ima samo oko 12 km. Talasi zemljotresa su „ultrazvuk" planete — menjaju se na granicama slojeva.'}},
+{n:'Nevidljivi štit', t:`Tečno gvožđe u spoljašnjem jezgru se stalno meša i okreće. Pokretni metal stvara MAGNETNO POLJE — Zemlja je ogroman magnet. Zato kompas pokazuje sever.
+
+To polje je štit. Sa Sunca stalno duva „Sunčev vetar" — mlaz naelektrisanih čestica. Magnetno polje ga skreće oko planete. Gde čestice ipak uđu, kod polova, nebo svetli: POLARNA SVETLOST.
+
+Bez štita bi Sunčev vetar vremenom oduvao atmosferu. Mars je to izgubio: jezgro mu se ohladilo, polje nestalo, atmosfera se proredila, voda nestala.
+
+Zanimljivost: polovi se povremeno OBRNU — sever postane jug. Poslednji put pre oko 780.000 godina. Znamo to iz stena: dok se lava hladi, sitni magnetni minerali u njoj se okrenu po polju i tako „zamrznu" pravac.`,
+pr:{p:'Šta stvara Zemljino magnetno polje?', o:['Kretanje tečnog gvožđa u spoljašnjem jezgru','Gvozdena ruda u Zemljinoj kori','Privlačenje Meseca'], t:0, z:'Pokretni rastopljeni metal u jezgru radi kao dinamo i pravi magnetno polje.'}},
+{n:'Planeta koja se menja', t:`Zemlja nije uvek bila ovakva. Ona nije stvar, nego proces.
+
+• Prvo: užarena kugla bez okeana.
+• Kad se ohladila, vodena para je pala kao kiše koje su trajale vekovima — nastali su okeani (deo vode su doneli i asteroidi).
+• Rana atmosfera nije imala kiseonika. Kiseonik su napravili sićušni mikroorganizmi (cijanobakterije) fotosintezom. Pre oko 2,4 milijarde godina kiseonika je naglo postalo dovoljno da promeni celu planetu.
+• Bilo je perioda kad je Zemlja verovatno bila skoro sva pod ledom („Zemlja grudva snega"), i perioda kad je bila toplija nego danas.
+
+U 18. veku škotski geolog Haton je gledao slojeve stena i shvatio koliko sporo nastaju. Napisao je o vremenu Zemlje: „nema traga početku, nema izgleda kraju." Rođen je pojam DUBOKO VREME — vreme toliko dugo da ljudski život u njemu nije ni treptaj.`,
+pr:{p:'Odakle kiseonik u vazduhu?', o:['Bio je u atmosferi od samog početka','Proizveli su ga mikroorganizmi fotosintezom','Izbacili su ga vulkani'], t:1, z:'Rana atmosfera nije imala kiseonika; napravile su ga cijanobakterije, a pre oko 2,4 milijarde godina ga je postalo dovoljno da promeni planetu.'}}
+],
+kljucno:['Zemlja je stara oko 4,5 milijardi godina; starost znamo po radioaktivnom „satu" u stenama.','Mesec je nastao iz sudara Zemlje sa telom veličine Marsa.','Slojevi: kora (tanka), plašt, tečno spoljašnje i čvrsto unutrašnje jezgro — znamo ih po zemljotresnim talasima.','Tečno gvožđe u jezgru pravi magnetno polje koje štiti atmosferu.','Kiseonik su napravili mikroorganizmi; Zemlja je proces koji traje u dubokom vremenu.'],
+kartice:[
+{p:'Koliko je stara Zemlja i kako to znamo?', o:'Oko 4,5 milijardi godina — po radioaktivnom raspadu (npr. uran → olovo).'},
+{p:'Kako je nastao Mesec?', o:'Iz materijala izbačenog u sudaru Zemlje i tela veličine Marsa.'},
+{p:'Koji su slojevi Zemlje?', o:'Kora, plašt, spoljašnje (tečno) i unutrašnje (čvrsto) jezgro.'},
+{p:'Čemu služi Zemljino magnetno polje?', o:'Štiti od Sunčevog vetra i čuva atmosferu; pravi ga tečno gvožđe u jezgru.'},
+{p:'Ko je napravio kiseonik u vazduhu?', o:'Mikroorganizmi (cijanobakterije) fotosintezom.'}
+],
+razgovor:['Zemlja je proces, ne stvar. Šta se u tvom životu menja tako sporo da to ne primećuješ dok ne pogledaš unazad?','Objasni nekome kako znamo šta je u Zemljinom jezgru, a da niko nije kopao do njega.']},
+
+{id:'2-2', naslov:'Tektonske ploče — kontinenti, planine, zemljotresi, vulkani',
+kuka:{p:'Da li se kontinenti pomeraju?', o:['Ne, stoje gde su oduvek','Da, nekoliko centimetara godišnje','Da, nekoliko kilometara godišnje'], t:1},
+delovi:[
+{n:'Ideja kojoj su se smejali', t:`1912. nemački meteorolog Alfred Vegener je primetio ono što svako vidi na karti: obale Južne Amerike i Afrike se uklapaju kao delovi slagalice.
+
+Ali nije stao na obliku. Na obe strane okeana našao je iste stene i iste fosile — čak i fosile malog gmizavca koji nikako nije mogao da prepliva okean. Zaključio je: kontinenti su nekad bili jedan, PANGEA, i od tada se razmiču.
+
+Geolozi su mu se smejali. Ne zato što nije imao dokaze, nego zato što nije umeo da objasni ŠTA pokreće kontinente. Umro je 1930. na Grenlandu, na ekspediciji, neshvaćen.
+
+Potvrda je stigla tek 1960-ih, kad su izmerili dno okeana i videli da tamo nastaje nova kora. Vegener je bio u pravu pola veka pre ostalih.`,
+pr:{p:'Zašto Vegenerova ideja dugo nije prihvaćena?', o:['Nije imao nijedan dokaz','Nije umeo da objasni šta pokreće kontinente','Bio je protiv Darvinove teorije'], t:1, z:'Imao je fosile, stene i oblik obala, ali ne i mehanizam. Mehanizam (širenje okeanskog dna) otkriven je tek 1960-ih.'}},
+{n:'Ploče koje plutaju', t:`Danas znamo: Zemljina kora sa gornjim delom plašta nije jedan komad, nego je ispucala na oko 15 velikih TEKTONSKIH PLOČA. One leže na mekšem, vrelom plaštu i polako se pomeraju.
+
+Koliko brzo? Od 2 do 10 centimetara godišnje — otprilike brzinom kojom ti rastu nokti. Malo za jedan život, ogromno za sto miliona godina.
+
+Šta ih pokreće? Toplota iz unutrašnjosti Zemlje. Plašt se kreće u ogromnim, sporim strujama, kao voda koja ključa u šerpi, a hladne, teške ploče na nekim mestima tonu nazad u dubinu i vuku ostatak za sobom.`,
+pr:{p:'Kojom brzinom se kreću tektonske ploče?', o:['Brzinom rasta noktiju — nekoliko cm godišnje','Nekoliko metara godišnje','Toliko sporo da se ne može izmeriti'], t:0, z:'Od 2 do 10 cm godišnje — sateliti to danas mere direktno.'}},
+{n:'Gde se ploče sreću', t:`Sve zanimljivo se dešava na ivicama ploča. Tri vrste granica:
+
+1. RAZILAŽENJE. Ploče se razmiču, odozdo izlazi magma i pravi novu koru. Usred Atlantika ide ogroman podvodni planinski venac. Island leži baš na njemu — tamo možeš stajati jednom nogom na severnoameričkoj, a drugom na evroazijskoj ploči.
+
+2. SUDAR. Kad se okeanska ploča sudari sa kontinentalnom, teža okeanska podvlači se pod nju i topi — iznad niču vulkani (Ande). Kad se sudare dva kontinenta, nijedan ne tone, pa se zgužvaju u planine. Indija je udarila u Aziju i podigla HIMALAJE — i Mont Everest i danas raste po nekoliko milimetara godišnje.
+
+3. KLIZANJE. Ploče se taru jedna o drugu bočno. Najpoznatiji primer je rased San Andreas u Kaliforniji.`,
+pr:{p:'Kako su nastali Himalaji?', o:['Iz jednog ogromnog vulkana','Sudarom indijske i evroazijske ploče','Erozijom jedne visoravni'], t:1, z:'Dva kontinenta su se sudarila; nijedan nije potonuo, pa se kora zgužvala u najviše planine na svetu.'}},
+{n:'Zemljotresi', t:`Ploče se ne kreću glatko. Na granicama se zakače, a napon raste godinama, decenijama, vekovima — kao kad saviješ štap. Kad stena popusti, sva energija se oslobodi odjednom: ZEMLJOTRES.
+
+Mesto pucanja u dubini je ŽARIŠTE, a tačka na površini iznad njega EPICENTAR.
+
+Jačina (magnituda) je skala koja raste u skokovima: svaki ceo broj više znači oko 32 puta više energije. Zemljotres jačine 7 nije „malo jači" od šestice — oslobađa oko 32 puta više energije.
+
+Balkan se trese jer afrička ploča, sa manjom jadranskom pločom ispred sebe, gura ka Evroaziji. Zato su jaki zemljotresi pogađali i Skoplje (1963), i Crnu Goru (1979), a Kraljevo 2010.
+
+Zemljotres se ne može tačno predvideti — ni dan, ni godina. Ali se zna gde je opasno, i može se graditi tako da kuće izdrže.`,
+pr:{p:'Zemljotres jačine 7 u odnosu na zemljotres jačine 6 oslobađa…', o:['Duplo više energije','Oko 32 puta više energije','Samo oko 10% više energije'], t:1, z:'Skala raste u skokovima: svaki ceo broj je oko 32 puta više energije.'}},
+{n:'Vulkani i kruženje stena', t:`Vulkani niču uglavnom na granicama ploča, ali i iznad „vrućih tačaka" gde iz dubine stalno izbija vrelo — tako su nastala Havajska ostrva.
+
+Velike erupcije menjaju i klimu. 1815. eksplodirao je vulkan Tambora u Indoneziji. Pepeo i gasovi u visokoj atmosferi zaklonili su Sunce, pa je 1816. u Evropi i Americi ostala upamćena kao „GODINA BEZ LETA" — sneg u junu, propali usevi, glad.
+
+Stene takođe kruže, samo mnogo sporije:
+lava se ohladi u stenu → kiša, led i vetar je usitne u pesak i mulj → taloži se u slojeve i stvrdne → pritisak i toplota je pretvore u novu stenu → potone i istopi se → izbije kao lava.
+
+I kontinenti će se ponovo spojiti: za oko 200–250 miliona godina, nova Pangea.`,
+pr:{p:'Šta je bila „godina bez leta" 1816?', o:['Godina posle velikog rata','Posledica erupcije vulkana Tambora koja je ohladila klimu','Godina kad je Zemlja bila najdalje od Sunca'], t:1, z:'Pepeo i gasovi iz Tambore (1815) zaklonili su Sunce — u Evropi i Americi leto 1816. skoro nije ni došlo.'}}
+],
+kljucno:['Kontinenti se pomeraju — Vegener je bio u pravu, dokaz je stigao tek 1960-ih.','Kora je ispucala na oko 15 ploča koje se kreću nekoliko cm godišnje.','Na granicama: razilaženje (nova kora), sudar (planine i vulkani), klizanje.','Zemljotresi su naglo oslobađanje napona; svaki stepen jačine je oko 32 puta više energije.','Vulkani menjaju i klimu; stene kruže, a kontinenti će se opet spojiti.'],
+kartice:[
+{p:'Šta je Pangea?', o:'Nekadašnji jedinstveni superkontinent od kog su nastali današnji kontinenti.'},
+{p:'Koliko brzo se kreću tektonske ploče?', o:'Nekoliko cm godišnje — kao rast noktiju.'},
+{p:'Kako nastaju planine kao Himalaji?', o:'Sudarom dve kontinentalne ploče.'},
+{p:'Koliko više energije ima zemljotres jačine 7 od šestice?', o:'Oko 32 puta više.'},
+{p:'Zašto Balkan ima zemljotrese?', o:'Afrička (i jadranska) ploča gura ka Evroaziji.'}
+],
+razgovor:['Ploče se kreću brzinom noktiju, a podižu Himalaje. Gde u životu vidiš da male, stalne stvari prave velike promene?','Vegener je bio u pravu, a nisu mu verovali jer nije imao mehanizam. Da li je bilo pošteno ne verovati mu? Zašto?']},
+
+{id:'2-3', naslov:'Atmosfera i okeani — vreme nije isto što i klima',
+kuka:{p:'Koja je razlika između vremena i klime?', o:['Nema razlike, to su dve reči za isto','Vreme je stanje danas, klima je prosek kroz decenije','Klima se odnosi samo na temperaturu'], t:1},
+delovi:[
+{n:'Tanak pokrivač', t:`Atmosfera izgleda beskrajno kad gledaš u nebo, ali je zapravo tanka. Skoro sav vazduh je u donjih tridesetak kilometara — manje od razdaljine Beograd–Smederevo, samo uvis.
+
+Sastav vazduha:
+• AZOT — oko 78%
+• KISEONIK — oko 21%
+• argon — skoro 1%
+• UGLJEN-DIOKSID — samo oko 0,04%. Malo, ali ćemo videti da je presudan.
+
+Slojevi:
+• TROPOSFERA, donjih 10–15 km: tu je sve vreme — oblaci, kiša, vetar.
+• STRATOSFERA iznad nje: tu je OZONSKI OMOTAČ, koji upija veći deo opasnog ultraljubičastog zračenja sa Sunca.`,
+pr:{p:'Kog gasa ima najviše u vazduhu?', o:['Kiseonika','Azota','Ugljen-dioksida'], t:1, z:'Azota je oko 78%, kiseonika oko 21%, a ugljen-dioksida svega oko 0,04%.'}},
+{n:'Prirodna staklena bašta', t:`Sunčeva svetlost prolazi kroz vazduh i greje tlo i more. Zagrejana površina tu toplotu zrači nazad, ali kao nevidljivo infracrveno zračenje.
+
+Neki gasovi — VODENA PARA, UGLJEN-DIOKSID, METAN — propuštaju svetlost, ali deo infracrvene toplote hvataju i vraćaju dole. Kao ćebe. To je EFEKAT STAKLENE BAŠTE.
+
+I on je dobar! Bez njega bi prosečna temperatura na Zemlji bila oko −18 °C — sve pod ledom. Sa njim je oko +15 °C.
+
+Problem nije efekat, nego koliko je ćebe debelo. Venera ima atmosferu skoro od samog ugljen-dioksida i na površini joj je oko 460 °C — toplija je od Merkura, iako je dalje od Sunca. O tome kako mi podebljavamo naše ćebe — sledeća lekcija.`,
+pr:{p:'Kakva bi bila Zemlja bez prirodnog efekta staklene bašte?', o:['Toplija nego danas','Zaleđena — prosečno oko −18 °C','Ista kao danas'], t:1, z:'Gasovi kao vodena para i CO₂ zadržavaju toplotu; bez njih bi prosek bio oko −18 °C umesto +15 °C.'}},
+{n:'Šta pokreće vreme', t:`Sunce ne greje Zemlju ravnomerno: ekvator dobija mnogo više nego polovi. Topao vazduh je lakši i diže se, hladan se spušta i struji na njegovo mesto — to je VETAR. Okretanje Zemlje skreće te struje, pa se vazduh vrti u ogromne vrtloge: cikloni (kiša) i anticikloni (vedro).
+
+Voda je drugi motor: isparava, diže se, hladi, pretvara u kapljice — OBLAK — i pada kao kiša ili sneg.
+
+A GODIŠNJA DOBA? Nisu zato što smo leti bliže Suncu. Zapravo, Zemlja je Suncu najbliža početkom januara! Godišnja doba postoje zato što je Zemljina osa NAGNUTA oko 23,5°. Leti je naša polulopta nagnuta ka Suncu — zraci padaju strmije i dan je duži. Zimi obrnuto. Zato je u Australiji Božić leti.`,
+pr:{p:'Zašto postoje godišnja doba?', o:['Jer je Zemlja leti bliže Suncu','Zbog nagiba Zemljine ose','Zbog Meseca'], t:1, z:'Nagib ose (oko 23,5°) menja koliko strmo padaju zraci i koliko traje dan. Zemlja je Suncu najbliža baš u januaru.'}},
+{n:'Okeani: toplotni akumulator', t:`Okeani pokrivaju oko 71% Zemlje i najveći su regulator klime.
+
+• Upijaju ogromnu toplotu i dobar deo ugljen-dioksida koji pustimo u vazduh.
+• Kreću se: morske struje rade kao pokretna traka koja nosi toplotu oko planete. GOLFSKA STRUJA nosi toplu vodu iz Meksičkog zaliva ka Evropi — zato je London mnogo topliji od mesta u Kanadi na istoj geografskoj širini.
+• Na severu Atlantika voda se hladi, postaje teža (hladna je i slana), tone i kreće dubinama ka jugu. Ceo krug te duboke cirkulacije traje oko hiljadu godina.
+• Sitni morski organizmi (fitoplankton) prave oko polovine kiseonika na planeti. Svaki drugi udah duguješ moru.`,
+pr:{p:'Zašto je zapadna Evropa toplija od Kanade na istoj geografskoj širini?', o:['Zbog Golfske struje koja donosi toplu vodu','Zbog zaštite planina','Zbog veće nadmorske visine'], t:0, z:'Golfska struja nosi toplu vodu iz tropskih krajeva preko Atlantika ka Evropi.'}},
+{n:'Vreme nije klima', t:`Ovo je jedna od najkorisnijih razlika u celoj školi.
+
+• VREME je šta se dešava danas i ove nedelje: pada kiša, 12 °C, duva košava.
+• KLIMA je prosek vremena kroz najmanje 30 godina: kakva je ovde obično zima, koliko obično padne kiše.
+
+Kratko: „Klima je ono što očekuješ, a vreme je ono što dobiješ."
+
+Zato jedna hladna zima ne dokazuje da nema zagrevanja, i jedan vreo dan ne dokazuje da ga ima. Klima se vidi tek u decenijama.
+
+I zašto prognoza ne vredi posle desetak dana, a klimu ipak možemo da predvidimo? Atmosfera je HAOTIČNA: sitna razlika danas preraste u ogromnu za dve nedelje (meteorolog Lorenc je to nazvao „efekat leptira"). Ali to je kao kocka: ne znaš koji broj će pasti u sledećem bacanju, a znaš prosek iz hiljadu bacanja.`,
+pr:{p:'Ova zima je bila neuobičajeno hladna. Šta to govori o klimi?', o:['Da nema globalnog zagrevanja','Skoro ništa — klima je prosek kroz decenije','Da dolazi novo ledeno doba'], t:1, z:'Jedna sezona je vreme, ne klima. Klima se vidi tek u prosecima kroz 30 i više godina.'}}
+],
+kljucno:['Atmosfera je tanka: azot 78%, kiseonik 21%, CO₂ oko 0,04%; ozon nas štiti od UV zračenja.','Prirodni efekat staklene bašte drži Zemlju na +15 °C umesto −18 °C.','Vreme pokreću nejednako grejanje i voda; godišnja doba su zbog nagiba ose.','Okeani čuvaju toplotu i CO₂, nose toplotu strujama i daju oko pola kiseonika.','Vreme je danas, klima je prosek decenija; prognoza je ograničena jer je atmosfera haotična.'],
+kartice:[
+{p:'Koja je razlika između vremena i klime?', o:'Vreme je stanje danas; klima je prosek kroz 30+ godina.'},
+{p:'Šta je efekat staklene bašte?', o:'Gasovi (vodena para, CO₂, metan) zadržavaju deo toplote koju Zemlja zrači.'},
+{p:'Zašto postoje godišnja doba?', o:'Zbog nagiba Zemljine ose od oko 23,5°.'},
+{p:'Šta radi Golfska struja?', o:'Nosi toplu vodu ka Evropi i greje je.'},
+{p:'Ko pravi oko polovine kiseonika na Zemlji?', o:'Fitoplankton u okeanima.'}
+],
+razgovor:['„Klima je ono što očekuješ, vreme je ono što dobiješ." Da li to važi i za ljude — gde?','Objasni nekome zašto postoje godišnja doba, a da ne kažeš „bliže Suncu".']},
+
+{id:'2-4', naslov:'Klimatske promene — šta je dokazano, a šta sporno',
+kuka:{p:'Koliko se Zemlja zagrejala od kraja 19. veka?', o:['Oko 0,1 °C','Oko 1,2–1,3 °C','Oko 5 °C'], t:1},
+delovi:[
+{n:'Šta je izmereno', t:`Krenimo od onoga što se ne tumači, nego meri:
+
+• TEMPERATURA. Termometri na kopnu i moru, sateliti i plutače u okeanima pokazuju isto: svet je danas za oko 1,2–1,3 °C topliji nego krajem 19. veka. 2024. je bila prva cela godina oko 1,5 °C iznad tog nivoa.
+• UGLJEN-DIOKSID. Pre industrije vazduh je imao oko 280 delova na milion, danas oko 420. Na vulkanu Mauna Loa na Havajima meri se svakog dana od 1958. — ta kriva samo raste.
+• LED I MORE. Glečeri se povlače skoro svuda, led na Arktiku leti je mnogo tanji, a nivo mora je od 1900. porastao oko 20 cm.
+• EKSTREMI. Toplotni talasi su češći i jači.
+
+Oko ovoga nema ozbiljne naučne rasprave. To su merenja.`,
+pr:{p:'Koliko je ugljen-dioksida bilo u vazduhu pre industrije, a koliko danas?', o:['Oko 280, danas oko 420 delova na milion','Isto kao danas','Oko 1.000, danas manje'], t:0, z:'Sa oko 280 na oko 420 delova na milion — porast od blizu polovine, izmeren direktno.'}},
+{n:'Kako znamo da smo to mi', t:`Da se Zemlja greje — izmereno je. Da smo uzrok mi — to se zaključuje, ali iz više nezavisnih tragova:
+
+1. FIZIKA JE STARA. Džon Tindal je još 1859. u laboratoriji pokazao da CO₂ zadržava toplotu. Šveđanin Arenijus je 1896. izračunao da će spaljivanje uglja zagrejati planetu. To nije nova ideja.
+2. POTPIS. Ugljenik iz uglja, nafte i gasa ima svoj hemijski otisak (drugačiji odnos „lakih" i „teških" atoma ugljenika). Taj otisak raste u vazduhu — višak CO₂ je iz fosilnih goriva.
+3. NIJE SUNCE. Sateliti mere Sunce od kraja 1970-ih — nije postalo jače.
+4. OBRAZAC. Donji sloj atmosfere se greje, a stratosfera iznad hladi. Tako izgleda deblje ćebe gasova, a ne jače Sunce (ono bi grejalo sve slojeve).`,
+pr:{p:'Šta pokazuje da višak CO₂ u vazduhu dolazi od fosilnih goriva?', o:['Njegov hemijski potpis u vazduhu','Boja neba','To niko ne zna'], t:0, z:'Ugljenik iz fosilnih goriva ima prepoznatljiv odnos vrsta atoma, i baš taj otisak raste u vazduhu.'}},
+{n:'„Klima se uvek menjala"', t:`To je tačno. Bilo je ledenih doba i toplijih perioda. Zemlja ulazi u ledena doba i izlazi iz njih zbog sporih promena svoje putanje oko Sunca, u ciklusima od oko 100.000 godina.
+
+Ali dve stvari su sada drugačije:
+
+1. BRZINA. Na izlazu iz poslednjeg ledenog doba temperatura je rasla nekoliko stepeni kroz hiljade godina. Sada se 1,2 °C desilo za oko 150 godina — desetinama puta brže.
+2. UZROK. Za prirodne promene postoji prirodan uzrok. Sada su prirodni uzroci (Sunce, putanja, vulkani) provereni i ne objašnjavaju porast; CO₂ objašnjava.
+
+Poređenje: šumski požari se dešavaju i prirodno, od munje. To ne znači da nijedan požar nije podmetnut. Pitanje je šta je izazvalo baš ovaj.`,
+pr:{p:'„Klima se uvek menjala." Šta je tačan odgovor?', o:['Tačno, pa je i sadašnja promena prirodna','Tačno, ali je sadašnja promena mnogo brža i ima poznat uzrok','Netačno, klima se nikad nije menjala'], t:1, z:'Prirodne promene su postojale, ali su bile mnogo sporije; za sadašnju su prirodni uzroci provereni i ne objašnjavaju je.'}},
+{n:'Šta je zaista sporno', t:`Pošteno je reći i gde se naučnici spore, i gde je neizvesnost stvarna:
+
+• KOLIKO TAČNO. Koliko će se Zemlja zagrejati kad se CO₂ udvostruči? Najverovatnije između 2,5 i 4 °C. Gornja i donja granica su važne i nisu zakucane.
+• PRELOMNE TAČKE. Da li i kada bi se ledeni pokrivač Grenlanda ili prašuma Amazona mogli „prelomiti" i nastaviti da se menjaju sami od sebe — tu je neizvesnost velika.
+• LOKALNO. Koji region dobija sušu, a koji poplave — teže je predvideti nego globalni prosek.
+• ŠTA RADITI I KO PLAĆA. Ovo je najveća rasprava, ali ona nije naučna nego politička i ekonomska: koliko brzo menjati energetiku, ko snosi troškove, bogate ili siromašne zemlje.
+
+Česta greška u raspravama: kad je „rešenje sporno", ljudi kažu „nauka je sporna". To nisu iste stvari.`,
+pr:{p:'Šta je najviše sporno u vezi sa klimatskim promenama?', o:['Da li se Zemlja uopšte greje','Šta tačno uraditi i ko to plaća','Da li CO₂ zadržava toplotu'], t:1, z:'Zagrevanje i fizika CO₂ su izmereni; najveći spor je politički i ekonomski — šta raditi i ko snosi troškove.'}},
+{n:'Šta to znači ovde', t:`Evropa se greje brže od svetskog proseka, a Balkan to već oseća:
+
+• toplotni talasi duži i češći,
+• sušna leta koja seku useve i spuštaju reke,
+• ali i jake kiše odjednom — poplave u maju 2014. bile su najgore u zabeleženoj istoriji Srbije.
+
+Između „smak sveta" i „sve je izmišljeno" stoji dosadna, ali tačna sredina: to je STVARAN RIZIK KOJIM SE MOŽE UPRAVLJATI. Dva načina:
+1. SMANJIVANJE — manje sagorevanja uglja, nafte i gasa (struja, grejanje, saobraćaj).
+2. PRILAGOĐAVANJE — bolje upravljanje vodom, gradnja koja izdrži vrućinu, otpornije sorte u poljoprivredi.
+
+Kao i kod zdravlja: ni panika ni poricanje ne leče, leče merenje i razumne odluke.`,
+pr:{p:'Kako se Evropa greje u odnosu na svetski prosek?', o:['Sporije','Brže','Uopšte se ne greje'], t:1, z:'Evropa je kontinent koji se greje najbrže — zato su toplotni talasi i suše na Balkanu već primetni.'}}
+],
+kljucno:['Izmereno: zagrevanje oko 1,2–1,3 °C, CO₂ sa 280 na 420 ppm, led se topi, more raste.','Da smo uzrok mi: stara fizika CO₂, hemijski potpis fosilnih goriva, Sunce nije jače, obrazac slojeva.','Klima se i ranije menjala, ali mnogo sporije i sa prirodnim uzrokom.','Sporno je koliko tačno, prelomne tačke, lokalni uticaji — i najviše šta raditi i ko plaća.','Rizik kojim se upravlja: smanjivanje emisija i prilagođavanje.'],
+kartice:[
+{p:'Koliko se Zemlja zagrejala od kraja 19. veka?', o:'Oko 1,2–1,3 °C.'},
+{p:'Koliko je CO₂ bilo pre industrije, a koliko danas?', o:'Oko 280 → oko 420 delova na milion.'},
+{p:'Navedi dva dokaza da smo mi uzrok zagrevanja.', o:'Hemijski potpis fosilnih goriva u CO₂; Sunce nije jače (i stratosfera se hladi).'},
+{p:'Šta je pravi odgovor na „klima se uvek menjala"?', o:'Tačno, ali sadašnja promena je mnogo brža i ima poznat uzrok.'},
+{p:'Koja dva načina postoje za odgovor na klimatske promene?', o:'Smanjivanje emisija i prilagođavanje.'}
+],
+razgovor:['Kako razlikuješ „nauka je sporna" od „rešenje je sporno" u nekoj raspravi koju si čuo — o klimi ili bilo čemu drugom?','Šta bi kratko odgovorio nekome ko kaže: „klima se uvek menjala, ovo je sve politika"?']},
+
+{id:'2-5', naslov:'Resursi — voda, energija, hrana, sirovine',
+kuka:{p:'Koliki deo sve vode na Zemlji je slatka voda koju ljudi lako mogu da koriste?', o:['Oko 30%','Oko 10%','Manje od 1%'], t:2},
+delovi:[
+{n:'Voda', t:`Zemlja je „plava planeta", ali:
+• 97,5% vode je slano.
+• Od ono malo slatke, većina je zarobljena u ledu i duboko pod zemljom.
+• Ljudima lako dostupno — reke, jezera, plitka podzemna voda — ostaje MANJE OD 1%.
+
+Ko je troši? Najviše POLJOPRIVREDA — oko 70% slatke vode u svetu ide na navodnjavanje.
+
+Postoji i „skrivena voda" u stvarima: za kilogram govedine potroši se oko 15.000 litara vode (za hranu stoke), a za šoljicu kafe oko 130 litara.
+
+Problem retko je to što vode „nema" na planeti. Problem je gde je, kad je ima, i koliko je zagađena.`,
+pr:{p:'Ko troši najviše slatke vode u svetu?', o:['Domaćinstva','Industrija','Poljoprivreda'], t:2, z:'Oko 70% slatke vode ide na navodnjavanje i poljoprivredu.'}},
+{n:'Energija', t:`Oko 80% energije koju svet troši i danas dolazi iz FOSILNIH GORIVA: nafte, uglja i gasa.
+
+Šta su ona zapravo? Sunčeva energija iz davnih vremena. Biljke i sitni morski organizmi su pre više miliona godina fotosintezom uhvatili sunčevu svetlost, zatrpani su, a pritisak i toplota su ih pretvorili u ugalj, naftu i gas. Kad sipaš gorivo, spaljuješ drevnu sunčevu svetlost — i puštaš ugljenik koji je bio zaključan milionima godina.
+
+Srbija oko dve trećine struje dobija iz LIGNITA (Kolubara, Kostolac) — jeftino, ali prljavo.
+
+Ostali izvori:
+• OBNOVLJIVI — sunce, vetar, voda. Struja iz sunca i vetra je danas u mnogim zemljama najjeftiniji novi izvor, ali zavisi od vremena, pa traži skladištenje.
+• NUKLEARNA — bez CO₂ i stalna, ali sa otpadom, skupom gradnjom i velikim strahom javnosti.`,
+pr:{p:'Šta su, u suštini, fosilna goriva?', o:['Sunčeva energija uskladištena u ostacima organizama pre više miliona godina','Gorivo koje Zemlja stalno pravi u jezgru','Ostaci dinosaurusa'], t:0, z:'Uglavnom ostaci biljaka i sitnih morskih organizama koji su nekad uhvatili sunčevu energiju. (Dinosaurusi su tu zabluda.)'}},
+{n:'Hrana', t:`Danas svet proizvodi više hrane po čoveku nego ikad u istoriji. Kako?
+
+ZELENA REVOLUCIJA (1950–1970): nove, rodnije sorte pšenice i pirinča (Norman Borlaug, Nobelova nagrada za mir), navodnjavanje i — pre svega — VEŠTAČKO ĐUBRIVO.
+
+Ključ je HABER-BOŠ postupak (početak 20. veka): azot se uzima direktno iz vazduha i pretvara u đubrivo. Procenjuje se da bez njega skoro polovina ljudi danas ne bi imala šta da jede. Malo koji izum je toliko promenio svet, a malo ko je čuo za njega.
+
+Ako hrane ima dovoljno, zašto i dalje postoji glad? Uglavnom zbog RATA, SIROMAŠTVA i RASPODELE — ne zbog manjka. Istovremeno se oko trećine proizvedene hrane baci ili pokvari.`,
+pr:{p:'Šta radi Haber-Boš postupak?', o:['Pravi veštačko đubrivo od azota iz vazduha','Čisti vodu za piće','Pravi gorivo od biljaka'], t:0, z:'Uzima azot iz vazduha i pretvara ga u đubrivo — temelj današnje proizvodnje hrane.'}},
+{n:'Sirovine', t:`Sve što koristiš je negde iskopano.
+
+• METALI: gvožđe (čelik), bakar (žice — Bor je bakar), aluminijum, a sve više LITIJUM i kobalt za baterije telefona i električnih auta.
+• PESAK: posle vode, najviše korišćena sirovina na svetu — od njega je beton, staklo, čipovi. Nije svaki pesak dobar: pustinjski je previše gladak za beton, pa se pesak vadi iz reka i mora.
+• RETKI ELEMENTI: za magnete, motore, elektroniku. Najviše ih vadi i prerađuje Kina — zato su sirovine i geopolitika (oblast 9).
+
+Srbija ima svoja sporna pitanja: rudnik litijuma u dolini Jadra deli ljude na one koji gledaju posao i novac i one koji gledaju vodu i zemlju. U ovoj lekciji važno je samo da vidiš da je to pitanje o resursima: šta dobijaš, šta gubiš, i ko odlučuje.`,
+pr:{p:'Koja sirovina se, posle vode, najviše koristi na svetu?', o:['Nafta','Pesak','Gvožđe'], t:1, z:'Pesak i šljunak — za beton, staklo i elektroniku. I nije svaki pesak upotrebljiv.'}},
+{n:'Hoće li nestati?', t:`1798. sveštenik Tomas Maltus je predvideo: stanovništvo raste brže od proizvodnje hrane, pa će glad uvek vraćati broj ljudi nazad. Pogrešio je — nije predvideo koliko će tehnologija povećati prinose.
+
+Ali pitanje je ostalo, i postoje dve škole:
+
+• PESIMISTI: resursi su ograničeni, a rast beskonačan — negde se mora udariti u zid (knjiga „Granice rasta", 1972).
+• OPTIMISTI: najveći resurs je ljudska domišljatost; kad nečega ponestane, poskupi, pa se nađe zamena. Ekonomista Džulijan Sajmon se 1980. kladio sa biologom Erlihom da će pet metala za deset godina pojeftiniti, a ne poskupeti — i dobio je.
+
+Istina je verovatno između: tehnologija rešava mnogo — hranu, energiju, sirovine — ali ne sve. Ribe u moru, plodno zemljište i klima ne mogu se „izmisliti" nanovo.`,
+pr:{p:'Zašto se Maltusovo predviđanje o gladi nije ostvarilo?', o:['Jer je stanovništvo prestalo da raste','Jer je tehnologija višestruko povećala proizvodnju hrane','Jer su ljudi počeli manje da jedu'], t:1, z:'Đubrivo, nove sorte i mašine povećali su prinose brže od rasta stanovništva — što Maltus nije mogao da predvidi.'}}
+],
+kljucno:['Manje od 1% vode je lako dostupna slatka voda; najviše troši poljoprivreda.','Oko 80% energije je iz fosilnih goriva — drevne sunčeve energije; obnovljivi rastu.','Hrane ima više nego ikad (Zelena revolucija, Haber-Boš); glad je pitanje rata i raspodele.','Sve je iskopano negde: metali, pesak, retki elementi — sirovine su i geopolitika.','Pesimisti vs. optimisti: tehnologija rešava mnogo, ali ne sve.'],
+kartice:[
+{p:'Koliki deo vode je lako dostupna slatka voda?', o:'Manje od 1%.'},
+{p:'Odakle svet dobija većinu energije?', o:'Oko 80% iz fosilnih goriva (nafta, ugalj, gas).'},
+{p:'Šta je Haber-Boš postupak?', o:'Pravljenje veštačkog đubriva od azota iz vazduha.'},
+{p:'Zašto je pesak važna sirovina?', o:'Od njega su beton, staklo i čipovi; posle vode najviše se koristi.'},
+{p:'Šta je Maltus predvideo i zašto je pogrešio?', o:'Da će glad zaustavljati rast stanovništva; tehnologija je povećala proizvodnju hrane.'}
+],
+razgovor:['Ko ti je bliži — pesimisti („granice postoje") ili optimisti („ljudi uvek nađu rešenje")? Zašto?','Navedi jednu stvar u kući koju svakodnevno trošiš, a nikad ne pomisliš odakle dolazi. Odakle dolazi?']}
 ]},
 {id:'3', naziv:'Život', ikona:'🧬', era:'pre 3,8 mlrd god.', lekcije:[
-{id:'3-1', naslov:'Šta je život — ćelija'},
-{id:'3-2', naslov:'DNK i geni — recept za organizam'},
-{id:'3-3', naslov:'Evolucija prirodnom selekcijom'},
-{id:'3-4', naslov:'Drvo života — od bakterije do čoveka'},
-{id:'3-5', naslov:'Ekosistemi — ko koga jede i zašto je to bitno'}
+{id:'3-1', naslov:'Šta je život — ćelija',
+kuka:{p:'Otprilike koliko ćelija ima ljudsko telo?', o:['Oko milion','Oko 7 milijardi','Oko 30.000 milijardi'], t:2},
+delovi:[
+{n:'Šta uopšte znači „živo"', t:`Zvuči lako, ali nauka nema savršenu definiciju života. NASA koristi radnu: život je hemijski sistem koji sam sebe održava i može da evoluira.
+
+Lakše je nabrojati šta živo radi:
+• troši energiju i pretvara materiju (METABOLIZAM),
+• raste i obnavlja se,
+• razmnožava se,
+• reaguje na okolinu,
+• prenosi osobine na potomke — sa sitnim promenama.
+
+Granični slučaj su VIRUSI. Imaju gene i menjaju se, ali sami ne troše energiju i ne mogu da se razmnože — moraju da uđu u ćeliju i iskoriste njenu „fabriku". Da li su živi? Biolozi se i danas spore. Dobar je primer da priroda ne mora da poštuje naše kutije.`,
+pr:{p:'Zašto se za viruse kaže da su na granici života?', o:['Jer su premali da bi se videli','Jer sami ne troše energiju i ne mogu da se razmnože bez ćelije','Jer nemaju gene'], t:1, z:'Imaju gene i menjaju se, ali bez tuđe ćelije ne mogu ni da se „hrane" ni da se razmnože.'}},
+{n:'Ćelija — najmanje živo', t:`1665. Englez Robert Huk je pod jednim od prvih mikroskopa gledao komadić plute i video sitne odaje. Podsetile su ga na sobice monaha — „ćelije". Ime je ostalo.
+
+Dvesta godina kasnije, oko 1840–1850, sklopljena je ĆELIJSKA TEORIJA:
+1. Sva živa bića su sastavljena od ćelija.
+2. Ćelija je najmanja jedinica života.
+3. Svaka ćelija nastaje samo iz druge ćelije.
+
+Svaka ćelija ima MEMBRANU — tanak omotač koji bira šta ulazi, a šta izlazi. Unutra je voda puna proteina i drugih molekula, i DNK, recept po kome ćelija radi.
+
+Telo odraslog čoveka ima oko 30.000 milijardi ćelija, oko 200 vrsta (nervne, mišićne, krvne, koštane…) — i otprilike isto toliko bakterija koje žive u tebi, najviše u crevima.`,
+pr:{p:'Šta kaže ćelijska teorija?', o:['Sva živa bića su od ćelija, a svaka ćelija nastaje iz druge ćelije','Ćelije nastaju same iz neživih materija','Samo životinje imaju ćelije'], t:0, z:'Sve živo je od ćelija, ćelija je najmanja jedinica života i nastaje samo iz druge ćelije.'}},
+{n:'Dve vrste ćelija', t:`Sve ćelije na Zemlji spadaju u dve velike grupe:
+
+• PROKARIOTI — bakterije i arheje. Male, jednostavne, bez jedra; DNK im slobodno pliva. Bili su prvi i milijardama godina jedini.
+• EUKARIOTI — biljke, životinje, gljive. Veće ćelije sa JEDROM (u kom čuvaju DNK) i sa „organima" ćelije.
+
+Najzanimljiviji organ ćelije su MITOHONDRIJE — elektrane koje od hrane i kiseonika prave energiju. Imaju sopstvenu, malu DNK. Zašto? Zato što su nekada bile slobodne bakterije! Pre oko dve milijarde godina jedna ćelija je progutala bakteriju, ali je nije svarila — dve su počele da žive zajedno. Tu ideju je izborila Lin Margulis, kojoj su se dugo smejali.
+
+Kad dišeš, hraniš potomke drevnih bakterija koje žive u tvojim ćelijama.`,
+pr:{p:'Odakle, najverovatnije, potiču mitohondrije?', o:['Iz jedra ćelije','Od bakterija koje su nekad živele samostalno','Iz hrane koju jedemo'], t:1, z:'Imaju svoju DNK jer su nekad bile slobodne bakterije koje je druga ćelija progutala i zadržala.'}},
+{n:'Kako ćelija radi', t:`Zamisli ćeliju kao grad:
+
+• MEMBRANA — zidine sa kapijama.
+• JEDRO — arhiva u kojoj stoje planovi (DNK).
+• RIBOZOMI — fabrike koje po planovima prave proizvode.
+• PROTEINI — radnici i alati. Skoro sav posao u ćeliji obavljaju proteini: ubrzavaju reakcije (ENZIMI), grade, prenose poruke (hormoni), brane (antitela), pomeraju (mišići).
+• MITOHONDRIJE — elektrane.
+• ATP — novac kojim se plaća svaki posao. Ćelija ga stalno pravi i troši.
+
+Ti, sada, dok čitaš: u svakoj tvojoj ćeliji hiljade proteina rade svoj posao, a ti ni za jedan ne znaš.`,
+pr:{p:'Šta su proteini u ćeliji?', o:['Samo rezerva hrane','Radnici i alati koji obavljaju skoro sve poslove','Omotač ćelije'], t:1, z:'Proteini su enzimi, gradivni delovi, prenosioci poruka, antitela — skoro sav posao ćelije.'}},
+{n:'Kako je počelo?', t:`Kako je od nežive hemije nastala prva ćelija? Iskreno: NE ZNAMO TAČNO. To je jedna od najvećih otvorenih tajni nauke. Ali ima tragova:
+
+• 1953. Stenli Miler i Harold Juri su u staklenu posudu stavili gasove kakvi su verovatno bili na mladoj Zemlji, dodali vodu i električne varnice kao munje. Za nekoliko dana nastale su AMINOKISELINE — gradivni delovi proteina. Život nisu napravili, ali su pokazali da se njegovi sastojci prave sami.
+• Hipoteza „RNK sveta": rani molekul RNK je mogao istovremeno da nosi informaciju i da ubrzava reakcije — i kokoška i jaje u jednom.
+• Mesto rođenja možda su vrući izvori na dnu okeana, gde je bilo energije i minerala.
+
+Najstariji pouzdani tragovi života su stari oko 3,5 milijarde godina — što znači da je život počeo „brzo", čim se Zemlja smirila.`,
+pr:{p:'Šta je pokazao eksperiment Milera i Jurija?', o:['Da su napravili živu ćeliju','Da se gradivni delovi života mogu sami stvoriti u uslovima rane Zemlje','Da je život došao iz svemira'], t:1, z:'Iz gasova, vode i varnica nastale su aminokiseline — sastojci života, ne i sam život.'}}
+],
+kljucno:['Život nema savršenu definiciju; virusi su granični slučaj.','Ćelijska teorija: sve živo je od ćelija, svaka ćelija nastaje iz ćelije.','Prokarioti (bakterije) nemaju jedro; eukarioti imaju; mitohondrije su nekad bile bakterije.','Proteini obavljaju skoro sav posao u ćeliji; ATP je njen „novac".','Kako je život počeo ne znamo tačno; sastojci se prave sami (Miler–Juri).'],
+kartice:[
+{p:'Zašto su virusi na granici života?', o:'Sami ne troše energiju i ne razmnožavaju se bez ćelije domaćina.'},
+{p:'Šta kaže ćelijska teorija?', o:'Sve živo je od ćelija; svaka ćelija nastaje iz druge ćelije.'},
+{p:'Razlika između prokariota i eukariota?', o:'Prokarioti (bakterije) nemaju jedro; eukarioti (biljke, životinje, gljive) imaju.'},
+{p:'Odakle potiču mitohondrije?', o:'Od bakterija koje je druga ćelija davno progutala i zadržala.'},
+{p:'Šta je pokazao eksperiment Milera i Jurija?', o:'Da gradivni delovi života (aminokiseline) nastaju sami u uslovima rane Zemlje.'}
+],
+razgovor:['Da li je virus živ? Zauzmi stav i odbrani ga.','Ćelija kao grad — smisli svoju sliku ćelije iz svog sveta (posao, kuća, smena).']},
+
+{id:'3-2', naslov:'DNK i geni — recept za organizam',
+kuka:{p:'Koliko DNK deliš sa šimpanzom?', o:['Oko 50%','Oko 75%','Oko 98–99%'], t:2},
+delovi:[
+{n:'Zavojnica sa četiri slova', t:`1953. Džejms Votson i Frensis Krik su objavili oblik DNK: DVOSTRUKA ZAVOJNICA, kao uvrnute merdevine. Ključni snimak, napravljen rendgenskim zracima, dobili su od Rozalind Frenklin, kojoj se zasluga dugo nije priznavala.
+
+DNK je zapis pisan azbukom od samo ČETIRI SLOVA: A, T, G i C. Na merdevinama se uvek sparuju isto: A sa T, G sa C. Zato kad se merdevine rasparaju po sredini, svaka polovina je kalup za novu — tako se DNK kopira kad se ćelija deli.
+
+Tvoj zapis (GENOM) ima oko 3 milijarde slova. Odštampan, bio bi biblioteka od hiljadu debelih knjiga. Gotovo svaka tvoja ćelija nosi ceo komplet, a kad bi se DNK jedne ćelije razvukla, bila bi duga oko 2 metra.`,
+pr:{p:'Koliko „slova" ima azbuka DNK?', o:['2','4','20'], t:1, z:'Četiri: A, T, G i C; sparuju se A–T i G–C.'}},
+{n:'Gen: jedan recept', t:`GEN je deo DNK koji je recept za jedan protein (ponekad za nekoliko). Ćelija čita recept u dva koraka:
+1. PREPIS: deo DNK se prepiše u poruku od RNK.
+2. PREVOD: ribozom čita poruku po tri slova i za svaku trojku dodaje jednu aminokiselinu. Lanac aminokiselina se savije u protein.
+
+Čovek ima oko 20.000 gena — mnogo manje nego što se mislilo pre nego što je genom pročitan 2003. Pirinač ih ima više! Razlika nije u broju recepata, nego u tome kada, gde i koliko se koji pali — ostatak DNK su velikim delom prekidači i regulatori.
+
+I jedna velika stvar: KOD JE ISTI za skoro sav život. Ista trojka znači istu aminokiselinu kod bakterije, pečurke i tebe. Zato bakterija može da pravi ljudski insulin za dijabetičare — i zato je to jedan od najjačih dokaza da sav život ima zajedničkog pretka.`,
+pr:{p:'Koliko otprilike gena ima čovek?', o:['Oko 20.000','Oko 2 miliona','Oko 500'], t:0, z:'Oko 20.000 — manje od pirinča. Složenost dolazi od toga kako se geni pale i gase.'}},
+{n:'Nasleđivanje — Mendelov grašak', t:`Pravila nasleđivanja otkrio je 1860-ih Gregor Mendel, monah koji je u manastirskoj bašti ukrštao grašak. Niko ga nije čitao 35 godina.
+
+Šta je video:
+• Osobine se prenose kao celine, ne mešaju se kao boje.
+• Od svakog roditelja dobijaš PO JEDNU kopiju gena.
+• Neke kopije su DOMINANTNE (pokažu se i kad imaš samo jednu), druge RECESIVNE (pokažu se samo kad imaš dve).
+
+Zato dvoje roditelja sa smeđim očima može dobiti dete plavih očiju: oboje nose skrivenu „plavu" kopiju i oboje je predaju detetu. (Boja očiju je u stvarnosti složenija i zavisi od više gena, ali princip je isti.)
+
+Polovinu gena dobiješ od majke, polovinu od oca. Braća i sestre dele, u proseku, polovinu.`,
+pr:{p:'Kako dvoje smeđookih roditelja mogu dobiti plavooko dete?', o:['Nikako, to je nemoguće','Oboje nose skrivenu (recesivnu) kopiju i oboje je predaju detetu','Boja očiju se ne nasleđuje'], t:1, z:'Recesivna kopija se ne vidi kod roditelja, ali kad dete dobije dve takve — pokaže se.'}},
+{n:'Mutacije — greške u prepisu', t:`Kad se 3 milijarde slova kopira, desi se poneka greška. To je MUTACIJA. Svako dete se rodi sa nekoliko desetina novih mutacija kojih nema ni kod jednog roditelja.
+
+• Većina mutacija ne radi ništa primetno.
+• Neke su štetne — uzrok su naslednih bolesti ili raka.
+• Retke su korisne — npr. mutacija koja odraslima omogućava da vare mleko proširila se u narodima koji su gajili stoku.
+
+Mutacije nastaju nasumično, a pospešuju ih zračenje i neke hemikalije (dim cigarete, recimo).
+
+Za evoluciju, mutacije su SIROVINA — izvor svake nove razlike. Bez grešaka u prepisu, život bi stajao u mestu.`,
+pr:{p:'Šta su mutacije za evoluciju?', o:['Uvek štetne greške','Sirovina — izvor novih razlika','Nešto što se dešava samo od zračenja'], t:1, z:'Većina je neutralna, neke štetne, retke korisne — ali bez njih ne bi bilo novih osobina.'}},
+{n:'Geni nisu sudbina', t:`Popularno je reći „to mu je u genima". Istina je složenija.
+
+Većina osobina — visina, težina, sklonost bolestima srca, pa i inteligencija i temperament — zavisi i od GENA i od SREDINE: ishrane, navika, iskustva, slučaja. Jednojajčani blizanci imaju istu DNK, a postaju različiti ljudi.
+
+Postoje i hemijski „prekidači" na DNK koji pale i gase gene, a na neke utiče sredina (EPIGENETIKA). Oprez: u popularnim tekstovima se o ovome mnogo preteruje.
+
+I sad smo naučili da DNK i MENJAMO. CRISPR (2012, Nobelova nagrada 2020. Šarpentje i Dudni) su molekularne makaze koje seku DNK na tačno izabranom mestu. Već postoji odobreno lečenje jedne nasledne bolesti krvi. Ali 2018. u Kini je jedan naučnik menjao DNK embrionima — i završio u zatvoru. Moć je stigla pre dogovora šta sme.`,
+pr:{p:'Šta je CRISPR?', o:['Bolest gena','Alat za precizno menjanje DNK','Vrsta ćelije'], t:1, z:'Molekularne makaze koje seku DNK na izabranom mestu — za lečenje, ali i sa velikim etičkim pitanjima.'}}
+],
+kljucno:['DNK je dvostruka zavojnica sa azbukom od 4 slova (A–T, G–C); genom ima oko 3 milijarde slova.','Gen je recept za protein: DNK → RNK → protein; kod je isti za skoro sav život.','Mendel: od svakog roditelja po jedna kopija; dominantno i recesivno.','Mutacije su greške u prepisu — uglavnom neutralne, a sirovina evolucije.','Geni nisu sudbina: osobine zavise i od sredine; CRISPR omogućava menjanje DNK.'],
+kartice:[
+{p:'Koja su četiri slova DNK i kako se sparuju?', o:'A, T, G, C; A sa T, G sa C.'},
+{p:'Kojim putem gen postaje protein?', o:'DNK → (prepis) RNK → (prevod) protein.'},
+{p:'Zašto je isti genetski kod dokaz zajedničkog porekla?', o:'Ista trojka slova znači istu aminokiselinu kod skoro svih živih bića.'},
+{p:'Šta je recesivna osobina?', o:'Osobina koja se pokaže samo kad imaš dve takve kopije gena.'},
+{p:'Šta je CRISPR?', o:'Alat za precizno sečenje i menjanje DNK.'}
+],
+razgovor:['Koliko misliš da je tvoj karakter od gena, a koliko od života koji si proživeo? Daj primer na sebi.','Objasni nekome put od DNK do proteina jednom slikom iz svakodnevice.']},
+
+{id:'3-3', naslov:'Evolucija prirodnom selekcijom',
+kuka:{p:'Šta je zapravo tvrdio Darvin?', o:['Da čovek potiče od šimpanze','Da sva živa bića imaju zajedničke pretke i menjaju se prirodnom selekcijom','Da uvek pobeđuje najjači'], t:1},
+delovi:[
+{n:'Putovanje i knjiga', t:`1831. mladi Čarls Darvin se ukrcao na brod Bigl kao prirodnjak na putovanje oko sveta koje je trajalo pet godina.
+
+Na ostrvima Galapagos video je zebe (ptičice) koje su na svakom ostrvu imale drugačiji kljun — debeo za tvrdo seme, tanak za insekte. Kao da je jedna vrsta stigla na ostrva pa se na svakom prilagodila drugačije.
+
+Darvin je posle toga 20 godina skupljao dokaze, oklevao i ćutao, svestan koliko je ideja opasna. Požurio ga je pismo mladog prirodnjaka Alfreda Rasela Volasa, koji je u Indoneziji sam došao do iste ideje. Predstavili su je zajedno 1858, a 1859. je izašla Darvinova knjiga „O POREKLU VRSTA".`,
+pr:{p:'Ko je, nezavisno od Darvina, došao do iste ideje?', o:['Gregor Mendel','Alfred Rasel Volas','Isak Njutn'], t:1, z:'Volas je do iste ideje došao u Indoneziji; predstavili su je zajedno 1858.'}},
+{n:'Mehanizam u tri sastojka', t:`PRIRODNA SELEKCIJA traži samo tri stvari:
+
+1. RAZLIKE. Jedinke iste vrste se razlikuju — po veličini, boji, brzini, otpornosti.
+2. NASLEĐIVANJE. Deo tih razlika se prenosi na potomke (danas znamo: kroz gene).
+3. VIŠAK POTOMAKA. Rađa se više nego što može da preživi i da se razmnoži.
+
+Ishod: oni čije razlike slučajno bolje odgovaraju sredini češće prežive i ostave više potomaka. Generacija za generacijom, korisne osobine postaju češće. Kroz dovoljno vremena — nove vrste.
+
+Ključne stvari: NEMA CILJA i NEMA PLANA. Ništa ne „pokušava" da postane bolje. I „preživljavanje najsposobnijih" ne znači najjačih: „sposoban" ovde znači NAJBOLJE PRILAGOĐEN toj sredini, onaj koji ostavi najviše potomaka. Ponekad je to najmanji, najsporiji ili najprikriveniji.`,
+pr:{p:'Šta u evoluciji znači „najsposobniji"?', o:['Najjači','Najbolje prilagođen da u toj sredini preživi i ostavi potomke','Najpametniji'], t:1, z:'„Sposoban" znači uspešan u ostavljanju potomaka u datoj sredini — ne snaga.'}},
+{n:'Evolucija pred očima', t:`Evolucija nije samo daleka prošlost. Vidimo je:
+
+• BAKTERIJE I ANTIBIOTICI. Kad uzmeš antibiotik, većina bakterija umre, ali par otpornijih preživi. Ako prekineš lečenje ranije, baš one se namnože — i sledeći put lek ne deluje. Zato se pije ceo ciklus. Otporne bakterije su danas jedan od najvećih problema medicine.
+• BREZOV MOLJAC. U Engleskoj su pre industrije preovlađivali svetli moljci, neprimetni na svetloj kori breze. Kad je čađ iz fabrika zacrnela drveće, za nekoliko decenija preovladali su tamni — svetle su ptice lakše videle. Kad je vazduh očišćen, vratili su se svetli.
+• PAS. Svi psi, od čivave do doge, potiču od vuka. To je VEŠTAČKA SELEKCIJA — mi smo birali ko se razmnožava. Za par hiljada godina dobili smo ogromne razlike. Zamisli šta priroda može za milione.`,
+pr:{p:'Zašto treba popiti ceo ciklus antibiotika?', o:['Da bi lek bio jeftiniji','Da ne bi preživele i namnožile se otpornije bakterije','Jer je tako ukusnije'], t:1, z:'Prekid lečenja ostavlja baš najotpornije bakterije — to je prirodna selekcija na delu.'}},
+{n:'Dokazi', t:`Evoluciju potvrđuje nekoliko potpuno nezavisnih vrsta dokaza:
+
+• FOSILI. Slojevi stena pokazuju redosled, a nađeni su i prelazni oblici: Tiktaalik, riba sa zglobovima kao noge, pre oko 375 miliona godina; arheopteriks, dinosaurus sa perjem i krilima.
+• GRAĐA TELA. Ruka čoveka, krilo slepog miša, peraje kita i noga mačke imaju ISTE kosti u istom rasporedu, samo drugačije oblikovane. Inženjer to ne bi tako napravio; nasledstvo bi.
+• DNK. Što su vrste bliže po fosilima i građi, to su im sličnije DNK. Drvo srodstva napravljeno iz DNK se slaže sa drvetom iz fosila.
+• POSMATRANJE. Bakterije, virusi, insekti otporni na pesticide — menjaju se pred nama.
+
+Kada se toliko nezavisnih tragova slaže, to je u nauci najjači mogući dokaz.`,
+pr:{p:'Šta je zajedničko ruci čoveka, krilu slepog miša i peraju kita?', o:['Ništa','Isti raspored kostiju, nasleđen od zajedničkog pretka','Svi služe za plivanje'], t:1, z:'Iste kosti, različito oblikovane — trag zajedničkog pretka.'}},
+{n:'Česte zablude', t:`• „TO JE SAMO TEORIJA." U svakodnevnom govoru teorija znači nagađanje. U nauci znači suprotno: dobro proveren sistem objašnjenja koji povezuje ogroman broj činjenica. I gravitacija je „teorija".
+• „ČOVEK JE OD MAJMUNA." Nije. Čovek i šimpanza imaju ZAJEDNIČKOG PRETKA koji je živeo pre oko 6–7 miliona godina. Šimpanza nam je rođak, ne pradeda.
+• „EVOLUCIJA IDE KA NEČEM BOLJEM." Ne ide. Nema vrhunca ni cilja — samo prilagođavanje sredini koja se menja. Bakterija nije „niža" od čoveka; ona je uspešnija.
+• „EVOLUCIJA I VERA SE ISKLJUČUJU." Za mnoge vernike ne. Katolička crkva, na primer, prihvata evoluciju kao naučno objašnjenje kako se život razvijao. Pitanje „zašto uopšte postoji nešto" nauka ostavlja otvorenim.`,
+pr:{p:'Šta znači reč „teorija" u nauci?', o:['Nagađanje bez dokaza','Dobro provereno objašnjenje koje povezuje mnoge činjenice','Nešto što još nije dokazano'], t:1, z:'U nauci je teorija najviši stepen objašnjenja — kao teorija gravitacije.'}}
+],
+kljucno:['Darvin i Volas: sva živa bića imaju zajedničke pretke i menjaju se prirodnom selekcijom (1859).','Tri sastojka: razlike, nasleđivanje, višak potomaka; nema cilja ni plana.','„Najsposobniji" = najbolje prilagođen, ne najjači.','Vidi se i danas: bakterije otporne na antibiotike, brezov moljac, psi od vuka.','Dokazi: fosili, građa tela, DNK, posmatranje; čovek i šimpanza imaju zajedničkog pretka.'],
+kartice:[
+{p:'Koja su tri sastojka prirodne selekcije?', o:'Razlike među jedinkama, nasleđivanje, više potomaka nego što može preživeti.'},
+{p:'Šta znači „najsposobniji" u evoluciji?', o:'Najbolje prilagođen sredini — onaj koji ostavi najviše potomaka.'},
+{p:'Zašto se pije ceo ciklus antibiotika?', o:'Da ne prežive i ne namnože se otpornije bakterije.'},
+{p:'Da li čovek potiče od šimpanze?', o:'Ne — imamo zajedničkog pretka od pre oko 6–7 miliona godina.'},
+{p:'Šta je „teorija" u nauci?', o:'Dobro provereno objašnjenje koje povezuje mnoge činjenice.'}
+],
+razgovor:['Gde u društvu — na poslu, na tržištu, na internetu — vidiš nešto nalik prirodnoj selekciji? A gde to poređenje ne važi?','Objasni otpornost bakterija na antibiotike nekome ko ne veruje u evoluciju.']},
+
+{id:'3-4', naslov:'Drvo života — od bakterije do čoveka',
+kuka:{p:'Koliki deo svih vrsta koje su ikad živele na Zemlji je izumro?', o:['Oko 10%','Oko polovine','Više od 99%'], t:2},
+delovi:[
+{n:'Tri milijarde godina mikroba', t:`Kad pomisliš na istoriju života, pomisliš na dinosauruse. A najveći deo te istorije bio je NEVIDLJIV.
+
+Oko 3 milijarde godina život na Zemlji bio je samo mikroskopski: bakterije, arheje, kasnije jednoćelijski eukarioti. Pravili su pokrivače po plićacima, a cijanobakterije su polako punile vazduh kiseonikom.
+
+Prva višećelijska bića javljaju se pre oko milijardu godina, a prve prave životinje pre oko 600 miliona godina.
+
+Ako bi celu istoriju Zemlje sabio u jedan dan, životinje bi se pojavile tek oko devet uveče, a čovek u poslednjih nekoliko sekundi pred ponoć.`,
+pr:{p:'Koliko dugo je život na Zemlji bio samo mikroskopski?', o:['Nekoliko miliona godina','Oko 3 milijarde godina','Svega nekoliko hiljada godina'], t:1, z:'Oko 3 milijarde godina — većina istorije života je istorija mikroba.'}},
+{n:'Eksplozija i izlazak na kopno', t:`Pre oko 540 miliona godina desila se KAMBRIJSKA EKSPLOZIJA: za samo dvadesetak miliona godina pojavljuju se skoro sve glavne grupe životinja koje postoje i danas. Pojavljuju se oči, ljušture, zubi, grabljivci i plen. Trka je počela.
+
+Onda kopno:
+• Biljke izlaze iz vode pre oko 470 miliona godina — prvo mahovine, pa paprati, pa drveće.
+• Za njima insekti.
+• Pre oko 375 miliona godina riba sa zglobovima u perajima (Tiktaalik) puzi po plićaku. Od njenih rođaka potiču svi kopneni kičmenjaci — vodozemci, gmizavci, ptice, sisari. Ti.
+
+Kosti tvoje ruke su, u osnovi, kosti te peraje.`,
+pr:{p:'Šta je kambrijska eksplozija?', o:['Eksplozija vulkana koja je uništila život','Brza pojava većine glavnih grupa životinja pre oko 540 miliona godina','Udar asteroida'], t:1, z:'Za dvadesetak miliona godina pojavile su se skoro sve glavne grupe životinja.'}},
+{n:'Velika izumiranja', t:`Više od 99% svih vrsta koje su ikad živele — izumrlo je. Izumiranje je pravilo, ne izuzetak. Ali pet puta je bilo naglo i masovno:
+
+• NAJVEĆE, pre oko 252 miliona godina (kraj perma): ogromne vulkanske erupcije u današnjem Sibiru zagrejale su planetu i zatrovale more. Nestalo je oko 90% morskih vrsta. Život je skoro nestao.
+• POSLEDNJE, pre 66 miliona godina: asteroid širok oko 10 km udario je kod današnjeg Meksika. Tama, hladnoća, požari. Nestali su veliki dinosaurusi i oko tri četvrtine vrsta.
+
+Ali NISU NESTALI SVI DINOSAURUSI. PTICE SU DINOSAURUSI — potomci malih pernatih grabljivaca. Golub na tvom prozoru je rođak tiranosaurusa.
+
+Izumiranja su i otvarala vrata: posle asteroida, sitni sisari koji su se krili po senkama dobili su ceo svet.`,
+pr:{p:'Koja grupa dinosaurusa je preživela do danas?', o:['Krokodili','Ptice','Nijedna'], t:1, z:'Ptice su potomci malih pernatih dinosaurusa. Krokodili su rođaci, ali nisu dinosaurusi.'}},
+{n:'Sisari, primati, mi', t:`Posle dinosaurusa sisari se šire na sve strane: kitovi se vraćaju u more, slepi miševi lete, pojavljuju se konji, mačke, majmuni.
+
+PRIMATI — grupa kojoj pripadamo — žive na drveću, imaju ruke koje hvataju, oči napred i veliki mozak. Iz njih se razvijaju majmuni, pa veliki majmuni: orangutan, gorila, šimpanza i bonobo. I ljudska loza, koja se od šimpanzi odvaja pre oko 6–7 miliona godina (više o tome u oblasti 6).
+
+Sva živa bića danas biolozi dele na TRI VELIKE GRANE:
+1. bakterije,
+2. arheje,
+3. eukarioti — u koje spadaju biljke, gljive i životinje.
+
+Iznenađenje: GLJIVE SU BLIŽE ŽIVOTINJAMA NEGO BILJKAMA. Pečurka ti je bliži rođak od salate.`,
+pr:{p:'Kome su gljive bliže po srodstvu?', o:['Biljkama','Životinjama','Bakterijama'], t:1, z:'Gljive i životinje imaju bližeg zajedničkog pretka nego gljive i biljke.'}},
+{n:'Šesto izumiranje?', t:`Mnogi biolozi kažu da smo danas usred šestog velikog izumiranja — ovaj put bez asteroida.
+
+Šta se zna:
+• Vrste danas nestaju mnogo brže od prirodnog, „pozadinskog" tempa — procene idu od desetina do stotina puta brže.
+• Glavni uzrok nije klima, nego GUBITAK STANIŠTA — šume posečene za njive, pašnjake i gradove. Slede lov i ribolov, unete strane vrste, zagađenje, a sve više i klima.
+
+Šta je sporno: tačne brojke. Koliko vrsta uopšte postoji ne znamo (većina insekata i mikroba nije ni opisana), pa je teško reći koliko ih nestaje. Ali pravac nije sporan.
+
+Zašto bi te bilo briga? Zato što ekosistemi daju hranu, vodu, oprašivanje, plodno tlo — o tome sledeća lekcija.`,
+pr:{p:'Šta je danas najveći uzrok nestajanja vrsta?', o:['Gubitak staništa','Klimatske promene','Lov'], t:0, z:'Pre svega uništavanje staništa — šume pretvorene u njive, pašnjake i gradove.'}}
+],
+kljucno:['Oko 3 milijarde godina život je bio samo mikroskopski; životinje kasne.','Kambrijska eksplozija pre oko 540 miliona godina; biljke i životinje izlaze na kopno.','Pet velikih izumiranja; poslednje (asteroid, pre 66 miliona) — ptice su preživeli dinosaurusi.','Tri grane života: bakterije, arheje, eukarioti; gljive su bliže životinjama.','Danas vrste nestaju mnogo brže od prirodnog tempa — najviše zbog gubitka staništa.'],
+kartice:[
+{p:'Koliki deo svih vrsta je izumro?', o:'Više od 99%.'},
+{p:'Šta je kambrijska eksplozija?', o:'Brza pojava većine glavnih grupa životinja pre oko 540 miliona godina.'},
+{p:'Šta je uništilo dinosauruse pre 66 miliona godina — i ko je preživeo?', o:'Udar asteroida; preživele su ptice.'},
+{p:'Koje su tri velike grane života?', o:'Bakterije, arheje, eukarioti.'},
+{p:'Šta je danas najveći uzrok izumiranja?', o:'Gubitak staništa.'}
+],
+razgovor:['Više od 99% vrsta je nestalo. Kako to menja tvoj pogled na sigurnost bilo koje vrste — i naše?','Šta te je u ovoj lekciji najviše iznenadilo i zašto?']},
+
+{id:'3-5', naslov:'Ekosistemi — ko koga jede i zašto je to bitno',
+kuka:{p:'Šta bi se desilo kad bi nestale pčele i drugi oprašivači?', o:['Skoro ništa, vetar bi sve oprašio','Mnoge biljke i usevi bi rađali mnogo slabije','Za godinu bi se pojavile nove vrste koje ih zamenjuju'], t:1},
+delovi:[
+{n:'Ko koga jede', t:`EKOSISTEM je sve živo na jednom mestu — u šumi, reci, livadi — zajedno sa neživim (voda, tlo, klima) i svim vezama među njima.
+
+Osnova je LANAC ISHRANE:
+1. PROIZVOĐAČI — biljke i alge prave hranu iz svetlosti.
+2. BILJOJEDI — zec, jelen, skakavac.
+3. MESOJEDI — lisica, vuk, jastreb.
+4. RAZLAGAČI — gljive, bakterije, crvi. Razlažu sve mrtvo i vraćaju hranljive materije u tlo, odakle ih biljke ponovo uzimaju.
+
+Bez razlagača bi se svet zatrpao mrtvim lišćem i telima, a biljkama bi ponestalo hrane.
+
+Pravilo koje vredi zapamtiti: ENERGIJA TEČE (od Sunca, kroz lanac, i nestaje kao toplota), a MATERIJA KRUŽI (isti atomi idu u krug).`,
+pr:{p:'Šta rade razlagači u ekosistemu?', o:['Jedu samo žive biljke','Razlažu mrtvo i vraćaju hranljive materije u tlo','Prave hranu iz svetlosti'], t:1, z:'Gljive, bakterije i crvi zatvaraju krug — bez njih biljke ne bi imale hranljivih materija.'}},
+{n:'Fotosinteza i piramida', t:`Skoro sve što jedeš počelo je kao svetlost. FOTOSINTEZA:
+ugljen-dioksid + voda + sunčeva svetlost → šećer + kiseonik.
+
+Biljka od šećera gradi telo, a kiseonik pušta. Hleb, meso, mleko, pa i benzin — sve je to, na kraju, uhvaćena sunčeva svetlost.
+
+Ali na svakoj stepenici lanca najveći deo energije se izgubi (troši se na život i odlazi kao toplota). Dalje prelazi otprilike samo DESETINA. Zato:
+• trave ima mnogo, zečeva manje, a vukova malo — vrh piramide je uzak;
+• za kilogram mesa treba mnogo kilograma biljne hrane, pa biljna ishrana manje opterećuje zemlju i vodu.
+
+To nije moralna propoved, nego račun energije.`,
+pr:{p:'Zašto ima mnogo manje vukova nego zečeva?', o:['Zato što vukove ljudi love','Zato što se na svakoj stepenici lanca većina energije izgubi','Zato što vukovi žive kraće'], t:1, z:'Dalje prelazi samo oko desetina energije, pa vrh piramide može da nahrani malo grabljivaca.'}},
+{n:'Ključne vrste', t:`Neke vrste drže ceo ekosistem na okupu — kao kamen na vrhu svoda. Zovu se KLJUČNE VRSTE.
+
+• VUKOVI U JELOUSTONU. Istrebljeni su početkom 20. veka, a 1995. vraćeni u američki park. Jeleni su počeli da izbegavaju otvorene obale, pa su se tu oporavile vrbe, za njima dabrovi i ptice. Koliko je tačno vukovima zasluga, naučnici još mere — ali promena je bila velika.
+• OPRAŠIVAČI. Pčele, bumbari, leptiri, muve. Oko tri četvrtine najvažnijih useva u svetu bar delimično zavisi od njih — voće, povrće, kafa, kakao. Bez njih, prinosi bi pali, a hrana poskupela.
+• MORSKE VIDRE jedu morske ježeve; kad vidre nestanu, ježevi pojedu podvodne šume algi, a sa njima nestanu i ribe.
+
+Ukloni jednu kariku — i ne znaš unapred šta će sve pasti.`,
+pr:{p:'Šta je „ključna vrsta"?', o:['Najbrojnija vrsta u ekosistemu','Vrsta čiji nestanak menja ceo ekosistem','Vrsta koja je najstarija'], t:1, z:'Ključna vrsta nije nužno brojna, ali bez nje se cela mreža odnosa menja.'}},
+{n:'Veliki krugovi', t:`Materija na Zemlji kruži u velikim krugovima.
+
+KRUG UGLJENIKA: ugljenik iz vazduha (CO₂) biljke ugrade u telo → životinje ga pojedu → disanjem i truljenjem se vraća u vazduh. Deo potone i ostane zaključan milionima godina — u krečnjaku, uglju, nafti, gasu.
+
+Tu se povezuje sa lekcijom o klimi: spaljivanjem fosilnih goriva mi za stotinak godina vraćamo u vazduh ugljenik koji je bio zaključan milionima godina. Krug se nije pokvario, nego smo ga naglo ubrzali na jednom mestu.
+
+KRUG AZOTA: azota ima pun vazduh, ali ga biljke ne mogu uzeti direktno. Posao rade bakterije u tlu (naročito na korenu leguminoza: pasulja, graška, deteline — zato seljaci sade detelinu da „odmori" njivu). Danas veliki deo azota u poljima unosimo veštačkim đubrivom (Haber-Boš iz oblasti 2).
+
+Sve je povezano: tlo, biljke, vazduh, more, klima, tvoj tanjir.`,
+pr:{p:'Šta su fosilna goriva u krugu ugljenika?', o:['Ugljenik koji nikad nije bio deo kruga','Ugljenik zaključan milionima godina koji sada brzo vraćamo u vazduh','Nova vrsta ugljenika'], t:1, z:'Fosilna goriva su „zaključani" deo kruga; spaljivanjem ga naglo vraćamo u vazduh.'}},
+{n:'Besplatne usluge — i kraj oblasti', t:`Ekosistemi nam svakog dana rade poslove koje nikad ne platimo:
+• prave kiseonik i čiste vazduh,
+• filtriraju vodu (šuma i močvara su najbolji prečistači),
+• oprašuju useve,
+• prave plodno tlo (za jedan centimetar tla trebaju decenije do vekovi),
+• hrane nas ribom, divljim plodovima, lekovitim biljem,
+• zadržavaju poplave i sprečavaju klizišta.
+
+Da ih moramo praviti mašinama, koštalo bi više od cele svetske ekonomije. Zato ih zovu USLUGE EKOSISTEMA.
+
+Kraj oblasti „Život". Sada imaš kostur: šta je ćelija → kako DNK nosi recept → kako se vrste menjaju prirodnom selekcijom → kako je drvo života raslo kroz milijarde godina i izumiranja → i kako je sve to danas povezano u mrežu.
+
+Sledeće: jedno posebno živo biće, iznutra — tvoje telo.`,
+pr:{p:'Zašto se kaže da priroda daje „besplatne usluge"?', o:['Jer je zakonom zaštićena','Jer ono što radi (vazduh, voda, oprašivanje, tlo) bi skupo koštalo da to pravimo sami','Jer ne zavisi od ljudi'], t:1, z:'Prečišćavanje vode, oprašivanje, plodno tlo — da ih plaćamo, bili bi ogroman trošak.'}}
+],
+kljucno:['Ekosistem: proizvođači, biljojedi, mesojedi, razlagači; energija teče, materija kruži.','Fotosinteza je osnova skoro sve hrane; na svakoj stepenici dalje ide samo oko desetina energije.','Ključne vrste (vukovi, oprašivači) drže ceo sistem — oko 3/4 važnih useva zavisi od oprašivača.','Ugljenik i azot kruže; fosilna goriva su zaključan ugljenik koji naglo vraćamo u vazduh.','Ekosistemi daju besplatne usluge: vazduh, voda, oprašivanje, tlo.'],
+kartice:[
+{p:'Koja su četiri člana lanca ishrane?', o:'Proizvođači, biljojedi, mesojedi, razlagači.'},
+{p:'Koliko energije prelazi na sledeću stepenicu lanca?', o:'Otprilike samo desetina.'},
+{p:'Šta je ključna vrsta? Primer?', o:'Vrsta čiji nestanak menja ceo ekosistem — vukovi u Jeloustonu, oprašivači.'},
+{p:'Ko u prirodi hvata azot iz vazduha?', o:'Bakterije u tlu, naročito na korenu leguminoza (pasulj, grašak, detelina).'},
+{p:'Navedi tri usluge ekosistema.', o:'Npr. prečišćavanje vode, oprašivanje, plodno tlo (i kiseonik, zaštita od poplava).'}
+],
+razgovor:['Prati današnji obrok unazad: od tvog tanjira do Sunca. Koliko stepenica ima?','Ko je „ključna vrsta" u ekipi na poslu — neko čiji bi odlazak promenio sve? Šta to govori o ekosistemima?']}
 ]},
 {id:'4', naziv:'Telo i zdravlje', ikona:'🫀', era:'ti, iznutra', lekcije:[
 {id:'4-1', naslov:'Telo kao sistem — srce, krv, pluća, organi'},

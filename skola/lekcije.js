@@ -1,5 +1,6 @@
 // Škola — sadržaj (kurikulum v2, 09.10.2026). Lekcije se pišu jednom, ovde.
 // Oblast '13' (20. vek, dodata 09.10.) stoji posle oblasti 6; id 13 da se ne pomere id-jevi i napredak.
+// Oblast '14' (Geografija sveta, dodata 09.10.) stoji pre oblasti 9, iz istog razloga.
 // Napredak, odgovori i kartice su u bazi (skola/...), ne ovde.
 //
 // Lekcija: kuka (pogodi pre čitanja) → delovi (svaki sa proverom odmah) →
@@ -2698,6 +2699,320 @@ kartice:[
 ],
 razgovor:['Šta od jugoslovenskog modela ljudi oko tebe pamte sa nostalgijom, a šta se zaboravlja? Šta misliš ti?','Da možeš da biraš jednu stvar koju bi država u Srbiji radila bolje, a jednu koju bi prepustio tržištu — šta bi izabrao?']}
 ]},
+{id:'14', naziv:'Geografija sveta', ikona:'🗺️', era:'danas', lekcije:[
+
+{id:'14-1', naslov:'Karta, kontinenti i okeani',
+kuka:{p:'Na većini zidnih karata Grenland izgleda veliko kao Afrika. Koliko je Afrika zapravo veća?', o:['Isto su velike','Oko 2 puta','Oko 14 puta'], t:2},
+delovi:[
+{n:'Mreža na lopti', t:`Da bi se tačno reklo gde je nešto na Zemlji, preko lopte je „nabačena" zamišljena mreža:
+• PARALELE (geografska ŠIRINA) — krugovi oko Zemlje, paralelni sa EKVATOROM. Ekvator je 0°, severni pol 90° severno, južni 90° južno.
+• MERIDIJANI (geografska DUŽINA) — polukrugovi od pola do pola. Nulti meridijan prolazi kroz GRINIČ u Londonu (dogovor iz 1884); ide se do 180° istočno i zapadno.
+
+Beograd je otprilike na 45° severne širine (na pola puta od ekvatora do pola) i 20° istočne dužine. Zato navigacija u telefonu daje dva broja — širinu i dužinu.
+
+Meridijani određuju i VREMENSKE ZONE: Zemlja se okrene za 24 sata, pa svakih 15° dužine — jedan sat razlike. Srbija je u srednjoevropskoj zoni (GMT+1, leti +2).`,
+pr:{p:'Šta pokazuje geografska širina?', o:['Koliko je mesto istočno od Griniča','Koliko je mesto severno ili južno od ekvatora','Nadmorsku visinu'], t:1, z:'Širina se meri od ekvatora (0°) do polova (90°); dužina od Griniča.'}},
+{n:'Svaka karta laže', t:`Loptu ne možeš da ispeglaš na papir bez kidanja ili istezanja. Zato svaka ravna karta nešto iskrivljuje — oblik, površinu ili razdaljinu. Načini prenošenja zovu se PROJEKCIJE.
+
+Najpoznatija je MERKATOROVA (1569), napravljena za moreplovce: čuva pravce i oblike, ali što je nešto bliže polovima, to je naduvanije. Zato Grenland izgleda kao Afrika, a Afrika je oko 14 puta veća. I Evropa i Rusija izgledaju veće nego što jesu, a Afrika i Južna Amerika manje.
+
+Mapa koju koristi telefon (Gugl mape) je takođe vrsta Merkatora — dobra za ulice, loša za poređenje država.
+
+Pouka iz lekcije o ubeđivanju: i karta je izbor. Šta je u sredini, šta je gore, šta je naduvano — utiče na to kako zamišljamo svet.`,
+pr:{p:'Zašto Grenland na zidnoj karti izgleda ogromno?', o:['Jer jeste ogroman','Merkatorova projekcija naduvava sve što je blizu polova','Zbog leda'], t:1, z:'Lopta se ne može ispeglati bez iskrivljenja; Merkator čuva oblike, ali žrtvuje površinu.'}},
+{n:'Kopno i voda', t:`Zemlja ima površinu oko 510 miliona km². Od toga je oko 71% VODA, a samo 29% KOPNO. Bolje bi se zvala Voda nego Zemlja.
+
+Pet OKEANA, od najvećeg:
+1. TIHI — veći od celog kopna zajedno; u njemu je Marijanski rov, najdublje mesto na Zemlji, oko 11 km;
+2. ATLANTSKI — između Amerike i Evrope i Afrike;
+3. INDIJSKI;
+4. JUŽNI — oko Antarktika;
+5. SEVERNI LEDENI.
+
+Mora su delovi okeana uz kopno (Sredozemno, Crno, Jadransko…). Okeani su povezani — u stvari je to jedan svetski okean, a imena su ljudska podela.`,
+pr:{p:'Koliki deo površine Zemlje je voda?', o:['Oko polovine','Oko 71%','Oko 90%'], t:1, z:'Kopno je samo oko 29% — Tihi okean je sam veći od svog kopna zajedno.'}},
+{n:'Kontinenti', t:`Najčešće se broji SEDAM KONTINENATA, od najvećeg:
+1. AZIJA — oko 30% kopna i skoro 60% ljudi;
+2. AFRIKA — druga i po površini i po broju ljudi; najmlađa po stanovništvu;
+3. SEVERNA AMERIKA — sa Srednjom Amerikom i Karibima;
+4. JUŽNA AMERIKA;
+5. ANTARKTIK — bez stalnih stanovnika, pod ledom debelim mestimično i preko 4 km;
+6. EVROPA — zapravo zapadno poluostrvo Evroazije; granica sa Azijom je dogovor (Ural, Kavkaz, Bosfor);
+7. AUSTRALIJA (sa Okeanijom) — najmanji.
+
+U nekim zemljama uče šest (spoje Ameriku u jednu ili Evropu i Aziju u Evroaziju). Kontinenti nisu „prirodna" činjenica do kraja — to su delom geološke ploče, a delom istorijske navike.`,
+pr:{p:'Koji kontinent ima skoro 60% ljudi na svetu?', o:['Afrika','Azija','Evropa'], t:1, z:'Azija — samo Indija i Kina imaju po oko 1,4 milijarde stanovnika.'}},
+{n:'Kako ovo zapamtiti — i šta sledi', t:`Trik za glavu: zamisli globus i „obiđi" ga od kuće:
+• na zapad: Jadransko more, Italija, pa Atlantik, pa Amerike;
+• na istok: Crno more, Turska, Bliski istok, pa ogromna Azija do Tihog okeana;
+• na jug: Sredozemno more, pa Afrika preko ekvatora;
+• na sever: srednja Evropa, Skandinavija, pa Severni ledeni okean.
+
+Srbija je u JUGOISTOČNOJ EVROPI, na Balkanskom poluostrvu, bez izlaza na more; Dunav je naša veza sa Crnim morem i srednjom Evropom.
+
+Kostur lekcije: širina i dužina (ekvator, Grinič, vremenske zone) → svaka karta iskrivljuje (Merkator) → 71% vode, pet okeana → sedam kontinenata.
+
+Sledeće: lice planete — planine, reke, pustinje i klimatske zone.`,
+pr:{p:'Šta je naša prirodna veza sa Crnim morem i srednjom Evropom?', o:['Morava','Dunav','Sava'], t:1, z:'Dunav teče od Nemačke do Crnog mora — kroz Srbiju oko 588 km.'}}
+],
+kljucno:['Geografska širina (od ekvatora) i dužina (od Griniča); 15° dužine = 1 sat; Beograd ≈ 45° S, 20° I.','Svaka ravna karta iskrivljuje; Merkator naduvava polove — Afrika je oko 14 puta veća od Grenlanda.','Oko 71% Zemlje je voda; pet okeana — Tihi je veći od celog kopna; Marijanski rov oko 11 km.','Sedam kontinenata: Azija, Afrika, S. Amerika, J. Amerika, Antarktik, Evropa, Australija; Azija ima skoro 60% ljudi.','Srbija: jugoistočna Evropa, Balkan, bez mora; Dunav kao veza.'],
+kartice:[
+{p:'Šta je nulti meridijan i kuda prolazi?', o:'Početak merenja geografske dužine; prolazi kroz Grinič u Londonu.'},
+{p:'Zašto Grenland na kartama izgleda kao Afrika?', o:'Merkatorova projekcija naduvava oblasti blizu polova; Afrika je oko 14 puta veća.'},
+{p:'Koliki deo Zemlje pokriva voda?', o:'Oko 71%.'},
+{p:'Koji je najveći okean?', o:'Tihi — veći od celog kopna zajedno.'},
+{p:'Navedi sedam kontinenata.', o:'Azija, Afrika, Severna Amerika, Južna Amerika, Antarktik, Evropa, Australija.'}
+],
+razgovor:['Gde si do sada bio najdalje od kuće — i koliko je to, kad pogledaš globus, zapravo blizu?','Koje mesto na karti bi voleo da vidiš uživo, i zašto baš to?']},
+
+{id:'14-2', naslov:'Lice planete — planine, reke, pustinje, klima',
+kuka:{p:'Koja je najveća pustinja na svetu?', o:['Sahara','Gobi','Antarktik'], t:2},
+delovi:[
+{n:'Planine', t:`Visoke planine nastaju gde se ploče sudaraju (oblast 2). Najviše su u Aziji:
+• HIMALAJI — sudar Indije i Azije, koji traje i danas; tu je MONT EVEREST, 8.849 m, najviši vrh sveta. Svih četrnaest vrhova preko 8.000 m su u Himalajima i susednom Karakorumu.
+• ANDI — najduži venac na svetu, duž cele Južne Amerike.
+• STENOVITE PLANINE — zapad Severne Amerike.
+• ALPI — najviši u Evropi u užem smislu (Mon Blan, oko 4.800 m); KAVKAZ, na granici Evrope i Azije, ima i više vrhove (Elbrus, 5.642 m).
+• Kod nas: KARPATI i Balkanske planine na istoku, DINARIDI na zapadu.
+
+Planine prave klimu: zaustavljaju oblake (s jedne strane kiša, s druge pustinja), čuvaju sneg i led koji leti hrani reke. Skoro dve milijarde ljudi u Aziji zavisi od vode koja počinje u Himalajima.`,
+pr:{p:'Kako su nastali Himalaji?', o:['Od vulkana','Sudarom indijske i azijske ploče','Erozijom'], t:1, z:'Indija se i danas utiskuje u Aziju — planine i dalje rastu.'}},
+{n:'Reke i jezera', t:`Najduže reke:
+• NIL (Afrika, oko 6.650 km) i AMAZON (Južna Amerika) — koja je duža, zavisi od toga gde se meri izvor; spor traje.
+• AMAZON je ubedljivo najveća po količini vode — nosi oko petinu sve rečne vode koja se uliva u okeane.
+• Velike azijske reke: JANGCE, Žuta reka, Ganges, Ind, Mekong — uz njih su nastale civilizacije (oblast 6).
+• U Evropi: VOLGA najduža, DUNAV drugi — teče kroz 10 država i 4 prestonice (Beč, Bratislava, Budimpešta, Beograd).
+
+Jezera:
+• KASPIJSKO more je u stvari najveće jezero na svetu (slano).
+• BAJKAL u Sibiru — najdublje (preko 1.600 m) i najstarije; drži oko petine sve nezamrznute slatke površinske vode na planeti.
+• Velika jezera između SAD i Kanade.
+
+Samo oko 2,5% vode na Zemlji je slatko, a većina toga je zaleđena (Antarktik, Grenland) ili pod zemljom.`,
+pr:{p:'Koja reka nosi najviše vode na svetu?', o:['Nil','Amazon','Dunav'], t:1, z:'Oko petina sve rečne vode koja stiže u okeane dolazi iz Amazona; oko dužine Nila i Amazona se spori.'}},
+{n:'Pustinje i šume', t:`PUSTINJA nije pesak nego manjak padavina — manje od oko 250 mm godišnje. Zato je najveća pustinja ANTARKTIK (hladna), pa Arktik, a tek onda SAHARA (najveća topla, veličine skoro cele SAD). Druge: Arabijska, Gobi, Kalahari, australijske pustinje, Atakama u Čileu (najsuvlja — ima mesta gde godinama ne padne kiša).
+
+ŠUME:
+• TROPSKE KIŠNE ŠUME (Amazonija, Kongo, Indonezija) — najbogatije životom; na malo prostora više vrsta nego u celoj Evropi;
+• LISTOPADNE ŠUME umerenog pojasa (kao kod nas — hrast, bukva);
+• TAJGA — ogromne četinarske šume Rusije i Kanade, najveća šuma na kopnu.
+
+Između: STEPE i PRERIJE (trave, žitnice sveta — Ukrajina, američki srednji zapad, Vojvodina je deo istog tipa), SAVANE (Afrika — lavovi i žirafe), TUNDRA (smrznuto tlo na severu).`,
+pr:{p:'Šta određuje da li je nešto pustinja?', o:['Pesak','Vrlo malo padavina — manje od oko 250 mm godišnje','Visoka temperatura'], t:1, z:'Zato je Antarktik najveća pustinja na svetu — hladna, ali suva.'}},
+{n:'Klimatski pojasevi', t:`Najprostija podela klime ide po širini, od ekvatora ka polovima:
+• TROPSKI pojas — oko ekvatora: toplo cele godine; ili stalne kiše (kišne šume), ili sušna i kišna sezona (savane, monsuni u Indiji).
+• SUPTROPSKI — oko 20–35°: tu su velike tople pustinje, ali i SREDOZEMNA klima (suva vrela leta, blage kišne zime — Grčka, Italija, crnogorsko primorje).
+• UMERENI — oko 35–60°: četiri godišnja doba. Srbija je ovde, sa umereno-kontinentalnom klimom: topla leta, hladne zime, kiša raspoređena tokom godine.
+• SUBPOLARNI i POLARNI — kratka leta, duge zime, tundra i led.
+
+Uz širinu, klimu menjaju još: NADMORSKA VISINA (svakih 100 m oko 0,6 °C hladnije — zato je Kopaonik hladniji od Kraljeva), BLIZINA MORA (more ublažava: London ima blažu zimu od Moskve), MORSKE STRUJE (Golfska struja greje zapadnu Evropu) i planine koje zaustavljaju oblake.`,
+pr:{p:'Zašto je na planini hladnije?', o:['Bliže je Suncu, pa je hladnije','Sa visinom vazduh je ređi i hladniji — oko 0,6 °C na svakih 100 m','Zbog snega'], t:1, z:'Što je viša nadmorska visina, to je hladnije — zato je vrh Kopaonika hladniji od doline ispod.'}},
+{n:'Kraj — lice planete', t:`Kostur lekcije:
+• planine na granicama ploča: Himalaji (Everest 8.849 m), Andi, Alpi, Kavkaz; kod nas Karpati, Balkanske planine, Dinaridi;
+• reke: Nil i Amazon (najveći), Dunav drugi u Evropi; jezera: Kaspijsko (najveće), Bajkal (najdublje);
+• slatke vode je samo 2,5%, i većina je zaleđena;
+• pustinja = malo kiše (Antarktik, Sahara); šume: kišne, listopadne, tajga; stepe, savane, tundra;
+• klima: tropski, suptropski, umereni, polarni pojas — plus visina, more, struje i planine.
+
+Ovo je pozornica. Sledeće: glumci — koliko nas ima, gde živimo i kako se to menja.`,
+pr:{p:'Koliko je, otprilike, slatke vode na Zemlji?', o:['Oko 2,5% sve vode, i većina je zaleđena','Oko polovine','Oko 25%'], t:0, z:'Slatka voda je retka; većina je u ledu i pod zemljom — zato su reke i jezera tako dragoceni.'}}
+],
+kljucno:['Najviše planine na granicama ploča: Himalaji (Everest 8.849 m), Andi (najduži venac), Alpi, Kavkaz.','Nil i Amazon su najduže (spor); Amazon nosi najviše vode; Dunav drugi u Evropi; Kaspijsko najveće, Bajkal najdublje jezero.','Pustinja = manje od ~250 mm kiše: najveća je Antarktik, najveća topla Sahara; slatke vode samo ~2,5%.','Biomi: kišne šume, listopadne šume, tajga, stepe, savane, tundra.','Klimatski pojasevi po širini; klimu menjaju i visina (~0,6 °C na 100 m), more, struje i planine.'],
+kartice:[
+{p:'Koliko je visok Mont Everest?', o:'8.849 m.'},
+{p:'Koja reka nosi najviše vode?', o:'Amazon — oko petine sve rečne vode koja stiže u okeane.'},
+{p:'Koja je najveća pustinja na svetu?', o:'Antarktik (najveća topla je Sahara).'},
+{p:'Koje je najdublje jezero na svetu?', o:'Bajkal u Sibiru.'},
+{p:'Kakvu klimu ima Srbija?', o:'Umereno-kontinentalnu: topla leta, hladne zime, četiri godišnja doba.'}
+],
+razgovor:['Koji pejzaž te najviše vuče — more, planina, ravnica ili grad? Šta misliš, odakle ta sklonost?','Da možeš da živiš u bilo kom klimatskom pojasu, koji bi izabrao — i šta bi ti falilo?']},
+
+{id:'14-3', naslov:'Ljudi na planeti — koliko nas je i gde živimo',
+kuka:{p:'Koliko je otprilike ljudi danas na Zemlji?', o:['Oko 6 milijardi','Preko 8 milijardi','Oko 12 milijardi'], t:1},
+delovi:[
+{n:'Koliko nas je', t:`Danas na Zemlji živi preko 8 MILIJARDI ljudi. Kako smo stigli dovde:
+• oko 1800. — 1 milijarda;
+• 1927. — 2 milijarde;
+• 1960. — 3; 1974. — 4; 1987. — 5; 1999. — 6; 2011. — 7; 2022. — 8 milijardi.
+
+Najveći skok je bio u 20. veku — zbog vakcina, antibiotika, čiste vode i više hrane ljudi su prestali da masovno umiru mladi.
+
+Ali rast se USPORAVA. Prognoze UN govore da će broj ljudi verovatno dostići vrhunac od nešto preko 10 milijardi u drugoj polovini ovog veka, pa početi da opada.
+
+Najmnogoljudnije zemlje: INDIJA i KINA (po oko 1,4 milijarde; Indija je Kinu prestigla 2023), pa SAD, Indonezija, Pakistan, Nigerija, Brazil.`,
+pr:{p:'Šta se dešava sa rastom broja ljudi?', o:['Ubrzava se','Usporava se — vrhunac se očekuje u drugoj polovini veka','Već opada svuda'], t:1, z:'Rast je najbrži bio u 20. veku; prognoze UN predviđaju vrhunac nešto preko 10 milijardi.'}},
+{n:'Demografski prelaz', t:`Zašto rast usporava? Sve zemlje prolaze kroz isti obrazac — DEMOGRAFSKI PRELAZ:
+1. Visoka rođenja, visoka smrtnost — stanovništvo stoji (tako je bilo hiljadama godina).
+2. Smrtnost pada (medicina, higijena), rođenja i dalje visoka — EKSPLOZIJA stanovništva.
+3. Rođenja padaju — deca preživljavaju, žene se školuju i rade, ljudi se sele u gradove, deca postaju skupa umesto da rade na njivi.
+4. Niska rođenja, niska smrtnost — stanovništvo stoji ili opada i STARI.
+
+Za održavanje broja stanovnika potrebno je oko 2,1 deteta po ženi. Danas je u većini sveta ispod toga — u Južnoj Koreji ispod 1, u Srbiji oko 1,5–1,6. U delu Afrike je još 4–6.
+
+Zato je svet podeljen na MLADE (Afrika — polovina ljudi mlađa od oko 19 godina) i STARE zemlje (Evropa, Japan — polovina starija od preko 40). Stare zemlje imaju problem: ko će raditi i plaćati penzije? Odgovori su: kasnija penzija, mašine, doseljenici — i oko svakog se vodi politička rasprava.`,
+pr:{p:'Koliko je dece po ženi potrebno da broj stanovnika ostane isti?', o:['Oko 1','Oko 2,1','Oko 4'], t:1, z:'Dvoje da zamene roditelje, plus malo zbog dece koja ne dožive odraslo doba.'}},
+{n:'Gradovi', t:`Godine 2007. prvi put u istoriji više ljudi je živelo u GRADOVIMA nego na selu. Danas je to oko 57%, a raste.
+
+Najveća gradska područja imaju po 30–40 miliona ljudi — DŽAKARTA, DAKA, TOKIO (redosled zavisi od toga gde se povlači granica grada). Zatim Nju Delhi, Šangaj, Kairo, Manila, Sao Paulo…
+
+Zašto ljudi idu u grad? Posao, plata, škole, bolnice, sloboda, anonimnost. Grad je mašina za susrete: ideje, trgovina i nove firme nastaju gde je mnogo ljudi blizu.
+
+Cena: gužva, skupi stanovi, zagađenje, a u siromašnim zemljama ogromna divlja naselja (u svetu više od milijardu ljudi živi u njima).
+
+Srbija prati isti obrazac: sela se prazne (mnoga imaju samo starce), a rastu Beograd, Novi Sad i nekoliko većih gradova.`,
+pr:{p:'Šta se prvi put desilo 2007. godine?', o:['Prestao je rast stanovništva','Više ljudi je živelo u gradovima nego na selu','Indija je prestigla Kinu'], t:1, z:'Od 2007. svet je pretežno gradski; danas oko 57% ljudi živi u gradovima.'}},
+{n:'Jezici i seobe', t:`JEZICI — po broju ljudi kojima je to MATERNJI jezik: kineski (mandarinski, oko milijardu), španski, engleski, hindi, arapski, portugalski, bengalski, ruski. Po UKUPNOM broju govornika (sa onima koji ga uče) prvi je ENGLESKI — oko milijardu i po; on je danas jezik nauke, interneta, avijacije i biznisa.
+
+SEOBE — oko 3–4% ljudi na svetu živi van zemlje u kojoj je rođeno (preko 280 miliona). Razlozi: posao i plata (najčešće), rat i progon (izbeglice), porodica, školovanje, klima.
+
+Najveći tokovi: iz Latinske Amerike u SAD, iz Azije i Afrike u Evropu i zemlje Persijskog zaliva, iz istočne u zapadnu Evropu.
+
+Srbija je zemlja ISELJAVANJA: od gastarbajtera 1960-ih do mladih danas — Nemačka, Austrija, Švajcarska, SAD. Novac koji dijaspora šalje kući (doznake) jedan je od velikih priliva novca u Srbiju.`,
+pr:{p:'Koji je jezik prvi po ukupnom broju govornika?', o:['Kineski','Engleski — oko milijardu i po ljudi sa onima koji ga uče','Španski'], t:1, z:'Kineski je prvi kao maternji, ali engleski je prvi kad se računaju i oni koji ga govore kao drugi jezik.'}},
+{n:'Kraj — gde smo', t:`Kostur lekcije:
+• preko 8 milijardi; Indija i Kina po oko 1,4 milijarde; rast usporava, vrhunac oko 10+ milijardi;
+• demografski prelaz: smrtnost pada, pa rođenja; 2,1 dete po ženi; mlada Afrika, stara Evropa;
+• od 2007. većina ljudi živi u gradovima; najveći gradovi 30–40 miliona;
+• engleski je opšti jezik; preko 280 miliona migranata; Srbija — zemlja iseljavanja.
+
+Jedna rečenica: čovečanstvo je za dva veka postalo osam puta brojnije, gradsko i staro — i to menja sve, od cene stana do politike.
+
+Sledeće: obilazak sveta po regionima — koje su zemlje gde i po čemu se pamte.`,
+pr:{p:'Koliko puta je čovečanstvo poraslo od 1800. do danas?', o:['Dva puta','Oko osam puta','Sto puta'], t:1, z:'Od oko milijardu (1800) do preko 8 milijardi danas.'}}
+],
+kljucno:['Preko 8 milijardi ljudi (1 milijarda oko 1800); rast usporava, vrhunac oko 10+ milijardi u drugoj polovini veka.','Najmnogoljudnije: Indija, Kina (po ~1,4 milijarde), SAD, Indonezija, Pakistan.','Demografski prelaz; za održanje treba ~2,1 dete po ženi; Srbija ~1,5; mlada Afrika, stara Evropa i Japan.','Od 2007. većina ljudi u gradovima (danas ~57%); najveći gradovi 30–40 miliona.','Engleski prvi po ukupnom broju govornika; preko 280 miliona migranata; Srbija — zemlja iseljavanja.'],
+kartice:[
+{p:'Koliko ljudi živi na Zemlji?', o:'Preko 8 milijardi.'},
+{p:'Koje su dve najmnogoljudnije zemlje?', o:'Indija i Kina, po oko 1,4 milijarde.'},
+{p:'Šta je demografski prelaz?', o:'Prelaz od visoke rodnosti i smrtnosti ka niskoj — prvo pada smrtnost, pa rođenja.'},
+{p:'Koliko dece po ženi održava broj stanovnika?', o:'Oko 2,1.'},
+{p:'Od kada većina ljudi živi u gradovima?', o:'Od 2007.'}
+],
+razgovor:['Koliko ljudi iz tvog kraja ili generacije je otišlo u inostranstvo — i šta misliš, šta bi ih vratilo?','Grad ili selo — gde bi voleo da tvoja porodica živi za deset godina, i zašto?']},
+
+{id:'14-4', naslov:'Svet po regionima — države i šta treba znati',
+kuka:{p:'Koja je država najveća po površini?', o:['Kanada','Kina','Rusija'], t:2},
+delovi:[
+{n:'Koliko ima država', t:`U UN je 193 države članice, plus dve posmatračice (Vatikan i Palestina) — zato se kaže da na svetu ima „oko 195 država". Tačan broj zavisi od priznanja: Tajvan, Kosovo i još nekoliko teritorija imaju svoju vlast, ali ih ne priznaju svi (lekcija 9-5).
+
+Najveće po površini: RUSIJA (oko 17 miliona km² — skoro dvostruko veća od sledeće), KANADA, SAD, KINA, BRAZIL, AUSTRALIJA, INDIJA.
+Najmanje: VATIKAN (manji od pola kvadratnog kilometra — manje od mnogih beogradskih naselja), Monako, San Marino.
+
+Po bogatstvu (privreda u celini): SAD, Kina, Nemačka, Japan, Indija. Po bogatstvu po stanovniku na vrhu su male zemlje — Luksemburg, Švajcarska, Norveška, Singapur, Irska, Katar.`,
+pr:{p:'Koliko je otprilike država na svetu?', o:['Oko 50','Oko 195','Oko 500'], t:1, z:'193 članice UN plus dve posmatračice; tačan broj zavisi od priznanja.'}},
+{n:'Evropa', t:`Oko 45 država na malom prostoru. Grubo:
+• ZAPADNA: Francuska (Pariz), Velika Britanija (London), Nemačka (Berlin — najveća privreda Evrope), Beneluks (Belgija — Brisel, sedište EU i NATO; Holandija — Amsterdam; Luksemburg), Švajcarska (Bern) i Austrija (Beč).
+• JUŽNA (sredozemna): Španija (Madrid), Portugal (Lisabon), Italija (Rim), Grčka (Atina).
+• SEVERNA: Švedska (Stokholm), Norveška (Oslo), Danska (Kopenhagen), Finska (Helsinki), Island (Rejkjavik).
+• ISTOČNA i SREDNJA: Poljska (Varšava), Češka (Prag), Slovačka (Bratislava), Mađarska (Budimpešta), Rumunija (Bukurešt), Bugarska (Sofija), baltičke države, Ukrajina (Kijev), Belorusija (Minsk), Moldavija (Kišinjev).
+• RUSIJA (Moskva) — najveća zemlja sveta, preko Evrope i cele severne Azije.
+• BALKAN — posebna lekcija.
+
+Rečenica za pamćenje: Evropa je mala, gusta i stara — više od dve hiljade godina ratova i dogovora na prostoru manjem od Kanade.`,
+pr:{p:'Koja zemlja ima najveću privredu u Evropi?', o:['Francuska','Nemačka','Italija'], t:1, z:'Nemačka — i zato je najvažnija destinacija za radnike sa Balkana.'}},
+{n:'Azija i Bliski istok', t:`• ISTOČNA AZIJA: KINA (Peking), JAPAN (Tokio), Južna Koreja (Seul), Severna Koreja (Pjongjang), Mongolija; Tajvan (Tajpej) — sporan status.
+• JUŽNA AZIJA: INDIJA (Nju Delhi), Pakistan (Islamabad), Bangladeš (Daka), Šri Lanka, Nepal (Himalaji).
+• JUGOISTOČNA: INDONEZIJA (Džakarta; više od 17.000 ostrva, najviše muslimana na svetu), Tajland (Bangkok), Vijetnam (Hanoj), Filipini (Manila), Malezija, Singapur.
+• CENTRALNA: Kazahstan (najveća država bez izlaza na more), Uzbekistan i ostali „-stani".
+• BLISKI ISTOK: Turska (Ankara; Istanbul je najveći grad, na dva kontinenta), Iran (Teheran), Irak (Bagdad), Sirija (Damask), Saudijska Arabija (Rijad; Meka), Izrael (vlada u Jerusalimu, čiji je status sporan; većina ambasada u Tel Avivu), Palestinske teritorije, Jordan, Liban, zalivske države (UAE — Dubai, Katar, Kuvajt). Ovde je oko polovine poznatih svetskih rezervi nafte.`,
+pr:{p:'Koja zemlja ima najviše muslimana na svetu?', o:['Saudijska Arabija','Indonezija','Turska'], t:1, z:'Indonezija — preko 230 miliona muslimana; većina muslimana sveta nije Arapi.'}},
+{n:'Afrika, Amerike i Okeanija', t:`AFRIKA — 54 države, najmlađe stanovništvo sveta:
+• sever (arapski, uz Sredozemlje): EGIPAT (Kairo; Nil, piramide), Maroko, Alžir (najveća afrička država), Tunis, Libija;
+• ispod Sahare: NIGERIJA (najmnogoljudnija, preko 200 miliona; prestonica Abudža, najveći grad Lagos), Etiopija (Adis Abeba, sedište Afričke unije), Kenija (Najrobi), DR Kongo, Tanzanija, Gana, JUŽNA AFRIKA (najrazvijenija privreda; tri prestonice).
+
+AMERIKE:
+• SAD (Vašington; najveći grad Njujork), KANADA (Otava), MEKSIKO (Meksiko Siti);
+• Srednja Amerika i Karibi (Kuba — Havana, Panama i kanal);
+• Južna: BRAZIL (Brazilija; najveći gradovi Sao Paulo i Rio; govori se portugalski), ARGENTINA (Buenos Ajres), Kolumbija (Bogota), Peru (Lima), Čile (Santjago), Venecuela (Karakas).
+
+OKEANIJA: AUSTRALIJA (prestonica Kanbera — ne Sidnej!), Novi Zeland (Velington), i hiljade pacifičkih ostrva.
+
+Zamka za kviz: mnoge prestonice nisu najveći grad — Kanbera, Otava, Vašington, Brazilija, Ankara, Abudža.`,
+pr:{p:'Koja je prestonica Australije?', o:['Sidnej','Kanbera','Melburn'], t:1, z:'Kanbera je napravljena kao kompromis između Sidneja i Melburna.'}},
+{n:'Kraj — kako pamtiti svet', t:`Ne moraš znati svih 195 prestonica. Bolje je imati MAPU U GLAVI sa sidrima:
+• najveće: Rusija, Kanada, SAD, Kina, Brazil, Australija;
+• najmnogoljudnije: Indija, Kina, SAD, Indonezija, Pakistan, Nigerija, Brazil;
+• najbogatije privrede: SAD, Kina, Nemačka, Japan, Indija;
+• žarišta: Bliski istok, Ukrajina, Tajvan, Kašmir, Sahel u Africi.
+
+Kad čuješ vest iz neke zemlje, uradi jednu stvar: pogledaj je na karti. Ko su joj susedi, da li ima more, koje velike reke ili planine — pola vesti se odmah objasni (sećaš se geopolitike, 9-4).
+
+Kostur lekcije: oko 195 država (spor oko priznanja); najveće, najmnogoljudnije, najbogatije; Evropa po regionima; Azija i Bliski istok; Afrika (54), Amerike, Okeanija; prestonice-zamke.
+
+Sledeće: naš kraj — Srbija i Balkan na karti.`,
+pr:{p:'Šta je dobra navika kad čuješ vest iz neke zemlje?', o:['Preskočiti je','Pogledati zemlju na karti — susede, more, reke, planine','Zapamtiti prestonicu'], t:1, z:'Položaj objašnjava mnogo: ko kome smeta, ko od koga zavisi, kuda idu putevi.'}}
+],
+kljucno:['Oko 195 država (193 u UN + Vatikan i Palestina); spor oko Tajvana, Kosova i drugih.','Najveća: Rusija (~17 miliona km²), Kanada, SAD, Kina; najmanja: Vatikan; najveće privrede: SAD, Kina, Nemačka, Japan, Indija.','Evropa: zapad, jug, sever, istok i srednja, Balkan; Rusija preko dva kontinenta.','Azija: Kina, Japan, Indija, Indonezija (najviše muslimana); Bliski istok — nafta i žarišta.','Afrika 54 države (Nigerija najmnogoljudnija); Amerike; Australija — Kanbera; mnoge prestonice nisu najveći grad.'],
+kartice:[
+{p:'Koja je najveća država po površini?', o:'Rusija, oko 17 miliona km².'},
+{p:'Koliko država ima Afrika?', o:'54.'},
+{p:'Koja je najmnogoljudnija zemlja Afrike?', o:'Nigerija.'},
+{p:'Navedi tri prestonice koje nisu najveći grad svoje zemlje.', o:'Npr. Kanbera, Otava, Vašington, Brazilija, Ankara, Abudža.'},
+{p:'Koja zemlja ima najviše muslimana?', o:'Indonezija.'}
+],
+razgovor:['Koju zemlju bi voleo da upoznaš bolje — i šta o njoj sad zapravo znaš, a šta su samo slike iz filmova?','Kad sledeći put čuješ vest iz sveta, probaj: pogledaj kartu pre nego što pročitaš tekst. Šta misliš da ćeš primetiti?']},
+
+{id:'14-5', naslov:'Srbija i Balkan na karti',
+kuka:{p:'Koji je najviši vrh Srbije van Kosova?', o:['Pančićev vrh na Kopaoniku','Midžor na Staroj planini','Zlatibor'], t:1},
+delovi:[
+{n:'Balkansko poluostrvo', t:`BALKANSKO POLUOSTRVO je na jugoistoku Evrope, između Jadranskog, Jonskog, Egejskog i Crnog mora. Ime dolazi od turske reči za planinu (balkan) — i zaista je pretežno planinsko. Severna granica nije oštra; najčešće se uzima linija Kupa–Sava–Dunav.
+
+Države koje su cele ili delom na Balkanu: Srbija, Crna Gora, BiH, Hrvatska (delom), Slovenija (mali deo), Severna Makedonija, Albanija, Grčka, Bugarska, Rumunija (mali deo), evropski deo Turske; i Kosovo, čiji je status sporan.
+
+„ZAPADNI BALKAN" je politički izraz EU: zemlje bivše Jugoslavije koje nisu u EU, plus Albanija.
+
+Najviši vrh Balkana je Musala (2.925 m) u Bugarskoj, a najveće reke Dunav, Sava, Morava i Marica.`,
+pr:{p:'Odakle potiče ime „Balkan"?', o:['Od imena jednog kralja','Od turske reči za planinu','Od latinske reči za more'], t:1, z:'Poluostrvo je pretežno planinsko — otud ime.'}},
+{n:'Srbija — osnovni podaci', t:`SRBIJA nema izlaz na more. Površina sa Kosovom i Metohijom je oko 88.500 km², bez njega oko 77.500 km². Sa Kosovom je malo veća od Austrije, a manja od Mađarske.
+
+Stanovnika je po popisu 2022. oko 6,6 miliona (bez Kosova, gde popis nije sproveden) — više od pola miliona manje nego 2011. Broj opada zbog niskog rađanja i iseljavanja (lekcija 14-3).
+
+Najveći gradovi: BEOGRAD (oko 1,7 miliona u gradu), NOVI SAD, NIŠ, Kragujevac, Subotica.
+
+Susedi: Mađarska, Rumunija, Bugarska, Severna Makedonija, Crna Gora, Bosna i Hercegovina, Hrvatska — i, preko Kosova, Albanija. Srbija smatra granicu sa Albanijom svojom, a Priština tu teritoriju smatra kosovskom (lekcija 9-5).`,
+pr:{p:'Koliko je stanovnika imala Srbija na popisu 2022. (bez Kosova)?', o:['Oko 9 miliona','Oko 6,6 miliona','Oko 4 miliona'], t:1, z:'Više od pola miliona manje nego 2011. — zbog niskog rađanja i iseljavanja.'}},
+{n:'Reljef — sever ravan, jug planinski', t:`Srbija se grubo deli na ravan sever i brdovito-planinski centar i jug.
+
+• VOJVODINA — PANONSKA NIZIJA, dno nekadašnjeg PANONSKOG MORA, koje je isteklo pre nekoliko miliona godina. Najplodnija zemlja u državi — žitnica. Iz ravnice se dižu FRUŠKA GORA (nekad ostrvo u tom moru) i Vršački breg. Ima i peščara — Deliblatska peščara, „evropska Sahara" u malom.
+• CENTRALNA SRBIJA — ŠUMADIJA (brežuljci, voćnjaci, nekada guste šume — otud ime), POMORAVLJE.
+• ZAPAD — Dinarske planine: Zlatibor, Tara (nacionalni park, Drina i njen kanjon), Golija.
+• ISTOK — Karpatsko-balkanske planine: Stara planina sa MIDŽOROM (2.169 m, najviši vrh van Kosova), Rtanj.
+• JUG — KOPAONIK (Pančićev vrh 2.017 m, najveći ski-centar), Šar planina na Kosovu. Najviši vrh na celoj teritoriji koju Srbija smatra svojom je ĐERAVICA (2.656 m) na Kosovu.
+
+ĐERDAP — klisura kojom se Dunav probija kroz Karpate, duga oko 100 km, jedna od najvećih u Evropi; tu je i Lepenski Vir (lekcija 6-1) i hidroelektrana Đerdap.`,
+pr:{p:'Šta je Vojvodina geološki?', o:['Bivši vulkan','Dno nekadašnjeg Panonskog mora — zato je ravna i plodna','Deo Alpa'], t:1, z:'Panonsko more je isteklo pre nekoliko miliona godina i ostavilo plodno ravno dno.'}},
+{n:'Reke', t:`Skoro sve vode Srbije teku ka DUNAVU, pa u Crno more.
+• DUNAV — kroz Srbiju oko 588 km; ulazi kod Bezdana, izlazi kroz Đerdap.
+• SAVA — uliva se u Dunav u Beogradu, ispod Kalemegdana — zato je Beograd tu gde jeste: tvrđava na ušću dve reke.
+• TISA — kroz Vojvodinu.
+• MORAVA — najveća reka koja ceo tok ima u Srbiji. Nastaje kod Stalaća spajanjem JUŽNE MORAVE (pored Vranja i Niša) i ZAPADNE MORAVE (kroz Čačak, Kraljevo); kao VELIKA MORAVA teče na sever do Dunava. Dolina Morave je glavni put kroz Srbiju — autoput i pruga (sećaš se Koridora 10, lekcija 9-4).
+• DRINA — granica sa BiH; Ibar, Timok, Lim.
+
+Jezera su uglavnom veštačka: Đerdapsko (najveće), Perućac, Vlasinsko; među najvećim prirodnim je Palićko kod Subotice.`,
+pr:{p:'Kako nastaje Velika Morava?', o:['Izvire na Kopaoniku','Spajanjem Južne i Zapadne Morave kod Stalaća','Odvaja se od Dunava'], t:1, z:'Južna (pored Vranja i Niša) i Zapadna (kroz Čačak i Kraljevo) spajaju se kod Stalaća.'}},
+{n:'Kraj oblasti — mapa u glavi', t:`Kostur oblasti „Geografija sveta":
+1. karta i mreža (širina, dužina), iskrivljenje karte, 71% vode, pet okeana, sedam kontinenata;
+2. planine, reke, pustinje, šume, klimatski pojasevi;
+3. preko 8 milijardi ljudi, demografski prelaz, gradovi, jezici, seobe;
+4. oko 195 država — najveće, najmnogoljudnije, najbogatije, regioni, prestonice-zamke;
+5. Balkan i Srbija: sever ravan (Panonska nizija), jug planinski, Dunav–Sava–Morava, Đerdap.
+
+Jedna vežba za kraj: zatvori oči i nacrtaj u glavi put od kuće do mora — kojim rekama i dolinama ideš, preko kojih planina, kroz koje države. Ako možeš to, imaš mapu u glavi.
+
+Sledeće: vlast, pravo i svet — sad kad znaš gde je šta, lakše ćeš videti zašto se ko oko čega spori.`,
+pr:{p:'Šta je najbolji dokaz da imaš „mapu u glavi"?', o:['Da znaš sve prestonice napamet','Da možeš da zamisliš put — reke, planine, države — od jednog mesta do drugog','Da imaš atlas'], t:1, z:'Znanje geografije je slika odnosa: šta je pored čega i kuda se ide.'}}
+],
+kljucno:['Balkan: ime od turske reči za planinu; severna granica Kupa–Sava–Dunav; „Zapadni Balkan" je politički izraz EU.','Srbija: bez mora; ~88.500 km² sa Kosovom (~77.500 bez); popis 2022 ~6,6 miliona; Beograd, Novi Sad, Niš.','Sever ravan (Panonska nizija, dno nekadašnjeg mora; Fruška gora), centar Šumadija, zapad Dinaridi, istok Stara planina (Midžor 2.169 m), jug Kopaonik; Đeravica 2.656 m na Kosovu.','Reke ka Dunavu: Dunav (~588 km), Sava (ušće u Beogradu), Tisa, Morava (Južna + Zapadna kod Stalaća), Drina; Đerdap.','Mapa u glavi = odnosi: šta je pored čega i kuda se ide.'],
+kartice:[
+{p:'Odakle ime Balkan?', o:'Od turske reči za planinu.'},
+{p:'Koliko stanovnika ima Srbija po popisu 2022?', o:'Oko 6,6 miliona (bez Kosova).'},
+{p:'Koji je najviši vrh Srbije van Kosova?', o:'Midžor na Staroj planini, 2.169 m.'},
+{p:'Šta je Vojvodina geološki?', o:'Dno nekadašnjeg Panonskog mora.'},
+{p:'Gde nastaje Velika Morava?', o:'Kod Stalaća, spajanjem Južne i Zapadne Morave.'}
+],
+razgovor:['Koji kraj Srbije znaš najbolje, a u koji nikad nisi kročio — i zašto?','Da strancu treba da opišeš Srbiju u tri rečenice preko karte — šta bi rekao?']}
+]},
+
 {id:'9', naziv:'Vlast, pravo i svet', ikona:'⚖️', era:'danas', lekcije:[
 {id:'9-1', naslov:'Šta je država — oblici vlasti',
 kuka:{p:'Po čemu se, po čuvenoj definiciji Maksa Vebera, država razlikuje od bande?', o:['Država je veća','Država ima monopol na ZAKONITU upotrebu sile na svojoj teritoriji','Država naplaćuje poreze, banda ne'], t:1},
@@ -3656,6 +3971,7 @@ pr:{p:'Šta je CRISPR?', o:['Kvantni računar','Alat za precizno menjanje DNK �
    + 20. VEK — svetski ratovi, Hladni rat, Jugoslavija od nastanka do raspada, svet posle 1991.
 7. IDEJE — religije i filozofija: šta je svet, šta je dobro.
 8. NOVAC — izbor u oskudici, poverenje, tržište i država.
+   + GEOGRAFIJA — karta, kontinenti, klima, ljudi, države, Srbija na karti.
 9. VLAST — država, pravo, ideologije, karta sveta.
 10. UMETNOST — priča, slika, muzika: smisao.
 11. TEHNOLOGIJA — od vatre do veštačke inteligencije.
@@ -3666,7 +3982,7 @@ Jedna rečenica: od praska do tvog telefona, priča je o tome kako materija, pa 
 Kartice će se i dalje vraćati na ponavljanje. A gde god poželiš da kopaš dublje — „Hoću više o ovome".`,
 pr:{p:'Šta povezuje celu priču ove škole?', o:['Samo datumi','Materija, pa život, pa um sve više znaju o sebi — i svako znanje nosi novu odgovornost','Ništa, to su odvojene teme'], t:1, z:'Big History: od Velikog praska do tehnologije — rastuća složenost i znanje.'}}
 ],
-kljucno:['Oko 80% energije sveta još iz fosilnih goriva; Srbija — ugalj (većina struje) i hidro; zadatak: više energije, manje CO₂.','Sunce i vetar pojeftinili oko 90% (2010–2020), baterije takođe; problem je stalnost — baterije i mreže.','Fisija: bez CO₂, stabilna, ali nesreće, otpad i cena; Srbija ukinula zabranu krajem 2024; fuzija — 2022. prvi neto dobitak u laboratoriji.','Budućnost: CRISPR i mRNK, AI, kvantni računari, svemir — pitanje je ko kontroliše i kome koristi.','Cela priča: kosmos → Zemlja → život → telo → um → istorija → 20. vek → ideje → novac → vlast → umetnost → tehnologija, uz alate mišljenja.'],
+kljucno:['Oko 80% energije sveta još iz fosilnih goriva; Srbija — ugalj (većina struje) i hidro; zadatak: više energije, manje CO₂.','Sunce i vetar pojeftinili oko 90% (2010–2020), baterije takođe; problem je stalnost — baterije i mreže.','Fisija: bez CO₂, stabilna, ali nesreće, otpad i cena; Srbija ukinula zabranu krajem 2024; fuzija — 2022. prvi neto dobitak u laboratoriji.','Budućnost: CRISPR i mRNK, AI, kvantni računari, svemir — pitanje je ko kontroliše i kome koristi.','Cela priča: kosmos → Zemlja → život → telo → um → istorija → 20. vek → ideje → novac → geografija → vlast → umetnost → tehnologija, uz alate mišljenja.'],
 kartice:[
 {p:'Koliki deo energije sveta danas daju fosilna goriva?', o:'Oko 80%.'},
 {p:'Za koliko su pojeftinili solarni paneli 2010–2020?', o:'Oko 90%.'},
@@ -3905,7 +4221,7 @@ DŽON SNOU je 1854. u Londonu ucrtao na mapu svaki slučaj kolere i video da se 
 
 Kostur lekcije: krug — posmatranje, hipoteza, predviđanje, provera; Poper — opovrgljivost; korelacija nije uzrok (treći uzrok, obrnut smer, slučajnost); kontrolna grupa; ponovljivost; lestvica dokaza.
 
-Sledeće: vlast, pravo i svet.`,
+Sledeće: geografija sveta — karta u glavi, pa vlast, pravo i svet.`,
 pr:{p:'Šta je najjači dokaz na lestvici?', o:['Lična priča poznatog čoveka','Pregled mnogo ogleda sa kontrolnom grupom i saglasnost struke','Jedno novo istraživanje'], t:1, z:'Što više nezavisnih ogleda pokazuje isto, to je zaključak sigurniji.'}}
 ],
 kljucno:['Krug nauke: posmatranje → hipoteza → predviđanje → provera → dorada (Zemelvajs i pranje ruku, 1847).','Poper: naučna tvrdnja mora biti opovrgljiva; ono što se uklapa u svaki ishod ništa ne kaže.','Korelacija nije uzrok: treći uzrok, obrnut smer, slučajnost; uzrok najbolje pokazuje nasumičan ogled sa kontrolnom grupom.','Jedna studija je slaba; ponovljivost i saglasnost su jake; kriza ponovljivosti — nauka sama ispravlja greške.','Lestvica dokaza od lične priče do meta-analize; pet pitanja za svaku naučnu vest (Snou i kolera, 1854).'],
@@ -3991,7 +4307,7 @@ export const RED = (() => {
   const o = id => OBLASTI.find(x => x.id === id).lekcije.map(l => l.id);
   const a = o('12');
   return [...o('1'), ...o('2'), a[0], ...o('3'), ...o('4'), a[1], ...o('5'), ...o('6'), ...o('13'), a[2],
-          ...o('7'), ...o('8'), a[3], ...o('9'), ...o('10'), a[4], ...o('11')];
+          ...o('7'), ...o('8'), a[3], ...o('14'), ...o('9'), ...o('10'), a[4], ...o('11')];
 })();
 
 // Razmaci ponavljanja u danima, po „kutiji" kartice (0 = nova ili promašena).

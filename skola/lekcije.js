@@ -911,18 +911,606 @@ kartice:[
 razgovor:['Prati današnji obrok unazad: od tvog tanjira do Sunca. Koliko stepenica ima?','Ko je „ključna vrsta" u ekipi na poslu — neko čiji bi odlazak promenio sve? Šta to govori o ekosistemima?']}
 ]},
 {id:'4', naziv:'Telo i zdravlje', ikona:'🫀', era:'ti, iznutra', lekcije:[
-{id:'4-1', naslov:'Telo kao sistem — srce, krv, pluća, organi'},
-{id:'4-2', naslov:'Hrana, metabolizam i energija'},
-{id:'4-3', naslov:'Imunitet — bakterije, virusi, vakcine, antibiotici'},
-{id:'4-4', naslov:'Mozak, nervi i san'},
-{id:'4-5', naslov:'Kako medicina zna šta radi — studije, lekovi, placebo'}
+{id:'4-1', naslov:'Telo kao sistem — srce, krv, pluća, organi',
+kuka:{p:'Otprilike koliko puta dnevno kucne tvoje srce?', o:['Oko 10.000','Oko 100.000','Oko milion'], t:1},
+delovi:[
+{n:'Odeljenja jedne fabrike', t:`Telo je složeno u spratove:
+ćelije → TKIVA (mišićno, nervno, koštano…) → ORGANI (srce, jetra) → SISTEMI.
+
+Glavni sistemi: krvotok, disanje, varenje, nervni sistem, hormoni, imuni sistem, kosti i mišići, bubrezi i izlučivanje, koža.
+
+Nijedan ne radi sam. Kad trčiš, mišićima treba više kiseonika — pluća dišu brže, srce kuca jače, krvni sudovi se šire, koža se znoji da te ohladi. Sve to bez tvoje odluke.
+
+Ta stalna briga da sve ostane u ravnoteži zove se HOMEOSTAZA: temperatura oko 37 °C, šećer u krvi, količina vode, kiselost krvi — sve se drži u uskim granicama, kao sa termostatom. Bolest je često baš to: ravnoteža koja ne može da se vrati.`,
+pr:{p:'Šta je homeostaza?', o:['Rast tela','Održavanje stalne unutrašnje ravnoteže','Vrsta hormona'], t:1, z:'Telo stalno vraća temperaturu, šećer, vodu i kiselost u uske granice — kao termostat.'}},
+{n:'Srce i krv', t:`Srce je mišić veličine pesnice koji u mirovanju pumpa oko 5 litara krvi u minuti — sve što imaš, svakog minuta. Oko 100.000 otkucaja dnevno, bez pauze, do kraja života.
+
+Krv ide u dva kruga:
+• MALI KRUG: srce → pluća (uzme kiseonik, ostavi ugljen-dioksid) → srce.
+• VELIKI KRUG: srce → celo telo → srce.
+
+ARTERIJE nose krv od srca, VENE ka srcu, a sitni KAPILARI između njih razmenjuju sve sa ćelijama. Svi sudovi zajedno, poređani u nit, obišli bi Zemlju više puta.
+
+U krvi su: crvena krvna zrnca (nose kiseonik pomoću HEMOGLOBINA, u kome je gvožđe — ono iz zvezda!), bela zrnca (odbrana), pločice (zaustavljaju krvarenje) i tečnost, plazma.
+
+KRVNI PRITISAK ima dva broja: gornji je pritisak kad srce stisne, donji kad se opusti između dva otkucaja. Oko 120/80 je uobičajeno. Visok pritisak ne boli, ali godinama tiho oštećuje sudove, srce, mozak i bubrege — zato se meri.`,
+pr:{p:'Šta znače dva broja krvnog pritiska?', o:['Gornji je puls, donji temperatura','Gornji je pritisak kad srce steže, donji kad se opušta','Gornji je za levu, donji za desnu ruku'], t:1, z:'Sistolni (gornji) — kad srce izbacuje krv; dijastolni (donji) — između otkucaja.'}},
+{n:'Pluća', t:`U mirovanju udahneš 12 do 20 puta u minuti. Vazduh ide niz dušnik koji se grana kao drvo naglavačke, do stotina miliona sićušnih kesica — ALVEOLA. Raširene, imale bi površinu manjeg stana.
+
+Kroz tanke zidove alveola kiseonik prelazi u krv, a UGLJEN-DIOKSID iz krvi u vazduh. Odakle taj CO₂? Iz tvojih ćelija — to je „izduvni gas" mitohondrija koje su sagorele hranu (lekcija o ćeliji).
+
+Zanimljivost: ono što te tera da udahneš kad zadržiš dah nije manjak kiseonika, nego VIŠAK UGLJEN-DIOKSIDA u krvi. Mozak meri CO₂ i on pali alarm.`,
+pr:{p:'Šta te najviše tera da udahneš kad zadržiš dah?', o:['Manjak kiseonika','Porast ugljen-dioksida u krvi','Bol u plućima'], t:1, z:'Mozak meri pre svega CO₂ u krvi — kad poraste, alarm za udah se pali.'}},
+{n:'Jetra i bubrezi — čistači', t:`JETRA je najveći unutrašnji organ i hemijska laboratorija tela, sa stotinama poslova:
+• prerađuje ono što si pojeo i čuva rezervu šećera;
+• razgrađuje otrove, ALKOHOL i većinu lekova (zato se mnogi lekovi ne mešaju sa alkoholom);
+• pravi žuč za varenje masti i mnoge proteine krvi.
+Jetra je jedini unutrašnji organ koji može ponovo da izraste kad joj se ukloni deo.
+
+BUBREZI su dva filtera veličine pesnice. Svakog dana kroz njih prođe oko 180 litara tečnosti iz krvi; skoro sve vrate nazad, a oko litar i po izbace kao mokraću, sa otpadom. Usput regulišu vodu, so i krvni pritisak.
+
+Kad pitaš lekara „da li ovaj lek sme uz onaj", najčešće pitaš o jetri i bubrezima.`,
+pr:{p:'Koji organ razgrađuje alkohol i većinu lekova?', o:['Bubrezi','Jetra','Pluća'], t:1, z:'Jetra je glavna hemijska laboratorija — razgrađuje alkohol, otrove i lekove.'}},
+{n:'Hormoni — spora pošta', t:`Telo ima dva sistema za poruke:
+• NERVNI — brz kao telefonski poziv, ali kratak;
+• HORMONSKI — hemijske poruke koje putuju krvlju; sporiji kao pošta, ali deluju dugo.
+
+Važni hormoni:
+• ADRENALIN — „bori se ili beži": srce ubrza, mišići dobiju krv, varenje stane.
+• INSULIN — pomaže šećeru iz krvi da uđe u ćelije. Kad ga nema ili ćelije ne reaguju — DIJABETES.
+• KORTIZOL — hormon dugog stresa.
+• TIROKSIN iz štitne žlezde — određuje brzinu celog metabolizma.
+• MELATONIN — raste u mraku i javlja telu da je vreme za san.
+• Polni hormoni — razvoj, plodnost, trudnoća.
+
+Kad nešto „nije u redu sa hormonima", često je to štitna žlezda ili šećer — dve najčešće kontrole kod lekara.`,
+pr:{p:'Šta radi insulin?', o:['Ubrzava srce','Pomaže šećeru iz krvi da uđe u ćelije','Javlja da je vreme za san'], t:1, z:'Bez insulina (ili kad ćelije ne reaguju na njega) šećer ostaje u krvi — to je dijabetes.'}}
+],
+kljucno:['Telo je složeno u ćelije, tkiva, organe i sisteme koji stalno sarađuju; homeostaza drži ravnotežu.','Srce pumpa krv u dva kruga; pritisak ima gornju (stezanje) i donju (opuštanje) vrednost.','Pluća razmenjuju kiseonik i CO₂; na udah nas tera višak CO₂.','Jetra razgrađuje alkohol, otrove i lekove; bubrezi filtriraju krv.','Hormoni su spora pošta: adrenalin, insulin, kortizol, tiroksin, melatonin.'],
+kartice:[
+{p:'Šta je homeostaza?', o:'Održavanje stalne unutrašnje ravnoteže (temperatura, šećer, voda).'},
+{p:'Šta znače dva broja pritiska?', o:'Gornji — kad srce steže; donji — kad se opušta.'},
+{p:'Zašto ne možemo dugo da zadržimo dah?', o:'Raste CO₂ u krvi i mozak pali alarm.'},
+{p:'Šta radi jetra?', o:'Prerađuje hranu, čuva šećer, razgrađuje alkohol, otrove i lekove, pravi žuč.'},
+{p:'Koja je razlika između nervnih i hormonskih poruka?', o:'Nervne su brze i kratke; hormoni putuju krvlju, sporiji su i deluju duže.'}
+],
+razgovor:['Objasni homeostazu na primeru iz svog dana — smena, vrućina, umor.','Koji organ ili sistem te je u ovoj lekciji najviše iznenadio i zašto?']},
+
+{id:'4-2', naslov:'Hrana, metabolizam i energija',
+kuka:{p:'Koliko energije celog tela troši mozak, iako je samo oko 2% težine?', o:['Oko 2%','Oko 20%','Oko 50%'], t:1},
+delovi:[
+{n:'Od čega je hrana', t:`Hrana nam daje dve stvari: ENERGIJU i GRAĐU.
+
+Tri velike grupe (MAKRONUTRIJENTI):
+• UGLJENI HIDRATI — šećeri i skrob (hleb, testo, krompir, voće). Brza energija. Oko 4 kalorije po gramu.
+• MASTI — ulje, puter, orasi, masno meso. Gusta rezerva energije: oko 9 kalorija po gramu, više nego duplo.
+• PROTEINI — meso, jaja, mleko, pasulj. Pre svega gradivo (mišići, enzimi, antitela). Oko 4 kalorije po gramu.
+
+Uz to: VITAMINI i MINERALI (male količine, a bez njih bolesti — skorbut bez vitamina C, slabokrvnost bez gvožđa), VLAKNA (za creva i bakterije u njima) i VODA.
+
+KALORIJA je samo jedinica za energiju — ista ona energija koja se ne gubi, samo menja oblik (oblast 1).`,
+pr:{p:'Koja grupa hrane ima najviše energije po gramu?', o:['Ugljeni hidrati','Masti','Proteini'], t:1, z:'Masti imaju oko 9 kalorija po gramu, a ugljeni hidrati i proteini oko 4.'}},
+{n:'Put hrane', t:`• USTA: zubi usitnjavaju, a enzim u pljuvački već počinje da razlaže skrob (zato hleb, kad ga dugo žvaćeš, postane sladak).
+• ŽELUDAC: jaka kiselina ubija većinu mikroba i počinje razlaganje proteina.
+• TANKO CREVO: dugo nekoliko metara, iznutra naborano u milione sitnih resica. Tu se upija NAJVEĆI DEO hrane u krv.
+• DEBELO CREVO: upija vodu i soli, a u njemu živi ogroman broj bakterija — MIKROBIOM. One razlažu vlakna koja mi ne možemo i prave neke vitamine. Nauka o mikrobiomu je mlada; mnogo se obećava, a mnogo manje je dokazano.
+
+Ceo put traje od jednog do tri dana.`,
+pr:{p:'Gde se upija najveći deo hrane?', o:['U želucu','U tankom crevu','U debelom crevu'], t:1, z:'Tanko crevo, sa milionima resica, upija najveći deo hranljivih materija u krv.'}},
+{n:'Gde ide energija', t:`METABOLIZAM je zbir svih hemijskih procesa u telu. Na šta troši energiju?
+
+• OSNOVNI METABOLIZAM — sam život u mirovanju: srce, disanje, mozak, održavanje toplote. To je najveći deo, oko dve trećine dnevne potrošnje. Samo mozak, iako je 2% težine, troši oko 20%.
+• KRETANJE — od šetnje do rada. Kod većine ljudi manji deo nego što misle.
+• VARENJE same hrane — desetak procenata.
+
+Osnovno pravilo: ako uneseš više energije nego što potrošiš, višak se čuva — najviše kao masno tkivo. Ali telo nije prost kalkulator: san, stres, hormoni i vrsta hrane menjaju koliko si gladan i koliko trošiš. Zato „samo jedi manje" zvuči lako, a nije.`,
+pr:{p:'Na šta telo troši najveći deo energije?', o:['Na fizički rad i vežbanje','Na osnovni metabolizam — rad organa u mirovanju','Na varenje hrane'], t:1, z:'Oko dve trećine ide na sam život u mirovanju: srce, disanje, mozak, toplotu.'}},
+{n:'Šećer u krvi', t:`Posle obroka šećer u krvi raste. Gušterača tada pušta INSULIN, koji ga „sklanja" u ćelije i u rezervu. Za par sati nivo se vrati.
+
+Ali brzina je bitna:
+• BRZI ŠEĆERI — sok, gazirano piće, beli hleb, kolači — naglo podignu šećer, insulin ga naglo obori, i ubrzo si opet gladan i umoran.
+• VLAKNA, PROTEINI i MASTI usporavaju upijanje, pa je talas blaži i sitost duža.
+
+DIJABETES TIPA 2 (najčešći): ćelije vremenom sve slabije reaguju na insulin, pa šećer ostaje visok. Povezan je sa viškom kilograma, manjkom kretanja i genima. Dobra vest: navikama se može sprečiti ili znatno odložiti.`,
+pr:{p:'Zašto posle slatkog brzo opet ogladniš?', o:['Jer slatko nema kalorija','Jer šećer naglo skoči pa naglo padne','Jer šećer smanjuje želudac'], t:1, z:'Brz skok šećera izaziva brz talas insulina i pad — a pad se oseća kao glad i umor.'}},
+{n:'Šta nauka zaista zna', t:`O ishrani ima više mišljenja nego o fudbalu. Šta je ipak prilično sigurno:
+
+• Važan je OBRAZAC, ne jedna namirnica. Više povrća, voća, mahunarki (pasulj, sočivo), integralnih žitarica i orašastih plodova; manje prerađenog mesa (salame, viršle), zaslađenih pića i jako prerađene hrane.
+• Nema čudotvorne namirnice ni dijete koja svima odgovara.
+• Naslovi „kafa leči" ili „jaja ubijaju" uglavnom dolaze iz slabih studija — o tome kako ih čitati u poslednjoj lekciji ove oblasti.
+• KADA jedeš takođe je bitno: noćni rad remeti unutrašnji sat, a sa njim i to kako telo prerađuje šećer. Zato je kod smena korisno imati stalne obroke i ne jesti teško usred noći (više o unutrašnjem satu u lekciji o snu).
+
+Kratko pravilo novinara Majkla Polana: „Jedi hranu. Ne previše. Uglavnom biljke."`,
+pr:{p:'Šta je najpouzdaniji zaključak nauke o ishrani?', o:['Postoji jedna čudotvorna namirnica','Ukupni obrazac (više biljne, manje prerađene hrane) važniji je od pojedinačne namirnice','Kalorije nisu bitne'], t:1, z:'Studije se najbolje slažu oko obrasca ishrane, a ne oko „super-namirnica".'}}
+],
+kljucno:['Makronutrijenti: ugljeni hidrati i proteini oko 4 kcal/g, masti oko 9 kcal/g; plus vitamini, minerali, vlakna, voda.','Najveći deo hrane se upija u tankom crevu; u debelom žive bakterije (mikrobiom).','Najviše energije ide na osnovni metabolizam; mozak troši oko 20%.','Brzi šećeri daju skok i pad; dijabetes tipa 2 se navikama može sprečiti ili odložiti.','Važan je obrazac ishrane, ne čudotvorna namirnica; bitno je i kada jedeš.'],
+kartice:[
+{p:'Koliko kalorija po gramu imaju masti, a koliko ugljeni hidrati i proteini?', o:'Masti oko 9; ugljeni hidrati i proteini oko 4.'},
+{p:'Gde se upija najveći deo hrane?', o:'U tankom crevu.'},
+{p:'Na šta telo troši najviše energije?', o:'Na osnovni metabolizam — rad organa u mirovanju.'},
+{p:'Šta je dijabetes tipa 2?', o:'Ćelije slabije reaguju na insulin, pa šećer u krvi ostaje visok.'},
+{p:'Polanovo pravilo o ishrani?', o:'„Jedi hranu. Ne previše. Uglavnom biljke."'}
+],
+razgovor:['Kako smene utiču na to kada i šta jedeš? Šta si primetio na sebi?','Seti se jedne „istine" o hrani koju si čuo. Da li je, posle ove lekcije, i dalje vidiš isto?']},
+
+{id:'4-3', naslov:'Imunitet — bakterije, virusi, vakcine, antibiotici',
+kuka:{p:'Da li antibiotik pomaže kod gripa?', o:['Da, uvek','Ne — grip izaziva virus, a antibiotik deluje na bakterije','Samo ako je jak antibiotik'], t:1},
+delovi:[
+{n:'Nevidljivi neprijatelji — i prijatelji', t:`Uzročnici bolesti su četiri vrste:
+• BAKTERIJE — sitne žive ćelije. Ogromna većina je bezopasna ili korisna, ali neke izazivaju upalu grla, pluća, mokraćnih puteva.
+• VIRUSI — nisu ćelije; ulaze u naše ćelije i teraju ih da prave nove viruse (prehlada, grip, korona, boginje).
+• GLJIVICE i PARAZITI.
+
+Da bolesti izazivaju klice, nije se znalo do 19. veka — mislilo se da dolaze od „lošeg vazduha". Luj Paster i Robert Koh su dokazali teoriju klica.
+
+Malo pre njih, mađarski lekar Ignac Semelvajs je 1847. primetio da porodilje mnogo češće umiru na odeljenju gde lekari dolaze pravo iz mrtvačnice. Naredio je pranje ruku hlorom — smrtnost je pala. Kolege su ga ismejale, a on je umro zaboravljen. Danas je pranje ruku osnova medicine.`,
+pr:{p:'Ko je uveo pranje ruku u bolnici i zbog toga bio ismejan?', o:['Luj Paster','Ignac Semelvajs','Aleksandar Fleming'], t:1, z:'Semelvajs je 1847. pranjem ruku smanjio smrtnost porodilja, ali mu kolege nisu verovale.'}},
+{n:'Prva linija odbrane', t:`Pre nego što uljez uopšte uđe, dočekaju ga zidovi: KOŽA, SLUZ u nosu i plućima, KISELINA u želucu, enzimi u suzama i pljuvački.
+
+Ako ipak uđe, kreće UROĐENI IMUNITET — brz, ali grub:
+• bela krvna zrnca koja gutaju sve što ne prepoznaju kao svoje;
+• UPALA: crvenilo, toplota, otok, bol. Sudovi se šire da dovedu pojačanje — to je znak borbe, ne kvar;
+• GROZNICA: telo namerno podigne temperaturu, jer mnogi mikrobi tada slabije rastu, a odbrana radi brže.
+
+Groznica je, dakle, oružje, a ne neprijatelj — iako je, kad je previsoka, treba spuštati.`,
+pr:{p:'Šta je groznica?', o:['Greška tela','Znak da se telo bori i oruđe odbrane','Uvek opasno stanje koje odmah treba spustiti'], t:1, z:'Povišena temperatura otežava mikrobima i ubrzava odbranu; spušta se kad je previsoka ili iscrpljuje.'}},
+{n:'Odbrana koja pamti', t:`Druga linija je STEČENI IMUNITET — spor na početku, ali precizan, i PAMTI.
+
+• B-LIMFOCITI prave ANTITELA — proteine koji se kače tačno na jednog uljeza, kao ključ u bravu, i obeleže ga za uništenje.
+• T-LIMFOCITI pronalaze i ubijaju naše ćelije koje su zaražene virusom.
+• Posle pobede ostanu MEMORIJSKE ĆELIJE. Kad isti uljez dođe ponovo, odbrana kreće za par dana umesto za nedelju-dve — često toliko brzo da i ne primetiš da si bio izložen.
+
+Zato se neke bolesti, kao male boginje, dobijaju jednom u životu. A grip svake godine? Jer se virus gripa stalno menja — svake godine nosi malo drugačiju „bravu".`,
+pr:{p:'Zašto se male boginje dobijaju samo jednom?', o:['Jer virus nestane iz sveta','Jer imuni sistem pamti uljeza pomoću memorijskih ćelija','Jer telo postane prejako'], t:1, z:'Memorijske ćelije prepoznaju isti virus i odbrana kreće mnogo brže.'}},
+{n:'Vakcine', t:`Vakcina je TRENING bez prave bolesti: telu se pokaže oslabljen ili mrtav uljez, njegov deo, ili uputstvo da ćelije same naprave jedan njegov deo. Imuni sistem napravi memorijske ćelije — i spreman je kad dođe pravi.
+
+• 1796. Edvard Džener je primetio da muzilje koje su preležale blage kravlje boginje ne dobijaju smrtonosne velike boginje — i napravio prvu vakcinu.
+• Velike boginje su vakcinacijom IZBRISANE sa lica Zemlje 1980. Jugoslavija je 1972. imala jednu od poslednjih velikih epidemija u Evropi; zaustavljena je masovnom vakcinacijom miliona ljudi za nekoliko nedelja.
+• KOLEKTIVNI IMUNITET: kad je dovoljno ljudi vakcinisano, bolest ne može da se širi — pa su zaštićeni i oni koji ne smeju da prime vakcinu (bebe, bolesni).
+
+Nuspojave postoje, uglavnom blage, a retke ozbiljne se prate. Priča o vakcinama i autizmu potiče iz jedne studije iz 1998. koja je bila lažirana — povučena je, a autor je izgubio lekarsku dozvolu. Veze nema.`,
+pr:{p:'Kako radi vakcina?', o:['Direktno ubija viruse u krvi','Trenira imuni sistem da prepozna uljeza bez prave bolesti','Zamenjuje imuni sistem'], t:1, z:'Vakcina pravi memorijske ćelije, pa je odbrana spremna kad dođe pravi uzročnik.'}},
+{n:'Antibiotici', t:`1928. Aleksandar Fleming se vratio sa odmora i u jednoj zaboravljenoj posudi sa bakterijama našao buđ — a oko nje bakterije mrtve. Ta buđ je pravila PENICILIN. Od 1940-ih antibiotici su spasli stotine miliona života: upala pluća, zaražena rana i porođaj prestali su da budu česte smrtne presude.
+
+Ali:
+• Antibiotici deluju samo na BAKTERIJE. Na viruse ne — znači ne pomažu kod prehlade ni gripa.
+• Svako nepotrebno uzimanje i svaki prekinut ciklus gaje OTPORNE bakterije (prirodna selekcija iz oblasti 3). Već danas postoje infekcije za koje skoro nijedan antibiotik ne deluje.
+
+Pravila su prosta: antibiotik samo kad ga lekar propiše, tačno kako je propisano, do kraja.`,
+pr:{p:'Zašto antibiotik ne pomaže kod prehlade?', o:['Jer je prehlada preblaga','Jer prehladu izazivaju virusi, a antibiotici deluju na bakterije','Jer se mora uzeti injekcijom'], t:1, z:'Antibiotici napadaju delove bakterija kojih virusi nemaju.'}}
+],
+kljucno:['Uzročnici: bakterije, virusi, gljivice, paraziti; teorija klica (Paster, Koh), pranje ruku (Semelvajs).','Prva linija: koža, sluz, kiselina; upala i groznica su znaci borbe.','Stečeni imunitet: antitela i T-ćelije; memorijske ćelije pamte uljeza.','Vakcina je trening bez bolesti; velike boginje izbrisane 1980; autizam — lažirana studija.','Antibiotici samo na bakterije; zloupotreba gaji otporne bakterije.'],
+kartice:[
+{p:'Razlika između bakterije i virusa?', o:'Bakterija je živa ćelija; virus nije ćelija i razmnožava se samo u našim ćelijama.'},
+{p:'Čemu služi groznica?', o:'Otežava rast mikroba i ubrzava odbranu tela.'},
+{p:'Šta rade memorijske ćelije?', o:'Pamte uljeza, pa je odbrana pri sledećem susretu mnogo brža.'},
+{p:'Šta je kolektivni imunitet?', o:'Kad je dovoljno ljudi imuno, bolest ne može da se širi — zaštićeni su i nevakcinisani.'},
+{p:'Zašto antibiotik ne deluje na grip?', o:'Grip je virus; antibiotici deluju samo na bakterije.'}
+],
+razgovor:['Semelvajsu nisu verovali iako je bio u pravu. Zašto ljudi odbijaju dokaz koji im ne prija?','Kako bi kratko objasnio nekome razliku između bakterije i virusa i zašto mu antibiotik za grip ne treba?']},
+
+{id:'4-4', naslov:'Mozak, nervi i san',
+kuka:{p:'Otprilike koliko nervnih ćelija (neurona) ima ljudski mozak?', o:['Oko 10 miliona','Oko milijardu','Oko 86 milijardi'], t:2},
+delovi:[
+{n:'Neuron', t:`NEURON je ćelija koja prenosi poruke električnim signalima. Ima „antene" (dendrite) koje primaju poruke i jedan dugačak „kabl" (akson) koji ih šalje dalje — ponekad metar dug, od kičme do nožnog prsta.
+
+Između dva neurona je sićušan razmak, SINAPSA. Električni signal ga ne preskače, nego se na kraju pretvori u hemiju: pušta se NEUROTRANSMITER (dopamin, serotonin, adrenalin…) koji prepliva razmak i pali ili gasi sledeći neuron. Većina lekova za psihu i mnoge droge rade baš ovde.
+
+U mozgu je oko 86 milijardi neurona i stotine hiljada milijardi veza među njima. Mozak je oko 2% težine tela, a troši oko 20% energije — skupo odeljenje.`,
+pr:{p:'Kako se poruka prenosi preko sinapse?', o:['Električnom varnicom koja preskoči','Hemijskim prenosiocima — neurotransmiterima','Krvlju'], t:1, z:'Električni signal se na kraju neurona pretvori u hemijsku poruku koja prepliva razmak.'}},
+{n:'Delovi mozga', t:`Mozak je građen kao kuća koja se dograđivala:
+
+• MOŽDANO STABLO — najstariji deo, spojen sa kičmom. Disanje, rad srca, budnost. Radi sam.
+• MALI MOZAK — pozadi, ispod. Ravnoteža i fini pokreti (vožnja, kucanje, hodanje).
+• LIMBIČKI SISTEM — duboko unutra. AMIGDALA pali strah i alarm; HIPOKAMPUS upisuje nova sećanja.
+• KORA — naborani spoljni sloj. Opažanje, jezik, mišljenje, planiranje. Prednji deo, iza čela (PREFRONTALNA KORA), je kočnica i planer: odlaže zadovoljstvo, procenjuje posledice. Poslednja sazri — tek oko 25. godine. Zato su mladi skloniji riziku.
+
+Mit: „koristimo samo 10% mozga". Ne — snimci pokazuju da tokom dana radi ceo mozak, samo ne sve odjednom.`,
+pr:{p:'Da li koristimo samo 10% mozga?', o:['Da, ostalo je rezerva','Ne, to je mit — radi ceo mozak, samo ne sve odjednom','Da, ali samo dok spavamo'], t:1, z:'Snimanja pokazuju aktivnost u svim delovima mozga tokom dana.'}},
+{n:'Mozak se menja', t:`Dugo se verovalo da je mozak odraslog čoveka gotov. Nije. PLASTIČNOST znači da se veze stalno jačaju, slabe i prave nove, celog života.
+
+Pravilo koje se pamti: „Neuroni koji pale zajedno — povezuju se zajedno." Što više nešto radiš, veza je jača i brža.
+
+Poznata studija: londonski taksisti, koji godinama uče hiljade ulica napamet, imaju zadnji deo hipokampusa (prostorno pamćenje) veći nego ljudi koji ne voze — i to veći što duže voze.
+
+Zato je učenje doslovno PREUREĐIVANJE mozga. I zato ova aplikacija traži prisećanje i ponavljanje: svaki put kad nešto izvučeš iz glave, utabavaš stazu.`,
+pr:{p:'Šta je plastičnost mozga?', o:['Mozak je mekan','Sposobnost mozga da menja veze celog života','Mozak raste samo do 25. godine'], t:1, z:'Veze među neuronima jačaju, slabe i nastaju nove — učenje je fizička promena mozga.'}},
+{n:'Šta radi san', t:`San nije isključen mozak. Mozak tada radi drugačije, u ciklusima od oko 90 minuta:
+
+• DUBOKI SAN — telo se obnavlja, luči se hormon rasta, a mozak se „pere": tečnost između ćelija ispira otpadne materije koje se nagomilaju tokom dana.
+• REM SAN — oči se brzo kreću, sanjamo najživlje. Mozak sređuje sećanja i emocije iz dana.
+
+Odraslima treba 7 do 9 sati. Posle neprospavane noći pati sve: pažnja, pamćenje, raspoloženje, šećer u krvi, imunitet, pritisak.
+
+Podatak koji vredi zapamtiti: posle 17–19 sati bez sna, brzina reakcija je otprilike kao sa pola promila alkohola u krvi. Umoran vozač je pijan vozač.`,
+pr:{p:'Šta mozak radi tokom dubokog sna?', o:['Ništa, odmara se potpuno','Ispira otpadne materije, a telo se obnavlja','Samo sanja'], t:1, z:'U dubokom snu mozak se „pere", a telo luči hormon rasta i obnavlja se.'}},
+{n:'Unutrašnji sat i smene', t:`U mozgu postoji UNUTRAŠNJI SAT koji otkucava oko 24 sata i određuje kada si pospan, gladan, budan, kada raste temperatura i hormoni. Najjači signal koji ga podešava je SVETLO: jutarnje svetlo ga „navije", a u mraku raste MELATONIN, hormon sna.
+
+Rad u smenama stalno pomera taj sat — kao da stalno putuješ kroz vremenske zone, a da nikud ne ideš. Zato je treća smena teška i kad se naspavaš.
+
+Šta pomaže, po istraživanjima o radu u smenama:
+• dnevni san u potpunom mraku i tišini (zavese koje ne propuštaju svetlo, čepovi za uši);
+• jako svetlo na početku noćne smene, a PRIGUŠENO SVETLO na putu kući posle nje (naočare za sunce ujutru pomažu da telo ne pomisli da je dan);
+• kofein na početku smene, ne pred kraj;
+• što stalniji obroci i što stalnije vreme spavanja kad god je moguće.
+
+Kraj ne znači savršen san, nego manje štete.`,
+pr:{p:'Šta najjače podešava unutrašnji sat?', o:['Hrana','Svetlo','Kafa'], t:1, z:'Svetlo je glavni signal; u mraku raste melatonin. Zato se posle noćne smene preporučuje prigušeno svetlo.'}}
+],
+kljucno:['Neuroni šalju električne signale, a preko sinapse hemijske (neurotransmiteri); oko 86 milijardi neurona.','Delovi: stablo (automatika), mali mozak (pokret), limbički (strah, pamćenje), kora (mišljenje); prefrontalna kora sazreva oko 25.','Plastičnost: veze se menjaju celog života — učenje je fizička promena mozga.','San ima duboku fazu (čišćenje, obnova) i REM (sećanja, emocije); 17–19 sati bez sna ≈ pola promila.','Unutrašnji sat podešava svetlo; kod smena pomažu mrak za san, svetlo na početku i prigušeno posle noćne smene.'],
+kartice:[
+{p:'Šta je sinapsa?', o:'Razmak između neurona preko koga poruku nose neurotransmiteri.'},
+{p:'Šta radi prefrontalna kora i kad sazri?', o:'Planira i koči impulse; sazreva oko 25. godine.'},
+{p:'Šta je plastičnost mozga?', o:'Sposobnost mozga da menja veze celog života.'},
+{p:'Čemu služi duboki san?', o:'Obnovi tela i „ispiranju" otpada iz mozga.'},
+{p:'Šta najjače podešava unutrašnji sat?', o:'Svetlo.'}
+],
+razgovor:['Kako ti smene utiču na san i raspoloženje — šta si već primetio da pomaže, a šta ne?','Taksistima raste hipokampus. Koja tvoja svakodnevna veština je verovatno promenila tvoj mozak?']},
+
+{id:'4-5', naslov:'Kako medicina zna šta radi — studije, lekovi, placebo',
+kuka:{p:'Komšiji je pomogao neki čaj protiv prehlade. Da li to dokazuje da čaj deluje?', o:['Da, pomogao mu je','Ne — prehlada prolazi i sama, a moguć je i placebo','Da, ako je pio više dana'], t:1},
+delovi:[
+{n:'Zašto priča nije dokaz', t:`„Meni je pomoglo" je najubedljivija rečenica na svetu — i jedna od najmanje pouzdanih. Zašto?
+
+• MNOGO BOLESTI PROĐE SAMO. Prehlada, bol u leđima, glavobolja — šta god da uzmeš, za nekoliko dana bude bolje.
+• POVRATAK KA SREDINI. Lekaru ili travaru odeš kad ti je najgore. Posle najgoreg obično dođe bolje — svejedno šta si uzeo.
+• PLACEBO (sledeći deo).
+
+Vekovima su lekari puštali krv bolesnima — i „videli" da pomaže, jer su ljudi i tako ozdravljali. Džordž Vašington je verovatno umro i od toga.
+
+Zato medicini trebaju poređenja, a ne priče.`,
+pr:{p:'Zašto „meni je pomoglo" nije dokaz da lek deluje?', o:['Jer ljudi lažu','Jer mnoge bolesti prođu same, a deluje i placebo','Jer je samo jedan lek dozvoljen'], t:1, z:'Bez poređenja ne znaš da li je pomogao lek, vreme ili očekivanje.'}},
+{n:'Placebo i nocebo', t:`PLACEBO je lažni lek — šećerna pilula, injekcija vode — koji ipak ume da pomogne, jer mozak OČEKUJE pomoć. Najjači je kod bola, mučnine, umora, nesanice.
+
+Čudnovato:
+• skupa „pilula" deluje bolje od jeftine;
+• dve pilule bolje od jedne;
+• injekcija bolje od pilule.
+
+Postoji i obrnuto, NOCEBO: kad očekuješ štetu, ona dolazi. Ljudi koji pročitaju dugačku listu nuspojava češće ih i osete — i kad su dobili šećernu pilulu.
+
+Ali važno: placebo menja DOŽIVLJAJ (bol, mučninu), ne leči tumor, infekciju ni slomljenu kost.`,
+pr:{p:'Šta je nocebo?', o:['Lek bez nuspojava','Kad očekivanje štete izazove simptome','Jača vrsta placeba'], t:1, z:'Očekivanje loših efekata ume da ih izazove — i kad je pilula lažna.'}},
+{n:'Pošteno poređenje', t:`Najbolje oruđe medicine je RANDOMIZOVANA KONTROLISANA STUDIJA:
+1. Uzmeš veliki broj bolesnih.
+2. NASUMIČNO ih podeliš u dve grupe (kockom, ne po svom izboru), da bi grupe bile slične u svemu.
+3. Jedna dobija lek, druga placebo ili postojeći lek.
+4. DVOSTRUKO SLEPO: ni pacijent ni lekar ne zna ko je šta dobio — da očekivanje ne kvari rezultat.
+5. Uporediš ishode.
+
+Prvi poznati takav ogled: 1747. brodski lekar Džejms Lind je mornare bolesne od skorbuta podelio u parove i davao im različite „lekove". Za nekoliko dana ozdravili su samo oni koji su dobijali pomorandže i limun. (Trebalo je još pedesetak godina da britanska mornarica to uvede.)`,
+pr:{p:'Šta znači „dvostruko slepa" studija?', o:['Učesnici su slepi','Ni pacijent ni lekar ne znaju ko dobija pravi lek','Studija je urađena dva puta'], t:1, z:'Kad niko ne zna ko šta dobija, očekivanja ne mogu da utiču na rezultat.'}},
+{n:'Kako čitati naslov o zdravlju', t:`„Ljudi koji piju vino žive duže!" Tri pitanja pre nego što poveruješ:
+
+1. KORELACIJA ILI UZROK? Možda vino piju ljudi koji su bogatiji, imaju bolju hranu i lekare. Ako je studija samo POSMATRALA ljude, ne zna se šta je uzrok (detaljno u lekciji „Naučni metod").
+2. RELATIVNO ILI APSOLUTNO? „Rizik dupliran!" zvuči strašno. Ali ako je rizik bio 1 na 10.000, sad je 2 na 10.000. Uvek pitaj: od koliko na koliko?
+3. JEDNA STUDIJA ILI VIŠE? Jedna studija je jedan glas. Pouzdanije su velike analize koje sabiraju mnogo studija (npr. organizacija Kokrejn to radi sistematski).
+
+I četvrto: ko je studiju platio i ko od naslova ima korist?`,
+pr:{p:'„Novi lek smanjuje rizik za 50%!" Šta prvo treba pitati?', o:['Koliko lek košta','Koliki je rizik bio na početku — od koliko na koliko','Ko je napisao naslov'], t:1, z:'Pad sa 2 na 1 od 1.000 i pad sa 40 na 20 od 100 su oba „50%", ali nisu isto.'}},
+{n:'Put leka do apoteke — i kraj oblasti', t:`Pre nego što lek stigne u apoteku:
+1. LABORATORIJA i ŽIVOTINJE — da li uopšte deluje i da li je otrovan.
+2. FAZA 1 — mali broj zdravih dobrovoljaca: da li je bezbedan, kako se ponaša u telu.
+3. FAZA 2 — stotine bolesnih: da li deluje i u kojoj dozi.
+4. FAZA 3 — hiljade bolesnih, poređenje sa placebom ili postojećim lekom.
+5. ODOBRENJE agencije, pa FAZA 4 — praćenje posle izlaska, kada se otkriju i retke nuspojave.
+
+Traje 10 do 15 godina, i velika većina kandidata padne usput.
+
+GENERIČKI LEK ima istu aktivnu supstancu kao originalni i mora da dokaže da se u telu ponaša isto — samo je jeftiniji jer je patent istekao.
+
+Kraj oblasti „Telo i zdravlje". Kostur: telo kao sistem u ravnoteži → hrana i energija → odbrana od mikroba → mozak i san → i kako znamo šta zaista leči. Sledeće: ono što taj mozak proizvodi — um.`,
+pr:{p:'Šta je generički lek?', o:['Slabija kopija originalnog leka','Lek sa istom aktivnom supstancom kao originalni, samo jeftiniji','Lek bez dozvole'], t:1, z:'Ista supstanca i dokazano isto ponašanje u telu; jeftiniji je jer je patent istekao.'}}
+],
+kljucno:['Priča „meni je pomoglo" nije dokaz: bolesti prolaze same, povratak ka sredini, placebo.','Placebo menja doživljaj (bol, mučnina), ne leči uzrok; nocebo — očekivanje štete izaziva simptome.','Randomizovana dvostruko slepa studija je zlatni standard (Lind i skorbut, 1747).','Kod naslova pitaj: korelacija ili uzrok, relativni ili apsolutni rizik, jedna ili mnogo studija.','Lek ide kroz faze 1–4 za 10–15 godina; generički lek ima istu supstancu.'],
+kartice:[
+{p:'Tri razloga zašto „meni je pomoglo" nije dokaz?', o:'Bolest prođe sama, povratak ka sredini, placebo.'},
+{p:'Šta je nocebo?', o:'Očekivanje štete koje izazove simptome.'},
+{p:'Šta je randomizovana dvostruko slepa studija?', o:'Nasumična podela u grupe, a ni pacijent ni lekar ne zna ko dobija pravi lek.'},
+{p:'Šta pitaš kad čuješ „rizik dupliran"?', o:'Od koliko na koliko — koliki je apsolutni rizik.'},
+{p:'Koliko traje razvoj novog leka?', o:'Oko 10–15 godina, kroz faze; većina kandidata padne.'}
+],
+razgovor:['Seti se jednog naslova ili saveta o zdravlju koji si čuo. Kako bi ga sada proverio?','Zašto ljudi više veruju priči komšije nego studiji na hiljadu ljudi? Da li i ti?']}
 ]},
 {id:'5', naziv:'Um', ikona:'🧠', era:'ti, iznutra', lekcije:[
-{id:'5-1', naslov:'Šta je psihologija — mozak, um i svest'},
-{id:'5-2', naslov:'Pamćenje i učenje'},
-{id:'5-3', naslov:'Emocije i motivacija'},
-{id:'5-4', naslov:'Zašto grešimo u odlukama'},
-{id:'5-5', naslov:'Jezik — šta je, kako ga dete uči, kako se menja'}
+{id:'5-1', naslov:'Šta je psihologija — mozak, um i svest',
+kuka:{p:'Koliko je stara psihologija kao nauka sa laboratorijama i eksperimentima?', o:['Oko 2.500 godina','Oko 150 godina','Oko 50 godina'], t:1},
+delovi:[
+{n:'Od filozofije do laboratorije', t:`Pitanja o duši, misli i osećanju stara su koliko i filozofija: Platon je delio dušu na razum, volju i strast, Dekart je um i telo video kao dve različite stvari.
+
+Ali kao NAUKA, sa merenjem, psihologija je mlada. 1879. Vilhelm Vunt je u Lajpcigu otvorio prvu psihološku laboratoriju i počeo da meri, recimo, koliko brzo ljudi reaguju na zvuk ili svetlo.
+
+Danas je psihologija nauka o PONAŠANJU i DOŽIVLJAJU: kako opažamo, učimo, pamtimo, osećamo, odlučujemo, kako se razvijamo i kako se ponašamo među drugima.`,
+pr:{p:'Šta se desilo 1879. u Lajpcigu?', o:['Frojd je objavio prvu knjigu','Vunt je otvorio prvu psihološku laboratoriju','Otkriven je neuron'], t:1, z:'Vunt je počeo da meri ono što se ranije samo razmišljalo — psihologija je postala eksperimentalna nauka.'}},
+{n:'Velike škole u jednoj liniji', t:`• PSIHOANALIZA — Sigmund Frojd, kraj 19. veka. Veliki deo psihe je NESVESTAN; potisnute želje i iskustva iz detinjstva oblikuju nas. Ogroman uticaj na kulturu i umetnost, ali većina njegovih konkretnih tvrdnji nije naučno potvrđena.
+• BIHEVIORIZAM — Votson, Skiner, prva polovina 20. veka. „Ne nagađaj šta je u glavi, meri ponašanje." Učenje kroz nagradu i kaznu.
+• KOGNITIVNA PSIHOLOGIJA — od 1950-ih. Um kao obrada informacija: pažnja, pamćenje, jezik, odlučivanje. Danas osnova.
+• Plus: biološka i neuronauka (mozak), evoluciona (zašto smo takvi), socijalna (kako nas menjaju drugi), razvojna (od bebe do starosti).
+
+Svaka škola je videla deo slona. Danas se kombinuju.`,
+pr:{p:'Šta je biheviorizam proučavao?', o:['Snove i nesvesno','Samo vidljivo ponašanje i učenje kroz nagradu i kaznu','Gene'], t:1, z:'Bihevioristi su hteli da mere samo ono što se vidi — ponašanje — i kako ga oblikuju nagrade i kazne.'}},
+{n:'Um i mozak', t:`Kako iz mokrog, sivog tkiva nastaje doživljaj — ukus kafe, crvena boja, tuga? To je PROBLEM UMA I TELA, a filozof Dejvid Čalmers ga je nazvao „TEŠKI PROBLEM SVESTI". Niko ga nije rešio.
+
+Ono što je jasno: um zavisi od mozga. Najpoznatiji dokaz je slučaj FINIJASA GEJDŽA. 1848. gvozdena šipka mu je kod eksplozije na pruzi prošla kroz glavu, kroz čeoni deo mozga. Preživeo je, hodao i govorio — ali se promenio: od pouzdanog, odmerenog predradnika postao je nestrpljiv i nepouzdan. Prijatelji su rekli: „Gejdž više nije Gejdž."
+
+Danas isto vidimo kod moždanog udara ili demencije: kad se menja mozak, menja se i ličnost. Ali KAKO materija postaje doživljaj — i dalje ne znamo.`,
+pr:{p:'Šta je pokazao slučaj Finijasa Gejdža?', o:['Da mozak nije bitan za ličnost','Da oštećenje čeonog dela mozga može promeniti ličnost','Da se mozak potpuno oporavlja'], t:1, z:'Posle povrede čeonog režnja Gejdž je preživeo, ali mu se ličnost promenila — dokaz veze uma i mozga.'}},
+{n:'Svesno i nesvesno', t:`Najveći deo onoga što mozak radi — ne vidiš. Vožnja poznatom rutom, prepoznavanje lica, pravila gramatike dok govoriš: sve automatski.
+
+Psiholog Danijel Kaneman (Nobelova nagrada 2002) govori o dva načina mišljenja:
+• SISTEM 1 — brz, automatski, intuitivan, bez napora.
+• SISTEM 2 — spor, svestan, naporan, logičan.
+Više o njima u lekciji o greškama u odlučivanju.
+
+A PAŽNJA je usko grlo. U čuvenom ogledu (1999) ljudi gledaju snimak i broje koliko puta igrači u belom dodaju loptu. Usred snimka kroz igrače prođe čovek u kostimu gorile i lupi se u grudi. Oko polovine gledalaca — ne vidi gorilu.
+
+Nismo kamera. Vidimo ono na šta pazimo.`,
+pr:{p:'Šta je pokazao ogled sa „nevidljivom gorilom"?', o:['Da su ljudi slabog vida','Da kad smo usredsređeni na jedno, ne vidimo ni očigledno drugo','Da je snimak bio loš'], t:1, z:'Pažnja je ograničena — oko polovine ljudi ne primeti gorilu dok broji dodavanja.'}},
+{n:'Kako psihologija zna šta zna', t:`Psihologija koristi oglede, ankete, posmatranje, praćenje ljudi kroz godine i snimanje mozga. Ali ima posebnu muku: ljudi nisu atomi. Menjaju se kad znaju da ih posmatraš, ne znaju zašto rade ono što rade, a u anketama ulepšavaju.
+
+2015. velika grupa naučnika pokušala je da ponovi 100 objavljenih psiholoških ogleda. Isti rezultat dobili su u nešto više od trećine. To se zove KRIZA PONOVLJIVOSTI. Dobra vest: nauka je sama otkrila svoju slabost i sada se pooštrava.
+
+Za tebe pouka: oprez sa „psihologija kaže" iz novina i sa testovima ličnosti sa interneta. Popularni test koji ljude deli u 16 tipova (MBTI) slabo je pouzdan — isti čovek posle par nedelja često dobije drugi tip. Model koji psiholozi smatraju najpouzdanijim je „VELIKIH PET" crta ličnosti: otvorenost, savesnost, ekstraverzija, prijatnost i emocionalna stabilnost (njena suprotnost se zove neuroticizam).`,
+pr:{p:'Koji model ličnosti psiholozi smatraju najpouzdanijim?', o:['Horoskop','Test sa 16 tipova (MBTI)','„Velikih pet" crta ličnosti'], t:2, z:'Velikih pet (otvorenost, savesnost, ekstraverzija, prijatnost, emocionalna stabilnost) ima najviše naučne potvrde.'}}
+],
+kljucno:['Psihologija je nauka o ponašanju i doživljaju; kao eksperimentalna nauka počinje 1879. (Vunt).','Škole: psihoanaliza (Frojd), biheviorizam, kognitivna psihologija; danas se kombinuju.','Um zavisi od mozga (Finijas Gejdž), ali kako nastaje svest — „teški problem" — ne znamo.','Većina rada mozga je nesvesna; pažnja je ograničena (nevidljiva gorila).','Kriza ponovljivosti: oprez sa „psihologija kaže"; najpouzdaniji model ličnosti je Velikih pet.'],
+kartice:[
+{p:'Kada i gde je počela eksperimentalna psihologija?', o:'1879, Vuntova laboratorija u Lajpcigu.'},
+{p:'Šta je „teški problem svesti"?', o:'Kako iz rada mozga nastaje doživljaj (Čalmers).'},
+{p:'Šta pokazuje slučaj Finijasa Gejdža?', o:'Da oštećenje mozga (čeonog dela) može promeniti ličnost.'},
+{p:'Šta je pokazao ogled sa nevidljivom gorilom?', o:'Da kad smo usredsređeni, ne vidimo ni očigledne stvari.'},
+{p:'Kojih je „Velikih pet" crta ličnosti?', o:'Otvorenost, savesnost, ekstraverzija, prijatnost, emocionalna stabilnost.'}
+],
+razgovor:['Da li misliš da je svest samo rad mozga, ili nešto više? Zauzmi stav i obrazloži.','Seti se situacije kad nisi video nešto očigledno jer si bio usredsređen na drugo.']},
+
+{id:'5-2', naslov:'Pamćenje i učenje',
+kuka:{p:'Koliki deo novog gradiva otprilike zaboraviš za jedan dan, ako ga ne ponavljaš?', o:['Skoro ništa','Veliki deo — često i više od polovine','Baš sve'], t:1},
+delovi:[
+{n:'Tri skladišta', t:`Pamćenje nije jedna kutija, nego više njih:
+
+• SENZORNO — delić sekunde. Trag slike posle treptaja.
+• RADNO (kratkoročno) — „radni sto" svesti. Malo stane: oko 4 stvari odjednom (ranije se govorilo „7 plus-minus 2"). Zato broj telefona pamtiš u grupama.
+• DUGOROČNO — bez poznate granice. Deli se na:
+  – ono što možeš da ispričaš: činjenice („Pariz je glavni grad Francuske") i događaje („leto u Bečićima");
+  – ono što znaš da radiš, a ne umeš da objasniš: vožnja, plivanje, kucanje na tastaturi.
+
+Učenje je, u suštini, prebacivanje sa radnog stola u dugoročno skladište — i pravljenje puta da se ponovo nađe.`,
+pr:{p:'Koliko stvari otprilike staje u radnu memoriju odjednom?', o:['Oko 4','Oko 100','Nema granice'], t:0, z:'Radna memorija je uska — oko 4 jedinice; zato grupišemo (brojeve, reči).'}},
+{n:'Kriva zaboravljanja', t:`1885. nemački psiholog Herman Ebinghaus je radio ogled na samom sebi: učio je napamet besmislene slogove (ZOF, BIK, DAX…) i merio koliko pamti posle sata, dana, nedelje.
+
+Dobio je KRIVU ZABORAVLJANJA: zaboravljanje je najbrže odmah posle učenja — za dan ode veliki deo — a posle se usporava.
+
+I otkrio je lek: svako PONAVLJANJE posle razmaka izravna krivu. Posle drugog ponavljanja zaborav je sporiji, posle trećeg još sporiji.
+
+Prepoznaješ? To je tačno ono što rade kartice u ovoj aplikaciji: vraćaju ti pitanje posle 1, 3, 7, 21 dana — baš kad bi inače počelo da bledi.`,
+pr:{p:'Šta izravnava krivu zaboravljanja?', o:['Jedno dugo učenje u komadu','Ponavljanje sa razmakom','Učenje noću'], t:1, z:'Svako ponavljanje posle pauze usporava zaborav — to je osnova kartica u ovoj aplikaciji.'}},
+{n:'Sećanje se ne snima — nego se gradi', t:`Pamćenje nije video-snimak. Svaki put kad se nečega setiš, ti to sećanje ponovo SASTAVIŠ — i malo izmeniš.
+
+Psihološkinja Elizabet Loftus je pokazala koliko je to krhko:
+• Kad ljude posle snimka sudara pitaš koliko su brzo kola „razbila" se jedna o drugu, procenjuju veću brzinu nego kad pitaš koliko su brzo „udarila" — a neki se posle „sećaju" i razbijenog stakla kojeg nije bilo.
+• U drugom ogledu, uz pomoć rođaka, ljudima je pričano o izmišljenom događaju iz detinjstva — kako su se izgubili u tržnom centru. Otprilike svaki četvrti je počeo da ga se „seća", sa detaljima.
+
+Zato su i živa, sigurna sećanja ponekad netačna, i zato svedoci greše. To ne znači da je sve laž — nego da sigurnost nije dokaz tačnosti.`,
+pr:{p:'Šta je pokazala Elizabet Loftus?', o:['Da je pamćenje savršeno','Da se lažna sećanja mogu usaditi i da se sećanja menjaju','Da deca bolje pamte od odraslih'], t:1, z:'Sećanja se pri svakom prisećanju ponovo grade — mogu se izmeniti, pa i izmisliti.'}},
+{n:'Šta stvarno pomaže učenju', t:`Ono što deluje (dobro potvrđeno):
+• PRISEĆANJE — izvući iz glave, bez gledanja. Najjače oruđe.
+• RAZMAK — više kratkih sesija umesto jedne duge.
+• MEŠANJE — ne jedna tema do iznemoglosti, nego naizmenično.
+• OBJAŠNJAVANJE svojim rečima — kao da učiš nekog drugog.
+• SAN posle učenja — mozak tada sređuje naučeno.
+• ZNAČENJE i EMOCIJA — pamti se ono što je povezano sa nečim što već znaš ili ti je važno.
+
+Ono što deluje slabo, iako svi rade: ponovno čitanje, podvlačenje, prepisivanje.
+
+A „STILOVI UČENJA" („ja sam vizuelni tip")? Ljudi zaista imaju sklonosti, ali istraživanja nisu našla da učenje „po svom stilu" daje bolje rezultate. Bolje je učiti na način koji gradivu odgovara — mapu gledaj, muziku slušaj, a sve izvlači iz glave.`,
+pr:{p:'„Ja sam vizuelni tip, pa učim samo iz slika." Šta kaže nauka?', o:['Tačno, svako treba da uči svojim stilom','Nema dokaza da učenje po „stilu" daje bolje rezultate','Vizuelni tipovi uče najbrže'], t:1, z:'Sklonosti postoje, ali prilagođavanje „stilu" nije pokazalo korist; najviše pomažu prisećanje i razmak.'}},
+{n:'Navike: kako učimo ponašanje', t:`Učimo i ponašanja, ne samo činjenice.
+
+• PAVLOV (oko 1900): psi su slinili na zvuk koji je redovno najavljivao hranu. Učenje povezivanjem — zato ti miris neke kuhinje vrati detinjstvo.
+• SKINER (sredina 20. veka): ponašanje koje bude nagrađeno — ponavlja se. A najjače drži nagrada koja stiže NASUMIČNO: nekad da, nekad ne. Na tome rade kockarski automati — i telefon. Svaki put kad ga pogledaš, možda je stigla poruka, možda nije. Zato ga gledaš sto puta dnevno.
+
+Navika ima tri dela: ZNAK → RUTINA → NAGRADA (umor posle smene → telefon u krevetu → malo zabave). Znak i nagradu teško je izbrisati, ali RUTINA se može zameniti nečim drugim što daje sličnu nagradu.`,
+pr:{p:'Zašto su kockarski automati i notifikacije na telefonu tako zarazni?', o:['Jer su šareni','Jer nagrada stiže nasumično, a to najjače drži naviku','Jer su besplatni'], t:1, z:'Nasumična nagrada (Skiner) najjače učvršćuje ponašanje — mozak stalno „proverava".'}}
+],
+kljucno:['Pamćenje: senzorno, radno (oko 4 stvari) i dugoročno (činjenice, događaji, veštine).','Kriva zaboravljanja (Ebinghaus): najbrže se zaboravlja odmah; ponavljanje sa razmakom je izravnava.','Sećanja se pri svakom prisećanju ponovo grade — mogu biti izmenjena ili izmišljena (Loftus).','Pomaže: prisećanje, razmak, mešanje, objašnjavanje, san, značenje; „stilovi učenja" su mit.','Navike: znak → rutina → nagrada; nasumična nagrada najjače drži.'],
+kartice:[
+{p:'Koliko otprilike staje u radnu memoriju?', o:'Oko 4 stvari odjednom.'},
+{p:'Šta je kriva zaboravljanja i šta je izravnava?', o:'Brz zaborav odmah posle učenja; izravnava je ponavljanje sa razmakom.'},
+{p:'Šta je pokazala Elizabet Loftus?', o:'Da se sećanja menjaju i da se lažna sećanja mogu usaditi.'},
+{p:'Koja dva postupka najviše pomažu učenju?', o:'Prisećanje (bez gledanja) i ponavljanje sa razmakom.'},
+{p:'Koja tri dela ima navika?', o:'Znak → rutina → nagrada.'}
+],
+razgovor:['Kao pisac: imaš li sećanje za koje si siguran da je tačno — a možda nije? Šta bi se promenilo da nije?','Koja tvoja navika radi po šemi znak → rutina → nagrada? Šta bi mogla biti druga rutina?']},
+
+{id:'5-3', naslov:'Emocije i motivacija',
+kuka:{p:'Koliko osnovnih izraza emocija na licu, po psihologu Polu Ekmanu, prepoznaju ljudi u svim kulturama?', o:['2','Oko 6','Oko 50'], t:1},
+delovi:[
+{n:'Čemu služe emocije', t:`Emocije nisu ukras ni slabost. To su brzi programi koji telo i mozak u deliću sekunde pripremaju za akciju:
+• STRAH — pripremi se da bežiš ili da se smrzneš.
+• BES — pripremi se da se boriš, odbraniš granicu.
+• GAĐENJE — skloni se od pokvarenog i otrovnog.
+• TUGA — uspori, povuci se, pozovi pomoć.
+• RADOST — ponovi to, ostani blizu.
+• IZNENAĐENJE — stani i pogledaj.
+
+Pol Ekman je 1960-ih pokazao da ovih šest izraza lica prepoznaju ljudi u celom svetu, čak i u zajednicama bez kontakta sa Zapadom. Novija istraživanja kažu da je kultura ipak važnija nego što je on mislio: kako i kada pokazujemo emocije mnogo zavisi od toga gde smo odrasli.`,
+pr:{p:'Čemu, evoluciono, služe emocije?', o:['Da nas usporavaju u odlukama','Da brzo pripreme telo i mozak za akciju','Ničemu, to je ostatak prošlosti'], t:1, z:'Strah, bes, gađenje i ostale emocije u deliću sekunde pripremaju telo za ono što situacija traži.'}},
+{n:'Telo pre misli', t:`Hodaš kroz travu i vidiš nešto dugo i savijeno. Skočiš — pre nego što shvatiš da je to štap.
+
+AMIGDALA (iz lekcije o mozgu) reaguje brže od svesnog mišljenja: srce ubrza, mišići se zategnu, adrenalin krene. Tek posle kora kaže „štap je, smiri se".
+
+Psiholog Vilijam Džejms je još 1884. tvrdio nešto što zvuči naopako: „Ne bežimo zato što se plašimo — plašimo se zato što bežimo." Preterao je, ali je bio u pravu da su telo i osećanje neodvojivi: telo nije samo posledica emocije, nego njen deo.
+
+Jedan koristan nalaz: kad jaku emociju IMENUJEŠ rečima („ovo je bes", „ovo je strah od gubitka"), aktivnost amigdale se smiri. Reči su ručna kočnica.`,
+pr:{p:'Šta, po istraživanjima, pomaže da se jaka emocija smiri?', o:['Da je ignorišeš','Da je imenuješ rečima','Da o njoj ne misliš'], t:1, z:'Imenovanje emocije smanjuje aktivnost amigdale — reči deluju kao kočnica.'}},
+{n:'Stres', t:`STRES je reakcija tela na zahtev ili pretnju. Sam po sebi nije loš:
+• KRATAK stres izoštri pažnju i da snagu — ispit, važan razgovor, hitan slučaj.
+• DUGOTRAJAN stres je problem: KORTIZOL ostaje povišen, pa trpe san, imunitet, pritisak, pamćenje i raspoloženje.
+
+Šta stres čini najštetnijim? Ne samo koliko je težak, nego da li imaš OSEĆAJ KONTROLE i da li vidiš kraj. Isti posao je mnogo teži kad ne možeš ništa da promeniš i ne znaš dokle traje.
+
+Šta pomaže, prema istraživanjima:
+• kretanje (i šetnja),
+• san,
+• ljudi oko tebe — razgovor, dodir, pripadnost,
+• vraćanje bar malog dela kontrole: plan, spisak, jedan korak koji zavisi od tebe.
+
+Stoici bi rekli isto: razdvoji ono što zavisi od tebe od onoga što ne zavisi.`,
+pr:{p:'Šta stres najviše čini štetnim?', o:['Da je kratak i jak','Osećaj da nemaš kontrolu i da ne vidiš kraj','Da se dešava ujutru'], t:1, z:'Dugotrajan stres bez osećaja kontrole drži kortizol povišenim i iscrpljuje telo.'}},
+{n:'Šta nas pokreće', t:`Poznata MASLOVLJEVA PIRAMIDA kaže: prvo telo (hrana, san), pa sigurnost, pa pripadnost, pa poštovanje, pa ostvarenje sebe. Lepa slika, ali istraživanja ne potvrđuju da potrebe idu strogo stepenicu po stepenicu — ljudi stvaraju i u siromaštvu.
+
+Danas je bolje potvrđena TEORIJA SAMOODREĐENJA (Deci i Rajan). Ljudi su najmotivisaniji kad su zadovoljene tri potrebe:
+1. AUTONOMIJA — da ja biram.
+2. KOMPETENCIJA — da umem i napredujem.
+3. POVEZANOST — da pripadam, da nekome znači.
+
+Razlikuju se dve vrste motivacije:
+• UNUTRAŠNJA — radiš jer ti je samo po sebi zanimljivo ili važno.
+• SPOLJAŠNJA — radiš zbog nagrade, plate, pohvale, straha.
+
+Zamka: spoljašnja nagrada ume da ugasi unutrašnju. Deca koja su dobijala nagradu za crtanje, posle su manje crtala sama od sebe. Kad posao postane samo plata — gubi se ono zbog čega si ga voleo.`,
+pr:{p:'Koje tri potrebe, po teoriji samoodređenja, pokreću ljude?', o:['Hrana, san, novac','Autonomija, kompetencija, povezanost','Moć, slava, sigurnost'], t:1, z:'Kad imaš izbor, napredak i pripadnost, motivacija je najjača i najtrajnija.'}},
+{n:'Šta je sreća — i šta nije', t:`HEDONISTIČKA ADAPTACIJA: navikneš se na skoro sve. Nova kola, povišica, nova kuća — raduju neko vreme, pa postanu „normalno". Isto važi, srećom, i za mnoge nedaće: ljudi se oporave više nego što očekuju.
+
+Šta onda dugoročno ide uz zadovoljstvo životom?
+• NAJDUŽA STUDIJA ODRASLIH (Harvard, prati ljude više od 80 godina, od 1938): najbolji pokazatelj zdravog i srećnog života nije novac ni slava, nego KVALITET ODNOSA sa ljudima. Usamljenost je štetna kao pušenje.
+• SMISAO — osećaj da ono što radiš nešto znači.
+• ZDRAVLJE i san.
+• NOVAC — pomaže, naročito kad izvlači iz brige i nesigurnosti; preko toga sve manje.
+
+Nije mnogo drugačije od onoga što su govorili Aristotel (prijateljstvo i vrlina) i stoici. Nauka je stigla tamo gde je filozofija već bila — samo sa brojevima.`,
+pr:{p:'Šta je, po najdužoj studiji odraslih (Harvard), najbolji pokazatelj srećnog i zdravog života?', o:['Novac','Kvalitet odnosa sa ljudima','Uspeh na poslu'], t:1, z:'Bliski, dobri odnosi bolje predviđaju zdravlje i sreću od novca i uspeha.'}}
+],
+kljucno:['Emocije su brzi programi za akciju; šest osnovnih izraza (Ekman), ali kultura je važnija nego što se mislilo.','Telo reaguje pre svesti (amigdala); imenovanje emocije je smiruje.','Kratak stres pomaže, dugotrajan šteti; najgori je bez osećaja kontrole.','Teorija samoodređenja: autonomija, kompetencija, povezanost; spoljašnja nagrada može ugasiti unutrašnju.','Navikavamo se na skoro sve; najbolji pokazatelj srećnog života su dobri odnosi.'],
+kartice:[
+{p:'Šest osnovnih emocija po Ekmanu?', o:'Radost, tuga, strah, bes, gađenje, iznenađenje.'},
+{p:'Šta smiruje jaku emociju?', o:'Da je imenuješ rečima.'},
+{p:'Šta stres čini najštetnijim?', o:'Kad traje dugo i nemaš osećaj kontrole.'},
+{p:'Tri potrebe iz teorije samoodređenja?', o:'Autonomija, kompetencija, povezanost.'},
+{p:'Šta je hedonistička adaptacija?', o:'Navikavanje na dobro i loše, pa se vraćamo na svoj uobičajeni nivo zadovoljstva.'}
+],
+razgovor:['Šta te pokreće da pišeš — unutrašnja ili spoljašnja motivacija? Šta bi se desilo kad bi pisanje postalo samo posao?','Na šta si se navikao pa više ne primećuješ koliko je dobro — ili koliko je loše?']},
+
+{id:'5-4', naslov:'Zašto grešimo u odlukama',
+kuka:{p:'Palica i loptica koštaju zajedno 110 dinara. Palica je 100 dinara skuplja od loptice. Koliko košta loptica?', o:['10 dinara','5 dinara','1 dinar'], t:1},
+delovi:[
+{n:'Dva sistema', t:`Ako ti je prvo palo na pamet „10 dinara" — nisi sam. Većini ljudi padne. Ali onda bi palica bila 110, a zajedno 120. Tačno je 5 i 105.
+
+Danijel Kaneman (psiholog sa Nobelovom nagradom za ekonomiju 2002) to objašnjava sa dva sistema:
+• SISTEM 1 — brz, automatski, bez napora. Prepoznaje lice, oseti opasnost, „zna" da je odgovor 10.
+• SISTEM 2 — spor, naporan, logičan. Proverava. Ali je lenj i uključuje se tek kad mora.
+
+Sistem 1 je odličan — bez njega ne bismo preživeli dan. Ali greši PREDVIDIVO, uvek na isti način. Te stalne greške zovu se KOGNITIVNE PRISTRASNOSTI. Upoznajmo najvažnije.`,
+pr:{p:'Zašto većini prvo padne na pamet da loptica košta 10?', o:['Zbog loše matematike','Jer brzi, intuitivni sistem 1 skoči na odgovor pre provere','Jer je pitanje pogrešno'], t:1, z:'Sistem 1 nudi lak, „očigledan" odgovor, a lenji sistem 2 ga ne proveri.'}},
+{n:'Tražimo ono što već mislimo', t:`PRISTRASNOST POTVRĐIVANJA: tražimo, primećujemo i pamtimo ono što potvrđuje ono u šta već verujemo — a ono što ne potvrđuje, preskočimo ili omalovažimo.
+
+• Ko misli da je neki političar lopov, pamti svaku njegovu aferu; ko ga voli, pamti svaki uspeh.
+• Ko veruje da „mlad mesec donosi kišu", pamti kišne mladine, a zaboravi suve.
+
+Internet je ovo pojačao do krajnosti: algoritmi ti nude još više onoga na šta si već kliknuo. Svako živi u svom ogledalu.
+
+Najbolji lek je naporan, ali deluje: NAMERNO TRAŽI NAJJAČI ARGUMENT PROTIV SEBE. Ne slabašnu karikaturu suprotne strane (slamnati čovek iz lekcije o logici), nego najbolju verziju.`,
+pr:{p:'Šta je pristrasnost potvrđivanja?', o:['Kad tražimo dokaze protiv sebe','Kad tražimo i pamtimo ono što potvrđuje ono što već verujemo','Kad potvrdimo tuđe mišljenje iz pristojnosti'], t:1, z:'Prirodno skupljamo „dokaze" za ono što već mislimo; lek je namerno tražiti najjači protivargument.'}},
+{n:'Sidro i ono čega se lako setimo', t:`SIDRENJE: prvi broj koji čuješ vuče tvoju procenu, i kad nema veze sa stvari.
+• „Bilo 5.000, sada samo 2.999!" — 2.999 deluje jeftino jer je pored 5.000.
+• U ogledima, ljudi kojima se prvo pokaže veliki broj procenjuju više, i kad znaju da je broj izvučen nasumično.
+Kod pregovora: ko prvi kaže broj, baca sidro.
+
+DOSTUPNOST: ono čega se lako setimo, mislimo da je češće.
+• Posle vesti o padu aviona ljudi se plaše letenja, a nastavljaju da voze — iako je put kolima mnogo opasniji.
+• Posle nekoliko priča o krađama u kraju, deluje da je kriminal porastao, i kad nije.
+
+Vesti biraju ono što je retko i dramatično — zato nam slika sveta iz vesti sistematski greši.`,
+pr:{p:'Zašto „sniženo sa 5.000 na 2.999" deluje kao dobar posao?', o:['Jer je zaista uvek jeftino','Jer prvi broj (5.000) služi kao sidro za procenu','Jer volimo neparne brojeve'], t:1, z:'Prvi broj „usidri" procenu — 2.999 izgleda malo u poređenju sa 5.000, bez obzira na pravu vrednost.'}},
+{n:'Gubitak boli više', t:`AVERZIJA PREMA GUBITKU: gubitak od 1.000 dinara boli otprilike DVOSTRUKO više nego što dobitak od 1.000 raduje.
+
+Iz toga slede tipične greške:
+• POTOPLJENI TROŠAK: „Već sam uložio toliko, ne mogu sad da odustanem." Gledaš loš film do kraja jer si platio kartu; popravljaš auto koji stalno kvari jer si već dao toliko para. Ali uloženo je potrošeno svejedno — pitanje je samo šta je pametno od SADA.
+• KOCKAREVA ZABLUDA: posle pet crvenih na ruletu „mora da dođe crno". Ne mora. Kuglica nema pamćenje; šansa je svaki put ista.
+• Zadržavanje loših odluka da ne bi morao da priznaš gubitak.
+
+Pitanje koje razbija potopljeni trošak: „Da sad krećem od nule, da li bih ovo izabrao?"`,
+pr:{p:'Šta je kockareva zabluda?', o:['Verovanje da se kockom može zaraditi','Verovanje da posle niza crvenih „mora" doći crno','Strah od gubitka'], t:1, z:'Svako bacanje je nezavisno — kuglica ne pamti prošla. Šansa ostaje ista.'}},
+{n:'Kako da se braniš', t:`Pristrasnosti ne možeš izbrisati — ugrađene su. Ali ih možeš uhvatiti, naročito kod važnih odluka:
+
+1. USPORI. Ako odluka može da sačeka — prespavaj. Sistem 2 je lenj, daj mu vremena.
+2. ZAPIŠI zašto odlučuješ. Lakše je uočiti rupu na papiru nego u glavi.
+3. PITAJ: „Šta bi me uverilo da grešim?" Ako ništa — ne razmišljaš, nego braniš.
+4. OSNOVNA STOPA: koliko često se ovo inače dešava? (Koliko novih kafića preživi pet godina? Malo — i tvoj je, u početku, jedan od njih.)
+5. PITAJ NEKOGA KO SE NE SLAŽE — ne da te ubedi, nego da vidiš šta ne vidiš.
+6. „Da krećem od nule, da li bih ovo izabrao?" — protiv potopljenog troška.
+
+Kraj nije u tome da budeš savršeno racionalan, nego da napraviš malo manje skupih grešaka.`,
+pr:{p:'Šta je dobra zaštita od sopstvenih pristrasnosti?', o:['Uvek verovati prvom osećaju','Pitati „šta bi me uverilo da grešim?"','Odlučivati što brže'], t:1, z:'Ako ništa ne bi moglo da te uveri da grešiš — ne odlučuješ, nego braniš unapred zauzet stav.'}}
+],
+kljucno:['Sistem 1 je brz i intuitivan, sistem 2 spor i proverava; sistem 1 greši predvidivo (Kaneman).','Pristrasnost potvrđivanja: tražimo ono što već mislimo; lek je najjači protivargument.','Sidrenje (prvi broj vuče procenu) i dostupnost (lako setivo deluje češće).','Gubitak boli oko dvostruko više od dobitka: potopljeni trošak, kockareva zabluda.','Odbrana: uspori, zapiši, pitaj šta bi te razuverilo, osnovna stopa, tuđe mišljenje.'],
+kartice:[
+{p:'Koja je razlika između sistema 1 i sistema 2?', o:'Sistem 1 je brz i intuitivan; sistem 2 spor, naporan i logičan.'},
+{p:'Šta je pristrasnost potvrđivanja?', o:'Tražimo i pamtimo ono što potvrđuje ono što već verujemo.'},
+{p:'Šta je sidrenje?', o:'Prvi broj koji čujemo vuče našu procenu.'},
+{p:'Šta je potopljeni trošak?', o:'Nastavljanje nečega samo zato što smo već mnogo uložili.'},
+{p:'Koje pitanje štiti od potopljenog troška?', o:'„Da krećem od nule, da li bih ovo izabrao?"'}
+],
+razgovor:['Seti se odluke kad si nastavio nešto samo zato što si već mnogo uložio. Šta bi danas uradio?','U kojoj temi si najskloniji da tražiš samo potvrdu? Budi iskren.']},
+
+{id:'5-5', naslov:'Jezik — šta je, kako ga dete uči, kako se menja',
+kuka:{p:'Otprilike koliko jezika se danas govori u svetu?', o:['Oko 200','Oko 7.000','Oko 50.000'], t:1},
+delovi:[
+{n:'Šta je jezik', t:`Mnoge životinje komuniciraju: pčela plesom pokaže gde je cveće, majmuni imaju različite krike za orla i za zmiju. Ali ljudski jezik ima nešto što nijedna nema: od KONAČNOG broja reči i pravila pravi BESKONAČNO MNOGO rečenica — i one koje niko nikad nije izgovorio. Ovu rečenicu verovatno niko pre tebe nije pročitao, a ipak je razumeš.
+
+Još jedna osobina: reči su PROIZVOLJNE. Reč „pas" nema u sebi ništa pseće — Englez kaže „dog", Nemac „Hund". Dogovor zajednice, ne priroda.
+
+Danas se u svetu govori oko 7.000 jezika. Polovina ljudi govori samo dvadesetak najvećih, a veliki deo malih jezika je ugrožen — kad umre poslednji govornik, nestaje ceo način da se svet imenuje.`,
+pr:{p:'Šta ljudski jezik razlikuje od komunikacije životinja?', o:['Ljudi koriste zvuk','Od konačno mnogo reči i pravila pravi beskonačno mnogo novih rečenica','Ljudi imaju više signala za opasnost'], t:1, z:'Gramatika omogućava da se kombinuje beskonačno — i da razumeš rečenicu koju nikad nisi čuo.'}},
+{n:'Spratovi jezika', t:`Lingvistika — nauka o jeziku — gleda jezik po spratovima:
+
+• GLASOVI (fonetika i fonologija). Srpski ima 30 glasova i, zahvaljujući Vuku, skoro savršeno pismo: „Piši kao što govoriš."
+• OBLICI REČI (morfologija): pas, psa, psu, psom — sedam padeža. Englezu košmar, nama normalno.
+• REČENICE (sintaksa): kako se reči slažu. „Pas je ujeo čoveka" i „Čoveka je ujeo pas" — iste reči, isto značenje, drugi naglasak.
+• ZNAČENJE (semantika).
+• UPOTREBA (pragmatika): „Imaš li sat?" ne pita da li poseduješ sat, nego koliko je sati. Značenje zavisi od situacije i namere — nešto što pisac radi stalno, kroz podtekst.`,
+pr:{p:'Šta proučava pragmatika?', o:['Glasove','Oblike reči','Kako značenje zavisi od situacije i namere'], t:2, z:'„Imaš li sat?" — pravo značenje (koliko je sati) daje situacija, ne same reči.'}},
+{n:'Jezici rođaci', t:`1786. britanski sudija u Indiji, Vilijam Džons, primetio je da su stari indijski sanskrit, grčki i latinski toliko slični da moraju imati zajedničkog pretka.
+
+Tako je otkrivena INDOEVROPSKA porodica — srpski, ruski, engleski, nemački, francuski, grčki, persijski, hindi — svi potiču od jednog jezika koji se govorio pre oko 6.000 godina. Pogledaj:
+mati — mother — Mutter · tri — three — drei · noć — night — Nacht · brat — brother — Bruder.
+
+Jezici se stalno menjaju, kao i vrste. Iz staroslovenskog su izrasli današnji slovenski jezici. Nema „pokvarenog" jezika, samo promene — svaka generacija misli da mlađi kvare jezik, i svaka se vara.
+
+Srpski, hrvatski, bosanski i crnogorski su lingvistički veoma bliski i govornici se bez muke razumeju. Da li su to jedan ili više jezika — to je u velikoj meri pitanje politike i identiteta, ne same lingvistike.`,
+pr:{p:'Šta je zajedničko srpskom, engleskom i hindiju?', o:['Ništa','Pripadaju istoj, indoevropskoj porodici jezika','Isto pismo'], t:1, z:'Svi potiču od jezika koji se govorio pre oko 6.000 godina — zato mati, mother i Mutter liče.'}},
+{n:'Kako dete uči jezik', t:`Dete do četvrte-pete godine savlada složenu gramatiku — bez ijednog časa, bez udžbenika. Kako?
+
+Ključni trag su GREŠKE. Dete kaže „ja sam idao" ili „dođao sam". To nikad nije čulo od odraslih! Znači da ne ponavlja samo, nego samo IZVODI PRAVILA i primenjuje ih i tamo gde jezik pravi izuzetak.
+
+Dve velike struje objašnjenja:
+• Noam Čomski: čovek se rađa sa urođenom sposobnošću za jezik, a iskustvo samo podešava detalje.
+• Drugi: dečji mozak je izuzetan statističar — iz hiljada sati slušanja izvlači obrasce.
+Verovatno oboje.
+
+Bebe na rođenju razlikuju glasove svih jezika sveta; oko prve godine se „suze" na glasove svog jezika. A što više reči beba čuje upućenih NJOJ — u razgovoru, pričanju, čitanju — to joj se jezik bolje razvija. Najbolja oprema za to je glas roditelja.`,
+pr:{p:'Šta pokazuju dečje greške kao „ja sam idao"?', o:['Da dete loše čuje','Da dete samo izvodi pravila gramatike, a ne samo ponavlja','Da je gramatika nebitna'], t:1, z:'Takve oblike dete nije čulo — samo je primenilo pravilo tamo gde jezik ima izuzetak.'}},
+{n:'Jezik i misao — i kraj oblasti', t:`Da li jezik kojim govoriš menja to kako misliš? To je stara HIPOTEZA SAPIRA I VORFA.
+
+• Jaka verzija — jezik ODREĐUJE šta možeš da misliš — odbačena je. Možeš misliti i ono za šta nemaš reč; zato uopšte izmišljamo nove reči.
+• Blaga verzija — jezik UTIČE na pažnju, opažanje i pamćenje — ima potvrde. Ruski ima dve odvojene osnovne reči za svetloplavu i tamnoplavu, i Rusi u ogledima brže razlikuju te nijanse. Neki jezici opisuju prostor strane sveta („šolja ti je severno od tanjira"), pa njihovi govornici uvek znaju gde je sever.
+
+Za pisca: reči nisu samo odelo misli. Ponekad je reč ta koja tek napravi misao.
+
+Kraj oblasti „Um". Kostur: kako psihologija proučava um → kako pamtimo i učimo → šta nas pokreće i kako osećamo → zašto predvidivo grešimo → i jezik, kojim sve to mislimo i delimo.
+
+Sledeće: kako je taj um, za 300.000 godina, napravio istoriju.`,
+pr:{p:'Šta istraživanja kažu o tome da li jezik utiče na mišljenje?', o:['Jezik potpuno određuje šta možemo da mislimo','Jezik ne određuje mišljenje, ali utiče na pažnju i opažanje','Jezik nema nikakve veze sa mišljenjem'], t:1, z:'Jaka verzija Sapir-Vorfove hipoteze je odbačena; blaga — uticaj na pažnju i opažanje — ima potvrde.'}}
+],
+kljucno:['Jezik od konačnih reči i pravila pravi beskonačno mnogo rečenica; reči su proizvoljne; oko 7.000 jezika.','Spratovi: glasovi, oblici, rečenice, značenje, upotreba (pragmatika).','Indoevropska porodica: srpski, engleski, hindi imaju zajedničkog pretka od pre oko 6.000 godina; jezici se stalno menjaju.','Dete izvodi pravila (greške „idao"); urođena sposobnost i statističko učenje; bebi pomaže mnogo reči upućenih njoj.','Jezik ne određuje mišljenje, ali utiče na pažnju i opažanje.'],
+kartice:[
+{p:'Šta je posebno u ljudskom jeziku?', o:'Od konačno mnogo reči i pravila pravi beskonačno mnogo novih rečenica.'},
+{p:'Šta proučava pragmatika?', o:'Kako značenje zavisi od situacije i namere.'},
+{p:'Koja porodica jezika povezuje srpski, engleski i hindi?', o:'Indoevropska.'},
+{p:'Šta pokazuju dečje greške kao „idao"?', o:'Da dete samo izvodi pravila gramatike.'},
+{p:'Šta danas važi za Sapir-Vorfovu hipotezu?', o:'Jezik ne određuje mišljenje, ali utiče na pažnju i opažanje.'}
+],
+razgovor:['Kao pisac: da li ti se desilo da reč promeni misao, a ne obrnuto? Daj primer.','Kako bi nekome objasnio da „pokvaren jezik" ne postoji, nego samo jezik koji se menja?']}
 ]},
 {id:'6', naziv:'Kako smo stigli dovde', ikona:'🏛️', era:'300.000 god. → 1900.', lekcije:[
 {id:'6-1', naslov:'Poreklo čoveka i lovci-sakupljači'},
@@ -1180,7 +1768,65 @@ kartice:[
 {p:'Šta je lažna dilema?', o:'Nuđenje samo dve mogućnosti kad ih ima više.'}
 ],
 razgovor:['Seti se jedne rasprave (TV, posao, internet) gde je neko upotrebio jednu od tri zablude. Koju i kako?','Daj svoj primer indukcije iz posla ili kuće i reci zašto zaključak nije siguran.']},
-{id:'12-2', naslov:'Brojevi koji varaju — procenti, proseci, velike brojke'},
+{id:'12-2', naslov:'Brojevi koji varaju — procenti, proseci, velike brojke',
+kuka:{p:'U gradu A prošle godine je bilo 100 krađa, u gradu B 50. Gde je opasnije?', o:['U gradu A','U gradu B','Ne može se reći bez broja stanovnika'], t:2},
+delovi:[
+{n:'U odnosu na šta?', t:`Broj sam po sebi skoro nikad ništa ne govori. Uvek pitaj: U ODNOSU NA ŠTA?
+
+• 100 krađa u gradu od milion ljudi je mnogo bezbednije od 50 u gradu od 10.000. Poredi se BROJ NA 1.000 ili 100.000 STANOVNIKA.
+• „Najviše saobraćajnih nesreća desi se po lepom vremenu!" Znači li da je magla bezbednija? Ne — po lepom vremenu se mnogo više vozi.
+• „Većina nesreća se desi nadomak kuće." Pa da — tu se najviše i vozi.
+
+Novinari i političari često daju samo jedan broj, bez onog drugog. Kad čuješ broj, u glavi dodaj: „od koliko?"`,
+pr:{p:'„Najviše nesreća se desi po lepom vremenu." Da li je magla bezbednija?', o:['Da, brojevi to pokazuju','Ne — po lepom vremenu se mnogo više vozi','Ne može se reći ništa'], t:1, z:'Bez podatka koliko se vozi po lepom, a koliko po maglovitom vremenu, sam broj nesreća ne govori o opasnosti.'}},
+{n:'Zamke procenata', t:`Procenti zvuče precizno, a lako varaju.
+
+1. GORE PA DOLE NIJE ISTO. Cena 100 dinara poskupi 50% → 150. Pa pojeftini 50% → 75. Nisi na početku! Procenat se uvek računa od trenutne vrednosti.
+
+2. PROCENAT I PROCENTNI POEN. Kamata poraste sa 2% na 3%. To je rast od jednog PROCENTNOG POENA — ali od 50 PROCENATA (jer je 1 polovina od 2). Obe rečenice su tačne; ko hoće da uplaši, reći će „50%", a ko hoće da umiri, „samo jedan poen".
+
+3. PROCENAT OD MALOG BROJA. „Broj slučajeva porastao 200%!" — sa 1 na 3. Kad je osnova mala, procenti divljaju.`,
+pr:{p:'Cena 100, poskupi 50%, pa pojeftini 50%. Kolika je?', o:['100','75','125'], t:1, z:'100 → 150 → 75. Pojeftinjenje od 50% računa se od 150, ne od 100.'}},
+{n:'Prosek i medijana', t:`U kafani sedi devet radnika, svaki ima platu 80.000. Uđe milijarder. PROSEČNA plata u kafani skoči na nekoliko miliona — a niko nije bogatiji nego pre minut.
+
+Zato postoji MEDIJANA: poređaš sve od najmanjeg do najvećeg i uzmeš onog u SREDINI. U kafani je medijana i dalje 80.000. Medijana je mnogo bolja slika „tipičnog" kad ima nekoliko ogromnih vrednosti.
+
+Plate su baš takve: nekolicina zarađuje mnogo, pa je PROSEČNA plata viša od onoga što zarađuje „obični" čovek. U Srbiji je medijalna plata osetno niža od prosečne — zato mnogi kad čuju prosek kažu „ko to prima?". Imaju pravo.`,
+pr:{p:'Devet ljudi ima platu 80.000, a deseti je milijarder. Šta bolje opisuje tipičnu platu?', o:['Prosek','Medijana','Ni jedno ni drugo'], t:1, z:'Medijana (vrednost u sredini) se ne pomera zbog jednog milijardera; prosek leti u nebo.'}},
+{n:'Velike brojke', t:`Milion, milijarda, bilion — mozak ih sve oseti kao „puno". Probaj ovako, u sekundama:
+
+• MILION sekundi = oko 11 i po DANA.
+• MILIJARDA sekundi = oko 32 GODINE.
+• BILION (hiljadu milijardi) sekundi = oko 32.000 GODINA — duže od cele pisane istorije.
+
+Između milijarde i miliona nije „malo više" — razlika je kao između jedanaest dana i jednog života.
+
+I trik za državne brojke: PODELI PO GLAVI. „Država daje milijardu evra" — Srbija ima oko 6,6 miliona ljudi, znači oko 150 evra po stanovniku. Odjednom znaš da li je to mnogo ili malo.`,
+pr:{p:'Koliko traje milijardu sekundi?', o:['Oko 11 dana','Oko 32 godine','Oko 3 godine'], t:1, z:'Milion sekundi je oko 11 dana, a milijarda oko 32 godine — hiljadu puta više.'}},
+{n:'Grafikoni koji lažu', t:`Grafikon može biti tačan i istovremeno lagati:
+
+• ODSEČENA OSA. Stubovi 51 i 49 izgledaju kao tri prema jedan ako osa ne počinje od nule, nego od 48. Uvek pogledaj odakle kreće osa.
+• BIRANI PERIOD. Ako hoćeš da pokažeš rast, kreneš od najniže tačke; ako hoćeš pad — od najviše. Isti podaci, suprotna priča.
+• MALI UZORAK. „80% ispitanih zadovoljno" — od pet ljudi?
+• PROSEK BEZ RASPONA. Prosečno je bilo 20 °C — između 19 i 21, ili između 0 i 40?
+
+Pet pitanja za svaki broj u vestima:
+1. U odnosu na šta?
+2. Procenat od koliko?
+3. Prosek ili medijana?
+4. Koliki uzorak i koji period?
+5. Ko meri i šta dobija od toga?`,
+pr:{p:'Stub od 51 i stub od 49 na grafikonu izgledaju kao tri prema jedan. Kako je to moguće?', o:['Brojevi su pogrešni','Osa ne počinje od nule','Grafikon je okrenut'], t:1, z:'Kad osa kreće od 48, razlika od 2 izgleda ogromno. Uvek pogledaj početak ose.'}}
+],
+kljucno:['Broj bez „u odnosu na šta" ne govori ništa — poredi na 1.000 ili 100.000.','Procenti: gore-pa-dole nije isto; procentni poen nije procenat; procenti od malih brojeva divljaju.','Medijana je bolja slika tipičnog od proseka kad ima ekstremnih vrednosti (plate).','Milion sekundi ≈ 11 dana, milijarda ≈ 32 godine; državne brojke podeli po glavi.','Grafikoni varaju odsečenom osom, biranim periodom, malim uzorkom.'],
+kartice:[
+{p:'Prvo pitanje za svaki broj u vestima?', o:'U odnosu na šta?'},
+{p:'Kamata sa 2% na 3% — koliko je porasla?', o:'Jedan procentni poen, ali 50%.'},
+{p:'Razlika između proseka i medijane?', o:'Prosek je zbir podeljen brojem; medijana je vrednost u sredini — otporna na ekstreme.'},
+{p:'Koliko traju milion i milijarda sekundi?', o:'Milion ≈ 11 dana; milijarda ≈ 32 godine.'},
+{p:'Najčešći trik sa grafikonom?', o:'Osa koja ne počinje od nule.'}
+],
+razgovor:['Nađi u vestima ove nedelje jedan broj bez „u odnosu na šta". Šta ti fali da bi ga razumeo?','Objasni nekome razliku između prosečne i medijalne plate, na primeru koji on razume.']},
 {id:'12-3', naslov:'Verovatnoća i rizik'},
 {id:'12-4', naslov:'Naučni metod — kako se nešto dokazuje'},
 {id:'12-5', naslov:'Kako te ubeđuju — retorika, propaganda, manipulacija'}

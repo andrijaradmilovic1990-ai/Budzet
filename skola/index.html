@@ -269,7 +269,7 @@ else if(s.t==='deo'){
 const d=l.delovi[s.i];
 h+=`<div class="dn">${esc(d.n)}</div><div class="tekst">${esc(d.t)}</div>
 <div class="dugmad"><button class="btn sec" id="pre">Nazad</button><button class="btn" id="dalje">Proveri se</button></div>
-<button class="link" id="dublje">Hoću više o ovome kasnije</button><div class="poruka" id="por"></div>`;
+<div style="display:flex;gap:1.2rem"><button class="link" id="dublje">Hoću više o ovome kasnije</button><button class="link" id="primedba">Imam primedbu</button></div><div class="poruka" id="por"></div>`;
 }
 else if(s.t==='pr'){
 const d=l.delovi[s.i],pr=d.pr,odg=(z.provere||{})[s.i];
@@ -311,7 +311,8 @@ da.onclick=()=>korak(l,k+1);
 }
 if(s.t==='deo'){
 da.onclick=()=>korak(l,k+1);
-document.getElementById('dublje').onclick=async()=>{await baza.pisi('dublje/'+Date.now(),{lekcija:l.id,deo:l.delovi[s.i].n,datum:sad()});poruka(SA_HELENOM?'Zapisano — Helena će videti.':'Zapisano.')};
+document.getElementById('primedba').onclick=async()=>{const t=prompt('Šta fali, šta je višak ili šta nije tačno? (ide u plan za doradu)');if(!t||!t.trim())return;await baza.pisi('primedbe/'+Date.now(),{lekcija:l.id,deo:l.delovi[s.i].n,tekst:t.trim(),datum:sad()});poruka('Primedba zapisana.');zaHelenu()};
+document.getElementById('dublje').onclick=async()=>{await baza.pisi('dublje/'+Date.now(),{lekcija:l.id,deo:l.delovi[s.i].n,datum:sad()});poruka(SA_HELENOM?'Zapisano — Helena će videti.':'Zapisano.');zaHelenu()};
 }
 if(s.t==='pr'){
 $app.querySelectorAll('.opc').forEach(b=>b.onclick=async()=>{const i=+b.dataset.i;ekran.izbor=i;
@@ -342,6 +343,7 @@ const sut=danas(1);
 for(let i=0;i<l.kartice.length;i++){const id=`${l.id}_${i}`;if(!(S.kartice&&S.kartice[id]))await baza.pisi(`kartice/${id}`,{kutija:0,sledece:sut})}
 const sl=RED[RED.indexOf(l.id)+1];
 await baza.pisi('stanje',{lekcija:sl||l.id,korak:0,azurirano:sad()});
+await zaHelenu(l.id);
 idi({tip:'pregled',id:l.id,novo:true});
 };
 }
@@ -351,12 +353,51 @@ await baza.pisi('stanje',{lekcija:l.id,korak:k,azurirano:sad()});
 idi({tip:'lekcija',id:l.id,korak:k});
 }
 
+// Sažetak za Helenu: jedan mali čvor (skola/za_helenu) koji ona čita kad Andrija pomene školu.
+// Uputstvo stoji ovde, uz aplikaciju — jedno mesto, ne u NITI.
+const UPUTSTVO = 'UPUTSTVO ZA HELENU (piše ga aplikacija Škola; ne prepisuj ga nigde). Čitaš ovo samo kad Andrija pomene školu ili lekciju — nikad sama od sebe. '
++ '1) U „poslednja" vidiš lekciju: šta je zapamtio (sećanje), koje ključne ideje je imao, a koje propustio, provere i odgovore na dva pitanja. '
++ '2) Budi tutor, ne predavač: kreni od onoga što je propustio ili pogrešio — jedno pitanje „zašto" ili „objasni mi" odjednom; zabludu ispravi jasno; poveži sa njegovim životom i pisanjem; ne prepričavaj lekciju. '
++ '3) Kad razgovor legne, upiši kratak komentar (2–4 rečenice) koji će videti u aplikaciji: write_budzet path skola/komentari/<id lekcije> = {"datum":"YYYY-MM-DD HH:MM","tekst":"…"}. '
++ '4) „dublje" su teme o kojima želi više — ponudi kad ima smisla. „primedbe" su za doradu aplikacije: reci da su zabeležene; lekcije ne menjaš ti, nego agent (helena-audit). '
++ '5) „ponavljanje_danas" pomeni samo ako pita šta da radi.';
+async function zaHelenu(id){
+if(!SA_HELENOM)return;
+const d=danas(),k=S.kartice||{};
+const pz=S.helena&&S.helena.poziv;
+const zav=SVE.filter(l=>zavrsena(l.id)).sort((a,b)=>L(a.id).zavrseno<L(b.id).zavrseno?1:-1);
+const pl=id?nadji(id):(pz&&nadji(pz.lekcija))||zav[0];
+const sl=sledeca();
+let poslednja=null;
+if(pl&&napisana(pl)&&zavrsena(pl.id)){
+const z=L(pl.id),pr=z.provere||{},imao=z.imao||{};
+poslednja={id:pl.id,naslov:pl.naslov,zavrseno:z.zavrseno,
+pogodak:z.pogodak===pl.kuka.t?'tačno':`netačno („${pl.kuka.o[z.pogodak]||'—'}", tačno je „${pl.kuka.o[pl.kuka.t]}")`,
+provere_iz_prve:`${Object.values(pr).filter(x=>x&&x.tacno).length}/${pl.delovi.length}`,
+pogresio:pl.delovi.map((x,i)=>pr[i]&&!pr[i].tacno?x.pr.p:null).filter(Boolean),
+secanje:z.secanje||'',
+imao:pl.kljucno.filter((x,i)=>imao[i]),
+propustio:pl.kljucno.filter((x,i)=>!imao[i]),
+pitanja:pl.razgovor.map((p,i)=>({p,odgovor:(z.odgovori||{})[i]||''})),
+komentar_upisan:!!komentar(pl.id)};
+}
+const dub=Object.values(S.dublje||{}).slice(-5);
+const prim=Object.values(S.primedbe||{}).slice(-10);
+await baza.pisi('za_helenu',{uputstvo:UPUTSTVO,azurirano:sad(),
+predjeno:`${zav.length}/${SVE.length}`,
+sledeca:sl?`${sl.l.naslov}${napisana(sl.l)?'':' (još se piše)'}`:'sve pređeno',
+ponavljanje_danas:Object.keys(k).filter(x=>k[x]&&k[x].sledece<=d).length,
+poslednja,dublje:dub,primedbe:prim});
+}
+
 function helenaTekst(l){return `Škola: završio sam lekciju „${l.naslov}" (${l.id}). Pogledaj šta sam napisao i hajde da pričamo.`}
 async function kaHeleni(l){
 const t=helenaTekst(l);
+// prozor se otvara odmah (na telefonu bi posle čekanja bio blokiran), upisi idu posle
+window.open('https://claude.ai/new?q='+encodeURIComponent(t),'_blank');
 try{await navigator.clipboard.writeText(t)}catch(e){}
 await baza.pisi('helena/poziv',{lekcija:l.id,datum:sad()});
-window.open('https://claude.ai/new?q='+encodeURIComponent(t),'_blank');
+await zaHelenu(l.id);
 }
 
 function pregled(l){
@@ -434,6 +475,7 @@ function idi(e){ekran=e;crtaj()}
 try{
 baza=await napraviBazu();
 S=await baza.citaj();
+zaHelenu();
 document.getElementById('gate').classList.add('skriven');
 crtaj();
 // živo osvežavanje (npr. Helenin komentar) — samo na mapi i pregledu, da ne prekida kucanje

@@ -3037,11 +3037,336 @@ kartice:[
 razgovor:['Koja pesma te vraća u neko tačno vreme i mesto — i šta ti donese?','Bluz „ne leči tugu, nego je kaže". Da li i tvoje pisanje radi isto?']}
 ]},
 {id:'11', naziv:'Tehnologija', ikona:'💻', era:'danas → sutra', lekcije:[
-{id:'11-1', naslov:'Kako tehnologija menja ljude — od vatre do struje'},
-{id:'11-2', naslov:'Kako radi računar'},
-{id:'11-3', naslov:'Internet i podaci — ko šta zna o tebi'},
-{id:'11-4', naslov:'Veštačka inteligencija — šta je, a šta nije'},
-{id:'11-5', naslov:'Energija i tehnologije budućnosti'}
+{id:'11-1', naslov:'Kako tehnologija menja ljude — od vatre do struje',
+kuka:{p:'Ko je, po Platonu, upozoravao da će PISMO ljudima oslabiti pamćenje?', o:['Niko, to je moderna briga','Sokrat','Aristotel'], t:1},
+delovi:[
+{n:'Tehnologija nije samo mašina', t:`TEHNOLOGIJA je svako znanje pretvoreno u alat ili postupak koji nam proširuje moć: kameni nož, vatra, plug, pismo, sat, štampa, parna mašina, vakcina, telefon. I jezik, i novac, i kalendar su na neki način tehnologije.
+
+Kroz celu ovu školu videli smo nekoliko skokova koji su promenili SVE, ne samo jedan posao:
+• VATRA — kuvanje, toplina, noć;
+• POLJOPRIVREDA — sedeći život, višak, gradovi;
+• PISMO — pamćenje van glave, država, zakon;
+• ŠTAMPA — znanje za mnoge;
+• PARA i UGALJ — mašine umesto mišića;
+• STRUJA — energija koja se šalje žicom bilo gde.
+
+Ekonomisti takve zovu TEHNOLOGIJE OPŠTE NAMENE: ne rešavaju jedan problem, nego menjaju način na koji se radi skoro sve. Struja, računar i internet su takve. Pitanje za poslednje lekcije: da li je i veštačka inteligencija?`,
+pr:{p:'Šta je „tehnologija opšte namene"?', o:['Tehnologija za domaćinstvo','Tehnologija koja menja način na koji se radi skoro sve — kao struja ili pismo','Jeftina tehnologija'], t:1, z:'Ne rešava jedan problem, nego prožme celu privredu i život.'}},
+{n:'Struja', t:`Struja je bila poznata kao čudo (munja, varnica), ali je postala sila tek u 19. veku:
+• MAJKL FARADEJ (1831) otkriva elektromagnetnu indukciju: magnet koji se kreće kroz kalem pravi struju. Na tome i danas radi skoro svaka elektrana.
+• EDISON (1879) pravi upotrebljivu sijalicu i prve električne mreže — na jednosmernu struju.
+• NIKOLA TESLA razvija sistem NAIZMENIČNE STRUJE i motor na nju; sa Vestinghausom pobeđuje u „ratu struja" jer se naizmenična struja lako transformiše i šalje na velike daljine. Hidroelektrana na Nijagari (1895–1896) radila je na njegovom sistemu.
+
+Struja je za pola veka promenila život: svetlo noću (radni dan i noćni život), fabrike sa električnim motorima, frižider (hrana traje), lift (neboderi), radio, telefon.
+
+Ekonomista Ha-Džun Čang tvrdi da je VEŠ-MAŠINA promenila svet više od interneta — oslobodila je sate i sate, uglavnom ženskog, rada i pomogla da žene masovno pođu na posao i u škole. Može se raspravljati, ali poenta stoji: najveće promene često prave „dosadne" stvari.`,
+pr:{p:'Zašto je naizmenična struja pobedila?', o:['Bila je bezbednija od svega','Lako se transformiše i prenosi na velike daljine','Edison ju je izumeo'], t:1, z:'Transformatori podignu napon za prenos i spuste ga za kuću — Teslin sistem je zato pobedio.'}},
+{n:'Svaka nova tehnologija — novi strah', t:`Strah od nove tehnologije je star koliko i tehnologija.
+
+• Platon u „Fedru" prenosi SOKRATA: pismo će ljudima doneti zaborav, jer se neće sećati iznutra, nego oslanjati na spoljne znakove; imaće privid znanja bez znanja. (Ironija: znamo to jer je Platon — zapisao.)
+• Kad su se pojavili romani, moralisti su upozoravali da kvare mlade, posebno devojke.
+• LUDISTI (Engleska, 1811–1816) — tkači su razbijali mašine koje su im uzimale posao. Danas se „ludista" kaže za svakoga ko se plaši tehnike, ali oni nisu bili glupi: mašina jeste uništila njihov zanat.
+• Radio, televizija, video-igre, mobilni — svaki put talas straha za decu.
+
+Pouka nije „strahovi su uvek smešni". Sokrat je bio delimično u pravu — ne pamtimo više duge pesme napamet kao guslari. Pouka je: svaka tehnologija nešto DAJE, a nešto UZIMA, i to se obično vidi tek posle.`,
+pr:{p:'Ko su bili ludisti?', o:['Ljudi koji vole igre','Engleski tkači koji su razbijali mašine što su im uzimale posao (1811–1816)','Pronalazači mašina'], t:1, z:'Nisu bili protiv tehnike iz gluposti — mašine su im zaista uništavale zanat.'}},
+{n:'Alat menja onoga ko ga koristi', t:`Kanadski mislilac Maršal Makluan (1964) je rekao: „MEDIJ JE PORUKA". Nije najvažnije šta gledaš na televiziji, nego šta televizija kao takva radi sa ljudima — kako menja pažnju, porodicu, politiku. Isto se može reći za telefon u džepu.
+
+Istoričar tehnologije Melvin Krancberg je postavio pravilo: „Tehnologija nije ni dobra ni loša — ali nije ni neutralna." Nož i hleb seče i ubija; ali društvo sa noževima nije isto kao društvo bez njih.
+
+Primeri kako alat menja nas:
+• SAT je u fabrikama napravio „radno vreme" i naviku da se život deli na sate;
+• AUTOMOBIL je oblikovao gradove (predgrađa, parkinzi, šoping-centri);
+• GPS je promenio to kako pamtimo prostor — oni koji se stalno oslanjaju na navigaciju lošije pamte put (sećaš se taksista i hipokampusa?);
+• društvene mreže menjaju pažnju i to kako vidimo druge.`,
+pr:{p:'Šta znači Krancbergovo pravilo?', o:['Tehnologija je uvek dobra','Tehnologija nije ni dobra ni loša, ali nije ni neutralna — menja društvo koje je koristi','Tehnologija je uvek loša'], t:1, z:'Alat ne bira stranu, ali društvo sa njim više nije isto kao bez njega.'}},
+{n:'Bilans — i šta sledi', t:`Posle svih rasprava, nekoliko brojki koje treba znati:
+• očekivani životni vek na svetu je oko 1800. bio oko 30 godina (najviše zbog smrti dece), a danas preko 70;
+• većina ljudi danas ima struju, telefon i pitku vodu — 1900. skoro niko;
+• većina tog napretka dolazi iz NAUKE pretvorene u TEHNOLOGIJU: vakcine, đubriva, struja, kanalizacija, antibiotici.
+
+I cena: klimatske promene (od uglja i nafte), zagađenje, nuklearno oružje, zavisnost od ekrana, poslovi koji nestaju.
+
+Kostur lekcije: tehnologija = znanje pretvoreno u alat; velike tehnologije opšte namene (vatra, pismo, štampa, para, struja); Faradej, Edison, Tesla; svaka nova tehnika donosi strah (Sokrat, ludisti) — i nešto da, a nešto uzme; „medij je poruka"; nije ni dobra ni loša, ni neutralna.
+
+Sledeće: mašina na kojoj sve to danas počiva — računar. Kako radi, prosto?`,
+pr:{p:'Šta je najviše produžilo životni vek od 1800. do danas?', o:['Bolja klima','Nauka pretvorena u tehnologiju — vakcine, voda, kanalizacija, antibiotici, đubriva','Manje rada'], t:1, z:'Životni vek se više nego udvostručio — najviše zbog manje smrti dece i boljeg zdravlja.'}}
+],
+kljucno:['Tehnologija = znanje pretvoreno u alat; tehnologije opšte namene (vatra, pismo, štampa, para, struja) menjaju sve.','Struja: Faradej (indukcija, 1831), Edison (sijalica, 1879), Tesla (naizmenična struja, Nijagara).','Svaka nova tehnologija rađa strah — Sokrat protiv pisma, ludisti; nešto daje, a nešto uzima.','„Medij je poruka" (Makluan); tehnologija nije ni dobra ni loša, ni neutralna (Krancberg).','Životni vek sa ~30 na preko 70 godina — iz nauke pretvorene u tehnologiju; cena: klima, zagađenje, zavisnost.'],
+kartice:[
+{p:'Šta je otkrio Faradej 1831?', o:'Elektromagnetnu indukciju — pokretni magnet pravi struju.'},
+{p:'Zašto je Teslin sistem pobedio u „ratu struja"?', o:'Naizmenična struja se lako transformiše i prenosi na velike daljine.'},
+{p:'Ko su bili ludisti?', o:'Engleski tkači (1811–1816) koji su razbijali mašine.'},
+{p:'Šta znači „medij je poruka"?', o:'Sam medij menja ljude i društvo, više nego sadržaj koji prenosi (Makluan).'},
+{p:'Koliki je bio životni vek oko 1800, a koliki danas?', o:'Oko 30 godina; danas preko 70.'}
+],
+razgovor:['Koja tehnologija je TEBI nešto dala, a nešto uzela — i šta?','Sokrat je mislio da pismo kvari pamćenje. Šta danas telefon radi tvojoj pažnji i pisanju?']},
+{id:'11-2', naslov:'Kako radi računar',
+kuka:{p:'Koliko „slova" ima jezik na kome računar na kraju sve radi?', o:['26','Dva — 0 i 1','Deset'], t:1},
+delovi:[
+{n:'Sve su nule i jedinice', t:`Računar u dubini zna samo za dva stanja: struja ima / nema. To zapisujemo kao 1 i 0. Jedna takva cifra je BIT. Osam bitova čine BAJT.
+
+Sa dovoljno bitova može se zapisati bilo šta:
+• BROJ — u dvojnom (binarnom) sistemu: 0, 1, 10, 11, 100… (101 je 5: jedna četvorka, nijedna dvojka, jedna jedinica);
+• SLOVO — svako slovo ima dogovoreni broj (u tabeli UNIKOD ima mesta i za ćirilicu, kineske znakove i emodžije);
+• SLIKA — mreža tačkica (pikseli), svaka sa tri broja: koliko crvene, zelene, plave;
+• ZVUK — talas izmeren hiljadama puta u sekundi, svaki put jedan broj.
+
+Tako i ova lekcija, tvoja fotografija i pesma koju slušaš — sve su to, na kraju, dugi nizovi nula i jedinica. Kilobajt je hiljadu bajtova, megabajt milion, gigabajt milijarda. Jedna pesma je nekoliko megabajta; telefon danas drži stotine gigabajta.`,
+pr:{p:'Šta je bit?', o:['Mali program','Najmanja jedinica podatka — 0 ili 1','Osam slova'], t:1, z:'Bit je jedno da/ne stanje; osam bitova je bajt.'}},
+{n:'Tranzistor — prekidač koji je promenio svet', t:`Kako mašina „misli" nulama i jedinicama? Pomoću PREKIDAČA. Prekidač pušta struju ili ne — 1 ili 0. Spoj nekoliko prekidača na pametan način i dobiješ LOGIČKA KOLA: „i" (prođe samo ako su oba uključena), „ili", „ne". Od takvih kola se mogu napraviti sabiranje, poređenje, pamćenje — sve što računar radi.
+
+Prvi računari (ENIAC, 1945) imali su hiljade staklenih elektronskih cevi, zauzimali celu salu i stalno pregorevali.
+
+TRANZISTOR (1947, Belove laboratorije) je mali poluprovodnički prekidač bez pokretnih delova. Onda su ih naučili da prave stotine, pa milione, pa milijarde na jednom komadiću silicijuma — ČIPU. Današnji procesor u telefonu ima desetine milijardi tranzistora, svaki manji od većine virusa.
+
+Gordon Mur je 1965. primetio da se broj tranzistora na čipu udvostručava otprilike svake dve godine (MUROV ZAKON). To je decenijama važilo — zato je telefon u džepu jači od računara koji su ljude odveli na Mesec.`,
+pr:{p:'Šta je tranzistor u računaru?', o:['Baterija','Sićušan prekidač koji pušta ili ne pušta struju — 1 ili 0','Ekran'], t:1, z:'Milijarde tranzistora-prekidača u logičkim kolima rade sve račune.'}},
+{n:'Delovi računara', t:`Svaki računar — i laptop, i telefon, i računar u autu ili veš-mašini — ima iste osnovne delove:
+• PROCESOR (CPU) — „mozak" koji izvršava naredbe, milijarde u sekundi. Prost posao (saberi, uporedi, premesti), ali neverovatno brzo.
+• RADNA MEMORIJA (RAM) — sto na kome procesor radi: brza, ali se briše kad nestane struje.
+• SKLADIŠTE (disk, SSD) — fioka: sporije, ali čuva i kad je ugašeno.
+• ULAZ i IZLAZ — tastatura, ekran osetljiv na dodir, mikrofon, kamera, zvučnik, mreža.
+
+Zašto je računar spor kad je otvoreno mnogo stvari? Često zbog RAM-a: kad je sto pun, procesor mora da premešta stvari u fioku i nazad.
+
+Ideja da jedna mašina može da radi BILO KOJI zadatak, samo ako joj daš pravi spisak naredbi, potiče od matematičara ALANA TJURINGA (1936) — „univerzalna mašina". A prvi zamišljeni program napisala je ADA LAVLEJS 1843, za mašinu koja nikad nije dovršena.`,
+pr:{p:'Čemu služi RAM?', o:['Trajnom čuvanju fajlova','Brzom radnom prostoru procesora — briše se kad se ugasi','Prikazu slike'], t:1, z:'RAM je sto, disk je fioka: sto je brz ali se prazni kad nestane struje.'}},
+{n:'Program — recept za mašinu', t:`PROGRAM je spisak naredbi koji kaže računaru šta da radi, korak po korak. Računar ne razume šta hoćeš — radi tačno ono što piše. Zato su greške u programu (BAGOVI) toliko česte: mašina ne zna da si „mislio drugačije". (Čuvena anegdota: 1947. u jednom računaru nađen je pravi moljac zaglavljen u releju — i zalepljen u dnevnik kao „prvi pravi bag".)
+
+ALGORITAM je ideja programa — postupak koji vodi do rešenja, kao recept. „Kako naći najkraći put do posla" je algoritam; aplikacija za navigaciju je program koji ga izvršava.
+
+Ljudi ne pišu programe u nulama i jedinicama, nego u PROGRAMSKIM JEZICIMA (Python, JavaScript, C…), koji se onda prevode u mašinski jezik. Na primer, ova aplikacija za školu je napisana u JavaScript-u.
+
+Računar je napravljen u SLOJEVIMA: tranzistori → logička kola → procesor → operativni sistem (Windows, Android, iOS — koji deli procesor i memoriju između aplikacija) → aplikacije → ono što ti dodiruješ. Svaki sloj sakriva složenost onog ispod. Zato možeš da koristiš telefon, a da ništa od ovoga ne znaš.`,
+pr:{p:'Šta je algoritam?', o:['Vrsta računara','Postupak, kao recept, koji vodi do rešenja','Greška u programu'], t:1, z:'Algoritam je ideja; program je taj postupak zapisan za određenu mašinu.'}},
+{n:'Od sale do džepa — i kraj', t:`Kratka istorija:
+• 1945 — ENIAC: sala, 30 tona;
+• 1960-e — veliki računari u firmama i vojsci; NASA;
+• 1970-e — mikroprocesor (ceo procesor na jednom čipu, 1971);
+• 1981 — IBM PC; 1984 — Mekintoš sa mišem i prozorima; računar ulazi u kuće;
+• 1990-e — internet;
+• 2007 — AjFon i pametni telefon: računar sa ekranom na dodir, kamerom, GPS-om i internetom, stalno u džepu.
+
+Danas je računar u skoro svemu: u autu, frižideru, satu, kasi u prodavnici, u mašinama na tvom poslu.
+
+Kostur lekcije: sve su 0 i 1 (bit, bajt); tranzistor kao prekidač, logička kola, čip, Murov zakon; procesor, RAM, skladište, ulaz-izlaz; Tjuring — univerzalna mašina; program i algoritam; slojevi koji sakrivaju složenost.
+
+Sledeće: kako su se računari povezali u mrežu — i šta mreža zna o tebi.`,
+pr:{p:'Šta je Murov zakon?', o:['Zakon o zaštiti podataka','Zapažanje da se broj tranzistora na čipu udvostručava otprilike svake dve godine','Pravilo o brzini interneta'], t:1, z:'Gordon Mur, 1965 — zato su računari decenijama postajali brži i jeftiniji.'}}
+],
+kljucno:['Sve u računaru su bitovi (0 i 1); 8 bitova = bajt; slova, slike i zvuk su brojevi.','Tranzistor je prekidač; logička kola; milijarde tranzistora na čipu; Murov zakon (udvostručavanje oko 2 godine).','Delovi: procesor (izvršava), RAM (radni sto), skladište (fioka), ulaz-izlaz.','Program = spisak naredbi; algoritam = postupak; Tjuring (univerzalna mašina, 1936), Ada Lavlejs (1843).','Slojevi: tranzistori → kola → procesor → operativni sistem → aplikacije; ENIAC 1945 → PC 1981 → pametni telefon 2007.'],
+kartice:[
+{p:'Koliko bitova ima bajt?', o:'Osam.'},
+{p:'Šta je tranzistor?', o:'Sićušan prekidač koji pušta ili ne pušta struju — osnova svakog čipa.'},
+{p:'Šta kaže Murov zakon?', o:'Broj tranzistora na čipu se udvostručava otprilike svake dve godine.'},
+{p:'Koja je razlika između RAM-a i skladišta?', o:'RAM je brz radni prostor koji se briše kad nestane struje; skladište čuva trajno.'},
+{p:'Šta je algoritam?', o:'Postupak, kao recept, koji vodi do rešenja.'}
+],
+razgovor:['Računar radi tačno ono što piše, a ne ono što si mislio. Gde u životu ljudi takođe čuju samo ono što si rekao, a ne ono što si mislio?','Koju mašinu na svom poslu bi voleo da razumeš iznutra?']},
+{id:'11-3', naslov:'Internet i podaci — ko šta zna o tebi',
+kuka:{p:'Da li su internet i veb (WWW) ista stvar?', o:['Da, to su dva imena za isto','Ne — internet je mreža računara, a veb je jedna usluga na njoj (stranice sa linkovima)','Ne — veb je stariji od interneta'], t:1},
+delovi:[
+{n:'Kako radi internet', t:`INTERNET je mreža mreža — milijarde uređaja povezanih kablovima (i ispod okeana), optikom, radio-talasima i satelitima, koji se razumeju jer govore isti „jezik" (protokol TCP/IP).
+
+Kako putuje poruka? Podeli se na male PAKETE. Svaki paket nosi adresu i nađe svoj put kroz mrežu, kao pisma koja idu različitim poštama; na kraju se ponovo slože. Ako jedan put padne, paketi idu drugim — zato je mreža otporna.
+
+Svaki uređaj na mreži ima IP ADRESU (broj). Ti ukucaš ime (npr. wikipedia.org), a sistem DNS — „telefonski imenik interneta" — pretvori ime u broj servera.
+
+Istorija ukratko: ARPANET, mreža koju je finansirala američka vojska i koja je povezivala univerzitete (prva poruka 1969); TCP/IP od 1983. Internet je dugo bio za naučnike i vojsku.`,
+pr:{p:'Kako putuju podaci kroz internet?', o:['Celi, jednim kablom','Podeljeni na male pakete koji mogu ići različitim putevima, pa se slože na kraju','Preko jednog centralnog računara'], t:1, z:'Paketi se šalju odvojeno i slažu na odredištu — zato mreža radi i kad deo padne.'}},
+{n:'Veb i telefon', t:`VEB (World Wide Web) je 1989–1991. u CERN-u (Švajcarska) izmislio TIM BERNERS-LI: stranice povezane LINKOVIMA, koje se otvaraju u pregledaču. Berners-Li ga nije patentirao — dao ga je svetu besplatno. Zato je veb eksplodirao.
+
+Internet je ono ispod (mreža); veb je jedna usluga na njemu. Druge usluge: mejl, video-pozivi, igre, aplikacije.
+
+Posle toga:
+• kraj 1990-ih — pretraživači (Gugl, 1998), elektronska trgovina;
+• 2000-e — društvene mreže (Fejsbuk 2004, Jutjub 2005, Tviter 2006);
+• 2007. pametni telefon — internet stalno u džepu;
+• danas — više od dve trećine čovečanstva je na internetu.`,
+pr:{p:'Ko je izmislio veb?', o:['Bil Gejts','Tim Berners-Li u CERN-u, 1989–1991','Američka vojska 1969'], t:1, z:'Vojska je finansirala ARPANET (internet); veb je Berners-Lijev izum na toj mreži.'}},
+{n:'Ako je besplatno — ti si proizvod', t:`Gugl, Fejsbuk, Instagram, Tiktok — besplatni su. Kako zarađuju milijarde? Prodaju REKLAMIRANJE, a vrednost reklame je u tome koliko dobro znaju ko si ti.
+
+Šta sve o tebi skupljaju (i ono što ne kažeš direktno):
+• šta tražiš, gledaš, lajkuješ i koliko dugo se zadržiš na objavi;
+• LOKACIJU — telefon zna gde spavaš, gde radiš, kad ideš na posao;
+• kontakte, kupovine, uređaj, pa čak i brzinu kucanja;
+• METAPODATKE — ne šta si rekao, nego kome, kad, koliko dugo i odakle. Iz metapodataka se može saznati mnogo — ko ti je bitan, kad spavaš, da li si bolestan.
+
+Iz toga se ZAKLJUČUJE više nego što si dao: godine, pol, prihodi, politički stav, raspoloženje, životne promene (selidba, novi posao, porodica). Posrednici (data brokeri) kupuju i prodaju takve profile.
+
+I još: aplikacije su dizajnirane da te zadrže — beskrajno skrolovanje, obaveštenja, „lajkovi" koji dolaze kao dobitak na aparatu. Tvoja pažnja je roba.`,
+pr:{p:'Šta su metapodaci?', o:['Sadržaj poruke','Podaci o poruci: kome, kada, koliko, odakle','Lozinke'], t:1, z:'Čak i bez sadržaja, iz metapodataka se može sklopiti tvoj život.'}},
+{n:'Ko te štiti — i ko gleda', t:`EVROPSKA UNIJA je 2018. uvela GDPR — opštu uredbu o zaštiti podataka: firma mora da kaže šta skuplja i zašto, da traži pristanak, da ti pokaže šta zna o tebi i da obriše na zahtev; kazne su ogromne. Zato iskaču oni prozorčići „prihvati kolačiće". Srbija je iste godine donela Zakon o zaštiti podataka o ličnosti, napravljen po uzoru na GDPR.
+
+Država takođe gleda: EDVARD SNOUDEN je 2013. otkrio da američka obaveštajna služba masovno skuplja podatke o telefonskim pozivima i internetu, i svojih građana i stranaca. Rasprava traje: bezbednost ili privatnost? Snouden je za jedne heroj, za druge izdajnik.
+
+Kolačići (cookies) su mali fajlovi koje sajt ostavi u tvom pregledaču da te prepozna. Neki su potrebni (da ostaneš prijavljen), a neki služe praćenju sa sajta na sajt.`,
+pr:{p:'Šta je GDPR?', o:['Američki zakon o internetu','Evropska uredba (2018) koja ograničava kako firme skupljaju i koriste lične podatke','Vrsta virusa'], t:1, z:'Pravo da znaš šta se skuplja, da daš ili uskratiš pristanak i da tražiš brisanje.'}},
+{n:'Šta da radiš — i kraj', t:`Ne moraš da bežiš u šumu. Nekoliko navika koje stvarno pomažu:
+• DVOSTEPENA PRIJAVA (lozinka + kod na telefonu) za mejl i važne naloge — najveća korist za najmanje truda;
+• različite lozinke za različite sajtove (menadžer lozinki ih pamti);
+• PECANJE (fišing): poruka koja žuri („nalog će biti blokiran", „kliknite da preuzmete paket") i traži lozinku ili karticu — prevara. Banka i pošta ti nikad ne traže lozinku porukom;
+• proveri koje aplikacije imaju pristup lokaciji, mikrofonu i kontaktima — i ugasi ono što ne treba;
+• pre nego što objaviš: da li bi ovo pokazao strancu, šefu, detetu za 15 godina? Internet retko zaboravlja.
+
+Kostur lekcije: internet = mreža mreža, paketi, IP i DNS; veb (Berners-Li, 1989–91) je usluga na njemu; besplatne usluge plaćamo podacima i pažnjom; metapodaci otkrivaju mnogo; GDPR i srpski zakon; dvostepena prijava i oprez od pecanja.
+
+Sledeće: veštačka inteligencija — šta jeste, a šta nije.`,
+pr:{p:'Koja navika najviše štiti nalog za najmanje truda?', o:['Česta promena slike profila','Dvostepena prijava — lozinka plus kod na telefonu','Brisanje istorije svaki dan'], t:1, z:'I kad lozinka procuri, bez koda sa tvog telefona napadač ne ulazi.'}}
+],
+kljucno:['Internet = mreža mreža; podaci putuju u paketima; IP adresa i DNS („imenik"); ARPANET 1969, TCP/IP 1983.','Veb (Berners-Li, CERN, 1989–91) je usluga na internetu, dat svetu besplatno.','Besplatne usluge zarađuju na reklamama — plaćamo podacima i pažnjom; metapodaci otkrivaju mnogo; iz podataka se zaključuje i ono što nisi rekao.','GDPR (EU, 2018) i srpski zakon iste godine; Snouden (2013) — masovni državni nadzor; rasprava bezbednost ili privatnost.','Zaštita: dvostepena prijava, različite lozinke, oprez od pecanja, dozvole aplikacija.'],
+kartice:[
+{p:'Koja je razlika između interneta i veba?', o:'Internet je mreža računara; veb je usluga na njemu — stranice sa linkovima.'},
+{p:'Šta radi DNS?', o:'Pretvara ime sajta u IP adresu servera — „imenik interneta".'},
+{p:'Ko je izmislio veb i gde?', o:'Tim Berners-Li, u CERN-u, 1989–1991.'},
+{p:'Šta znači „ako je besplatno, ti si proizvod"?', o:'Besplatne usluge zarađuju prodajući reklame zasnovane na tvojim podacima i pažnji.'},
+{p:'Šta je pecanje (fišing)?', o:'Lažna poruka koja žuri i traži lozinku ili podatke kartice.'}
+],
+razgovor:['Šta misliš, šta bi tvoj telefon mogao da zaključi o tebi samo iz toga gde se kretao prošle nedelje?','Bezbednost ili privatnost — koliko bi dao od jednog da dobiješ drugo?']},
+{id:'11-4', naslov:'Veštačka inteligencija — šta je, a šta nije',
+kuka:{p:'Kako veliki jezički model (kao ChatGPT ili Claude) piše odgovor?', o:['Pretražuje gotove odgovore u bazi','Reč po reč predviđa šta najverovatnije sledi, na osnovu obrazaca naučenih iz ogromne količine teksta','Neko ga kuca u pozadini'], t:1},
+delovi:[
+{n:'Šta je veštačka inteligencija', t:`VEŠTAČKA INTELIGENCIJA (AI, VI) je široko ime za računarske sisteme koji rade poslove za koje bi čoveku trebala inteligencija: prepoznaju lice, prevode, igraju šah, voze, pišu, odgovaraju na pitanja.
+
+Kratka istorija:
+• 1950 — ALAN TJURING pita „mogu li mašine da misle?" i predlaže test: ako kroz razgovor ne možeš da razlikuješ mašinu od čoveka…
+• 1956 — konferencija u Dartmutu, gde je nastao izraz „veštačka inteligencija". Optimizam: rešićemo to za jednu generaciju.
+• Usledile su „ZIME VEŠTAČKE INTELIGENCIJE" — obećanja se nisu ispunila, novac je presušio (1970-e, kraj 1980-ih).
+• 1997 — IBM-ov Deep Blue pobeđuje svetskog šampiona u šahu Kasparova.
+• 2012 → — DUBOKO UČENJE: nagli skok u prepoznavanju slika i govora.
+• 2016 — AlphaGo pobeđuje najboljeg igrača igre go.
+• 2022 — ChatGPT; veliki jezički modeli ulaze u svakodnevicu.
+
+Važno razlikovanje: USKA AI radi jednu stvar (prepoznaje tablice, preporučuje filmove); OPŠTA AI — koja bi mogla sve što čovek — još ne postoji, i oko toga kada (i da li) će doći, stručnjaci se oštro razilaze.`,
+pr:{p:'Koja je razlika između uske i opšte veštačke inteligencije?', o:['Uska je sporija','Uska radi jedan posao; opšta bi mogla sve što i čovek — i još ne postoji','Opšta je stara, uska nova'], t:1, z:'Šah, prevod, prepoznavanje lica — uske su; opšta AI je cilj i predmet rasprave.'}},
+{n:'Kako mašina uči', t:`Stara AI: ljudi su pisali PRAVILA („ako je X, uradi Y"). Za šah to radi; za prepoznavanje mačke na slici — ne. Pokušaj da napišeš pravila šta je mačka!
+
+MAŠINSKO UČENJE okreće stvar: ne pišeš pravila, nego mašini daš hiljade PRIMERA (slike sa natpisom „mačka" / „nije mačka"), a ona sama podesi milione unutrašnjih brojeva dok ne počne da pogađa. Kao dete koje nauči šta je pas gledajući pse, a ne čitajući definiciju.
+
+NEURONSKE MREŽE su vrsta takvog sistema, labavo inspirisana mozgom: slojevi „veštačkih neurona" povezanih vezama različite jačine. Učenje je podešavanje jačine veza — milijardi njih. (Sećaš se: „neuroni koji pale zajedno, povezuju se zajedno".)
+
+Zašto je eksplodiralo baš posle 2010? Tri stvari zajedno: OGROMNI PODACI (internet), BRZI ČIPOVI (grafičke kartice napravljene za igrice pokazale su se savršene za ovo) i bolji algoritmi.`,
+pr:{p:'Šta je suština mašinskog učenja?', o:['Programer napiše sva pravila','Mašina iz mnogo primera sama podesi svoje unutrašnje brojeve dok ne nauči da pogađa','Mašina čita udžbenike'], t:1, z:'Ne pravila, nego primeri: sistem uči obrasce iz podataka.'}},
+{n:'Veliki jezički modeli', t:`VELIKI JEZIČKI MODEL (ChatGPT, Claude, Gemini…) je neuronska mreža obučena na ogromnoj količini teksta: knjige, sajtovi, članci, kod. Njen osnovni zadatak je jednostavan: na osnovu teksta do sada, predvidi kako se nastavlja — reč po reč (tačnije, deo reči po deo reči).
+
+Zvuči prosto, ali da bi dobro predvideo nastavak rečenice o fizici, istoriji ili tuzi, model mora da u sebi „upakuje" mnogo obrazaca o svetu i jeziku. Zato može da prevodi, objašnjava, piše pesmu, programira. Posle osnovne obuke, ljudi ga dodatno uče da bude koristan, da prati uputstva i da izbegava štetu.
+
+Šta jezički model NIJE:
+• nije PRETRAŽIVAČ — ne „gleda" odgovor u bazi (osim kad mu se da alat za pretragu ili pristup tvojim beleškama);
+• ne pamti razgovore sam po sebi — „memorija" se dodaje posebno — beleške i podaci koje mu aplikacija daje;
+• nije nepogrešiv — može samouvereno da kaže nešto što zvuči tačno, a nije. To se zove HALUCINACIJA. Zato je dobro pravilo i za model i za korisnika: „ne izmišljaj — pitaj i proveri".
+
+Da li takav model RAZUME ili samo vešto predviđa? Oko toga se ozbiljni naučnici i filozofi spore. Iskrenije je reći: ne znamo tačno, i pitanje zavisi i od toga šta mislimo pod „razumeti".`,
+pr:{p:'Šta je „halucinacija" jezičkog modela?', o:['Kvar ekrana','Kad model samouvereno kaže nešto što zvuči tačno, a nije','Kad model odbije da odgovori'], t:1, z:'Model predviđa verovatan tekst — a verovatan nije uvek istinit. Zato se važne stvari proveravaju.'}},
+{n:'Za šta je dobra, a gde treba opreza', t:`Gde AI već sada mnogo pomaže:
+• medicina — čitanje snimaka, otkrivanje oblika proteina (AlphaFold — Nobelova nagrada za hemiju 2024);
+• prevod, pisanje, učenje, programiranje;
+• nauka — pretraga ogromnih podataka.
+
+Rizici o kojima se ozbiljno raspravlja:
+• LAŽI i DIPFEJKOVI — lažne slike, glasovi i snimci koje je teško razlikovati od pravih; prevaranti već kloniraju glasove rodbine;
+• PRISTRASNOST — model nasledi predrasude iz podataka na kojima je učio;
+• POSLOVI — neki poslovi će nestati ili se promeniti; ekonomisti se ne slažu koliko brzo i koliko;
+• KONCENTRACIJA MOĆI — najjače modele može da napravi samo nekoliko ogromnih firmi i država;
+• dugoročni rizici moćnijih sistema kojima se ne zna kako da se upravlja — za neke istraživače glavna briga, za druge preterivanje.
+
+EU je 2024. usvojila prvi veliki zakon o veštačkoj inteligenciji (AI Act), koji zahteve određuje prema riziku.
+
+Zdravo pravilo: koristi AI kao pametnog pomoćnika, ne kao proročište. Proveri ono što je važno — zdravlje, novac, pravo.`,
+pr:{p:'Šta je dipfejk?', o:['Vrsta računara','Lažan snimak, slika ili glas napravljen pomoću AI, koji izgleda kao pravi','Greška u programu'], t:1, z:'AI može uverljivo da lažira lice i glas — zato i „glas rođaka" na telefonu treba proveriti.'}},
+{n:'Kraj — šta je, a šta nije', t:`Da sažmemo:
+AI JESTE:
+• skup alata koji iz podataka uče obrasce;
+• u nekim poslovima već bolja od ljudi (šah, prepoznavanje određenih snimaka), u drugima još slaba;
+• tehnologija koja će verovatno, kao struja, prožeti mnoge poslove.
+
+AI NIJE (bar za sada):
+• nepogrešiva — halucinira i nasleđuje predrasude;
+• svesna na način na koji je čovek — ili bar nema dokaza za to, a pitanje je otvoreno;
+• neutralna — odražava podatke i odluke ljudi koji je prave;
+• zamena za tvoj sud.
+
+Kostur lekcije: od Tjuringa (1950) i Dartmuta (1956) preko „zima" do dubokog učenja (2012) i jezičkih modela (2022); pravila → učenje iz primera → neuronske mreže; jezički model predviđa nastavak teksta; halucinacije; koristi i rizici; AI Act.
+
+Sledeće, poslednja lekcija cele škole: energija i tehnologije budućnosti — i pogled unazad na celu priču.`,
+pr:{p:'Koje je zdravo pravilo za korišćenje AI?', o:['Verovati joj potpuno','Koristiti je kao pomoćnika, a važno (zdravlje, novac, pravo) proveriti','Nikad je ne koristiti'], t:1, z:'AI je moćan alat, ali greši samouvereno — tvoj sud ostaje tvoj.'}}
+],
+kljucno:['AI = sistemi koji rade poslove za koje treba inteligencija; uska postoji, opšta još ne (sporno kad i da li).','Tjuring (1950), Dartmut (1956), „zime", Deep Blue (1997), duboko učenje (2012), AlphaGo (2016), jezički modeli (2022).','Mašinsko učenje: iz primera, ne iz pravila; neuronske mreže; podaci + brzi čipovi + algoritmi.','Jezički model predviđa nastavak teksta; nije pretraživač ni nepogrešiv — halucinira; da li „razume" — otvoreno.','Koristi (medicina, AlphaFold, prevod) i rizici (dipfejk, pristrasnost, poslovi, moć); AI Act EU 2024; koristi je kao pomoćnika, ne proročište.'],
+kartice:[
+{p:'Šta je Tjuringov test?', o:'Ako kroz razgovor ne možeš da razlikuješ mašinu od čoveka, mašina „misli" (Tjuring, 1950).'},
+{p:'Po čemu se mašinsko učenje razlikuje od stare AI?', o:'Uči iz primera umesto iz pravila koja napišu ljudi.'},
+{p:'Kako jezički model piše odgovor?', o:'Predviđa nastavak teksta deo po deo, na osnovu naučenih obrazaca.'},
+{p:'Šta je halucinacija AI?', o:'Samouverena tvrdnja koja zvuči tačno, a nije.'},
+{p:'Šta je dipfejk?', o:'Lažan snimak, slika ili glas napravljen pomoću AI.'}
+],
+razgovor:['Gde ti AI asistent najviše koristi, a gde mu ne bi verovao bez provere?','Da li misliš da AI može da napiše dobru priču — i šta bi joj, po tebi, uvek falilo?']},
+{id:'11-5', naslov:'Energija i tehnologije budućnosti',
+kuka:{p:'Za koliko je otprilike pojeftinila struja iz solarnih panela između 2010. i 2020?', o:['Za oko 10%','Za oko 50%','Za oko 90%'], t:2},
+delovi:[
+{n:'Svet radi na energiju', t:`Sve što radimo troši ENERGIJU — hrana, toplota, prevoz, fabrike, struja, internet. Bogatstvo zemalja skoro savršeno prati koliko energije troše.
+
+Odakle je dobijamo danas? Otprilike 80% ukupne energije sveta još uvek dolazi iz FOSILNIH GORIVA — nafte, uglja i gasa — koja su u stvari sunčeva energija uskladištena u biljkama pre više miliona godina. Problem (oblast 2): sagorevanjem puštaju CO₂, koji zagreva planetu, i zagađuju vazduh.
+
+SRBIJA: većina struje dolazi iz uglja (lignit — Kolubara, Kostolac; termoelektrane u Obrenovcu i Kostolcu), a oko četvrtine i više iz hidroelektrana (Đerdap, Drina). Zato je vazduh zimi u mnogim gradovima među najzagađenijima u Evropi — doprinose i ložišta u kućama.
+
+Zadatak 21. veka: obezbediti VIŠE energije (milijarde ljudi još je treba) uz MANJE CO₂. To je inženjerski problem bez presedana.`,
+pr:{p:'Koliko energije sveta danas otprilike dolazi iz fosilnih goriva?', o:['Oko 20%','Oko 50%','Oko 80%'], t:2, z:'Nafta, ugalj i gas i dalje čine oko četiri petine ukupne energije, iako obnovljivi brzo rastu.'}},
+{n:'Sunce, vetar i baterije', t:`Najveće iznenađenje poslednjih 15 godina: OBNOVLJIVA ENERGIJA je postala JEFTINA.
+• Struja iz SOLARNIH PANELA pojeftinila je oko 90% između 2010. i 2020. Na mnogim mestima je danas najjeftiniji način da se napravi nova struja.
+• VETAR — takođe mnogo jeftiniji, posebno na moru.
+• Problem: sunce ne sija noću, vetar ne duva po narudžbini. Zato su ključne BATERIJE — litijum-jonske baterije su pojeftinile takođe oko 90% od 2010. — i bolje mreže koje prebacuju struju preko granica.
+
+ELEKTRIČNI AUTOMOBILI rastu brzo, posebno u Kini i Evropi; toplotne pumpe zamenjuju grejanje na gas i ugalj.
+
+Učenje iz prošlosti (lekcija o rastu): što se neka tehnologija više proizvodi, to postaje jeftinija — svako udvostručenje proizvodnje solarnih panela spuštalo im je cenu za oko petinu. Zato je promena brža nego što su predviđanja pre deset godina mislila. Ali i dalje — sporija nego što bi klima tražila.`,
+pr:{p:'Šta je glavni problem sunca i vetra?', o:['Preskupi su','Nisu stalni — zato trebaju baterije i bolje mreže','Zagađuju'], t:1, z:'Proizvodnja zavisi od vremena; skladištenje i prenos rešavaju taj problem.'}},
+{n:'Nuklearna energija — fisija i fuzija', t:`FISIJA — cepanje teških atoma (uranijum): ogromna energija bez CO₂, stabilna dan i noć. Francuska iz nje dobija oko dve trećine struje.
+Protiv: nesreće — ČERNOBILJ (1986), FUKUŠIMA (2011) — i otpad koji ostaje opasan hiljadama godina; elektrane su skupe i grade se dugo.
+Za: po proizvedenoj struji, nuklearna energija ima jedan od najmanjih brojeva smrti i najmanje CO₂ od svih izvora (ugalj ubija mnogo više, polako, kroz zagađen vazduh).
+Srbija je posle Černobilja (1989) zabranila gradnju nuklearnih elektrana; zabrana je ukinuta krajem 2024, i o eventualnoj elektrani se tek razgovara.
+
+FUZIJA — spajanje lakih atoma, kao u Suncu. Gorivo iz vode, skoro bez opasnog otpada, bez mogućnosti „bežanja" reakcije. Laboratorija u Kaliforniji je 2022. prvi put iz fuzije dobila više energije nego što je laser uneo u gorivo. Ali do elektrane je još dug put — šala kaže da je fuzija „uvek 30 godina daleko".`,
+pr:{p:'Koja je razlika između fisije i fuzije?', o:['Nema razlike','Fisija cepa teške atome (današnje elektrane); fuzija spaja lake, kao Sunce (još nije u elektranama)','Fuzija je starija'], t:1, z:'Fisija radi decenijama; fuzija je obećanje — 2022. prvi „neto dobitak" u laboratoriji.'}},
+{n:'Tehnologije koje dolaze', t:`Nekoliko oblasti za koje mnogi stručnjaci veruju da će oblikovati sledeće decenije (uz oprez — predviđanja tehnologije su notorno loša):
+
+• BIOTEHNOLOGIJA — CRISPR (Nobelova nagrada 2020, Dudna i Šarpentje): „makaze" za precizno menjanje DNK; prve terapije naslednih bolesti krvi već su odobrene. mRNK vakcine (protiv kovida 2020) — platforma koja se ispituje i za rak. Etička pitanja: menjanje ljudskih embriona.
+• VEŠTAČKA INTELIGENCIJA — prošla lekcija.
+• KVANTNI RAČUNARI — koriste kvantna pravila (lekcija 1-5) za određene vrste zadataka; još eksperimentalni.
+• SVEMIR — rakete za višekratnu upotrebu pojeftinile su lansiranje; sateliti za internet; planovi za povratak na Mesec.
+• NOVI MATERIJALI i baterije, pametnije mreže.
+
+Zajedničko pitanje svih: ne „da li je moguće", nego KO će kontrolisati, KOME će koristiti i KO će platiti cenu. To su pitanja iz oblasti „Vlast, pravo i svet" i „Novac i ekonomija" — tehnika ih ne rešava sama.`,
+pr:{p:'Šta je CRISPR?', o:['Kvantni računar','Alat za precizno menjanje DNK — „genetske makaze"','Nova vrsta baterije'], t:1, z:'Dudna i Šarpentje, Nobelova nagrada 2020; prve terapije već postoje.'}},
+{n:'Kraj škole — cela priča u jednom dahu', t:`Ovo je poslednja lekcija priče. Hajde unazad, kao kostur:
+
+1. KOSMOS — pre 13,8 milijardi godina prostor se širi; zvezde kuju elemente; sve je od atoma.
+2. ZEMLJA — pre 4,6 milijardi godina; ploče, okeani, klima.
+3. ŽIVOT — ćelija, DNK, evolucija prirodnom selekcijom.
+4. TELO — sistem organa, hrana, imunitet, mozak i san.
+5. UM — pamćenje, emocije, pristrasnosti, jezik.
+6. ISTORIJA — lovci-sakupljači, njiva, gradovi i pismo, antika, srednji vek, nauka i mašine.
+7. IDEJE — religije i filozofija: šta je svet, šta je dobro.
+8. NOVAC — izbor u oskudici, poverenje, tržište i država.
+9. VLAST — država, pravo, ideologije, karta sveta.
+10. UMETNOST — priča, slika, muzika: smisao.
+11. TEHNOLOGIJA — od vatre do veštačke inteligencije.
+I kroz sve: ALATI MIŠLJENJA — logika, brojevi, verovatnoća, naučni metod, otpornost na manipulaciju.
+
+Jedna rečenica: od praska do tvog telefona, priča je o tome kako materija, pa život, pa um sve više znaju o sebi — i kako sa svakim novim znanjem dolazi i nova odgovornost.
+
+Kartice će se i dalje vraćati na ponavljanje. A gde god poželiš da kopaš dublje — „Hoću više o ovome".`,
+pr:{p:'Šta povezuje celu priču ove škole?', o:['Samo datumi','Materija, pa život, pa um sve više znaju o sebi — i svako znanje nosi novu odgovornost','Ništa, to su odvojene teme'], t:1, z:'Big History: od Velikog praska do tehnologije — rastuća složenost i znanje.'}}
+],
+kljucno:['Oko 80% energije sveta još iz fosilnih goriva; Srbija — ugalj (većina struje) i hidro; zadatak: više energije, manje CO₂.','Sunce i vetar pojeftinili oko 90% (2010–2020), baterije takođe; problem je stalnost — baterije i mreže.','Fisija: bez CO₂, stabilna, ali nesreće, otpad i cena; Srbija ukinula zabranu krajem 2024; fuzija — 2022. prvi neto dobitak u laboratoriji.','Budućnost: CRISPR i mRNK, AI, kvantni računari, svemir — pitanje je ko kontroliše i kome koristi.','Cela priča: kosmos → Zemlja → život → telo → um → istorija → ideje → novac → vlast → umetnost → tehnologija, uz alate mišljenja.'],
+kartice:[
+{p:'Koliki deo energije sveta danas daju fosilna goriva?', o:'Oko 80%.'},
+{p:'Za koliko su pojeftinili solarni paneli 2010–2020?', o:'Oko 90%.'},
+{p:'Koja je razlika između fisije i fuzije?', o:'Fisija cepa teške atome; fuzija spaja lake, kao u Suncu.'},
+{p:'Odakle Srbija dobija najviše struje?', o:'Iz uglja (lignit), pa iz hidroelektrana.'},
+{p:'Šta je CRISPR?', o:'Alat za precizno menjanje DNK (Nobel 2020).'}
+],
+razgovor:['Šta je od cele ove škole najviše promenilo kako gledaš na svet — jedna stvar?','Deca koja se danas rađaju odrastaće u svetu AI i nove energije. Šta je ono što bi trebalo da nauče od ljudi, a ne od mašina?']}
 ]},
 
 {id:'12', naziv:'Alati mišljenja', ikona:'🔧', era:'kroz celu priču', lekcije:[

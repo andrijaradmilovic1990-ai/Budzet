@@ -2088,11 +2088,308 @@ razgovor:['Uzmi jednu stvarnu odluku iz svog života. Koji od tri pristupa si ta
 ]},
 
 {id:'8', naziv:'Novac i ekonomija', ikona:'💶', era:'danas', lekcije:[
-{id:'8-1', naslov:'Oskudnost, izbor, cena — ponuda i potražnja'},
-{id:'8-2', naslov:'Novac, banke, inflacija'},
-{id:'8-3', naslov:'Tržište i država — porezi i javni dug'},
-{id:'8-4', naslov:'Rast, krize, nejednakost'},
-{id:'8-5', naslov:'Globalna ekonomija — trgovina; kapitalizam i socijalizam'}
+{id:'8-1', naslov:'Oskudnost, izbor, cena — ponuda i potražnja',
+kuka:{p:'Ako država zabrani da hleb košta više od 20 dinara, a pekarima je skuplje da ga proizvedu — šta će se najverovatnije desiti?', o:['Hleb će biti jeftin i svega će biti dosta','Hleba će nestati iz prodavnica ili će se prodavati „ispod pulta"','Ništa se neće promeniti'], t:1},
+delovi:[
+{n:'Oskudnost — zašto ekonomija uopšte postoji', t:`Ekonomija ne počinje od novca, nego od jedne činjenice: želja ima više nego stvari, vremena i snage. To je OSKUDNOST.
+
+Zato stalno BIRAMO. A svaki izbor nešto košta, i kad ne plaćaš parama. OPORTUNITETNI TROŠAK je ono najbolje čega se odrekneš kad nešto izabereš. Slobodno veče posle smene: ako ga provedeš pišući, cena nije nula — cena je san, ili društvo, ili serija koju nisi gledao.
+
+Ekonomija je zato, najkraće, nauka o tome kako ljudi i društva biraju kad ne mogu sve. Deli se na:
+• MIKROEKONOMIJU — pojedinac, domaćinstvo, firma, jedno tržište (cena hleba, tvoja plata);
+• MAKROEKONOMIJU — cela država i svet (inflacija, nezaposlenost, rast, kamate).`,
+pr:{p:'Šta je oportunitetni trošak?', o:['Cena na etiketi','Ono najbolje čega se odrekneš kad nešto izabereš','Porez na izbor'], t:1, z:'Svaki izbor ima cenu u propuštenoj drugoj mogućnosti — i kad ne plaćaš novcem.'}},
+{n:'Podela rada i trgovina', t:`Adam Smit je 1776. u knjizi „Bogatstvo naroda" opisao fabriku čioda: jedan radnik sam napravi možda dvadesetak čioda dnevno, a deset radnika, kad podele posao na korake (jedan seče žicu, drugi oštri…), napravi desetine hiljada.
+
+To je PODELA RADA: kad se svako specijalizuje za ono što radi najbolje i onda razmenjujemo, svi imamo više. Ti ne praviš sam svoje cipele, telefon i hleb — a imaš sve troje.
+
+Smit je dodao još jednu čuvenu misao — „NEVIDLJIVU RUKU": pekar ne peče hleb iz dobrote, nego da bi zaradio; ali tražeći svoju korist, nahrani grad. Tržište ponekad usklađuje sebične interese u zajedničku korist, a da to niko ne planira.
+
+Važno: Smit NIJE tvrdio da je tržište uvek dobro. Upozoravao je na trgovce koji se dogovaraju da podignu cene i smatrao da država mora da obezbedi pravdu, odbranu i javne radove.`,
+pr:{p:'Šta je Smit hteo da pokaže primerom fabrike čioda?', o:['Da su fabrike loše','Da podela rada višestruko povećava proizvodnju','Da su čiode skupe'], t:1, z:'Specijalizacija i razmena — deset radnika sa podeljenim poslom napravi hiljade puta više.'}},
+{n:'Ponuda i potražnja', t:`Kako se formira CENA? Dve sile:
+
+• POTRAŽNJA — koliko kupci žele da kupe. Što je nešto jeftinije, kupuje se više.
+• PONUDA — koliko prodavci žele da prodaju. Što je cena viša, više se isplati proizvoditi, pa se nudi više.
+
+Gde se te dve sile sretnu, tu je RAVNOTEŽNA CENA: koliko ljudi hoće da kupi po toj ceni, toliko se i nudi.
+
+Kad se nešto pomeri, cena reaguje:
+• loša godina za maline (manja ponuda) → maline poskupe;
+• svi odjednom hoće klima-uređaj u toplotnom talasu (veća potražnja) → poskupe i majstori;
+• nova fabrika ponudi više → cena padne.
+
+Cena je, tako gledano, PORUKA: visoka cena kaže „ovoga fali — štedi ga i proizvodi više", niska kaže „ovoga ima dosta".`,
+pr:{p:'Šta se obično desi sa cenom kad ponuda opadne, a potražnja ostane ista?', o:['Cena padne','Cena poraste','Cena ostane ista'], t:1, z:'Manje robe za istu želju kupaca — cena raste dok se ponuda i potražnja ne izjednače.'}},
+{n:'Kad se cena „zakuca"', t:`Šta ako država propiše najvišu cenu, ispod ravnotežne? Kupci hoće više (jeftino je), a proizvođači nude manje (ne isplati se). Rezultat: NESTAŠICA — redovi, prazne police, prodaja „ispod pulta" i crno tržište. To se viđalo mnogo puta u istoriji, i kod nas u krizama (ulje, šećer, brašno).
+
+I obrnuto: propisana najniža cena iznad ravnotežne pravi VIŠAK. Klasičan primer su otkupne cene poljoprivrednih proizvoda.
+
+Da li to znači da država nikad ne treba da ograniči cene? Ne nužno — u ratu, u krizi, za lekove, oko toga postoji prava rasprava. Ali ekonomisti se uglavnom slažu da ograničenje cene NE PRAVI ROBU: ako je nema dovoljno, ograničenje samo menja ko je dobija (ko pre stigne, ko ima vezu).
+
+Takođe važno: ne reaguje svaka roba isto. Kad poskupi hleb ili struja, ljudi kupuju skoro isto — moraju. Kad poskupi skupi sat, kupuje se mnogo manje. To se zove ELASTIČNOST.`,
+pr:{p:'Šta obično donosi najviša propisana cena ispod ravnotežne?', o:['Više robe','Nestašicu — redove i crno tržište','Pad potražnje'], t:1, z:'Kupci hoće više, proizvođači nude manje — robe fali.'}},
+{n:'Podsticaji — i šta dalje', t:`Ako iz ekonomije poneseš samo jednu misao, neka bude ova: LJUDI REAGUJU NA PODSTICAJE. Promeni nagradu ili kaznu — promeniće se i ponašanje, ponekad na neočekivan način.
+
+Poznata (možda ulepšana) priča iz kolonijalne Indije: vlast je plaćala nagradu za svaku ubijenu kobru, da bi ih bilo manje. Ljudi su počeli da gaje kobre radi nagrade. Kad je vlast to shvatila i ukinula nagradu, gajene kobre su puštene — i kobri je bilo više nego pre. To se zove EFEKAT KOBRE.
+
+Kostur lekcije: oskudnost → izbor i oportunitetni trošak → podela rada i razmena → cena iz ponude i potražnje → zakucana cena pravi nestašicu → ljudi reaguju na podsticaje.
+
+Sledeće: novac — šta je on uopšte, odakle dolazi i zašto gubi vrednost.`,
+pr:{p:'Šta je „efekat kobre"?', o:['Opasnost od zmija','Mera koja proizvede suprotan efekat jer ljudi reaguju na podsticaj na neočekivan način','Nagla promena cena'], t:1, z:'Nagrada za ubijene kobre navela je ljude da ih gaje — kobri je na kraju bilo više.'}}
+],
+kljucno:['Oskudnost tera na izbor; svaki izbor ima oportunitetni trošak — ono najbolje čega se odrekneš.','Podela rada i razmena (Smit, 1776) višestruko povećavaju proizvodnju; „nevidljiva ruka" — ali Smit nije tvrdio da je tržište uvek dobro.','Cena nastaje gde se sretnu ponuda i potražnja; cena je poruka o tome čega fali.','Najviša propisana cena ispod ravnotežne pravi nestašicu; ograničenje ne pravi robu.','Ljudi reaguju na podsticaje — ponekad suprotno nameri (efekat kobre).'],
+kartice:[
+{p:'Šta je oportunitetni trošak?', o:'Ono najbolje čega se odrekneš kad nešto izabereš.'},
+{p:'Ko je napisao „Bogatstvo naroda" i kada?', o:'Adam Smit, 1776.'},
+{p:'Šta je ravnotežna cena?', o:'Cena po kojoj je količina koju kupci žele jednaka količini koja se nudi.'},
+{p:'Šta pravi propisana cena ispod ravnotežne?', o:'Nestašicu.'},
+{p:'Šta je elastičnost potražnje?', o:'Koliko se kupovina menja kad se promeni cena — kod neophodnih stvari malo, kod luksuza mnogo.'}
+],
+razgovor:['Koji je najveći oportunitetni trošak u tvom životu sada — čega se odričeš da bi imao nešto drugo?','Smeni ili poslu: koji podsticaj tamo pravi suprotno od onoga što je šef hteo?']},
+{id:'8-2', naslov:'Novac, banke, inflacija',
+kuka:{p:'Koliko je, otprilike, bila mesečna inflacija u SR Jugoslaviji u januaru 1994?', o:['Oko 50%','Oko 1.000%','Više od 300 miliona odsto'], t:2},
+delovi:[
+{n:'Šta je novac', t:`Bez novca trgovina je RAZMENA (trampa): imaš jaja, treba ti obuća. Problem — obućar mora baš tada da želi baš jaja. Novac rešava taj problem: svi ga primaju jer znaju da ga i drugi primaju.
+
+Novac ima tri posla:
+1. SREDSTVO RAZMENE — plaćaš njim;
+2. MERA VREDNOSTI — sve ima cenu u istim jedinicama, pa možeš da porediš;
+3. ČUVANJE VREDNOSTI — možeš da ga sačuvaš za sutra (dobro, ako nema inflacije).
+
+Kroz istoriju novac je bio svašta: školjke, so, stoka, zrnevlje, pa metal. Prvi kovani novac pojavljuje se u LIDIJI (današnja Turska) oko 600. p. n. e. Papirni novac prvi su masovno koristili Kinezi, oko 11. veka.
+
+Najvažnije: vrednost novca je u POVERENJU. Papirna novčanica sama po sebi ne vredi ništa; vredi jer svi veruju da će je drugi primiti.`,
+pr:{p:'Na čemu, na kraju, počiva vrednost papirnog novca?', o:['Na zlatu u trezoru','Na poverenju da će ga svi primati','Na kvalitetu papira'], t:1, z:'Danas novac nije vezan za zlato; vredi dok ljudi veruju da će ga drugi prihvatiti.'}},
+{n:'Od zlata do „fijat" novca', t:`Dugo je novac bio vezan za ZLATO: država je obećavala da možeš novčanicu da zameniš za određenu količinu zlata (ZLATNI STANDARD). To je držalo novac stabilnim, ali i krutim — u krizi država nije mogla da štampa više.
+
+SAD su 1971. prekinule vezu dolara i zlata; od tada skoro sav novac na svetu je „FIJAT" novac — vredi zato što ga država propisuje kao zakonsko sredstvo plaćanja i zato što mu ljudi veruju.
+
+Danas je najveći deo novca — samo BROJ na računu. U većini zemalja gotovina je mali deo ukupnog novca; ostalo su depoziti u bankama.
+
+A kriptovalute (bitkoin, 2009)? Pokušaj da se napravi novac bez države i banaka. Za sada služe više kao špekulativna imovina nego kao novac za svakodnevno plaćanje — vrednost im previše skače da bi bile dobra „mera vrednosti". Oko njihove budućnosti mišljenja su podeljena.`,
+pr:{p:'Šta se promenilo 1971?', o:['Uveden je evro','SAD su prekinule vezu dolara i zlata','Izmišljen je bitkoin'], t:1, z:'Kraj zlatnog standarda: od tada je novac „fijat" — vredi zbog zakona i poverenja.'}},
+{n:'Banke i centralna banka', t:`Šta banka radi? Uzima depozite i daje KREDITE. Na kredit naplaćuje veću kamatu nego što plaća na štednju — razlika je njena zarada.
+
+Iznenađenje za mnoge: kad banka da kredit, ona ne uzima tuđ novac iz sefa — ona većinom NAPRAVI nov novac, upisom na tvoj račun. (Tako to objašnjava i Engleska centralna banka.) Zato krediti povećavaju količinu novca, a otplata je smanjuje.
+
+Da banke ne bi preterale, postoji CENTRALNA BANKA (kod nas Narodna banka Srbije, u evrozoni ECB, u SAD „Fed"). Ona:
+• određuje osnovnu (REFERENTNU) KAMATU — kad je podigne, krediti poskupe, troši se manje, inflacija se smiruje; kad je spusti, obrnuto;
+• nadzire banke;
+• čuva vrednost novca.
+
+Kamatu na tvoj kredit, dakle, delom određuje odluka centralne banke. Zato se vest „NBS podigla referentnu kamatnu stopu" vidi na rati.`,
+pr:{p:'Šta obično radi centralna banka kad hoće da smiri inflaciju?', o:['Spusti kamatu','Podigne referentnu kamatu, pa krediti poskupe i troši se manje','Odštampa više novca'], t:1, z:'Viša kamata hladi potrošnju i kredite — cene sporije rastu.'}},
+{n:'Inflacija', t:`INFLACIJA je opšti rast cena — isti novac kupuje sve manje.
+
+Glavni uzroci:
+• previše novca juri premalo robe (država štampa da pokrije troškove, krediti bujaju);
+• poskupe troškovi proizvodnje (nafta, gas, hrana posle loše godine);
+• očekivanja — ako svi očekuju poskupljenje, traže veće plate i dižu cene unapred, pa se to ostvari.
+
+Ko gubi: ŠTEDIŠE i ljudi sa fiksnim primanjima (penzije, plate koje kasne za cenama). Ko dobija: DUŽNICI — dug se „istopi" (zato je inflacija nekad zgodna i prezaduženim državama).
+
+Zato centralne banke ciljaju malu, stabilnu inflaciju — u razvijenim zemljama oko 2%, NBS oko 3%, uz dozvoljeno odstupanje. Ni pad cena (deflacija) nije dobar: ljudi odlažu kupovinu jer će biti jeftinije, pa privreda staje.`,
+pr:{p:'Ko najviše gubi od inflacije?', o:['Dužnici','Štediše i ljudi sa fiksnim primanjima','Država'], t:1, z:'Ušteđevina i fiksna primanja kupuju sve manje, dok se dužnicima dug realno smanjuje.'}},
+{n:'Hiperinflacija — naša lekcija', t:`Kad inflacija pobegne potpuno, to je HIPERINFLACIJA (dogovorno: preko 50% mesečno). Primeri: Nemačka 1923 (ljudi su nosili novac kolicima), Mađarska 1946 (najgora u istoriji), Zimbabve 2008.
+
+I SR JUGOSLAVIJA 1992–1994 — jedna od najgorih ikada. Uz rat, sankcije i raspad zemlje, država je štampala novac da pokrije troškove. U januaru 1994. mesečna inflacija je bila oko 313 MILIONA procenata; cene su se udvostručavale svakih par sati. Štampane su novčanice od 500 milijardi dinara. Plata je trošena istog dana, a račun se računao u nemačkim markama. Hiperinflaciju je zaustavio program „Avramovića" u januaru 1994: novi dinar vezan za marku.
+
+Lekcija koju svaki ekonomista pamti: kad država pokušava da štampanjem novca plati ono za šta nema — novac propada, a sa njim i ušteđevina ljudi.
+
+Sledeće: država i tržište — šta ko treba da radi, i kuda idu porezi.`,
+pr:{p:'Šta je glavni uzrok hiperinflacije u SRJ 1993–94?', o:['Pad cene nafte','Masovno štampanje novca da se pokriju državni troškovi, uz rat i sankcije','Previše štednje'], t:1, z:'Kad država štampa novac umesto da ima prihode, novac gubi vrednost iz sata u sat.'}}
+],
+kljucno:['Novac rešava problem trampe; služi za razmenu, merenje i čuvanje vrednosti; počiva na poverenju.','Zlatni standard do 1971; danas „fijat" novac, uglavnom broj na računu; kripto — više špekulacija nego novac (sporno).','Banke kreditima većinom stvaraju nov novac; centralna banka (NBS) referentnom kamatom kontroliše kredite i inflaciju.','Inflacija: previše novca, skuplji troškovi, očekivanja; gube štediše, dobijaju dužnici; cilj oko 2–3%.','Hiperinflacija u SRJ (januar 1994, ~313 miliona % mesečno) — štampanje novca bez pokrića uništava ušteđevinu.'],
+kartice:[
+{p:'Koja su tri posla novca?', o:'Sredstvo razmene, mera vrednosti, čuvanje vrednosti.'},
+{p:'Gde i kada se pojavio prvi kovani novac?', o:'U Lidiji (današnja Turska), oko 600. p. n. e.'},
+{p:'Šta radi centralna banka kad podigne referentnu kamatu?', o:'Poskupljuje kredite, smanjuje potrošnju i smiruje inflaciju.'},
+{p:'Ko dobija, a ko gubi od inflacije?', o:'Dobijaju dužnici, gube štediše i ljudi sa fiksnim primanjima.'},
+{p:'Kolika je bila mesečna inflacija u SRJ u januaru 1994?', o:'Oko 313 miliona procenata.'}
+],
+razgovor:['Šta pamtiš (ili pamte tvoji) iz 1993? Kako hiperinflacija menja to kako ljudi posle gledaju na novac i na državu?','Da li ti je bitnije da novac čuvaš ili da ga potrošiš na ono što ti sada znači? Zašto?']},
+{id:'8-3', naslov:'Tržište i država — porezi i javni dug',
+kuka:{p:'Šta je najveći pojedinačni izvor prihoda budžeta Srbije?', o:['Akcize na gorivo','PDV — porez na potrošnju','Porez na imovinu'], t:1},
+delovi:[
+{n:'Gde tržište ne radi', t:`Tržište dobro radi kad kupac i prodavac sami snose posledice svoje razmene. Ali postoje situacije u kojima to ne važi — ekonomisti ih zovu TRŽIŠNI NEUSPESI:
+
+• EKSTERNALIJE — trošak (ili korist) pada na nekog trećeg. Fabrika zagađuje vazduh, a kašlje ceo grad; cena njenog proizvoda to ne uključuje.
+• JAVNA DOBRA — od njih se niko ne može isključiti, pa niko neće dobrovoljno da plati: vojska, svetionik, ulična rasveta, čist vazduh.
+• MONOPOL — samo jedan prodavac, može da diže cenu po volji.
+• NEJEDNAKO ZNANJE — prodavac polovnog auta zna više od tebe; lekar zna više od pacijenta.
+
+Na ovim mestima uglavnom postoji saglasnost da država ima posla. Rasprava je oko toga KOLIKO i KAKO.`,
+pr:{p:'Šta je eksternalija?', o:['Spoljna trgovina','Trošak ili korist koja pada na nekog ko nije učestvovao u razmeni','Strani investitor'], t:1, z:'Zagađenje je klasičan primer — plaća ga komšiluk, ne kupac i prodavac.'}},
+{n:'Šta radi država', t:`Moderna država u ekonomiji radi nekoliko stvari:
+1. pravila igre — zakoni, ugovori, sudovi, zaštita imovine;
+2. javna dobra — odbrana, policija, putevi;
+3. ispravlja tržišne neuspehe — propisi o zagađenju, zaštita potrošača, kontrola monopola;
+4. PRERASPODELA — penzije, socijalna pomoć, besplatno školstvo i zdravstvo;
+5. stabilizacija — u krizi troši više da ublaži pad.
+
+Oko ovoga se političke strane najviše spore. Jedni kažu: država je spora, skupa i podložna korupciji — neka radi samo najnužnije, ljudi bolje znaju šta će sa svojim novcem. Drugi: bez jake države tržište proizvodi velike nejednakosti i nesigurnost — zdravlje i školovanje ne smeju zavisiti od debljine novčanika. Većina zemalja je negde između, i to „negde" se stalno pomera.`,
+pr:{p:'Oko čega se političke strane u ekonomiji najviše spore?', o:['Da li država treba da postoji','Koliko i kako država treba da se meša i preraspodeljuje','Da li treba novac'], t:1, z:'Skoro svi prihvataju pravila i javna dobra; spor je oko obima države i preraspodele.'}},
+{n:'Porezi', t:`Država se uglavnom finansira porezima. Glavne vrste:
+• porez na DOHODAK (platu) i DOPRINOSI (za penziju i zdravstvo) — kod nas se odbijaju od bruto plate pre nego što je dobiješ;
+• porez na POTROŠNJU — kod nas PDV (opšta stopa 20%, za osnovne namirnice i neke druge stvari 10%) i AKCIZE (gorivo, cigarete, alkohol);
+• porez na DOBIT firmi;
+• porez na IMOVINU (stan, kuća).
+
+Dve ideje oko kojih se spori:
+• PROGRESIVAN porez — ko više zarađuje, plaća veći procenat (pravednije, kažu jedni; kažnjava trud, kažu drugi);
+• PROPORCIONALAN (ravan) — svi isti procenat.
+
+Porez na potrošnju je lakše naplatiti, ali relativno više pogađa siromašnije — oni troše skoro sve što zarade.`,
+pr:{p:'Šta je progresivan porez?', o:['Svi plaćaju isti iznos','Ko više zarađuje, plaća veći procenat','Porez koji raste svake godine'], t:1, z:'Stopa raste sa dohotkom; kod ravnog poreza procenat je isti za sve.'}},
+{n:'Budžet i javni dug', t:`BUDŽET države je kao kućni, samo veći: prihodi (porezi) i rashodi (plate, penzije, putevi, kamate). Kad su rashodi veći od prihoda — DEFICIT, i država se ZADUŽUJE (prodaje obveznice). Zbir svih tih dugova je JAVNI DUG.
+
+Javni dug se meri u odnosu na BDP (koliko zemlja proizvede za godinu). Japan ima dug preko dvostrukog BDP-a i nije u krizi; Grčka je 2010. sa manjim dugom upala u veliku krizu jer su joj poverioci prestali da veruju. Pouka: nije bitan samo broj, nego POVERENJE i da li privreda raste brže od kamate.
+
+Zašto se država uopšte zadužuje? Da gradi nešto što traje (put, bolnica — plaćaju i oni koji će ih koristiti) i da u krizi ne mora naglo da seče plate i penzije. Problem nastaje kad se zadužuje da bi pokrila tekuću potrošnju godinama — kao domaćinstvo koje kreditom plaća struju.
+
+Kućni budžet i državni se razlikuju u jednom: država može sama da utiče na svoje prihode (porezima) i — u svojoj valuti — da štampa novac. Što je, videli smo 1993, opasan izlaz.`,
+pr:{p:'Zašto Japan sa dugom preko 200% BDP-a nije u krizi, a Grčka je bila sa manjim?', o:['Japan ne plaća kamate','Bitni su poverenje poverilaca i to da li privreda raste brže od kamate, ne samo broj','Grčka nije imala dug'], t:1, z:'Japan se zadužuje uglavnom kod svojih građana u svojoj valuti; Grčka je izgubila poverenje stranih poverilaca.'}},
+{n:'Dva velika pogleda', t:`U 20. veku ekonomija se oko države podelila na dva velika tabora — i ta rasprava traje:
+
+• DŽON MEJNARD KEJNZ (posle Velike depresije 1930-ih): u krizi ljudi i firme prestanu da troše, pa kriza hrani samu sebe. Tada država treba da troši više (i zaduži se), da „upali motor". U dobrim godinama — da vrati dug.
+• FRIDRIH HAJEK i MILTON FRIDMAN: država ne zna dovoljno da upravlja privredom; njeno mešanje često pravi veće probleme (inflaciju, rasipanje, zavisnost). Bolje stabilna pravila, stabilan novac i slobodno tržište.
+
+U praksi se obe ideje koriste: 2008. i 2020. skoro sve države su u krizi trošile kejnzijanski, a protiv inflacije 1980-ih i 2022. centralne banke su delovale kako bi Fridman preporučio.
+
+Sledeće: zašto neke zemlje rastu, zašto dolaze krize i šta je sa nejednakošću.`,
+pr:{p:'Šta je, po Kejnzu, uloga države u krizi?', o:['Da štedi i čeka','Da troši više i tako pokrene privredu','Da zabrani uvoz'], t:1, z:'Kad svi prestanu da troše, država treba da uskoči potrošnjom; u dobrim godinama da vrati dug.'}}
+],
+kljucno:['Tržišni neuspesi: eksternalije, javna dobra, monopol, nejednako znanje — tu država ima posla; spor je oko obima.','Država: pravila, javna dobra, ispravke tržišta, preraspodela, stabilizacija.','Porezi: dohodak i doprinosi, PDV (20%/10%) i akcize, dobit, imovina; progresivan vs ravan.','Deficit → zaduživanje → javni dug (u % BDP-a); bitni su poverenje i rast, ne samo broj.','Kejnz (država troši u krizi) protiv Hajeka i Fridmana (stabilna pravila, manje mešanja) — u praksi se koriste oba.'],
+kartice:[
+{p:'Šta je javno dobro?', o:'Dobro od kog se niko ne može isključiti, pa ga tržište slabo obezbeđuje (odbrana, rasveta).'},
+{p:'Kolika je opšta stopa PDV-a u Srbiji?', o:'20% (posebna 10%).'},
+{p:'Šta je budžetski deficit?', o:'Kada su rashodi države veći od prihoda u godini.'},
+{p:'U odnosu na šta se meri javni dug?', o:'U odnosu na BDP — koliko zemlja proizvede za godinu.'},
+{p:'Šta je Kejnz preporučivao u krizi?', o:'Da država troši više i pokrene privredu.'}
+],
+razgovor:['Gde bi ti povukao granicu: šta država MORA da obezbedi svakom, a šta je stvar svakog pojedinca?','Da li bi radije plaćao veći porez za bolje zdravstvo i školstvo, ili manji pa sam biraš? Zašto?']},
+{id:'8-4', naslov:'Rast, krize, nejednakost',
+kuka:{p:'Koliki je deo čovečanstva živeo u krajnjem siromaštvu 1990, a koliki pred 2020?', o:['Isto, oko 10%','Oko 38% → oko 9%','Oko 9% → oko 38%'], t:1},
+delovi:[
+{n:'Šta je BDP', t:`BRUTO DOMAĆI PROIZVOD (BDP) je vrednost svega što se u zemlji proizvede za godinu (robe i usluge). Kad se podeli sa brojem stanovnika — BDP PO STANOVNIKU, gruba mera koliko je zemlja bogata.
+
+BDP je koristan, ali ima rupe:
+• ne meri RASPODELU — prosek može da raste dok većina stoji;
+• ne meri neplaćen rad (domaćinstvo, briga o deci i roditeljima);
+• ne meri štetu (zagađenje) — popravka posle poplave čak POVEĆA BDP;
+• ne meri slobodno vreme, zdravlje, sreću.
+
+Zato se uz BDP gledaju i drugi pokazatelji: očekivani životni vek, obrazovanje, nejednakost, zadovoljstvo životom.
+
+Kad se porede zemlje, BDP se često preračunava po PARITETU KUPOVNE MOĆI — jer 100 evra u Srbiji kupi više nego u Švajcarskoj.`,
+pr:{p:'Šta BDP NE meri?', o:['Vrednost proizvedenih usluga','Raspodelu, neplaćen rad i štetu po okolinu','Vrednost proizvedene robe'], t:1, z:'BDP sabira tržišnu proizvodnju; ne kaže ko je dobio i po koju cenu.'}},
+{n:'Zašto neke zemlje rastu', t:`Pre 1800. skoro svi ljudi na svetu bili su siromašni. Danas je razlika između najbogatijih i najsiromašnijih zemalja i do pedeset puta. Zašto?
+
+Rast dolazi iz:
+• KAPITALA — mašine, putevi, fabrike;
+• RADA i znanja — obrazovani, zdravi ljudi;
+• TEHNOLOGIJE — novi način da se sa istim uradi više (to je na dugi rok najvažnije);
+• INSTITUCIJA — da li ugovor važi, da li sud radi, da li će ti neko oteti ono što si stekao, koliko je korupcije. Mnogi ekonomisti (npr. Adžemoglu i Robinson, „Zašto nacije propadaju", Nobelova nagrada 2024) misle da je ovo ključno.
+
+I jedno matematičko pravilo: SLOŽENI RAST. Zemlja koja raste 2% godišnje udvostruči BDP za oko 35 godina; koja raste 7% — za oko 10. (PRAVILO 70: podeli 70 sa stopom rasta.) Zato Kina i Južna Koreja za dve-tri generacije pređu put koji je Evropa prelazila vekovima.`,
+pr:{p:'Za koliko godina se udvostruči privreda koja raste 7% godišnje?', o:['Za oko 70 godina','Za oko 10 godina','Za oko 3 godine'], t:1, z:'Pravilo 70: 70 / 7 = 10 godina.'}},
+{n:'Krize', t:`Privreda ne raste ravno, nego u talasima: rast → prepumpavanje → pad → oporavak. To je PRIVREDNI CIKLUS. Pad od bar dva tromesečja zaredom zove se RECESIJA.
+
+Velike krize obično počinju od BALONA: cena nečega (akcija, stanova) raste jer svi kupuju verujući da će još rasti — dok ne prestane. Onda svi prodaju odjednom.
+
+• VELIKA DEPRESIJA: krah berze u Njujorku 1929, propast hiljada banaka; nezaposlenost u SAD oko 25%; posledice su doprinele usponu nacizma u Nemačkoj.
+• KRIZA 2008: američke banke su davale stambene kredite ljudima koji ih nisu mogli vraćati, pa te kredite pakovale i prodavale dalje kao „sigurne". Kad su cene kuća pale, sve se srušilo; banka LEMAN BRADERS propala je 15. septembra 2008. Kriza se prelila na ceo svet, pa i na nas.
+
+Zajedničko: preterano zaduživanje, verovanje da „ovaj put je drugačije", i rizik koji niko ne vidi jer je skriven u složenim proizvodima.`,
+pr:{p:'Kako obično nastaje balon?', o:['Država propiše visoke cene','Cena raste jer svi kupuju verujući da će još rasti — dok ne prestane','Zbog loše žetve'], t:1, z:'Kupuje se zbog očekivanog rasta, ne zbog stvarne vrednosti — pa pad bude nagao.'}},
+{n:'Nejednakost', t:`Dve priče koje su obe tačne:
+
+1. IZMEĐU ZEMALJA nejednakost se od oko 1990. SMANJUJE. Kina, Indija i druge rastu brže od bogatih zemalja. Krajnje siromaštvo (po Svetskoj banci, život sa manje od oko 2 dolara dnevno) palo je sa oko 38% čovečanstva 1990. na oko 9% pred pandemiju. To je jedna od najvećih promena u istoriji, a malo ko je zna.
+2. UNUTAR mnogih zemalja nejednakost RASTE — najbogatiji deo dobija sve veći deo kolača (posebno u SAD od 1980-ih).
+
+Meri se najčešće GINIJEVIM KOEFICIJENTOM: 0 = svi imaju isto, 1 = jedan ima sve. Skandinavija je oko 0,25–0,3; SAD oko 0,4; Južna Afrika iznad 0,6.
+
+Rasprava: koliko je nejednakosti „u redu"? Jedni kažu: nejednakost je cena podsticaja — bez nagrade za rizik i trud nema ni rasta. Drugi (npr. Toma Piketi, „Kapital u 21. veku"): kad bogatstvo raste brže od plata, bogatstvo se nasleđuje i zatvara u krug, a to kvari i demokratiju. Treći: nije bitna nejednakost, nego da siromašni žive bolje i da deca imaju šansu.`,
+pr:{p:'Šta se dešavalo sa krajnjim siromaštvom u svetu od 1990. do 2019?', o:['Poraslo je','Palo je sa oko 38% na oko 9% čovečanstva','Ostalo je isto'], t:1, z:'Brz rast Kine, Indije i drugih zemalja izvukao je više od milijardu ljudi iz krajnjeg siromaštva.'}},
+{n:'Šta iz ovoga za sebe', t:`Nekoliko ekonomskih ideja ima smisla i za kućni budžet:
+• SLOŽENA KAMATA radi i za tebe i protiv tebe: mala ušteda dugo uložena raste, a skup kratkoročni kredit (minus na kartici) raste protiv tebe isto tako uporno.
+• BALON se oseća i u malom: „svi kupuju, mora da je dobro" nije razlog.
+• Krize dolaze — rezerva od nekoliko plata na strani je ekonomski najzdravija navika domaćinstva.
+
+Kostur lekcije: BDP i njegove rupe → rast iz kapitala, rada, tehnologije i institucija → složeni rast → ciklusi, baloni i krize (1929, 2008) → nejednakost: između zemalja pada, unutar raste, a rasprava je o tome koliko je pravedno.
+
+Sledeće: svet kao jedno tržište — trgovina, globalizacija i veliko pitanje 20. veka: kapitalizam ili socijalizam.`,
+pr:{p:'Zašto se minus na kartici smatra lošim dugom?', o:['Jer se ne može otplatiti','Jer visoka kamata raste složeno, isto kao ušteda — samo protiv tebe','Jer je zabranjen'], t:1, z:'Složena kamata ne bira stranu: kod štednje radi za tebe, kod skupog duga protiv tebe.'}}
+],
+kljucno:['BDP meri proizvodnju, ali ne raspodelu, neplaćen rad, štetu ni sreću.','Rast iz kapitala, rada, tehnologije i institucija; pravilo 70 — složeni rast udvostručuje brzo.','Krize iz balona i prezaduženja: 1929 (Velika depresija), 2008 (krediti u SAD, Leman Braders).','Između zemalja nejednakost pada (krajnje siromaštvo ~38% → ~9%), unutar mnogih raste; Gini 0–1.','Rasprava: nejednakost kao podsticaj ili kao zatvoren krug (Piketi) — ili je bitnije da siromašni žive bolje.'],
+kartice:[
+{p:'Šta je BDP?', o:'Vrednost svih roba i usluga proizvedenih u zemlji za godinu.'},
+{p:'Šta je pravilo 70?', o:'70 podeljeno sa stopom rasta = za koliko godina se nešto udvostruči.'},
+{p:'Šta je recesija?', o:'Pad privrede bar dva tromesečja zaredom.'},
+{p:'Šta je pokrenulo krizu 2008?', o:'Loši stambeni krediti u SAD, upakovani i prodavani kao sigurni; pad cena kuća.'},
+{p:'Šta meri Ginijev koeficijent?', o:'Nejednakost — 0 svi isto, 1 jedan ima sve.'}
+],
+razgovor:['Da li je nejednakost sama po sebi problem, ili je problem samo siromaštvo? Gde ti stojiš?','Da li si osetio neku krizu (2008, 2020, poskupljenja) na sopstvenoj koži? Šta te je naučila?']},
+{id:'8-5', naslov:'Globalna ekonomija — trgovina; kapitalizam i socijalizam',
+kuka:{p:'Ako je jedna zemlja bolja od druge u proizvodnji SVEGA — da li joj se isplati da trguje sa njom?', o:['Ne, neka sve proizvodi sama','Da — isplati se obema, ako se svaka specijalizuje za ono u čemu je relativno najbolja','Samo ako je druga zemlja bogatija'], t:1},
+delovi:[
+{n:'Zašto zemlje trguju', t:`Najlepša ideja u ekonomiji, a protiv intuicije: KOMPARATIVNA PREDNOST (Dejvid Rikardo, 1817).
+
+Primer: advokatica kuca brže od svoje sekretarice. Da li treba sama da kuca? Ne — njen sat je vredniji u sudnici. Isplati se obema da se svaka bavi onim u čemu je RELATIVNO najbolja i da razmenjuju.
+
+Isto zemlje: čak i kad je jedna bolja u svemu, obe dobijaju ako se specijalizuju i trguju. Zato skoro nijedna zemlja ne pravi sama sve što troši. Telefon u tvom džepu ima delove iz desetak zemalja.
+
+Zato većina ekonomista smatra da je slobodnija trgovina, gledano ukupno, dobra za obe strane. Ali „ukupno" ne znači „za svakoga".`,
+pr:{p:'Šta kaže komparativna prednost?', o:['Trgovati samo sa slabijima','Isplati se specijalizovati za ono u čemu si relativno najbolji i razmenjivati, čak i kad je druga strana bolja u svemu','Uvoz je uvek štetan'], t:1, z:'Kao advokatica i sekretarica — obema se isplati podela posla, iako advokatica kuca brže.'}},
+{n:'Globalizacija — dobitnici i gubitnici', t:`Posle 1990. svet se povezao kao nikad: kontejnerski brodovi, internet, pad carina, Kina u Svetskoj trgovinskoj organizaciji (2001). To je GLOBALIZACIJA.
+
+Dobitnici: stotine miliona ljudi u Aziji izašlo je iz siromaštva; robe su postale jeftinije za sve; firme prodaju celom svetu.
+
+Gubitnici: radnici u fabrikama bogatih zemalja čiji su poslovi preseljeni tamo gde je rad jeftiniji (npr. industrijski gradovi u SAD), i domaće firme koje nisu izdržale konkurenciju. Ukupna korist je velika, ali je RASUTA (svi plaćamo malo manje), a šteta je KONCENTRISANA (cela varoš ostane bez fabrike). Zato je otpor glasan.
+
+Od oko 2016. vraćaju se CARINE (porez na uvoz) i „trgovinski ratovi" — posebno između SAD i Kine — i priča o vraćanju proizvodnje kući. Pandemija 2020. je pokazala i slabost: kad sve zavisi od jednog dalekog dobavljača, jedno zatvaranje zaustavi pola sveta.`,
+pr:{p:'Zašto je otpor globalizaciji glasan iako je ukupna korist velika?', o:['Jer korist ne postoji','Korist je rasuta na sve, a šteta skoncentrisana na određene radnike i krajeve','Jer je zabranjena'], t:1, z:'Svi dobijaju malo jeftinije robe, a jedna varoš izgubi celu fabriku — ti glasovi se čuju.'}},
+{n:'Kapitalizam i socijalizam — pojmovi', t:`Prvo pojmovi, pa rasprava.
+
+KAPITALIZAM: sredstva za proizvodnju (fabrike, zemlja, firme) su uglavnom u PRIVATNOM vlasništvu; šta će se proizvoditi i po kojoj ceni određuje uglavnom TRŽIŠTE; pokretač je profit.
+
+SOCIJALIZAM: sredstva za proizvodnju su u DRUŠTVENOM ili DRŽAVNOM vlasništvu; cilj je jednakost i da plodovi rada pripadnu radnicima. KOMUNIZAM je, kod Marksa, krajnji cilj — društvo bez klasa, novca i države; partije koje su sebe zvale komunističkim vladale su „socijalizmom" kao putem do njega.
+
+KARL MARKS (19. vek, „Kapital") je gledao fabrike industrijske revolucije: radnik stvara vrednost, a vlasnik uzima višak; kapitalizam će, mislio je, zbog svojih protivrečnosti propasti i ustupiti mesto socijalizmu.
+
+U praksi skoro sve današnje zemlje su MEŠOVITE PRIVREDE: tržište i privatno vlasništvo + država koja oporezuje, reguliše i obezbeđuje školu, zdravstvo, penzije. Razlika je u meri.`,
+pr:{p:'Šta je glavna razlika između kapitalizma i socijalizma?', o:['Da li postoji novac','Ko poseduje sredstva za proizvodnju i ko odlučuje — tržište i privatnici ili društvo i država','Da li postoje porezi'], t:1, z:'Kapitalizam: privatno vlasništvo i tržište; socijalizam: društveno/državno vlasništvo i plan ili raspodela.'}},
+{n:'Šta se desilo u praksi', t:`20. vek je bio veliki ogled.
+
+• SSSR (od 1917) i istočni blok: PLANSKA PRIVREDA — država odlučuje šta se proizvodi i po kojoj ceni. Brza industrijalizacija, opismenjavanje, besplatno školstvo i zdravstvo; ali i nestašice, redovi, slaba inovacija, gušenje sloboda i milioni žrtava represije i gladi (posebno pod Staljinom). Sistem se urušio 1989–1991.
+• KINA je pod Mao Cedongom prošla katastrofu (glad 1959–61, desetine miliona mrtvih); od 1978. Deng Sjaoping uvodi TRŽIŠTE uz vlast Komunističke partije — sledi najbrži rast u istoriji.
+• JUGOSLAVIJA je išla svojim putem: SAMOUPRAVLJANJE (od 1950) — firme u „društvenom" vlasništvu, kojima formalno upravljaju radnički saveti, uz delimično tržište, otvorene granice i rad u inostranstvu. Životni standard je bio viši nego u istočnom bloku, ali i rastuća nezaposlenost, dug i inflacija 1980-ih.
+• SKANDINAVSKI MODEL: tržišna, kapitalistička privreda + visoki porezi i jaka socijalna država. Često se pogrešno zove „socijalizam".
+
+Danas je rasprava manje „kapitalizam ILI socijalizam", a više: koliko tržišta, koliko države, i kako ih spojiti. Ljudi iz različitih tabora iz istih činjenica izvlače različite pouke — i to je u redu da znaš.`,
+pr:{p:'Kako se zvao jugoslovenski ekonomski model?', o:['Planska privreda po sovjetskom uzoru','Samoupravljanje — društveno vlasništvo, radnički saveti i delimično tržište','Skandinavski model'], t:1, z:'Od 1950. Jugoslavija razvija samoupravni socijalizam, različit i od sovjetskog i od zapadnog modela.'}},
+{n:'Kraj oblasti', t:`Kostur oblasti „Novac i ekonomija":
+1. oskudnost tera na izbor; cena nastaje iz ponude i potražnje i nosi poruku;
+2. novac počiva na poverenju; banke ga stvaraju kreditom; centralna banka čuva njegovu vrednost; hiperinflacija je ono kad poverenje pukne;
+3. tržište ima neuspehe; država ih ispravlja i preraspodeljuje — spor je koliko;
+4. rast iz tehnologije i institucija; krize iz balona i duga; nejednakost između zemalja pada, unutar raste;
+5. trgovina koristi obema stranama, ali ne svakome; kapitalizam i socijalizam — 20. vek je bio ogled, a danas su skoro sve zemlje mešavina.
+
+Jedna rečenica za pamćenje: ekonomija nije nauka o novcu, nego o izborima ljudi kad nemaju dovoljno svega.
+
+Sledeće: alat — naučni metod: kako se nešto zaista dokazuje. Pa onda vlast, pravo i svet.`,
+pr:{p:'Kako bi u jednoj rečenici opisao ekonomiju?', o:['Nauka o novcu i bankama','Nauka o izborima ljudi i društava kad nemaju dovoljno svega','Nauka o berzi'], t:1, z:'Oskudnost i izbor su srž; novac je samo jedan od alata.'}}
+],
+kljucno:['Komparativna prednost (Rikardo): trgovina se isplati obema stranama i kad je jedna bolja u svemu.','Globalizacija: velika ukupna korist (Azija iz siromaštva, jeftinije robe), ali koncentrisani gubitnici; povratak carina.','Kapitalizam: privatno vlasništvo i tržište; socijalizam: društveno/državno vlasništvo; Marks; danas mešovite privrede.','SSSR plan (industrija i školstvo, ali nestašice i represija, pad 1991); Kina tržište od 1978; Jugoslavija samoupravljanje; Skandinavija = tržište + socijalna država.','Ekonomija je nauka o izboru u oskudici.'],
+kartice:[
+{p:'Šta je komparativna prednost?', o:'Isplati se specijalizovati za ono u čemu si relativno najbolji i razmenjivati.'},
+{p:'Zašto je otpor globalizaciji jak iako je ukupna korist velika?', o:'Korist je rasuta, a šteta koncentrisana na određene radnike i krajeve.'},
+{p:'Šta je mešovita privreda?', o:'Tržište i privatno vlasništvo uz državu koja oporezuje, reguliše i pruža javne usluge.'},
+{p:'Šta je jugoslovensko samoupravljanje?', o:'Društveno vlasništvo, radnički saveti i delimično tržište (od 1950).'},
+{p:'Da li je skandinavski model socijalizam?', o:'Ne — to je tržišna privreda sa visokim porezima i jakom socijalnom državom.'}
+],
+razgovor:['Šta od jugoslovenskog modela ljudi oko tebe pamte sa nostalgijom, a šta se zaboravlja? Šta misliš ti?','Da možeš da biraš jednu stvar koju bi država u Srbiji radila bolje, a jednu koju bi prepustio tržištu — šta bi izabrao?']}
 ]},
 {id:'9', naziv:'Vlast, pravo i svet', ikona:'⚖️', era:'danas', lekcije:[
 {id:'9-1', naslov:'Šta je država — oblici vlasti'},

@@ -2392,11 +2392,330 @@ kartice:[
 razgovor:['Šta od jugoslovenskog modela ljudi oko tebe pamte sa nostalgijom, a šta se zaboravlja? Šta misliš ti?','Da možeš da biraš jednu stvar koju bi država u Srbiji radila bolje, a jednu koju bi prepustio tržištu — šta bi izabrao?']}
 ]},
 {id:'9', naziv:'Vlast, pravo i svet', ikona:'⚖️', era:'danas', lekcije:[
-{id:'9-1', naslov:'Šta je država — oblici vlasti'},
-{id:'9-2', naslov:'Pravo, ustav, ljudska prava'},
-{id:'9-3', naslov:'Ideologije — levica, desnica i ostale'},
-{id:'9-4', naslov:'Geopolitika — geografija, resursi, velike sile'},
-{id:'9-5', naslov:'Svet danas — UN, NATO, EU, BRICS i Balkan'}
+{id:'9-1', naslov:'Šta je država — oblici vlasti',
+kuka:{p:'Po čemu se, po čuvenoj definiciji Maksa Vebera, država razlikuje od bande?', o:['Država je veća','Država ima monopol na ZAKONITU upotrebu sile na svojoj teritoriji','Država naplaćuje poreze, banda ne'], t:1},
+delovi:[
+{n:'Šta je država', t:`DRŽAVA, u modernom smislu, ima četiri sastojka:
+1. TERITORIJU sa granicama;
+2. STANOVNIŠTVO;
+3. VLAST koja donosi i sprovodi pravila;
+4. SUVERENITET — niko spolja nema vlast nad njom; i, u praksi, PRIZNANJE drugih država.
+
+Sociolog Maks Veber dao je definiciju koja se najčešće navodi: država je zajednica koja na svojoj teritoriji ima MONOPOL NA ZAKONITU UPOTREBU SILE. Policija sme da te uhapsi, a komšija ne sme — razlika je u zakonitosti, ne u snazi.
+
+Ideja suverenih država koje se ne mešaju jedna drugoj u unutrašnje stvari uglavnom se vezuje za VESTFALSKI MIR (1648), posle Tridesetogodišnjeg rata. Do tada je Evropa bila mreža carstava, crkve, gradova i feudalaca sa preklopljenim vlastima.
+
+NACIJA i DRŽAVA nisu isto: nacija je zajednica ljudi koji osećaju da pripadaju zajedno (jezik, istorija, kultura); država je politička organizacija. Ima nacija bez države (Kurdi) i država sa više nacija (Švajcarska).`,
+pr:{p:'Šta je, po Veberu, ključna odlika države?', o:['Zastava i himna','Monopol na zakonitu upotrebu sile na svojoj teritoriji','Veliki broj stanovnika'], t:1, z:'Ne snaga, nego zakonitost: samo država sme da primenjuje silu, i to po pravilima.'}},
+{n:'Ko vlada — monarhija i republika', t:`Prvo pitanje: KO je na čelu države?
+• MONARHIJA — vladar po nasleđu (kralj, car). APSOLUTNA: vladar ima svu vlast (danas retko — npr. Saudijska Arabija). USTAVNA: kralj je simbol, a vladaju parlament i vlada (Velika Britanija, Švedska, Španija).
+• REPUBLIKA — šef države se bira na određeno vreme (lat. res publica, „javna stvar").
+
+Drugo, važnije pitanje: KAKO se vlada?
+• DEMOKRATIJA — vlast se bira na slobodnim izborima, postoji opozicija, slobodni mediji, nezavisni sudovi, i vlast se može smeniti mirno.
+• AUTOKRATIJA — vlast je skoncentrisana u jednoj osobi ili grupi i ne može se mirno smeniti. DIKTATURA je njen grublji oblik; TOTALITARIZAM ide do kraja i hoće da kontroliše ceo život građana — misli, umetnost, porodicu (nacistička Nemačka, Staljinov SSSR).
+
+Između je mnogo nijansi: postoje zemlje sa izborima koje nisu sasvim slobodni ni pošteni (stručnjaci ih zovu „hibridni režimi"). Zato monarhija može biti demokratska (Švedska), a republika autokratska.`,
+pr:{p:'Može li monarhija biti demokratija?', o:['Ne, nikako','Da — ustavna monarhija, gde kralj je simbol a vladaju izabrani','Samo ako je kralj izabran'], t:1, z:'Švedska, Norveška, Velika Britanija — kralj je simbol, vlast je kod izabranog parlamenta.'}},
+{n:'Podela vlasti', t:`Najvažnija ideja moderne države: vlast ne sme biti u jednoj ruci. Francuski pisac MONTESKJE (1748) je predložio PODELU VLASTI na tri grane koje se međusobno kontrolišu:
+
+• ZAKONODAVNA — donosi zakone (skupština, parlament);
+• IZVRŠNA — sprovodi zakone i upravlja (vlada, ministarstva, predsednik);
+• SUDSKA — sudi po zakonima, nezavisno od prve dve.
+
+Logika: svaka grana koči drugu. Skupština može da smeni vladu; sud može da poništi nezakonit akt vlade; vlada predlaže budžet, ali ga usvaja skupština. Kad se sve tri spoje u jednoj osobi ili partiji, građanin nema kome da se žali.
+
+Uz to, u demokratiji važe i nezavisni MEDIJI i slobodno CIVILNO DRUŠTVO — nekad zvani „četvrta vlast".`,
+pr:{p:'Zašto se vlast deli na tri grane?', o:['Da bude više službenika','Da se grane međusobno kontrolišu i niko nema svu vlast','Zbog tradicije'], t:1, z:'Monteskje: vlast koja nije podeljena se zloupotrebi; grane se međusobno koče.'}},
+{n:'Kako su uređene demokratije', t:`Demokratije se razlikuju po tome kako su raspoređene grane:
+• PARLAMENTARNI sistem — građani biraju skupštinu, a skupština bira vladu i premijera, koji joj odgovara (Nemačka, Velika Britanija, Italija). Predsednik, ako postoji, ima malo vlasti.
+• PREDSEDNIČKI — predsednik se bira direktno i on je i šef države i šef izvršne vlasti (SAD, Brazil).
+• POLUPREDSEDNIČKI — direktno izabran predsednik sa jakim ovlašćenjima + premijer odgovoran skupštini (Francuska).
+
+SRBIJA je po Ustavu iz 2006. PARLAMENTARNA republika: Narodna skupština (250 poslanika) bira vladu; predsednik republike se bira neposredno, ali ima ograničena ovlašćenja. (Koliko se praksa poklapa sa ustavnim slovom — o tome se u Srbiji vodi politička rasprava.)
+
+I još jedna podela: UNITARNA država (jedna centralna vlast, uz lokalnu samoupravu) i FEDERACIJA (savezne jedinice sa svojim vlastima — SAD, Nemačka, nekada Jugoslavija).`,
+pr:{p:'Kakav je sistem po Ustavu Srbije?', o:['Predsednički','Parlamentarna republika — skupština bira vladu','Ustavna monarhija'], t:1, z:'Ustav iz 2006: skupština od 250 poslanika bira vladu; predsednik je biran neposredno, sa ograničenim ovlašćenjima.'}},
+{n:'Zašto demokratija — i njene slabosti', t:`Zašto se danas smatra da je demokratija najbolji oblik vlasti? Čerčilova poznata šala: „Demokratija je najgori oblik vlasti — osim svih ostalih koji su probani."
+
+Argumenti za: vlast se može mirno smeniti; greške se ispravljaju jer postoji kritika; prava pojedinca su zaštićena; ljudi pristaju na zakone u čijem donošenju učestvuju.
+
+Slabosti o kojima se ozbiljno raspravlja:
+• TIRANIJA VEĆINE — većina može da gazi manjinu (zato postoje ustav i prava koja se ne glasaju);
+• kratkoročnost — političari misle na sledeće izbore, a ne na sledeću generaciju;
+• POPULIZAM i demagogija — lako je zavesti masu jednostavnim obećanjima (to su znali još Platon i Aristotel);
+• neznanje birača o složenim temama.
+
+Kostur: država = teritorija, narod, vlast, suverenitet; monarhija/republika kaže KO, demokratija/autokratija kaže KAKO; podela vlasti; parlamentarni/predsednički sistem.
+
+Sledeće: pravo — pravila igre, ustav i ljudska prava.`,
+pr:{p:'Šta je „tiranija većine"?', o:['Vlast jednog čoveka','Kad većina zloupotrebi demokratiju da gazi prava manjine','Previše stranaka'], t:1, z:'Zato postoje ustav i osnovna prava koja se ne mogu ukinuti prostom većinom glasova.'}}
+],
+kljucno:['Država: teritorija, stanovništvo, vlast, suverenitet; Veber — monopol na zakonitu silu; nacija ≠ država.','Monarhija/republika (ko je na čelu) nije isto što i demokratija/autokratija (kako se vlada); totalitarizam kontroliše ceo život.','Podela vlasti (Monteskje): zakonodavna, izvršna, sudska — međusobno se koče.','Parlamentarni, predsednički, polupredsednički sistem; Srbija — parlamentarna republika (Ustav 2006, 250 poslanika).','Demokratija: mirna smena i ispravljanje grešaka; slabosti — tiranija većine, kratkoročnost, populizam.'],
+kartice:[
+{p:'Kako Veber definiše državu?', o:'Zajednica sa monopolom na zakonitu upotrebu sile na svojoj teritoriji.'},
+{p:'Koje su tri grane vlasti?', o:'Zakonodavna, izvršna, sudska.'},
+{p:'Ko je predložio podelu vlasti?', o:'Monteskje (1748).'},
+{p:'Koja je razlika između parlamentarnog i predsedničkog sistema?', o:'U parlamentarnom skupština bira vladu; u predsedničkom direktno izabran predsednik vodi izvršnu vlast.'},
+{p:'Šta je totalitarizam?', o:'Vlast koja hoće da kontroliše ceo život građana, ne samo politiku.'}
+],
+razgovor:['Čerčil kaže da je demokratija najgora — osim svih ostalih. Slažeš li se, ili vidiš nešto bolje?','Šta bi ti bio prvi znak da vlast više ne može mirno da se smeni?']},
+{id:'9-2', naslov:'Pravo, ustav, ljudska prava',
+kuka:{p:'Koji je najstariji pisani nacionalni ustav koji je i danas na snazi?', o:['Britanski','Američki (1787)','Francuski (1789)'], t:1},
+delovi:[
+{n:'Šta je pravo', t:`PRAVO su pravila ponašanja koja donosi država i koja se, ako ih prekršiš, mogu sprovesti silom (kazna, prinudna naplata). Po tome se razlikuje od MORALA (sramota, savest) i OBIČAJA (šta se „radi").
+
+Pravo i moral se preklapaju (ne ubij), ali nisu isto: nešto može biti nemoralno a zakonito (prevariti prijatelja u sitnici), i zakonito a nemoralno (zakoni o rasnoj segregaciji). Zato se pravnici i filozofi vekovima spore: da li je zakon „pravo" samo zato što ga je država donela (PRAVNI POZITIVIZAM), ili postoje pravila iznad države koja nijedan zakon ne sme da prekrši (PRIRODNO PRAVO)? Posle Nirnberga 1945. — kad su nacisti branili zločine „naređenjima i zakonima" — prevladalo je da ne sme sve što je propisano.
+
+Velike podele:
+• JAVNO pravo (država i građanin: ustavno, krivično, upravno) i PRIVATNO (građani među sobom: ugovori, nasleđe, porodica);
+• KRIVIČNO (zločini i kazne) i GRAĐANSKO (sporovi i naknada štete).`,
+pr:{p:'Po čemu se pravo razlikuje od morala?', o:['Pravo je uvek pravedno','Pravo donosi država i može se sprovesti silom','Moral je pisan'], t:1, z:'Kršenje morala donosi sramotu; kršenje prava — državnu sankciju.'}},
+{n:'Dve pravne porodice', t:`Dve velike tradicije prava u svetu:
+
+• KONTINENTALNO (rimsko-germansko) pravo — pravo je zapisano u ZAKONICIMA, sudija primenjuje zakon. Koreni u rimskom pravu i Justinijanovom zborniku, a moderni oblik u Napoleonovom građanskom zakoniku (1804). Ovde spadaju Srbija, Francuska, Nemačka i veći deo Evrope i sveta.
+• ANGLOSAKSONSKO (common law) — veliki deo prava čine ranije SUDSKE ODLUKE (PRECEDENTI); sudija koji sudi sličan slučaj mora da prati ranije presude. Engleska, SAD, Australija, Kanada (osim Kvebeka), Indija.
+
+Zato u američkim filmovima advokati stalno citiraju stare slučajeve — kod nas se citiraju članovi zakona.
+
+Kod nas je pravo imalo dugu istoriju: Zakonopravilo Svetog Save (1219), Dušanov zakonik (1349/1354), a prvi srpski ustav je SRETENJSKI (1835), koji je knez Miloš brzo ukinuo — mnogima je bio previše liberalan.`,
+pr:{p:'Šta je precedent?', o:['Novi zakon','Ranija sudska odluka koju sudije prate u sličnim slučajevima','Pravni savet'], t:1, z:'U anglosaksonskom pravu presude stvaraju pravo; u kontinentalnom osnova je pisani zakonik.'}},
+{n:'Ustav i hijerarhija pravila', t:`USTAV je najviši pravni akt države — „zakon nad zakonima". On određuje:
+• kako je država uređena (grane vlasti, kako se biraju, koliko traju);
+• osnovna prava i slobode građana;
+• kako se menja (obično teže od običnog zakona — posebna većina, referendum).
+
+Pravila stoje u HIJERARHIJI: ustav → zakoni → uredbe i pravilnici (podzakonski akti) → pojedinačne odluke (rešenje o porezu, presuda). Niže pravilo ne sme biti suprotno višem. Ko to proverava? USTAVNI SUD — može da poništi zakon koji je protivan ustavu.
+
+Važne ideje ugrađene u moderno pravo:
+• VLADAVINA PRAVA — i vlast mora da poštuje zakon, ne samo građani;
+• PRETPOSTAVKA NEVINOSTI — nevin si dok se krivica ne dokaže;
+• NEMA KAZNE BEZ ZAKONA — ne može se kazniti za nešto što nije bilo zabranjeno kad je učinjeno;
+• JEDNAKOST pred zakonom.
+
+Najstariji pisani nacionalni ustav koji je i danas na snazi je američki (1787). Velika Britanija nema jedan pisani ustav — njen je sastavljen od zakona, presuda i običaja. Srbija ima Ustav iz 2006.`,
+pr:{p:'Ko kod nas može da poništi zakon koji je suprotan ustavu?', o:['Predsednik','Ustavni sud','Vlada'], t:1, z:'Ustavni sud čuva hijerarhiju: niže pravilo ne sme biti suprotno višem.'}},
+{n:'Ljudska prava', t:`Ideja da svaki čovek ima PRAVA samim tim što je čovek — ne zato što mu ih je dao kralj — razvijala se korak po korak:
+• MAGNA KARTA (Engleska, 1215) — i kralj je pod zakonom (tada samo za plemiće);
+• Engleska povelja o pravima (1689);
+• Američka deklaracija nezavisnosti (1776): „svi ljudi su stvoreni jednaki" (a ropstvo je trajalo još skoro 90 godina);
+• Francuska deklaracija o pravima čoveka i građanina (1789).
+
+Posle užasa Drugog svetskog rata, UN su 1948. usvojile OPŠTU DEKLARACIJU O PRAVIMA ČOVEKA: pravo na život, slobodu, zabrana mučenja i ropstva, sloboda misli, vere i govora, pravično suđenje, ali i pravo na rad, obrazovanje i zdravlje. U Evropi postoji i EVROPSKA KONVENCIJA o ljudskim pravima (1950), sa sudom u STRAZBURU, kome se mogu žaliti i građani Srbije kad iscrpe domaće sudove.
+
+Prava se često dele na GRAĐANSKA I POLITIČKA (sloboda govora, glas, pravično suđenje — država te ostavlja na miru) i EKONOMSKA I SOCIJALNA (rad, školovanje, zdravstvo — država nešto mora da obezbedi).`,
+pr:{p:'Kada su UN usvojile Opštu deklaraciju o pravima čoveka?', o:['1789.','1948.','1991.'], t:1, z:'Posle Drugog svetskog rata, 1948.; 1789. je francuska deklaracija.'}},
+{n:'Gde se prava sudaraju', t:`Prava nisu bezgranična — i sudaraju se međusobno. Tu su prave rasprave:
+• SLOBODA GOVORA protiv zaštite od mržnje i laži — gde je granica? SAD dopuštaju skoro sve, mnoge evropske zemlje zabranjuju govor mržnje ili negiranje genocida.
+• SLOBODA protiv BEZBEDNOSTI — nadzor telefona i interneta zbog terorizma, mere tokom pandemije.
+• PRIVATNOST protiv JAVNOG INTERESA.
+• UNIVERZALNOST — važe li ista prava svuda, ili su „zapadni izum" koji se nameće drugim kulturama? Kritičari sa raznih strana tvrde ovo drugo; branioci odgovaraju da zabranu mučenja i ropstva traže ljudi u svakoj kulturi.
+
+Kostur: pravo = pravila sa državnom sankcijom; kontinentalno (zakonik) i anglosaksonsko (precedent); ustav na vrhu, ustavni sud ga čuva; vladavina prava, pretpostavka nevinosti; ljudska prava od Magna karte do 1948.
+
+Sledeće: ideologije — zašto se ljudi u politici dele na levo i desno, i šta to zapravo znači.`,
+pr:{p:'Koji je primer sudara dva prava?', o:['Pravo na rad i pravo na odmor ne mogu da se sudare','Sloboda govora i zaštita od govora mržnje','Nema sudara prava'], t:1, z:'Gde je granica slobode govora — različite zemlje je povlače različito.'}}
+],
+kljucno:['Pravo = pravila države sa sankcijom; nije isto što i moral; pozitivizam protiv prirodnog prava.','Kontinentalno pravo (zakonici, Srbija) i anglosaksonsko (precedenti, Engleska, SAD).','Ustav na vrhu hijerarhije; ustavni sud; vladavina prava, pretpostavka nevinosti, nema kazne bez zakona.','Ljudska prava: Magna karta 1215 → 1776 → 1789 → Opšta deklaracija UN 1948; Evropska konvencija i Strazbur.','Prava se sudaraju (govor i mržnja, sloboda i bezbednost); spor oko univerzalnosti.'],
+kartice:[
+{p:'Šta je vladavina prava?', o:'I vlast mora da poštuje zakon, ne samo građani.'},
+{p:'Šta je pretpostavka nevinosti?', o:'Svako je nevin dok mu se krivica ne dokaže.'},
+{p:'Koji je bio prvi srpski ustav?', o:'Sretenjski ustav, 1835.'},
+{p:'Kada je usvojena Opšta deklaracija o pravima čoveka?', o:'1948, u UN.'},
+{p:'Kojoj pravnoj porodici pripada Srbija?', o:'Kontinentalnoj (rimsko-germanskoj) — pravo u zakonicima.'}
+],
+razgovor:['Gde bi ti povukao granicu slobode govora — šta sme da se kaže, a šta ne?','Da li si nekad video da je nešto zakonito a duboko nepravedno? Šta je čoveku činiti tada?']},
+{id:'9-3', naslov:'Ideologije — levica, desnica i ostale',
+kuka:{p:'Odakle potiču izrazi „levica" i „desnica"?', o:['Iz Biblije','Iz francuske skupštine 1789 — gde su ko sedeli','Iz engleskog parlamenta 1900'], t:1},
+delovi:[
+{n:'Levo i desno', t:`Za vreme Francuske revolucije 1789, u skupštini su pristalice kralja i starog poretka sedele DESNO od predsedavajućeg, a pristalice promena LEVO. Imena su ostala.
+
+Najprostije:
+• LEVICA naglašava JEDNAKOST i promenu: smanjiti razlike, zaštititi slabije, više uloge za državu u ekonomiji.
+• DESNICA naglašava RED, TRADICIJU i (često) slobodno tržište: čuvati ono što se pokazalo dobrim, menjati polako, manje mešanja države u privredu.
+
+Ali jedna linija nije dovoljna. Politikolozi često crtaju DVE OSE:
+1. EKONOMSKA — više države ili više tržišta;
+2. DRUŠTVENA — više lične slobode ili više autoriteta i tradicije.
+
+Tako neko može biti ekonomski levo a društveno konzervativan, ili ekonomski desno a društveno liberalan. Mnoge stranke u Srbiji i svetu ne staju uredno u jedan kvadrat.
+
+Pravilo ove lekcije: svaku ideologiju prvo opiši onako kako bi je opisao njen pristalica, pa tek onda kritike.`,
+pr:{p:'Zašto jedna osa levo–desno nije dovoljna?', o:['Jer postoji i centar','Jer se ekonomski i društveni stavovi ne poklapaju uvek — trebaju dve ose','Jer su sve stranke iste'], t:1, z:'Neko može biti za jaku državu u ekonomiji, a za tradiciju u društvu — jedna linija to ne hvata.'}},
+{n:'Liberalizam i konzervativizam', t:`LIBERALIZAM (od lat. liber — slobodan; Džon Lok, 17. vek): u središtu je POJEDINAC i njegova prava — život, sloboda, imovina. Vlast postoji da štiti ta prava i ograničena je ustavom. Iz liberalizma su: podela vlasti, sloboda govora i vere, tržišna ekonomija, ravnopravnost pred zakonom.
+Važno: „liberal" danas znači različito. U Evropi „klasični liberal" je za slobodno tržište; u SAD „liberal" je levo od centra (za veću ulogu države). Isti naziv, skoro suprotno značenje.
+
+KONZERVATIVIZAM (Edmund Berk, kraj 18. veka, kao odgovor na Francusku revoluciju): društvo nije mašina koju razum može da rastavi i ponovo sastavi. Tradicija, porodica, vera, nacija i institucije nose mudrost generacija. Menjati — da, ali POSTEPENO i oprezno.
+Pristalice: čuva ono što drži društvo na okupu. Kritičari: brani nepravde samo zato što su stare.
+
+Kritika liberalizma: zanemaruje zajednicu i ostavlja slabije da se sami snalaze; odgovor liberala: zajednica ne sme da gazi pojedinca.`,
+pr:{p:'Šta je u središtu liberalizma?', o:['Nacija','Pojedinac i njegova prava i slobode','Crkva'], t:1, z:'Lok: vlast postoji da štiti prava pojedinca i mora biti ograničena.'}},
+{n:'Socijalizam i socijaldemokratija', t:`Iz industrijske revolucije i bede radnika rodio se SOCIJALIZAM (19. vek): problem je nejednakost koju stvara privatno vlasništvo nad fabrikama; rešenje je društveno vlasništvo i jednakost. Marks je dao najuticajniju verziju.
+
+Socijalizam se podelio na dva puta:
+• REVOLUCIONARNI — preuzeti vlast silom i ukinuti kapitalizam (Lenjin, 1917; komunističke partije 20. veka). Vodio je do jednopartijskih država — sa opismenjavanjem i industrijalizacijom, ali i represijom i nestašicama (videli smo u ekonomiji).
+• SOCIJALDEMOKRATIJA — kroz izbore, ne revoluciju; zadržati tržište, ali ga ukrotiti: sindikati, osmočasovni radni dan, penzije, javno zdravstvo i školstvo, progresivni porezi. Socijaldemokrate su posle 1945. izgradile državu blagostanja u velikom delu Evrope.
+
+Pristalice levice kažu: većina prava koja radnik danas uzima zdravo za gotovo izborila je levica. Kritičari: visoki porezi i jaka država guše preduzetništvo, a radikalne verzije su završile u diktaturi.`,
+pr:{p:'Čime se socijaldemokratija razlikuje od revolucionarnog socijalizma?', o:['Nema razlike','Ide kroz izbore i zadržava tržište, ali ga reguliše i gradi socijalnu državu','Hoće da ukine novac'], t:1, z:'Socijaldemokrati su prihvatili demokratiju i tržište, a borili se za radnička prava i državu blagostanja.'}},
+{n:'Nacionalizam, fašizam i populizam', t:`NACIONALIZAM: nacija je osnovna politička zajednica i treba da ima svoju državu. U 19. veku bio je oslobodilački — ujedinjenje Italije i Nemačke, oslobođenje balkanskih naroda od Osmanlija, pa i srpski ustanci. U 20. veku pokazao je i drugo lice: kad se nacija postavi iznad svega, drugi postaju neprijatelji. Ljudi se i danas spore gde je granica između PATRIOTIZMA (ljubav prema svome) i NACIONALIZMA koji isključuje druge.
+
+FAŠIZAM (Musolini, Italija 1922) i NACIZAM (Hitler, Nemačka 1933): krajnji nacionalizam, kult vođe, jednopartijska država, nasilje kao sredstvo, kod nacista rasizam do genocida. Poraženi 1945; danas se gotovo svuda smatraju krajnjim zlom 20. veka, zajedno sa zločinima staljinizma.
+
+POPULIZAM nije puna ideologija, nego STIL: „čist narod" protiv „korumpirane elite", a vođa kaže da on jedini govori u ime naroda. Postoji i levi i desni populizam. Pristalice: daje glas onima koje elite ignorišu. Kritičari: lako prelazi u napad na sudove, medije i opoziciju.
+
+Postoje i drugi: ANARHIZAM (bez države), ZELENA politika (priroda i klima u središtu), LIBERTERIJANIZAM (krajnje minimalna država).`,
+pr:{p:'Šta je populizam?', o:['Popularna stranka','Stil politike: „čist narod" protiv „korumpirane elite", sa vođom koji jedini govori u ime naroda','Ideologija samo levice'], t:1, z:'Populizam može biti i levi i desni — prepoznaje se po suprotstavljanju naroda i elite.'}},
+{n:'Kako o ovome razmišljati', t:`Nekoliko alata da ne upadneš u zamku:
+• Ideologija je PAKET odgovora; ti ne moraš da kupiš ceo paket. Možeš misliti da država treba da obezbedi zdravstvo, a da porodica i tradicija vrede.
+• Svaka velika ideologija ima JEZGRO VREDNOSTI koje je dobro (jednakost, sloboda, red, pripadnost) i KRAJNOST u kojoj je postala opasna.
+• Jonatan Hajt (psiholog) pokazuje da levica i desnica često ne razlikuju činjenice nego TEŽINU vrednosti: levica više ističe brigu i pravednost, desnica uz to i lojalnost, autoritet i svetost. Zato se svađaju kao da govore različite jezike.
+• Test poštenja: možeš li stav protivnika da opišeš tako da bi on rekao „da, to mislim"? Ako ne možeš, još ga ne razumeš.
+
+Kostur: levo/desno iz 1789; dve ose (ekonomija, društvo); liberalizam (pojedinac), konzervativizam (tradicija), socijalizam i socijaldemokratija (jednakost), nacionalizam (nacija), fašizam (krajnost), populizam (stil).
+
+Sledeće: geopolitika — zašto geografija i resursi i dalje određuju ko je jak.`,
+pr:{p:'Šta je „test poštenja" u raspravi?', o:['Pobediti protivnika','Opisati njegov stav tako da bi se on u tome prepoznao','Ne razgovarati sa protivnikom'], t:1, z:'Ako ne možeš da opišeš tuđi stav onako kako ga on vidi, raspravljaš sa slamnatim čovekom.'}}
+],
+kljucno:['Levica/desnica iz 1789; levica — jednakost i promena, desnica — red, tradicija, tržište; bolje dve ose (ekonomska i društvena).','Liberalizam: pojedinac i prava (Lok); „liberal" u Evropi i SAD znači različito; konzervativizam: tradicija i postepena promena (Berk).','Socijalizam: revolucionarni (Lenjin) i socijaldemokratija (izbori, država blagostanja).','Nacionalizam: oslobodilački i isključujući; fašizam i nacizam kao krajnost; populizam = stil „narod protiv elite".','Ne moraš kupiti ceo paket; test poštenja — opiši protivnika tako da se prepozna.'],
+kartice:[
+{p:'Odakle dolaze nazivi levica i desnica?', o:'Iz rasporeda sedenja u francuskoj skupštini 1789.'},
+{p:'Ko je otac konzervativizma i kada?', o:'Edmund Berk, kraj 18. veka.'},
+{p:'Šta je socijaldemokratija?', o:'Socijalizam kroz izbore: tržište uz sindikate, socijalnu državu i progresivne poreze.'},
+{p:'Koje su tri odlike fašizma?', o:'Krajnji nacionalizam, kult vođe i jednopartijska država nasilja.'},
+{p:'Šta je populizam?', o:'Stil politike: „čist narod" protiv „korumpirane elite".'}
+],
+razgovor:['Koju vrednost iz „suprotnog tabora" od tvog možeš iskreno da poštuješ?','Gde je za tebe granica između ljubavi prema svom narodu i nacionalizma koji isključuje druge?']},
+{id:'9-4', naslov:'Geopolitika — geografija, resursi, velike sile',
+kuka:{p:'Kroz koji moreuz prolazi otprilike petina svetske nafte?', o:['Gibraltar','Ormuski moreuz (Persijski zaliv)','Bosfor'], t:1},
+delovi:[
+{n:'Šta je geopolitika', t:`GEOPOLITIKA proučava kako GEOGRAFIJA — položaj, reljef, more, reke, klima, resursi — utiče na moć i politiku država.
+
+Neke stvari se ne menjaju sa vladama: Rusija nema mnogo toplih luka i ima ravnice bez prirodnih prepreka sa zapada (odatle su dolazili Napoleon i Hitler) — pa je vekovima opsednuta tamponskim zonama. Velika Britanija je ostrvo — pa je gradila flotu umesto velike kopnene vojske. SAD imaju dva okeana kao rov i slabe susede — pa decenijama nisu morale da strahuju od invazije.
+
+Klasici geopolitike:
+• Alfred Mahan (1890): ko vlada MORIMA, vlada svetom — trgovina ide morem.
+• Halford Makinder (1904): ključ je „SRCE SVETA" — unutrašnjost Evroazije; ko vlada njom, vlada svetom.
+
+Ove teorije su uprošćene i ponekad zloupotrebljene (nacisti su ih koristili za „životni prostor"), ali pokazuju trajni značaj karte.`,
+pr:{p:'Šta proučava geopolitika?', o:['Samo granice','Kako geografija i resursi utiču na moć i politiku država','Istoriju ratova'], t:1, z:'Položaj, more, reljef i resursi oblikuju strah i ambicije država, bez obzira na to ko vlada.'}},
+{n:'Uska grla i resursi', t:`Svetska trgovina prolazi kroz nekoliko USKIH GRLA:
+• ORMUSKI MOREUZ — izlaz iz Persijskog zaliva, otprilike petina svetske nafte;
+• MALAKSKI MOREUZ — između Malezije i Indonezije, glavni put trgovine Kine;
+• SUECKI KANAL — Evropa–Azija; kad se 2021. jedan brod zaglavio, stala je trgovina vredna milijarde dnevno;
+• BOSFOR i Dardaneli — jedini izlaz Crnog mora;
+• PANAMSKI KANAL.
+
+RESURSI:
+• NAFTA i GAS — 20. vek je bio vek nafte; ko ih ima (Saudijska Arabija, Rusija, SAD, Iran) ima uticaj, a ko ih uvozi (Evropa, Kina) ranjiv je. Evropa je to osetila 2022.
+• RETKI METALI (litijum, kobalt, retke zemlje) — za baterije, telefone, vetrenjače; Kina dominira njihovom preradom. To je „nafta 21. veka".
+• VODA — reke koje teku kroz više država (Nil, Tigar i Eufrat, Ind) izvor su napetosti.
+• ČIPOVI — najnapredniji se prave uglavnom na TAJVANU, što ga čini jednom od najosetljivijih tačaka sveta.`,
+pr:{p:'Zašto je Tajvan važan u geopolitici čipova?', o:['Zbog nafte','Tamo se pravi većina najnaprednijih čipova na svetu','Zbog ribarstva'], t:1, z:'Koncentracija proizvodnje najnaprednijih čipova čini Tajvan ključnim za celu svetsku privredu.'}},
+{n:'Velike sile', t:`VELIKA SILA je država koja može da utiče na zbivanja daleko od svojih granica — vojskom, ekonomijom, tehnologijom, kulturom.
+
+Kratka slika (početkom 2020-ih):
+• SAD — najjača vojska i privreda, dolar kao svetska valuta, saveznici po celom svetu, kultura (film, internet).
+• KINA — druga privreda sveta (a po paritetu kupovne moći prva), „fabrika sveta", brzo raste i vojno; projekat „Pojas i put" (putevi, luke, železnice — i u Srbiji).
+• RUSIJA — najveća teritorija, ogromni resursi i najveći nuklearni arsenal uz SAD; privreda po tržišnim cenama otprilike veličine italijanske.
+• EVROPSKA UNIJA — ogromno tržište i pravila koja mora da prati ko hoće da joj prodaje, ali slabija vojno i sporija u odlučivanju.
+• INDIJA — najmnogoljudnija zemlja sveta (od 2023), brzo raste.
+
+Posle Hladnog rata (1991) svet je bio JEDNOPOLARAN (SAD); danas se sve češće govori o MULTIPOLARNOM svetu sa više centara moći. Oko toga koliko se to već desilo — mišljenja se razlikuju.`,
+pr:{p:'Kako se zove svet sa više centara moći?', o:['Jednopolaran','Multipolaran','Bipolaran'], t:1, z:'Bipolaran je bio Hladni rat (SAD–SSSR), jednopolaran posle 1991, a danas se govori o multipolarnom.'}},
+{n:'Kako se objašnjava ponašanje država', t:`Dve velike škole u međunarodnim odnosima:
+
+• REALIZAM: svet nema policiju iznad država — to je ANARHIJA u tehničkom smislu. Zato svaka država pre svega brine o svom opstanku i moći; savezi su privremeni, interesi trajni. Ključ je RAVNOTEŽA SNAGA: kad jedna sila previše ojača, ostale se udružuju protiv nje. Realisti kažu: velike sile se uvek ponašaju kao velike sile.
+• LIBERALIZAM (u međunarodnim odnosima): države mogu trajno da sarađuju kroz trgovinu, međunarodne organizacije i pravila; demokratije međusobno skoro nikad ne ratuju; međuzavisnost čini rat skupim.
+
+Iste događaje dve škole tumače različito. Primer: širenje NATO-a na istok — liberali kažu da su te zemlje same birale i da im je to pravo; neki realisti (npr. Džon Miršajmer) tvrde da je to predvidivo izazvalo reakciju Rusije. Treći kažu da je ponašanje Rusije samostalan izbor njenih vođa. Čitaj sve tri strane.
+
+Nuklearno oružje (danas ga ima devet država) dodaje još jedno pravilo: velike sile izbegavaju direktan rat jer bi bio samoubistvo — pa se sukobljavaju posredno.`,
+pr:{p:'Šta je osnovna pretpostavka realizma?', o:['Sve države žele mir','Nema vlasti iznad država, pa svaka brine pre svega o svom opstanku i moći','Trgovina sprečava sve ratove'], t:1, z:'Bez „svetske policije" države se oslanjaju na sebe i na ravnotežu snaga.'}},
+{n:'Balkan na karti', t:`Zašto je Balkan vekovima bio „bure baruta"?
+
+• RASKRŠĆE: kopneni put između Srednje Evrope i Bliskog istoka. Dolina Morave i Vardara je najlakši prolaz od Dunava do Egejskog mora — njom su išli Rimljani, krstaši, Osmanlije, a danas Koridor 10 i pruga.
+• GRANICA CARSTAVA I VERA: Rim i Vizantija, katolički i pravoslavni svet, Osmanlije i Habzburgovci. Svaka velika sila je ovde imala interes — i svoje saveznike.
+• PLANINE dele prostor na doline i male zajednice, pa su se narodi i vere izmešali, a male države ostale zavisne od velikih.
+
+Zato se u istoriji Balkana stalno ponavlja obrazac: lokalni sukobi u koje se umešaju velike sile, i velike sile koje balkanske narode koriste kao figure. Sarajevski atentat 1914. je postao povod za Prvi svetski rat upravo zato što su iza Srbije i Austrougarske stajale velike sile.
+
+Kostur: geografija (more, ravnice, ostrva) oblikuje strah i ambiciju; uska grla i resursi (nafta, retki metali, čipovi); velike sile i multipolarni svet; realizam i liberalizam; Balkan kao raskršće.
+
+Sledeće: svet danas — UN, NATO, EU, BRICS, i gde je u svemu tome Srbija.`,
+pr:{p:'Zašto je dolina Morave i Vardara geopolitički važna?', o:['Zbog rudnika','Najlakši je kopneni prolaz od Dunava do Egejskog mora','Zbog granice sa Rusijom'], t:1, z:'Rimski putevi, osmanski pohodi i današnji Koridor 10 idu istom dolinom.'}}
+],
+kljucno:['Geopolitika: geografija i resursi oblikuju moć (Rusija bez toplih luka, Britanija ostrvo, SAD između okeana); Mahan i Makinder.','Uska grla: Ormuz, Malaka, Suec, Bosfor, Panama; resursi: nafta i gas, retki metali, voda, čipovi (Tajvan).','Velike sile: SAD, Kina, Rusija, EU, Indija; od jednopolarnog ka multipolarnom svetu.','Realizam (opstanak, ravnoteža snaga) i liberalizam (saradnja, trgovina, institucije) — isti događaj, različita tumačenja.','Balkan: raskršće puteva, carstava i vera; dolina Morave i Vardara; male države zavisne od velikih.'],
+kartice:[
+{p:'Šta je Makinderovo „srce sveta"?', o:'Unutrašnjost Evroazije — po njemu ključ svetske moći.'},
+{p:'Koji moreuz je najvažniji za naftu?', o:'Ormuski — otprilike petina svetske nafte.'},
+{p:'Šta je ravnoteža snaga?', o:'Kad jedna sila previše ojača, ostale se udružuju protiv nje.'},
+{p:'Koja zemlja je najmnogoljudnija od 2023?', o:'Indija.'},
+{p:'Zašto je Balkan „bure baruta"?', o:'Raskršće puteva i granica carstava i vera, sa interesima velikih sila.'}
+],
+razgovor:['Kad čitaš vesti o nekom sukobu — da li te ubedljivije zvuči realista („sve je interes") ili liberal („pravila i saradnja")?','Šta misliš: koliko mala zemlja kao Srbija stvarno može da bira, a koliko je bira karta?']},
+{id:'9-5', naslov:'Svet danas — UN, NATO, EU, BRICS i Balkan',
+kuka:{p:'Koliko država ima pravo veta u Savetu bezbednosti UN?', o:['Sve članice','Pet','Petnaest'], t:1},
+delovi:[
+{n:'Ujedinjene nacije', t:`UJEDINJENE NACIJE (UN) osnovane su 1945, posle Drugog svetskog rata, da spreče novi svetski rat. Danas imaju 193 države članice; sedište je u Njujorku.
+
+Glavni delovi:
+• GENERALNA SKUPŠTINA — sve države, svaka jedan glas; donosi preporuke, ne naređenja.
+• SAVET BEZBEDNOSTI — 15 članica, od toga 5 STALNIH sa pravom VETA: SAD, Rusija, Kina, Velika Britanija i Francuska (pobednice Drugog svetskog rata). Samo Savet može da donese obavezujuće odluke — sankcije ili upotrebu sile. Ali dovoljno je da jedna od petorice kaže „ne".
+• Agencije: UNICEF (deca), Svetska zdravstvena organizacija, UNESKO (kultura i obrazovanje), UNHCR (izbeglice) i druge.
+• MEĐUNARODNI SUD PRAVDE u Hagu (sporovi među državama).
+
+Kritika: veto paralizuje Savet kad je u pitanju interes neke od velikih sila; raspodela moći iz 1945. ne odgovara današnjem svetu (Indija, Brazil, Afrika nemaju stalno mesto). Odbrana: UN su forum na kome i neprijatelji razgovaraju, a agencije svakodnevno spasavaju živote.`,
+pr:{p:'Šta znači veto u Savetu bezbednosti?', o:['Sve članice moraju da se slože','Svaka od 5 stalnih članica može sama da blokira odluku','Generalni sekretar ima poslednju reč'], t:1, z:'SAD, Rusija, Kina, Britanija i Francuska — dovoljno je jedno „ne" da odluka padne.'}},
+{n:'NATO', t:`NATO (Severnoatlantski savez) osnovan je 1949, u Hladnom ratu, kao vojni savez SAD, Kanade i zapadnoevropskih država protiv SSSR-a. Srž je ČLAN 5: napad na jednu članicu smatra se napadom na sve. (Prvi i jedini put aktiviran posle napada na SAD 11. septembra 2001.)
+
+Posle 1991. NATO se širio na istok — prvo bivše članice Varšavskog pakta, pa baltičke države; Finska (2023) i Švedska (2024) su ušle posle ruskog napada na Ukrajinu. Danas ima 32 članice. U regionu su članice Hrvatska, Slovenija, Albanija, Crna Gora i Severna Makedonija.
+
+Za Srbiju je NATO posebno teška tema: 1999. NATO je, bez odobrenja Saveta bezbednosti UN, 78 dana bombardovao SR Jugoslaviju zbog sukoba na Kosovu. NATO i njegove članice su to obrazlagali humanitarnim razlozima — sprečavanjem progona Albanaca; Srbija, Rusija, Kina i mnogi pravnici smatraju to kršenjem međunarodnog prava i agresijom. Poginulo je i mnogo civila. Obe priče postoje i u Srbiji se pamte različito od zapada.
+
+Srbija je 2007. skupštinskom rezolucijom proglasila VOJNU NEUTRALNOST: ne ulazi ni u NATO ni u druge vojne saveze, ali sa NATO-om sarađuje kroz program Partnerstvo za mir.`,
+pr:{p:'Šta je član 5 NATO-a?', o:['Pravo veta','Napad na jednu članicu smatra se napadom na sve','Obaveza da se kupuje američko oružje'], t:1, z:'Kolektivna odbrana — srž saveza; aktiviran samo posle 11. septembra 2001.'}},
+{n:'Evropska unija', t:`EVROPSKA UNIJA počela je ekonomski: 1951. šest zemalja (Francuska, Zapadna Nemačka, Italija, Belgija, Holandija, Luksemburg) udružilo je ugalj i čelik — sirovine za rat — da bi rat među njima postao „ne samo nezamisliv, nego i fizički nemoguć". Iz toga su nastali Rimski ugovori (1957), pa MASTRIHT (1993) i ime Evropska unija.
+
+Šta EU jeste: zajedničko tržište (roba, ljudi, novac i usluge kreću se slobodno), zajednička pravila, budžet i fondovi za siromašnije oblasti, i — za većinu članica — zajednički novac, EVRO. Danas 27 članica (Velika Britanija je izašla 2020 — BREGZIT).
+
+Šta EU nije: država. Nema svoju vojsku, a o važnim stvarima (spoljna politika, porezi, proširenje) odlučuje jednoglasno — zato je spora.
+
+SRBIJA je kandidat za članstvo od 2012, a pregovori su počeli 2014. U regionu: Slovenija (2004) i Hrvatska (2013) su članice; Crna Gora, Albanija, Severna Makedonija, BiH, Moldavija i Ukrajina su kandidati. Za Srbiju je jedan od ključnih uslova normalizacija odnosa sa Prištinom. EU je i najveći trgovinski partner i najveći investitor u Srbiji. Podrška članstvu među građanima Srbije poslednjih godina je otprilike podeljena.`,
+pr:{p:'Kako je počela Evropska unija?', o:['Kao vojni savez','Udruživanjem uglja i čelika šest zemalja 1951, da rat među njima postane nemoguć','Uvođenjem evra'], t:1, z:'Ekonomsko povezivanje kao put do mira — evro je došao tek 1999/2002.'}},
+{n:'BRICS i ostali', t:`BRICS je skraćenica od Brazil, Rusija, Indija, Kina (prvi samit 2009) i Južna Afrika (2010). To nije vojni savez niti zajedničko tržište, nego KLUB velikih zemalja izvan zapadnog kruga koje žele veći glas u svetu — u MMF-u, Svetskoj banci, trgovini, i manje zavisnosti od dolara. Imaju i svoju razvojnu banku.
+
+Od 2024. BRICS se proširio (među novim članicama su Egipat, Etiopija, Iran, Ujedinjeni Arapski Emirati, a 2025. Indonezija) i mnoge zemlje traže da pristupe. Zajedno čine skoro polovinu čovečanstva i veliki deo svetske privrede (oko četvrtine po tržišnim cenama, više po kupovnoj moći).
+
+Slabost: članice imaju vrlo različite interese — Indija i Kina su suparnice, a demokratije i autokratije sede za istim stolom. Pristalice vide BRICS kao početak pravednijeg, multipolarnog sveta; skeptici kao labav klub bez zajedničkog cilja.
+
+Srbija nije članica BRICS-a. Ima dobre odnose sa Kinom (velika ulaganja — Smederevo, Bor, Zrenjanin, putevi) i Rusijom (gas, podrška po pitanju Kosova u Savetu bezbednosti), dok joj je EU glavni ekonomski partner. Ta politika se često opisuje kao „sedenje na više stolica" — pristalice je zovu mudrom, kritičari neodrživom.`,
+pr:{p:'Šta je BRICS?', o:['Vojni savez kao NATO','Klub velikih zemalja izvan zapadnog kruga koje traže veći glas u svetu','Zajedničko tržište sa zajedničkim novcem'], t:1, z:'Nema zajedničku vojsku ni tržište — povezuje ih želja za drugačijom raspodelom moći.'}},
+{n:'Balkan danas — i kraj oblasti', t:`Kosovo je za Srbiju centralno pitanje spoljne politike. Posle rata 1999. Kosovo je bilo pod upravom UN (Rezolucija 1244). Kosovske institucije su 2008. proglasile nezavisnost. Srbija je ne priznaje i smatra Kosovo delom svoje teritorije po Ustavu; nezavisnost je priznalo oko polovine članica UN (tačan broj je sporan, jer su neke priznanja povukle), među njima SAD i većina država EU, a ne priznaju je, između ostalih, Rusija, Kina, Indija, Brazil i pet članica EU (Španija, Grčka, Kipar, Rumunija, Slovačka). Pregovori uz posredovanje EU traju od 2011.
+
+Ostala otvorena pitanja regiona: unutrašnje uređenje BiH (Dejtonski sporazum, 1995), odnosi naroda posle ratova 1990-ih, odlazak mladih na zapad.
+
+Kostur oblasti „Vlast, pravo i svet":
+1. država, oblici vlasti, podela vlasti;
+2. pravo, ustav, ljudska prava;
+3. ideologije — dve ose, više paketa;
+4. geopolitika — karta, resursi, velike sile;
+5. organizacije — UN (veto), NATO (član 5), EU (tržište i pravila), BRICS (klub) — i Srbija između.
+
+Za ovakve teme jedno pravilo važi više nego igde: proveri izvor, saslušaj obe strane, i pitaj se ko ima interes da ti nešto kaže baš tako.
+
+Sledeće: umetnost i priče — od pećinskog crteža do Bukovskog.`,
+pr:{p:'Kakav je međunarodni status Kosova?', o:['Priznali su ga svi','Nezavisnost je priznalo oko polovine članica UN; Srbija, Rusija, Kina i pet članica EU je ne priznaju','Niko ga nije priznao'], t:1, z:'Pitanje je otvoreno: deo sveta priznaje nezavisnost, deo ne, a pregovori uz posredovanje EU traju od 2011.'}}
+],
+kljucno:['UN (1945, 193 članice): Generalna skupština i Savet bezbednosti sa 5 stalnih članica i vetom.','NATO (1949): član 5; širenje na istok, 32 članice; bombardovanje 1999 različito se tumači; Srbija vojno neutralna od 2007.','EU: od uglja i čelika (1951) do 27 članica, zajedničko tržište i evro; Srbija kandidat od 2012, pregovori od 2014.','BRICS: klub velikih zemalja van Zapada, proširen od 2024; Srbija nije članica, sarađuje sa EU, Kinom i Rusijom.','Kosovo: nezavisnost 2008, priznata od oko polovine članica UN; Srbija ne priznaje; pregovori uz EU od 2011.'],
+kartice:[
+{p:'Koje su stalne članice Saveta bezbednosti UN?', o:'SAD, Rusija, Kina, Velika Britanija, Francuska.'},
+{p:'Šta je član 5 NATO-a?', o:'Napad na jednu članicu je napad na sve.'},
+{p:'Od kada je Srbija vojno neutralna?', o:'Od 2007 (rezolucija Narodne skupštine).'},
+{p:'Kako je počela EU?', o:'Zajednicom za ugalj i čelik šest zemalja, 1951.'},
+{p:'Od čega dolazi naziv BRICS?', o:'Brazil, Rusija, Indija, Kina, Južna Afrika (South Africa).'}
+],
+razgovor:['Kako bi ti objasnio strancu zašto je 1999. u Srbiji drugačije zapamćena nego na Zapadu — a da budeš pošten prema obe strane?','Da sutra biraš: EU, neutralnost kakva je sad, ili nešto treće? Šta bi ti presudilo?']}
 ]},
 {id:'10', naziv:'Umetnost i priče', ikona:'🎭', era:'ideje', lekcije:[
 {id:'10-1', naslov:'Šta je umetnost i čemu služi'},

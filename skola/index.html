@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f1a">
+<title>Škola</title>
+<link rel="manifest" href="manifest.json">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0f0f1a;--surface:#1a1a2e;--surface2:#242440;--accent:#6c63ff;
+--accent2:#ff6b9d;--text:#e8e8f0;--text2:#9898b8;--border:#2e2e50;
+--green:#4ade80;--red:#f87171;--radius:12px;--radius-sm:8px;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;max-width:560px;margin:0 auto;padding:1.1rem;padding-top:max(1.1rem,env(safe-area-inset-top));padding-bottom:max(1.5rem,env(safe-area-inset-bottom))}
+h1{font-size:22px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;gap:.5rem}
+.sync{font-size:11px;color:var(--text2)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:.8rem}
+.btn{display:block;width:100%;border:none;border-radius:var(--radius);padding:.9rem;font-size:16px;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn:active{transform:scale(.98)}
+.btn.sec{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.btn.mali{display:inline-block;width:auto;padding:.55rem .9rem;font-size:14px}
+.btn:disabled{opacity:.4}
+.lbl{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem}
+.nastavi-naslov{font-size:18px;font-weight:600;margin-bottom:.25rem}
+.nastavi-sub{font-size:13px;color:var(--text2);margin-bottom:.9rem}
+.oblast{display:flex;align-items:center;gap:.8rem;cursor:pointer}
+.oblast .ik{font-size:26px}
+.oblast .ime{font-weight:600}
+.oblast .br{font-size:12px;color:var(--text2)}
+.oblast.prazna{opacity:.45;cursor:default}
+.les{display:flex;align-items:center;gap:.7rem;padding:.75rem 0;border-bottom:1px solid var(--border);cursor:pointer}
+.les:last-child{border-bottom:none}
+.les .st{width:26px;text-align:center}
+.les .nas{flex:1}
+.les .dat{font-size:12px;color:var(--text2)}
+.nazad{background:none;border:none;color:var(--text2);font-size:14px;cursor:pointer;padding:.3rem 0}
+.traka{height:5px;background:var(--surface2);border-radius:3px;overflow:hidden;margin:.4rem 0 1rem}
+.traka div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.deo-naslov{font-size:20px;font-weight:700;margin-bottom:.8rem}
+.tekst{font-size:17px;line-height:1.6;white-space:pre-wrap}
+.dugmad{display:flex;gap:.6rem;margin-top:1.2rem}
+.dugmad .btn{flex:1}
+.dublje{background:none;border:none;color:var(--text2);font-size:13px;text-decoration:underline;cursor:pointer;margin-top:.9rem;padding:.3rem 0}
+.pit{margin-bottom:1rem}
+.pit p{font-size:16px;line-height:1.45;margin-bottom:.45rem}
+textarea{width:100%;min-height:96px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.75rem;color:var(--text);font-size:16px;font-family:inherit;resize:vertical}
+textarea:focus{outline:none;border-color:var(--accent)}
+.odg{font-size:15px;line-height:1.5;white-space:pre-wrap;color:var(--text);background:var(--surface2);border-radius:var(--radius-sm);padding:.7rem;margin-bottom:.9rem}
+.helena{border-color:var(--accent2)}
+.helena .tekst{font-size:15px}
+.poruka{font-size:13px;color:var(--green);min-height:18px;margin-top:.5rem;text-align:center}
+.poruka.err{color:var(--red)}
+.gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:10}
+.gate .box{text-align:center;max-width:320px;width:100%}
+.gate .logo{font-size:52px;margin-bottom:.5rem}
+.gate p{font-size:13px;color:var(--text2);margin:.4rem 0 1.4rem}
+.skriven{display:none!important}
+</style>
+</head>
+<body>
+<div id="gate" class="gate">
+<div class="box">
+<div class="logo">🦉</div>
+<h1>Škola</h1>
+<p id="gate-sub">Učitavanje…</p>
+<button class="btn skriven" id="btn-google">Prijavi se Google nalogom</button>
+<div class="poruka err" id="gate-err"></div>
+</div>
+</div>
+<div id="app"></div>
+
+<script type="module">
+import {OBLASTI} from './lekcije.js';
+
+const PROBA = new URLSearchParams(location.search).has('proba');
+const $app = document.getElementById('app');
+const SVE = [];
+OBLASTI.forEach(o=>o.lekcije.forEach((l,i)=>SVE.push({...l, oblast:o, redni:i+1})));
+const nadji = id => SVE.find(l=>l.id===id);
+
+// ---------- čuvanje: Firebase (skola/...) ili lokalno u probi ----------
+let baza;
+async function napraviBazu(){
+if(PROBA){
+const k='skola-proba';
+const ucitaj=()=>{try{return JSON.parse(localStorage.getItem(k))||{}}catch(e){return {}}};
+const sacuvaj=d=>localStorage.setItem(k,JSON.stringify(d));
+let slusalac=null;
+return {
+async citaj(){return ucitaj()},
+async pisi(put,v){const d=ucitaj();const p=put.split('/');let o=d;p.slice(0,-1).forEach(x=>{o[x]=o[x]||{};o=o[x]});o[p[p.length-1]]=v;sacuvaj(d);if(slusalac)slusalac(d)},
+slusaj(cb){slusalac=cb;cb(ucitaj())}
+};
+}
+const {initializeApp}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+const {getDatabase,ref,set,get,onValue}=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js');
+const A=await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js');
+const app=initializeApp({
+apiKey:"AIzaSyDI03DXl54GvRv99Ywb0-53rI1dhsYM18c",
+authDomain:"budzet-f3992.firebaseapp.com",
+projectId:"budzet-f3992",
+databaseURL:"https://budzet-f3992-default-rtdb.europe-west1.firebasedatabase.app",
+storageBucket:"budzet-f3992.firebasestorage.app",
+messagingSenderId:"633902520397",
+appId:"1:633902520397:web:1488ffe3d9626a8c586404"
+});
+const db=getDatabase(app);
+const auth=A.getAuth(app);
+const provider=new A.GoogleAuthProvider();
+document.getElementById('btn-google').onclick=async()=>{
+greska('');
+try{await A.signInWithPopup(auth,provider)}
+catch(e){
+const c=(e&&e.code)||'';
+if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
+try{await A.signInWithRedirect(auth,provider)}catch(e2){greska(e2.message||e2)}
+}else if(c!=='auth/popup-closed-by-user'&&c!=='auth/cancelled-popup-request'){greska(e.message||e)}
+}
+};
+A.setPersistence(auth,A.browserLocalPersistence).catch(()=>{});
+A.getRedirectResult(auth).catch(e=>greska(e.message||e));
+await new Promise(res=>{
+A.onAuthStateChanged(auth,u=>{
+if(u){res()}
+else{document.getElementById('gate-sub').textContent='Prijavi se istim nalogom kao u Budžetu.';document.getElementById('btn-google').classList.remove('skriven')}
+});
+});
+onValue(ref(db,'.info/connected'),s=>{const e=document.getElementById('sync');if(e)e.textContent=s.val()?'● povezano':'○ nije povezano'});
+return {
+async citaj(){return (await get(ref(db,'skola'))).val()||{}},
+async pisi(put,v){await set(ref(db,'skola/'+put),v)},
+slusaj(cb){onValue(ref(db,'skola'),s=>cb(s.val()||{}))}
+};
+}
+function greska(m){document.getElementById('gate-err').textContent=m?String(m):''}
+
+// ---------- stanje ----------
+let S={};            // ceo skola/ čvor
+let ekran={tip:'pocetna'};
+let crtano=false;
+
+function sad(){
+const d=new Date(),p=n=>String(n).padStart(2,'0');
+return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+const zavrsena = id => !!(S.lekcije&&S.lekcije[id]&&S.lekcije[id].zavrseno);
+const komentar = id => S.komentari&&S.komentari[id];
+function sledeca(){
+const st=S.stanje;
+if(st&&nadji(st.lekcija)&&!zavrsena(st.lekcija))return {l:nadji(st.lekcija),deo:st.deo||0};
+const l=SVE.find(x=>!zavrsena(x.id));
+return l?{l,deo:0}:null;
+}
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ---------- ekrani ----------
+function crtaj(){
+crtano=true;
+if(ekran.tip==='pocetna')return pocetna();
+if(ekran.tip==='oblast')return oblast(OBLASTI.find(o=>o.id===ekran.oblast));
+if(ekran.tip==='lekcija')return lekcija(nadji(ekran.id),ekran.deo);
+if(ekran.tip==='pregled')return pregled(nadji(ekran.id));
+}
+
+function pocetna(){
+const n=sledeca();
+const gotovo=SVE.filter(l=>zavrsena(l.id)).length;
+let h=`<div class="top"><h1>🦉 Škola</h1><span class="sync" id="sync">${PROBA?'proba (lokalno)':''}</span></div>`;
+if(n){
+const pocela=n.deo>0||(S.lekcije&&S.lekcije[n.l.id]);
+h+=`<div class="card"><div class="lbl">${pocela?'Nastavi':'Sledeće'}</div>
+<div class="nastavi-naslov">${esc(n.l.naslov)}</div>
+<div class="nastavi-sub">${esc(n.l.oblast.naziv)} · lekcija ${n.l.redni} od ${n.l.oblast.lekcije.length}${n.deo>0?` · deo ${Math.min(n.deo+1,n.l.delovi.length+1)}`:''}</div>
+<button class="btn" id="btn-nastavi">${pocela?'Nastavi':'Počni'}</button></div>`;
+}else{
+h+=`<div class="card"><div class="nastavi-naslov">Sve napisane lekcije su završene 🎉</div><div class="nastavi-sub">Javi Heleni — sledeća oblast se piše.</div></div>`;
+}
+h+=`<div class="lbl" style="margin-top:1.2rem">Oblasti · završeno ${gotovo}</div>`;
+OBLASTI.forEach(o=>{
+const z=o.lekcije.filter(l=>zavrsena(l.id)).length;
+h+=`<div class="card oblast${o.lekcije.length?'':' prazna'}" data-o="${o.id}"><span class="ik">${o.ikona}</span><div><div class="ime">${esc(o.naziv)}</div>
+<div class="br">${o.lekcije.length?`${z} od ${o.lekcije.length}`:'uskoro'}</div></div></div>`;
+});
+$app.innerHTML=h;
+const b=document.getElementById('btn-nastavi');
+if(b)b.onclick=()=>idi({tip:'lekcija',id:n.l.id,deo:n.deo});
+$app.querySelectorAll('.oblast').forEach(e=>{const o=OBLASTI.find(x=>x.id===e.dataset.o);if(o.lekcije.length)e.onclick=()=>idi({tip:'oblast',oblast:o.id})});
+}
+
+function oblast(o){
+let h=`<button class="nazad" id="nazad">← Početna</button><div class="top"><h1>${o.ikona} ${esc(o.naziv)}</h1></div><div class="card">`;
+o.lekcije.forEach((l,i)=>{
+const z=zavrsena(l.id);
+h+=`<div class="les" data-id="${l.id}"><span class="st">${z?'✅':i+1}</span><div class="nas">${esc(l.naslov)}
+${z?`<div class="dat">završeno ${esc(S.lekcije[l.id].zavrseno)}${komentar(l.id)?' · 💬 Helena':''}</div>`:''}</div></div>`;
+});
+$app.innerHTML=h+'</div>';
+document.getElementById('nazad').onclick=()=>idi({tip:'pocetna'});
+$app.querySelectorAll('.les').forEach(e=>e.onclick=()=>idi(zavrsena(e.dataset.id)?{tip:'pregled',id:e.dataset.id}:{tip:'lekcija',id:e.dataset.id,deo:0}));
+}
+
+function lekcija(l,deo){
+const uk=l.delovi.length+1; // + ekran sa pitanjima
+deo=Math.max(0,Math.min(deo,uk-1));
+let h=`<button class="nazad" id="nazad">← ${esc(l.oblast.naziv)}</button>
+<div class="lbl" style="margin-top:.6rem">${esc(l.naslov)} · ${deo+1}/${uk}</div>
+<div class="traka"><div style="width:${Math.round((deo+1)/uk*100)}%"></div></div>`;
+if(deo<l.delovi.length){
+const d=l.delovi[deo];
+h+=`<div class="deo-naslov">${esc(d.n)}</div><div class="tekst">${esc(d.t)}</div>
+<div class="dugmad">${deo>0?'<button class="btn sec" id="pre">Nazad</button>':''}<button class="btn" id="dalje">Dalje</button></div>
+<button class="dublje" id="dublje">Hoću više o ovome kasnije</button><div class="poruka" id="por"></div>`;
+}else{
+const st=(S.lekcije&&S.lekcije[l.id]&&S.lekcije[l.id].odgovori)||{};
+h+=`<div class="deo-naslov">Provera</div><p class="nastavi-sub">Odgovori svojim rečima, kratko. Helena će ih pročitati kad joj kažeš.</p>`;
+l.pitanja.forEach((p,i)=>{h+=`<div class="pit"><p>${i+1}. ${esc(p)}</p><textarea data-i="${i}">${esc(st[i]||'')}</textarea></div>`});
+h+=`<div class="dugmad"><button class="btn sec" id="pre">Nazad</button><button class="btn" id="kraj">Završi lekciju</button></div><div class="poruka" id="por"></div>`;
+}
+$app.innerHTML=h;
+window.scrollTo(0,0);
+document.getElementById('nazad').onclick=()=>idi({tip:'oblast',oblast:l.oblast.id});
+const pre=document.getElementById('pre');if(pre)pre.onclick=()=>korak(l,deo-1);
+const da=document.getElementById('dalje');if(da)da.onclick=()=>korak(l,deo+1);
+const du=document.getElementById('dublje');
+if(du)du.onclick=async()=>{await baza.pisi('dublje/'+Date.now(),{lekcija:l.id,deo:l.delovi[deo].n,datum:sad()});poruka('Zapisano — Helena će videti.')};
+const odg=()=>{const o={};$app.querySelectorAll('textarea').forEach(t=>o[t.dataset.i]=t.value.trim());return o};
+$app.querySelectorAll('textarea').forEach(t=>t.onblur=()=>baza.pisi(`lekcije/${l.id}/odgovori`,odg()));
+const kr=document.getElementById('kraj');
+if(kr)kr.onclick=async()=>{
+const o=odg();
+if(Object.values(o).filter(Boolean).length<l.pitanja.length){poruka('Odgovori na sva pitanja (može i kratko).',true);return}
+kr.disabled=true;
+await baza.pisi('lekcije/'+l.id,{odgovori:o,zavrseno:sad()});
+const sl=SVE[SVE.indexOf(l)+1];
+await baza.pisi('stanje',{lekcija:sl?sl.id:l.id,deo:0,azurirano:sad()});
+idi({tip:'pregled',id:l.id,novo:true});
+};
+}
+async function korak(l,deo){
+await baza.pisi('stanje',{lekcija:l.id,deo,azurirano:sad()});
+idi({tip:'lekcija',id:l.id,deo});
+}
+
+function pregled(l){
+const z=(S.lekcije&&S.lekcije[l.id])||{};
+const k=komentar(l.id);
+let h=`<button class="nazad" id="nazad">← ${esc(l.oblast.naziv)}</button><div class="top" style="margin-top:.6rem"><h1>${esc(l.naslov)}</h1></div>`;
+if(ekran.novo)h+=`<div class="card"><div class="nastavi-naslov">Lekcija završena ✓</div><div class="nastavi-sub">Reci Heleni „završio sam lekciju" — ona pročita odgovore i kaže šta misli.</div></div>`;
+if(k)h+=`<div class="card helena"><div class="lbl">💬 Helena · ${esc(k.datum||'')}</div><div class="tekst">${esc(k.tekst||k)}</div></div>`;
+h+=`<div class="card"><div class="lbl">Tvoji odgovori · ${esc(z.zavrseno||'')}</div>`;
+l.pitanja.forEach((p,i)=>{h+=`<p class="nastavi-sub" style="margin-bottom:.3rem">${i+1}. ${esc(p)}</p><div class="odg">${esc((z.odgovori||{})[i]||'—')}</div>`});
+h+=`</div><div class="dugmad"><button class="btn sec" id="ponovo">Pročitaj ponovo</button><button class="btn" id="dom">Početna</button></div>`;
+$app.innerHTML=h;
+window.scrollTo(0,0);
+document.getElementById('nazad').onclick=()=>idi({tip:'oblast',oblast:l.oblast.id});
+document.getElementById('ponovo').onclick=()=>idi({tip:'lekcija',id:l.id,deo:0});
+document.getElementById('dom').onclick=()=>idi({tip:'pocetna'});
+}
+
+function poruka(m,err){const p=document.getElementById('por');if(p){p.textContent=m;p.className='poruka'+(err?' err':'');setTimeout(()=>{p.textContent=''},2500)}}
+function idi(e){ekran=e;crtaj()}
+
+// ---------- start ----------
+try{
+baza=await napraviBazu();
+S=await baza.citaj();
+document.getElementById('gate').classList.add('skriven');
+crtaj();
+// živo osvežavanje (npr. Helenin komentar) — samo dok nisi u lekciji, da ne pobriše kucanje
+baza.slusaj(d=>{S=d;if(crtano&&ekran.tip!=='lekcija')crtaj()});
+}catch(e){
+document.getElementById('gate-sub').textContent='Ne mogu da učitam.';
+greska(e.message||e);
+}
+if('serviceWorker' in navigator&&!PROBA){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+</script>
+</body>
+</html>

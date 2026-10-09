@@ -1789,8 +1789,136 @@ razgovor:['Da si živeo 1850. u Engleskoj — selo ili fabrika? I kako bi o tome
 ]},
 
 {id:'7', naziv:'Religije i velike ideje', ikona:'🕯️', era:'ideje', lekcije:[
-{id:'7-1', naslov:'Šta je religija; Istok — hinduizam, budizam, kineska tradicija'},
-{id:'7-2', naslov:'Avramove religije — judaizam, hrišćanstvo, islam'},
+{id:'7-1', naslov:'Šta je religija; Istok — hinduizam, budizam, kineska tradicija',
+kuka:{p:'Da li sve religije veruju u boga ili bogove?', o:['Da, to je definicija religije','Ne — neke, kao rani budizam, ne stavljaju boga stvoritelja u centar','Ne, nijedna istočna religija nema bogove'], t:1},
+delovi:[
+{n:'Šta je religija', t:`Teško je dati definiciju koja pokriva sve. Naučnici koji proučavaju religije (to je posebna nauka — RELIGIOLOGIJA, koja ne pita „koja je istinita", nego opisuje šta ljudi veruju i rade) obično gledaju nekoliko sastojaka:
+• VEROVANJE u sveto — bog, bogovi, duhovi, ili neki večni zakon;
+• OBREDI — molitva, post, praznici, žrtve;
+• PRIČE — o postanku sveta, o precima, o kraju;
+• MORAL — kako treba živeti;
+• ZAJEDNICA — crkva, uma, sangha; ljudi koji veruju zajedno.
+
+Religija postoji u svakoj poznatoj kulturi. Najstariji tragovi su sahrane sa predmetima, stare desetine hiljada godina. Danas oko tri četvrtine ljudi na svetu pripada nekoj religiji; najveće su hrišćanstvo (oko 2,3 milijarde), islam (oko 1,9–2), hinduizam (oko 1,2) i budizam (oko 320 miliona). Najbrže raste grupa onih koji ne pripadaju nijednoj — oko 1,9 milijardi.`,
+pr:{p:'Šta proučava religiologija?', o:['Koja je religija istinita','Šta ljudi veruju i rade — opisuje religije, ne sudi o njima','Samo hrišćanstvo'], t:1, z:'Nauka o religijama opisuje i poredi; pitanje istinitosti ostavlja vernicima i filozofima.'}},
+{n:'Hinduizam', t:`HINDUIZAM je najstarija živa velika religija — nema osnivača ni jedan datum početka; korene ima u VEDAMA, svetim spisima nastalim pre oko 3.000 godina u Indiji. Više je porodica tradicija nego jedna crkva.
+
+Ključni pojmovi:
+• BRAHMAN — jedna sveobuhvatna stvarnost iza svega; mnogi bogovi (Višnu, Šiva, boginja Devi…) su njena lica. Zato hinduizam može da izgleda i kao mnogoboštvo i kao jednoboštvo.
+• SAMSARA — krug ponovnih rađanja.
+• KARMA — svako delo ima posledice, i u ovom i u sledećem životu.
+• MOKŠA — oslobođenje iz kruga; cilj.
+• DARMA — dužnost, pravi red, ono što ti je činiti.
+
+Sa hinduizmom je istorijski povezan KASTINSKI sistem — podela društva po rođenju. Indijski ustav danas zabranjuje diskriminaciju po kasti, ali ona u praksi i dalje postoji. Mnogi hinduisti kažu da kaste nisu suština vere.
+
+Danas: oko 1,2 milijarde, većinom u Indiji i Nepalu.`,
+pr:{p:'Šta je karma?', o:['Sudbina koju bogovi odrede pri rođenju','Zakon da svako delo ima posledice, u ovom i sledećem životu','Molitva pred spavanje'], t:1, z:'Karma je zakon uzroka i posledice delovanja; vezan je za krug ponovnih rađanja (samsaru).'}},
+{n:'Budizam', t:`Sidarta Gautama, princ iz severne Indije (živeo oko 5. veka p. n. e.), napustio je bogatstvo da bi razumeo patnju. Kad je, po predanju, posle meditacije „probuđen", postao je BUDA — „probuđeni".
+
+Njegovo učenje počinje od ČETIRI PLEMENITE ISTINE:
+1. život nosi patnju (nezadovoljstvo, prolaznost);
+2. patnju izaziva žudnja i vezivanje;
+3. patnja može da prestane;
+4. put do toga je PLEMENITI OSMOSTRUKI PUT — ispravno gledanje, namera, govor, delanje, život, trud, pažnja i sabranost.
+
+Cilj je NIRVANA — „gašenje" žudnje i izlazak iz kruga rađanja. Buda je odbacio krajnosti: ni raskoš, ni mučenje tela — SREDNJI PUT.
+
+Budizam ne zavisi od boga stvoritelja; zato ga neki zovu i filozofijom. Ali u praksi ima hramove, obrede, molitve i svece. Dve velike grane: TERAVADA (Šri Lanka, Tajland) i MAHAJANA (Kina, Japan, Koreja — tu je i zen), plus tibetanski budizam.
+
+Meditacija sabranosti (mindfulness), koja je danas popularna i na Zapadu, potiče baš odavde.`,
+pr:{p:'Šta je, po Budi, uzrok patnje?', o:['Bogovi','Žudnja i vezivanje','Siromaštvo'], t:1, z:'Druga plemenita istina: patnju izaziva žudnja — zato je put da se žudnja ugasi.'}},
+{n:'Kineska tradicija', t:`U Kini se tri učenja vekovima prepliću, a čovek često živi po sva tri:
+
+• KONFUČIJANIZAM (Konfučije, 551–479. p. n. e.) — pre svega etika i red u društvu: poštovanje roditelja i predaka, odnos vladara i podanika, obrazovanje, „ne čini drugome ono što ne želiš sebi". Manje o bogovima, više o tome kako biti dobar čovek u porodici i državi.
+• TAOIZAM (Lao Ce, „Tao te đing") — DAO, „put", prirodni tok stvari. Mudro je ne forsirati, teći kao voda koja je meka a ipak probije kamen. Jin i jang: suprotnosti koje se dopunjuju.
+• BUDIZAM — stigao iz Indije oko 1. veka n. e. i postao kineski (zen je u Kini nastao kao čan).
+
+Uz to, narodna vera: poštovanje predaka, duhovi, praznici.
+
+Japan ima svoju staru tradiciju, ŠINTO — poštovanje duhova (kami) u prirodi, precima i mestima — koja se meša sa budizmom.`,
+pr:{p:'Šta je u središtu konfučijanizma?', o:['Bog stvoritelj','Etika i red u porodici i društvu','Meditacija u samoći'], t:1, z:'Konfučije uči kako biti dobar sin, otac, činovnik i vladar — manje o bogovima, više o odnosima.'}},
+{n:'Kako o ovome razmišljati', t:`Neke stvari se ponavljaju u svim ovim tradicijama: ZLATNO PRAVILO (ne čini drugome ono što ne želiš sebi) u nekom obliku postoji skoro svuda. Isto tako i ideja da je sebičnost izvor zla, i da čovek treba da savlada sebe.
+
+Ali razlike su stvarne: hinduizam i budizam vide vreme kao KRUG (rađanja se ponavljaju), dok avramovske religije (sledeća lekcija) vide vreme kao LINIJU — od stvaranja ka kraju.
+
+Mudro pravilo za ovu oblast: kad opisuješ tuđu veru, opiši je tako da bi se vernik prepoznao. Ne poredi tuđi najgori primer sa svojim najboljim idealom.
+
+I još jedno razlikovanje: religija kao VERA (u šta neko veruje), kao KULTURA (praznici, hrana, običaji) i kao IDENTITET (kojem narodu ili grupi pripadaš). Na Balkanu se ova tri često mešaju — čovek može biti „pravoslavac" po identitetu, a da ne veruje.
+
+Sledeće: tri vere koje potiču od Avrama — i od kojih je izrastao veći deo sveta u kome živimo.`,
+pr:{p:'Kako hinduizam i budizam obično vide vreme?', o:['Kao liniju od stvaranja do kraja','Kao krug ponovnih rađanja','Kao nešto nevažno'], t:1, z:'Kružno vreme (samsara) — za razliku od linearnog vremena avramovskih religija.'}}
+],
+kljucno:['Religija obično ima verovanje u sveto, obrede, priče, moral i zajednicu; oko tri četvrtine ljudi pripada nekoj.','Hinduizam: bez osnivača, Vede; brahman, samsara, karma, mokša, darma; istorijski vezan za kaste.','Budizam: Buda (5. vek p. n. e.), četiri plemenite istine, osmostruki put, nirvana; bez boga stvoritelja u središtu.','Kina: konfučijanizam (etika, red), taoizam (dao, jin-jang), budizam — prepliću se; Japan: šinto.','Zlatno pravilo je skoro svuda; vreme kao krug (Istok) ili linija (avramovske vere); vera, kultura i identitet nisu isto.'],
+kartice:[
+{p:'Šta su samsara i karma?', o:'Samsara — krug ponovnih rađanja; karma — zakon da svako delo ima posledice.'},
+{p:'Koje su četiri plemenite istine budizma (ukratko)?', o:'Postoji patnja; izaziva je žudnja; može da prestane; put je osmostruki put.'},
+{p:'Šta znači „Buda"?', o:'„Probuđeni".'},
+{p:'Šta je dao u taoizmu?', o:'„Put" — prirodni tok stvari koji ne treba forsirati.'},
+{p:'Koje je zajedničko etičko pravilo skoro svih religija?', o:'Zlatno pravilo — ne čini drugome ono što ne želiš sebi.'}
+],
+razgovor:['Budizam kaže da patnju pravi žudnja. Slažeš li se — ili je žudnja i ono što te tera da pišeš?','Vera, kultura, identitet: šta je od toga za tebe religija u kojoj si odrastao?']},
+{id:'7-2', naslov:'Avramove religije — judaizam, hrišćanstvo, islam',
+kuka:{p:'Da li jevreji, hrišćani i muslimani veruju u istog Boga?', o:['Ne, svaka vera ima potpuno drugog boga','Sve tri sebe vide kao veru u jednog Boga Avramovog, ali ga različito shvataju','Samo hrišćani i muslimani'], t:1},
+delovi:[
+{n:'Zajednički koren', t:`Tri religije sebe vezuju za AVRAMA (Abrahama, Ibrahima) — praoca koji je, po predanju, pre oko 4.000 godina ostavio rodni grad u Mesopotamiji i poverovao u JEDNOG BOGA. Zato se zovu AVRAMOVSKE (abrahamske).
+
+Zajedničko im je:
+• MONOTEIZAM — samo jedan Bog, stvoritelj svega;
+• Bog se OBJAVLJUJE ljudima preko proroka i svetih knjiga;
+• vreme je LINIJA: stvaranje → istorija → kraj vremena i sud;
+• mnogi isti likovi: Adam, Noje, Avram, Mojsije, David…
+
+Zajedno ih danas ispoveda više od polovine čovečanstva. Ali razlike su važne — i oko njih je bilo i ratova i suživota.`,
+pr:{p:'Šta je monoteizam?', o:['Verovanje u više bogova','Verovanje u jednog Boga','Neverovanje'], t:1, z:'Mono = jedan, teos = bog. Sve tri avramovske religije su monoteističke.'}},
+{n:'Judaizam', t:`JUDAIZAM je najstarija od tri. Srž: Bog je sa narodom Izraela sklopio SAVEZ, a preko MOJSIJA dao ZAKON — TORU (pet Mojsijevih knjiga), sa Deset zapovesti u središtu. Hebrejska Biblija (TANAH) za hrišćane je Stari zavet.
+
+Važnije od verovanja je ŽIVETI ZAKON: subota (šabat) kao dan odmora, propisi o hrani (košer), praznici kao Pesah (izlazak iz Egipta). Posle razaranja Jerusalimskog hrama (70. n. e.) središte vere postaju sinagoga, rabin i učenje — TALMUD, ogromna zbirka rasprava o zakonu.
+
+Jevreji vekovima žive raseljeni (DIJASPORA) i često su progonjeni. Najstrašnije: HOLOKAUST — nacisti su u Drugom svetskom ratu ubili oko šest miliona Jevreja. Godine 1948. osnovana je država Izrael.
+
+Danas: oko 15 miliona Jevreja, najviše u Izraelu i SAD. Mali broj, ogroman uticaj — iz judaizma su izrasle i druge dve vere.`,
+pr:{p:'Šta je Tora?', o:['Jevrejski hram','Zakon — pet Mojsijevih knjiga, srž judaizma','Jevrejski praznik'], t:1, z:'Tora je Zakon dat preko Mojsija; za hrišćane deo Starog zaveta.'}},
+{n:'Hrišćanstvo', t:`Isus iz Nazareta, Jevrejin, propovedao je u Palestini početkom 1. veka i razapet je oko 30. godine pod rimskom vlašću. Njegovi sledbenici veruju da je VASKRSAO i da je HRISTOS (grčki: „pomazanik", isto što i hebrejski „mesija") — Sin Božji.
+
+Srž vere:
+• SVETA TROJICA — jedan Bog u tri lica: Otac, Sin i Sveti Duh;
+• Bog je postao čovek u Isusu, i njegovom smrću i vaskrsenjem čovek je spasen;
+• zapovest LJUBAVI — prema Bogu i bližnjem, pa i prema neprijatelju.
+
+Sveta knjiga je BIBLIJA: Stari zavet (jevrejski spisi) + Novi zavet (četiri jevanđelja, pisma apostola). Apostol Pavle širi veru među nejevrejima; posle Konstantina (313) postaje vera carstva.
+
+Tri velike grane: PRAVOSLAVLJE (istok, samostalne crkve — srpska, ruska, grčka…), KATOLICIZAM (papa u Rimu; razdvojeni 1054) i PROTESTANTIZAM (od Lutera, 1517; bez pape, akcenat na Bibliji i ličnoj veri). Danas oko 2,3 milijarde — najveća religija sveta.`,
+pr:{p:'Šta znači reč „Hristos"?', o:['Bog','Pomazanik — isto što i „mesija"','Učitelj'], t:1, z:'Grčka reč za hebrejsko „mesija" — pomazanik koga je Bog poslao.'}},
+{n:'Islam', t:`Muslimani veruju da je Bog (arapski: ALAH — reč koju za Boga koriste i arapski hrišćani) preko anđela Džibrila (Gavrila) objavio poruku MUHAMEDU, trgovcu iz Meke, od 610. godine. Ta objava je KURAN. Muhamed je za muslimane POSLEDNJI PROROK, „pečat" proroka — posle Avrama, Mojsija i Isusa (koga islam poštuje kao velikog proroka, ali ne kao Sina Božjeg).
+
+Islam znači „predanje" (Bogu). Svaki musliman ima PET STUBOVA:
+1. ŠEHADET — svedočenje: „Nema boga osim Boga, a Muhamed je njegov poslanik";
+2. NAMAZ — molitva pet puta dnevno;
+3. ZEKAT — davanje dela imovine siromašnima;
+4. POST u mesecu ramazanu, od zore do zalaska sunca;
+5. HADŽ — hodočašće u Meku, bar jednom u životu ako može.
+
+Posle Muhamedove smrti spor oko naslednika podelio je islam na SUNITE (oko 85–90%) i ŠIITE (najviše u Iranu i Iraku). Danas: oko 1,9 milijardi, druga religija sveta. Najviše muslimana nije u arapskom svetu, nego u Indoneziji, Pakistanu, Indiji i Bangladešu.`,
+pr:{p:'Kako islam gleda na Isusa?', o:['Ne pominje ga','Kao velikog proroka, ali ne kao Sina Božjeg','Kao Boga'], t:1, z:'Za muslimane je Isus (Isa) prorok, a Muhamed poslednji prorok.'}},
+{n:'Na Balkanu — i kraj', t:`Na Balkanu se sve tri susreću: PRAVOSLAVNI (Srbi, Crnogorci, Makedonci, Grci, Bugari, Rumuni), KATOLICI (Hrvati, Slovenci, deo Mađara i Albanaca), MUSLIMANI (Bošnjaci, većina Albanaca, Turci) i — vekovima — JEVREJI, posebno sefardski, prognani iz Španije 1492. i primljeni u Osmanskom carstvu. Beogradski Dorćol je imao jevrejsku četvrt; najveći deo te zajednice uništen je u Holokaustu.
+
+Zato je ovde religija često pomešana sa IDENTITETOM naroda: razlika između Srba, Hrvata i Bošnjaka istorijski je najviše bila verska. To je jedan od razloga zašto su verske razlike u ratovima 1990-ih imale tako veliku težinu — a i zašto postoje primeri dugog zajedničkog života, komšiluka i mešovitih brakova.
+
+Kostur oblasti: šta je religija → Istok (krug, oslobođenje) → avramovske vere (jedan Bog, objava, linija vremena) → filozofija → kako znamo → etika. Religija i filozofija su dva velika odgovora na ista pitanja: šta je svet, šta je dobro, kako živeti.
+
+Sledeće: novac — izum koji je možda promenio ljudsko ponašanje više od ijednog boga.`,
+pr:{p:'Zašto je religija na Balkanu tako vezana za narod?', o:['Jer su svi vernici','Jer su se narodi istorijski najviše razlikovali po veri, pa je vera postala deo identiteta','Jer država tako propisuje'], t:1, z:'Razlika Srba, Hrvata i Bošnjaka istorijski je pre svega verska — zato vera i identitet idu zajedno.'}}
+],
+kljucno:['Avramovske vere: jedan Bog, objava preko proroka i knjiga, vreme kao linija ka kraju i sudu.','Judaizam: savez i Tora (Mojsije), život po zakonu (šabat, košer), Talmud; Holokaust; oko 15 miliona.','Hrišćanstvo: Isus kao Hristos, Sveta Trojica, ljubav; Biblija (Stari + Novi zavet); pravoslavni, katolici (1054), protestanti (1517); oko 2,3 milijarde.','Islam: Muhamed poslednji prorok, Kuran, pet stubova; suniti i šiiti; oko 1,9 milijardi, najviše u Aziji.','Na Balkanu vera = identitet naroda; i sukobi i dug suživot.'],
+kartice:[
+{p:'Šta je zajedničko judaizmu, hrišćanstvu i islamu?', o:'Jedan Bog, objava preko proroka, poreklo od Avrama, linearno vreme.'},
+{p:'Šta je Tora?', o:'Jevrejski Zakon — pet Mojsijevih knjiga.'},
+{p:'Koje su tri velike grane hrišćanstva?', o:'Pravoslavlje, katolicizam, protestantizam.'},
+{p:'Koji su pet stubova islama?', o:'Šehadet (svedočenje), namaz (molitva), zekat (davanje), post u ramazanu, hadž.'},
+{p:'Zašto se islam podelio na sunite i šiite?', o:'Zbog spora oko Muhamedovog naslednika.'}
+],
+razgovor:['Šta od pravoslavlja živi u tebi, i kad ne veruješ — običaj, slika, rečenica, osećaj?','Zašto se, po tebi, ljudi koji veruju u istog Avramovog Boga toliko svađaju — zbog vere, ili zbog nečeg drugog obučenog u veru?']},
 
 {id:'7-3', naslov:'Šta je filozofija i njenih pet grana',
 kuka:{p:'Šta misliš, šta znači reč „filozofija"?', o:['Nauka o mišljenju','Ljubav prema mudrosti','Učenje starih Grka'], t:1},

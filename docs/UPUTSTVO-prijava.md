@@ -42,10 +42,11 @@ i uvodi prijavu Google nalogom + otključavanje otiskom na svakom telefonu.
 
 1. U aplikaciji, gore desno tapni **👤 (Nalog)** — videćeš email i UID.
    Uradi to na oba telefona da znaš obe vrednosti.
-2. Otvori `docs/firebase-pravila.json` i zameni `KATARININ.EMAIL@gmail.com`
-   pravim Katarininim Google emailom (Andrijin je već upisan).
-3. U Firebase konzoli: **Realtime Database → Rules**, nalepi sadržaj fajla
-   `docs/firebase-pravila.json`, pa **Publish**.
+2. Uzmi sadržaj `docs/firebase-pravila.json` i u njemu zameni `ANDRIJIN_EMAIL`
+   i `KATARININ_EMAIL` pravim Google mejlovima — samo u tekstu koji lepiš,
+   ne u repou (repo je javan; pravi mejlovi ne stoje u njemu).
+3. U Firebase konzoli: **Realtime Database → Rules**, nalepi taj tekst, pa
+   **Publish**. Prava pravila žive u konzoli; ovaj fajl je samo obrazac.
 
 Gotovo. Od sada bazi mogu da priđu samo vaša dva naloga, a aplikacija se
 otvara otiskom na svakom telefonu.

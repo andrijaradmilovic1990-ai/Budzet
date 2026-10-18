@@ -20,4 +20,4 @@
 
 Ista baza nosi i aplikacije iz repoa Aplikacije (`skola/`, `skola_gost/`, a Brzi unos piše u `budzet/<godina>/<mesec>/transactions/`).
 
-**Popravka / dogradnja:** izmena u `index.html` → proba lokalno (`python3 -m http.server`, `http://localhost:8000/`) → push na `main` → za par minuta na telefonu. Rate i fiksni iznosi računa su u nizu računa u `index.html` (`rataKey`, `rataUkupno`, `fiksno`). Pazi: pravi podaci su u bazi; probni upis posle obrisati.
+**Popravka / dogradnja:** izmena u `index.html` → proba lokalno (`python3 -m http.server`, `http://localhost:8000/`) → push na `main` → za par minuta na telefonu. Spisak računa i rata je u nizu računa u `index.html` (`rataKey`, `rataUkupno` = broj rata); **iznosi nisu u kodu** — žive samo u bazi (`budzet/<godina>/<mesec>/racuni_iznosi`) i u nov mesec prelaze dugmetom za kopiranje rasporeda. Pazi: pravi podaci su u bazi; probni upis posle obrisati.
